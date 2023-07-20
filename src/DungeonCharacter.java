@@ -1,5 +1,10 @@
 public class DungeonCharacter {
 
+    // constants
+
+    /** . */
+    private static final String NEW_LINE = "\n";
+
     // instance fields
 
     /** . */
@@ -15,96 +20,126 @@ public class DungeonCharacter {
     /** . */
     private int myAttackSpeed;
     /** . */
-    private double myChangeToHit;
+    private double myChanceToHit;
 
     // constructor
 
     /** . */
-    DungeonCharacter() {
-
+    DungeonCharacter(final String theCharacterName, final int theCharacterHealthPoints,
+                     final int theCharacterHitPoints, final int theMinimumDamageRange,
+                     final int theMaximumDamageRange, final int theAttackSpeed,
+                     final double theChanceToHit) {
+        setCharacterName(theCharacterName);
+        setCharacterHealthPoints(theCharacterHealthPoints);
+        setCharacterHitPoints(theCharacterHitPoints);
+        setMinimumDamageRange(theMinimumDamageRange);
+        setMaximumDamageRange(theMaximumDamageRange);
+        setAttackSpeed(theAttackSpeed);
+        setChanceToHit(theChanceToHit);
     }
 
     // methods
 
+
+
+
+
+
+    //TODO: Finish the logic behind the attack() method
     /** . */
     public final int attack() {
         return 0;
     }
 
-    /** . */
-    public final void setCharacterName() {
 
+
+
+
+
+    /** . */
+    public final void setCharacterName(final String theName) {
+        myCharacterName = theName;
     }
 
     /** . */
     public final String getCharacterName() {
-        return "";
+        return myCharacterName;
     }
 
     /** . */
-    public final void setCharacterHealthPoints() {
-
+    public final void setCharacterHealthPoints(final int theHealthPoints) {
+        myCharacterHealthPoints = theHealthPoints;
     }
 
     /** . */
     public final int getCharacterHealthPoints() {
-        return 0;
+        return myCharacterHealthPoints;
     }
 
     /** . */
-    public final void setCharacterHitPoints() {
-
+    public final void setCharacterHitPoints(final int theHitPoints) {
+        myCharacterHitPoints = theHitPoints;
     }
 
     /** . */
     public final int getCharacterHitPoints() {
-        return 0;
+        return myCharacterHitPoints;
     }
 
     /** . */
-    public final void setMinimumDamageRange() {
-
+    public final void setMinimumDamageRange(final int theMinimumDamageRange) {
+        myMinimumDamageRange = theMinimumDamageRange;
     }
 
     /** . */
     public final int getMinimumDamageRange() {
-        return 0;
+        return myMinimumDamageRange;
     }
 
     /** . */
-    public final void setMaximumDamageRange() {
-
+    public final void setMaximumDamageRange(final int theMaximumDamageRange) {
+        myMaximumDamageRange = theMaximumDamageRange;
     }
 
     /** . */
     public final int getMaximumDamageRange() {
-        return 0;
+        return myMaximumDamageRange;
     }
 
     /** . */
-    public final void setAttackSpeed() {
-
+    public final void setAttackSpeed(final int theAttackSpeed) {
+        myAttackSpeed = theAttackSpeed;
     }
 
     /** . */
     public final int getAttackSpeed() {
-        return 0;
+        return myAttackSpeed;
     }
 
     /** . */
-    public final void setChanceToHit() {
-
+    public final void setChanceToHit(final double theChangeToHit) {
+        myChanceToHit = theChangeToHit;
     }
 
     /** . */
     public final double getChanceToHit() {
-        return 0.0;
+        return myChanceToHit;
     }
 
     /** . */
     @Override
-    public final String toString() {
-        return "";
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("This DungeonCharacter's name is " + getCharacterName() + "." + NEW_LINE);
+        sb.append("These are " + getCharacterName() + "'s stats:" + NEW_LINE);
+        sb.append("***********************************************" + NEW_LINE);
+        sb.append("Health: " + getCharacterHealthPoints() + NEW_LINE);
+        sb.append("Hit Points: " + getCharacterHitPoints() + NEW_LINE);
+        sb.append("Minimum Damage Range: " + getMinimumDamageRange() + NEW_LINE);
+        sb.append("Maximum Damage Range: " + getMaximumDamageRange() + NEW_LINE);
+        sb.append("Attack Speed: " + getAttackSpeed() + NEW_LINE);
+        sb.append("Chance to Hit: " + getChanceToHit() + NEW_LINE);
+        return sb.toString();
     }
 
 

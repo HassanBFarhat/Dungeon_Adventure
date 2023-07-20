@@ -38,7 +38,8 @@ public abstract class Monster extends DungeonCharacter {
     }
 
    @Override
-    String toString() {
+   public String toString() {
 
-    }
+   }
+
 }

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="Commit skeleton for DungeonCharacter.java + Room.java. Also, src folder created and rooted as source">
-      <change beforePath="$PROJECT_DIR$/.idea/Dungeon_Adventure.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Dungeon_Adventure.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DungeonCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DungeonCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,18 +43,23 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Hassan/Downloads/tcss305_checkstyle_sameline.xml",
+    "last_opened_file_path": "C:/Users/Hassan/Desktop/Dungeon_Adventure/.idea/shelf",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "org.infernus.idea.checkstyle.CheckStyleConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\.idea\shelf" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,7 +68,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1689735461830</updated>
-      <workItem from="1689735463931" duration="4252000" />
+      <workItem from="1689735463931" duration="7270000" />
     </task>
     <task id="LOCAL-00001" summary="Commit skeleton for DungeonCharacter.java + Room.java. Also, src folder created and rooted as source">
       <option name="closed" value="true" />
@@ -73,7 +78,23 @@
       <option name="project" value="LOCAL" />
       <updated>1689746296029</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated the .gitignore file">
+      <option name="closed" value="true" />
+      <created>1689827562485</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689827562485</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated the .gitignore file">
+      <option name="closed" value="true" />
+      <created>1689827585652</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689827585652</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -92,6 +113,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Commit skeleton for DungeonCharacter.java + Room.java. Also, src folder created and rooted as source" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit skeleton for DungeonCharacter.java + Room.java. Also, src folder created and rooted as source" />
+    <MESSAGE value="updated the .gitignore file" />
+    <MESSAGE value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java" />
   </component>
 </project>
