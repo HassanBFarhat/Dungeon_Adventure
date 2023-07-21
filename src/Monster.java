@@ -14,7 +14,9 @@ public abstract class Monster extends DungeonCharacter {
 
     public int heal() {
         if (Math.random() < myMonsterChanceToHeal) {
-            int healAmount = (int) (Math.random() * (myMaximumHealPoints - myMinimumHealPoints + 1))
+            int healAmount;
+
+            healAmount = (int) (Math.random() * (myMaximumHealPoints - myMinimumHealPoints + 1))
                     + myMinimumHealPoints;
             setCharacterHealthPoints(getCharacterHealthPoints() + healAmount);
             return healAmount;

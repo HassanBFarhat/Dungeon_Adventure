@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_20_2023_7_50_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_7_20_2023_7_50_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_19_2023_9_26_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_7_19_2023_9_26_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="Completed Monster.java Class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hero.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689831301442</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Completed Monster.java Class">
+      <created>1689931480896</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689931480896</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,6 +130,7 @@
     <MESSAGE value="updated the .gitignore file" />
     <MESSAGE value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java" />
     <MESSAGE value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java&#10;- Added NEW_LINE constant field in DungeonCharacter.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java&#10;- Added NEW_LINE constant field in DungeonCharacter.java" />
+    <MESSAGE value="Completed Monster.java Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed Monster.java Class" />
   </component>
 </project>
