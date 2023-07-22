@@ -1,5 +1,10 @@
 public class Room {
 
+    // constants
+
+    /** . */
+    private static final String NEW_LINE = "\n";
+
     // instance fields
 
     /** . */
@@ -35,116 +40,143 @@ public class Room {
     // constructor
 
     /** . */
-    Room() {
+    Room(final boolean theEntrance, final boolean theExit, final boolean theDoorNorth,
+         final boolean theDoorEast, final boolean theDoorSouth, final boolean theDoorWest,
+         final boolean theOOPillar, final boolean theHealingPotion,
+         final boolean theVisionPotion, final boolean thePit) {
 
+        setEntrance(theEntrance);
+        setExit(theExit);
+        setDoorNorth(theDoorNorth);
+        setDoorEast(theDoorEast);
+        setDoorSouth(theDoorSouth);
+        setDoorWest(theDoorWest);
+        setOOPillar(theOOPillar);
+        setHealingPotion(theHealingPotion);
+        setVisionPotion(theVisionPotion);
+        setPit(thePit);
     }
 
     // methods
 
     /** . */
-    public final void setEntrance() {
-
+    public final void setEntrance(final boolean theEntrance) {
+        myEntrance = theEntrance;
     }
 
     /** . */
     public final boolean getEntrance() {
-        return false;
+        return myEntrance;
     }
 
     /** . */
-    public final void setExit() {
-
+    public final void setExit(final boolean theExit) {
+        myExit = theExit;
     }
 
     /** . */
     public final boolean getExit() {
-        return false;
+        return myExit;
     }
 
     /** . */
-    public final void setDoorNorth() {
-
+    public final void setDoorNorth(final boolean theNorthDoor) {
+        myDoorNorth = theNorthDoor;
     }
 
     /** . */
     public final boolean getDoorNorth() {
-        return false;
+        return myDoorNorth;
     }
 
     /** . */
-    public final void setDoorSouth() {
-
+    public final void setDoorSouth(final boolean theSouthDoor) {
+        myDoorSouth = theSouthDoor;
     }
 
     /** . */
     public final boolean getDoorSouth() {
-        return false;
+        return myDoorSouth;
     }
 
     /** . */
-    public final void setDoorEast() {
-
+    public final void setDoorEast(final boolean theEastDoor) {
+        myDoorEast = theEastDoor;
     }
 
     /** . */
     public final boolean getDoorEast() {
-        return false;
+        return myDoorEast;
     }
 
     /** . */
-    public final void setDoorWest() {
-
+    public final void setDoorWest(final boolean theWestDoor) {
+        myDoorWest = theWestDoor;
     }
 
     /** . */
     public final boolean getDoorWest() {
-        return false;
+        return myDoorWest;
     }
 
+    //TODO: May change DT to "char" not "bool"
     /** . */
-    public final void setOOPillar() {
-
+    public final void setOOPillar(final boolean theOOPillar) {
+        myOOPillar = theOOPillar;
     }
 
     /** . */
     public final boolean getOOPillar() {
-        return false;
+        return myOOPillar;
     }
 
     /** . */
-    public final void setHealingPotion() {
-
+    public final void setHealingPotion(final boolean theHealingPotion) {
+        myHealingPotion = theHealingPotion;
     }
 
     /** . */
     public final boolean getHealingPotion() {
-        return false;
+        return myHealingPotion;
     }
 
     /** . */
-    public final void setVisionPotion() {
-
+    public final void setVisionPotion(final boolean theVisionPotion) {
+        myVisionPotion = theVisionPotion;
     }
 
     /** . */
     public final boolean getVisionPotion() {
-        return false;
+        return myVisionPotion;
     }
 
     /** . */
-    public final void setPit() {
-
+    public final void setPit(final boolean thePit) {
+        myPit = thePit;
     }
 
     /** . */
     public final boolean getPit() {
-        return false;
+        return myPit;
     }
 
     /** . */
     @Override
     public final String toString() {
-        return "";
+        final StringBuilder sb = new StringBuilder();
+        sb.append("This room stats:" + NEW_LINE);
+        sb.append("***********************************" + NEW_LINE);
+        sb.append("Has an Entrance: " + getEntrance() + NEW_LINE);
+        sb.append("Has an Exit: " + getExit() + NEW_LINE);
+        sb.append("Has an North Door: " + getDoorNorth() + NEW_LINE);
+        sb.append("Has an South Door: " + getDoorSouth() + NEW_LINE);
+        sb.append("Has an East Door: " + getDoorEast() + NEW_LINE);
+        sb.append("Has an West Door: " + getDoorWest() + NEW_LINE);
+        sb.append("Has an OO Pillar in Room: " + getOOPillar() + NEW_LINE);
+        sb.append("Has a Healing Potion in Room: " + getHealingPotion() + NEW_LINE);
+        sb.append("Has a Vision Potion in Room: " + getVisionPotion() + NEW_LINE);
+        sb.append("Has a Pit in Room: " + getPit() + NEW_LINE);
+        return sb.toString();
     }
 
 
