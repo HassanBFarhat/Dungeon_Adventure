@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class DungeonCharacter {
 
     // constants
@@ -48,7 +50,21 @@ public class DungeonCharacter {
     //TODO: Finish the logic behind the attack() method
     /** . */
     public final int attack() {
-        return 0;
+        Random rand = new Random();
+        int generatedDamage = 0;
+
+        if (rand.nextInt(100) + 1 <= 80) {
+            generatedDamage = (int) (Math.random()
+                                * (getMaximumDamageRange() - getMinimumDamageRange())
+                                + getMinimumDamageRange());
+
+            // Display damage success msg after attack
+            System.out.println("SUCCESS");
+        } else {
+            System.out.println("FAILED");
+            // Display failed attack msg afterwards
+        }
+        return generatedDamage;
     }
 
 
