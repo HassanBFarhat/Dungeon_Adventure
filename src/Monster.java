@@ -50,10 +50,8 @@ public abstract class Monster extends DungeonCharacter {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(super.toString());
-        sb.append("Monster's Chance to Heal: " + myMonsterChanceToHeal + NEW_LINE);
-        sb.append("Monster's Minimum Heal Points: " + myMinimumHealPoints + NEW_LINE);
-        sb.append("Monster's Maximum Heal Points: " + myMaximumHealPoints + NEW_LINE);
-        return sb.toString();
+        return super.toString() + "Monster's Chance to Heal: " + myMonsterChanceToHeal + NEW_LINE +
+                "Monster's Minimum Heal Points: " + myMinimumHealPoints + NEW_LINE +
+                "Monster's Maximum Heal Points: " + myMaximumHealPoints + NEW_LINE;
     }
 }
