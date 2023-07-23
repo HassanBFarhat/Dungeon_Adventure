@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class Dungeon {
 
@@ -24,11 +25,10 @@ public class Dungeon {
 
     }
 
-    public DungeonCharacter placeRandomMonsterInRoom() {
-        Random newRandom = new Random();
-        int random
-
-    }
+//    public DungeonCharacter placeRandomMonsterInRoom() {
+//        Random newRandom = new Random();
+//        int random;
+//    }
 
     public void setMazeRoom(Room[][] mazeRoom) {
         myMazeRoom = mazeRoom;
@@ -47,6 +47,6 @@ public class Dungeon {
     }
 
     public String toString() {
-
+        return "";
     }
 }
