@@ -68,7 +68,6 @@ class Gremlin extends Monster {
         setMonsterChanceToHeal(0.4);
         setMinimumHealPoints(20);
         setMaximumHealPoints(40);
-
     }
 }
 
