@@ -55,17 +55,21 @@ class Warrior extends Hero {
 
     public Warrior(String name) {
         super(name, 125, 125, 4, 0.8, 35, 60, 0.2);
+
         // If there's any Warrior-specific attribute initialization, do it here
     }
 
     @Override
     public int specialAttack() {
-        if (Math.random() <= CRUSHING_BLOW_CHANCE) {
+        double chance = Math.random();
+        if (chance <= CRUSHING_BLOW_CHANCE) {
             // If the Crushing Blow succeeds
-            return (int)(Math.random() * (CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1))
+            return (int)(chance * (CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1))
                     + CRUSHING_BLOW_MIN_DAMAGE;
+        } else {
+            // If the special attack fails, perform a standard attack
+            return super.attack();
         }
-        return 0; // The special attack missed
     }
 
     @Override
@@ -92,10 +96,17 @@ class Priestess extends Hero {
         super(name, 75, 75, 5, 0.7, 25, 45, 0.3);
     }
 
+    public int standardAttack() {
+        int damage = super.attack();  // Call the attack method from the DungeonCharacter class
+        // Add any additional behavior here if necessary
+        return damage;
+    }
+
     // Special skill: heal
     @Override
     public int specialAttack() {
-        int healAmount = (int)(Math.random() * (MAX_HEAL - MIN_HEAL + 1)) + MIN_HEAL;
+        double chance = Math.random();
+        int healAmount = (int)(chance * (MAX_HEAL - MIN_HEAL + 1)) + MIN_HEAL;
         int newHealth = getCharacterHealthPoints() + healAmount;
 
         // Ensure we don't exceed max hit points
@@ -137,7 +148,7 @@ class Thief extends Hero {
             return 0;
         } else {
             // Normal attack logic
-            return attack();
+            return super.attack();
         }
     }
 
