@@ -16,7 +16,7 @@ public abstract class Hero extends DungeonCharacter {
         // Additional initialization for Hero-specific attributes
         this.myChanceToBlock = chanceToBlock;
         // Initialize myHeroSpecialSkill with a default value if needed
-        this.myHeroSpecialSkill = 0;
+        this.myHeroSpecialSkill = hitPoints;
     }
 
     // Abstract method for subclasses to define their own special attack.
@@ -30,11 +30,11 @@ public abstract class Hero extends DungeonCharacter {
         this.myChanceToBlock = chanceToBlock;
     }
 
-    public int getHeroSpecialSkill() {
+    protected int getHeroSpecialSkill() {
         return myHeroSpecialSkill;
     }
 
-    public void setHeroSpecialSkill(int heroSpecialSkill) {
+    protected void setHeroSpecialSkill(int heroSpecialSkill) {
         this.myHeroSpecialSkill = heroSpecialSkill;
     }
 
@@ -55,20 +55,27 @@ class Warrior extends Hero {
 
     public Warrior(String name) {
         super(name, 125, 125, 4, 0.8, 35, 60, 0.2);
+        setChanceToBlock(0.2);
 
         // If there's any Warrior-specific attribute initialization, do it here
+    }
+
+    public int standardAttack() {
+        int damage = super.attack(); // Call the attack method from the DungeonCharacter class
+        // Add any additional behavior here if necessary
+        return damage;
     }
 
     @Override
     public int specialAttack() {
         double chance = Math.random();
         if (chance <= CRUSHING_BLOW_CHANCE) {
+            int modifiedMinDamage = CRUSHING_BLOW_MIN_DAMAGE + getHeroSpecialSkill();
             // If the Crushing Blow succeeds
-            return (int)(chance * (CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1))
-                    + CRUSHING_BLOW_MIN_DAMAGE;
+            return (int)(chance * (CRUSHING_BLOW_MAX_DAMAGE - modifiedMinDamage + 1)) + modifiedMinDamage;
         } else {
             // If the special attack fails, perform a standard attack
-            return super.attack();
+            return standardAttack();
         }
     }
 
@@ -94,10 +101,12 @@ class Priestess extends Hero {
     public Priestess(String name) {
         // Calling the superclass constructor with the specified statistics
         super(name, 75, 75, 5, 0.7, 25, 45, 0.3);
+        setChanceToBlock(0.3);
     }
 
+    // Default attack method with standard attack damage
     public int standardAttack() {
-        int damage = super.attack();  // Call the attack method from the DungeonCharacter class
+        int damage = super.attack(); // Call the attack method from the DungeonCharacter class
         // Add any additional behavior here if necessary
         return damage;
     }
@@ -106,13 +115,11 @@ class Priestess extends Hero {
     @Override
     public int specialAttack() {
         double chance = Math.random();
-        int healAmount = (int)(chance * (MAX_HEAL - MIN_HEAL + 1)) + MIN_HEAL;
+        int modifiedMinHeal = MIN_HEAL + getHeroSpecialSkill();
+        int healAmount = (int)(chance * (MAX_HEAL - modifiedMinHeal + 1)) + modifiedMinHeal;
         int newHealth = getCharacterHealthPoints() + healAmount;
-
-        // Ensure we don't exceed max hit points
         setCharacterHealthPoints(Math.min(newHealth, 75));
-
-        return healAmount; // This can be used to inform the user how much they healed by.
+        return healAmount;
     }
 
     @Override
@@ -133,22 +140,28 @@ class Thief extends Hero {
     // Constructor
     public Thief(String name) {
         super(name, 75, 75, 6, 0.8, 40, 20, 0.4);
+        setChanceToBlock(0.4);
+    }
+
+    public int standardAttack() {
+        int damage = super.attack(); // Call the attack method from the DungeonCharacter class
+        // Add any additional behavior here if necessary
+        return damage;
     }
 
     @Override
     public int specialAttack() {
         double chance = Math.random();
         if (chance <= CHANCE_SURPRISE_ATTACK) {
-            // Successful surprise attack
-            int damageFirstAttack = attack();
-            int damageSecondAttack = attack();
-            return damageFirstAttack + damageSecondAttack; // total damage from both attacks
+            int totalDamage = 0;
+            for (int i = 0; i < (1 + getHeroSpecialSkill()); i++) { // 1 is the base number of attacks, myHeroSpecialSkill adds more
+                totalDamage += attack();
+            }
+            return totalDamage;
         } else if (chance <= CHANCE_SURPRISE_ATTACK + CHANCE_CAUGHT) {
-            // Thief was caught, no attack rendered
             return 0;
         } else {
-            // Normal attack logic
-            return super.attack();
+            return standardAttack();
         }
     }
 
