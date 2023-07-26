@@ -2,9 +2,20 @@ package views;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.nio.channels.OverlappingFileLockException;
 
 public class CharacterSelectionPanel extends JPanel {
+
+
+    /** . */
+//    final MainFrame mf = new MainFrame();
+
+
+
+
+
 
     /** . */
     private String[] myHeroChoices = {"Warrior", "Priestess", "Thief"};
@@ -23,6 +34,10 @@ public class CharacterSelectionPanel extends JPanel {
     /** . */
     final JPanel myTransHoldingPanel = new JPanel();
 
+
+    /** . */
+    final JButton myBackBtn = new JButton("Back");
+
     public CharacterSelectionPanel() {
         this.setLayout(new OverlayLayout(this));
         this.add(myNewGameBGLabel);
@@ -32,13 +47,14 @@ public class CharacterSelectionPanel extends JPanel {
 
         myTransHoldingPanel.setLayout(null);
         myTransHoldingPanel.setBackground(new Color(128,128,128, 80));
-
         myTransHoldingPanel.setPreferredSize(new Dimension(200, 100));
         myTransHoldingPanel.setBounds(440,200,410,300);
 
         myHeroOptions.setBounds(250,50,150,20);
+        myBackBtn.setBounds(60, 260, 80, 20);
 
         myTransHoldingPanel.add(myHeroOptions);
+        myTransHoldingPanel.add(myBackBtn);
         myNewGameBGLabel.add(myTransHoldingPanel);
 
 

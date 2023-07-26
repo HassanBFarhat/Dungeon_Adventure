@@ -10,6 +10,12 @@ import java.io.Serializable;
 public class MainMenuPanel extends JPanel {
 
     /** . */
+//    final MainFrame mf = new MainFrame();
+
+
+
+
+    /** . */
     final JButton myStartNewGameBtn = new JButton("NEW GAME");
 
     /** . */
@@ -59,35 +65,5 @@ public class MainMenuPanel extends JPanel {
         myMainMenuBGLabel.add(myExitBtn);
         myMainMenuBGLabel.add(Box.createVerticalGlue());
 
-
-        myStartNewGameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("STARTING");
-            }
-        });
-
-        myLoadGameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("LOADING");
-            }
-        });
-
-        myOptionBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("OPTIONS");
-            }
-        });
-
-        myExitBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-
     }
-
 }
