@@ -2,22 +2,24 @@ package views;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.Serial;
+import java.io.Serializable;
 
 public class MainMenuPanel extends JPanel {
 
+    /** . */
+    final JButton myStartNewGameBtn = new JButton("NEW GAME");
 
     /** . */
-    final JButton myStartNewGameBtn = new JButton("New Game");
+    final JButton myLoadGameBtn = new JButton("     LOAD     ");
 
     /** . */
-    final JButton myLoadGameBtn = new JButton("Load");
+    final JButton myOptionBtn = new JButton(" OPTIONS  ");
 
     /** . */
-    final JButton myOptionBtn = new JButton("Options");
-
-    /** . */
-    final JButton myExitBtn = new JButton("Exit");
-
+    final JButton myExitBtn = new JButton("      EXIT      ");
 
     /** . */
     final ImageIcon myMainMenuBGImg = new ImageIcon("src/imgs/MainMenuBG_Image.jpg");
@@ -25,48 +27,67 @@ public class MainMenuPanel extends JPanel {
     /** . */
     final JLabel myMainMenuBGLabel = new JLabel(myMainMenuBGImg);
 
+    /** . */
+    final JLabel myTitleLabel = new JLabel("Dungeon Adventure");
+
 
     public MainMenuPanel() {
         this.setLayout(new OverlayLayout(this));
-        GridBagConstraints gbc = new GridBagConstraints();
 
+        myTitleLabel.setFont(new Font("Arial", Font.BOLD, 100));
+        myTitleLabel.setForeground(Color.WHITE);
         this.add(myMainMenuBGLabel);
 
-        myMainMenuBGLabel.setLayout(new GridBagLayout());
+        myMainMenuBGLabel.setLayout(new BoxLayout(myMainMenuBGLabel, BoxLayout.Y_AXIS));
+
+        myStartNewGameBtn.setPreferredSize(new Dimension(100, 40));
+        myLoadGameBtn.setPreferredSize(new Dimension(100, 40));
+        myOptionBtn.setPreferredSize(new Dimension(100, 40));
+        myExitBtn.setPreferredSize(new Dimension(100, 40));
+
+        myTitleLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        myStartNewGameBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        myLoadGameBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        myOptionBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        myExitBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        myMainMenuBGLabel.add(myTitleLabel);
+        myMainMenuBGLabel.add(Box.createVerticalGlue());
+        myMainMenuBGLabel.add(myStartNewGameBtn);
+        myMainMenuBGLabel.add(myLoadGameBtn);
+        myMainMenuBGLabel.add(myOptionBtn);
+        myMainMenuBGLabel.add(myExitBtn);
+        myMainMenuBGLabel.add(Box.createVerticalGlue());
 
 
-        gbc.gridy = 1;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.PAGE_END;
-        gbc.insets = new Insets(10, 10, 10, 10);
+        myStartNewGameBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("STARTING");
+            }
+        });
 
+        myLoadGameBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("LOADING");
+            }
+        });
 
-        gbc.gridx = 1;
-        myMainMenuBGLabel.add(myStartNewGameBtn, gbc);
+        myOptionBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("OPTIONS");
+            }
+        });
 
-        gbc.gridx = 2;
-        myMainMenuBGLabel.add(myLoadGameBtn, gbc);
+        myExitBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
-        gbc.gridx = 3;
-        myMainMenuBGLabel.add(myOptionBtn, gbc);
-
-        gbc.gridx = 4;
-        myMainMenuBGLabel.add(myExitBtn, gbc);
     }
-
-
-
-    private void setUpMainMenuScreen() {
-
-
-
-
-
-    }
-
-
-
 
 }

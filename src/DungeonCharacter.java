@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class DungeonCharacter {
+public abstract class DungeonCharacter {
 
     // constants
 

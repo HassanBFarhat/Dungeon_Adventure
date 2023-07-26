@@ -12,7 +12,7 @@ public class MainFrame extends JFrame {
 
 
     private void setUpMainFrame() {
-        this.setVisible(true);
+
         this.setSize(1280, 720);
         this.setTitle("Dungeon Adventure");
 
@@ -24,6 +24,7 @@ public class MainFrame extends JFrame {
 
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setVisible(true);
     }
 
 
