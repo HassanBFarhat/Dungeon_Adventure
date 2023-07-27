@@ -13,6 +13,12 @@ public class MainFrame extends JFrame {
     private MainMenuPanel mp = new MainMenuPanel();
     /** . */
     private CharacterSelectionPanel csp = new CharacterSelectionPanel();
+    /** . */
+    private OptionsPanel op = new OptionsPanel();
+    /** . */
+    private GameInformationPanel gip = new GameInformationPanel();
+    /** . */
+    private GameHelpPanel ghp = new GameHelpPanel();
 
 
     public MainFrame() {
@@ -50,6 +56,9 @@ public class MainFrame extends JFrame {
     private void setUpFramePanels() {
         myCardPanel.add(mp, "Main");
         myCardPanel.add(csp, "NewGame");
+        myCardPanel.add(op, "Option");
+        myCardPanel.add(gip, "GameInfo");
+        myCardPanel.add(ghp, "GameHelp");
     }
 
 
@@ -72,7 +81,7 @@ public class MainFrame extends JFrame {
         mp.myOptionBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("OPTIONS");
+                changeScreen("Option");
             }
         });
 
@@ -87,6 +96,41 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 changeScreen("Main");
+            }
+        });
+
+        op.myBackBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeScreen("Main");
+            }
+        });
+
+        op.myGeneralInfoBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeScreen("GameInfo");
+            }
+        });
+
+        op.myGameHelpBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeScreen("GameHelp");
+            }
+        });
+
+        gip.myBackBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeScreen("Option");
+            }
+        });
+
+        ghp.myBackBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                changeScreen("Option");
             }
         });
     }
