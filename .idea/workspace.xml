@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="Created CharacterSelectionPanel.java, which is the menu when a player starts a new game. updated DungeonCharacter.java to be an abstract class. Updated the MainMenuPanel.java to Center Title and buttons on the screen">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="When &quot;New Game&quot; Btn is pressed, CardLayout Manager updates to CharacterSelectionPanel.java and when &quot;Back&quot; Btn is pressed on that panel, it takes us back to MainMenuPanel.java.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainMenuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1689735461830</updated>
       <workItem from="1689735463931" duration="11168000" />
-      <workItem from="1690385916697" duration="14573000" />
+      <workItem from="1690385916697" duration="20136000" />
     </task>
     <task id="LOCAL-00001" summary="Commit skeleton for DungeonCharacter.java + Room.java. Also, src folder created and rooted as source">
       <option name="closed" value="true" />
@@ -169,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690397607593</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="When &quot;New Game&quot; Btn is pressed, CardLayout Manager updates to CharacterSelectionPanel.java and when &quot;Back&quot; Btn is pressed on that panel, it takes us back to MainMenuPanel.java.">
+      <option name="closed" value="true" />
+      <created>1690412376470</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690412376470</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +195,7 @@
     <MESSAGE value="Main.java, MainFrame.java, StartingScreenPanel.java added to the project" />
     <MESSAGE value="Created the GUI MainMenu for the game, with buttons in place and BG image" />
     <MESSAGE value="Created CharacterSelectionPanel.java, which is the menu when a player starts a new game. updated DungeonCharacter.java to be an abstract class. Updated the MainMenuPanel.java to Center Title and buttons on the screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created CharacterSelectionPanel.java, which is the menu when a player starts a new game. updated DungeonCharacter.java to be an abstract class. Updated the MainMenuPanel.java to Center Title and buttons on the screen" />
+    <MESSAGE value="When &quot;New Game&quot; Btn is pressed, CardLayout Manager updates to CharacterSelectionPanel.java and when &quot;Back&quot; Btn is pressed on that panel, it takes us back to MainMenuPanel.java." />
+    <option name="LAST_COMMIT_MESSAGE" value="When &quot;New Game&quot; Btn is pressed, CardLayout Manager updates to CharacterSelectionPanel.java and when &quot;Back&quot; Btn is pressed on that panel, it takes us back to MainMenuPanel.java." />
   </component>
 </project>
