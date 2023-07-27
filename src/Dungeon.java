@@ -6,8 +6,12 @@ public class Dungeon {
     private String myAdventureLocation;
 
     public Dungeon() {
-
-
+        myMazeRoom = new Room[][];
+        myAdventureLocation = "0.0";
+        randomlyGenerateRooms();
+        checkIfEntranceToExitIsValid();
+        placeRandomContentInRoom();
+        placeRandomMonsterInRoom();
     }
 
     public void randomlyGenerateRooms() {
@@ -23,6 +27,15 @@ public class Dungeon {
 
     public void placeRandomContentInRoom() {
 
+    }
+
+    //THIS NEEDS TO BE COMPLETEDDDDDDD!!!!!!!!
+    public DungeonCharacter placeRandomMonsterInRoom() {
+        Random random = new Random();
+
+        DungeonCharacter monster = null;
+
+        return monster;
     }
 
 //    public DungeonCharacter placeRandomMonsterInRoom() {
