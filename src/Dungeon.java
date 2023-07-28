@@ -1,6 +1,8 @@
 import java.util.Random;
 
 public class Dungeon {
+    private static final int MAZE_SIZE = (int) Math.random();
+
 
     private Room[][] myMazeRoom;
     private String myAdventureLocation;
@@ -26,6 +28,16 @@ public class Dungeon {
     }
 
     public void placeRandomContentInRoom() {
+
+        Random room = new Random();
+
+        for (int i = 0; i < MAZE_SIZE; i++ ) {
+            for (int j = 0; j < MAZE_SIZE; j++) {
+                myMazeRoom[i][j].setOOPillar(room.nextBoolean());
+                myMazeRoom[i][j].setPit(room.nextBoolean());
+                myMazeRoom[i][j].setVisionPotion(room.nextBoolean());
+            }
+        }
 
     }
 
