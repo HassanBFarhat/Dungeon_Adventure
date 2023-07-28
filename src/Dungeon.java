@@ -6,7 +6,7 @@ public class Dungeon {
     private String myAdventureLocation;
 
     public Dungeon() {
-        myMazeRoom = new Room[][];
+//        myMazeRoom = new Room[][];
         myAdventureLocation = "0.0";
         randomlyGenerateRooms();
         checkIfEntranceToExitIsValid();

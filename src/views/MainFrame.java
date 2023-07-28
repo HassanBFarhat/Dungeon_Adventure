@@ -1,37 +1,83 @@
 package views;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.CardLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class MainFrame extends JFrame {
 
-    /** . */
-    private JPanel myCardPanel = new JPanel(new CardLayout());
-    /** . */
-    private MainMenuPanel mp = new MainMenuPanel();
-    /** . */
-    private CharacterSelectionPanel csp = new CharacterSelectionPanel();
-    /** . */
-    private OptionsPanel op = new OptionsPanel();
-    /** . */
-    private GameInformationPanel gip = new GameInformationPanel();
-    /** . */
-    private GameHelpPanel ghp = new GameHelpPanel();
+    // constants
 
+    /** . */
+    private static final String MAIN_MENU_PANEL = "Main";
+    /** . */
+    private static final String NEW_GAME_PANEL = "NewGame";
+    /** . */
+    private static final String OPTIONS_PANEL = "Option";
+    /** . */
+    private static final String GAME_INFO_PANEL = "GameInfo";
+    /** . */
+    private static final String GAME_HELP_PANEL = "GameHelp";
+    /** . */
+    private static final int FRAME_WIDTH = 1280;
+    /** . */
+    private static final int FRAME_HEIGHT = 720;
+
+    // instance fields
+
+    /** . */
+    private JPanel myCardPanel;
+    /** . */
+    private MainMenuPanel myMainMenuPanel;
+    /** . */
+    private CharacterSelectionPanel myCharacterSelectionPanel;
+    /** . */
+    private OptionsPanel myOptionsPanel;
+    /** . */
+    private GameInformationPanel myGameInformationPanel;
+    /** . */
+    private GameHelpPanel myGameHelpPanel;
+
+
+    // constructor
 
     public MainFrame() {
+        instantiateInstanceDataFields();
         setUpFramePanels();
         setUpMainFrame();
         setUpPanelButtons();
     }
 
 
-    private void setUpMainFrame() {
+    // methods
 
-        this.setSize(1280, 720);
+    /** . */
+    private void instantiateInstanceDataFields() {
+        myCardPanel = new JPanel(new CardLayout());
+        myMainMenuPanel = new MainMenuPanel();
+        myCharacterSelectionPanel = new CharacterSelectionPanel();
+        myOptionsPanel = new OptionsPanel();
+        myGameInformationPanel = new GameInformationPanel();
+        myGameHelpPanel = new GameHelpPanel();
+    }
+
+    /** . */
+    private void setUpFramePanels() {
+        myCardPanel.add(myMainMenuPanel, MAIN_MENU_PANEL);
+        myCardPanel.add(myCharacterSelectionPanel, NEW_GAME_PANEL);
+        myCardPanel.add(myOptionsPanel, OPTIONS_PANEL);
+        myCardPanel.add(myGameInformationPanel, GAME_INFO_PANEL);
+        myCardPanel.add(myGameHelpPanel, GAME_HELP_PANEL);
+    }
+
+    /** . */
+    private void setUpMainFrame() {
+        this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setTitle("Dungeon Adventure");
+        this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         final int centerX = (screenSize.width - this.getWidth()) / 2;
@@ -39,99 +85,47 @@ public class MainFrame extends JFrame {
         // Set the frame to the center of the monitor
         this.setLocation(centerX, centerY);
 
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
         this.add(myCardPanel);
         this.pack();
-
         this.setVisible(true);
     }
 
-    public void changeScreen(String theScreen) {
+    /** . */
+    private void setUpPanelButtons() {
+        myMainMenuPanel.myStartNewGameBtn.addActionListener(
+                theAction -> changeScreen(NEW_GAME_PANEL));
+
+        myMainMenuPanel.myLoadGameBtn.addActionListener(
+                theAction -> System.out.println("LOADING"));
+
+        myMainMenuPanel.myOptionBtn.addActionListener(
+                theAction -> changeScreen(OPTIONS_PANEL));
+
+        myMainMenuPanel.myExitBtn.addActionListener(
+                theAction -> System.exit(0));
+
+        myCharacterSelectionPanel.myBackBtn.addActionListener(
+                theAction -> changeScreen(MAIN_MENU_PANEL));
+
+        myOptionsPanel.myBackBtn.addActionListener(
+                theAction -> changeScreen(MAIN_MENU_PANEL));
+
+        myOptionsPanel.myGeneralInfoBtn.addActionListener(
+                theAction -> changeScreen(GAME_INFO_PANEL));
+
+        myOptionsPanel.myGameHelpBtn.addActionListener(
+                theAction -> changeScreen(GAME_HELP_PANEL));
+
+        myGameInformationPanel.myBackBtn.addActionListener(
+                theAction -> changeScreen(OPTIONS_PANEL));
+
+        myGameHelpPanel.myBackBtn.addActionListener(
+                theAction -> changeScreen(OPTIONS_PANEL));
+    }
+
+    /** . */
+    private void changeScreen(final String theScreen) {
         ((CardLayout) myCardPanel.getLayout()).show(myCardPanel, theScreen);
     }
 
-    private void setUpFramePanels() {
-        myCardPanel.add(mp, "Main");
-        myCardPanel.add(csp, "NewGame");
-        myCardPanel.add(op, "Option");
-        myCardPanel.add(gip, "GameInfo");
-        myCardPanel.add(ghp, "GameHelp");
-    }
-
-
-    private void setUpPanelButtons() {
-        mp.myStartNewGameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                mf.changeScreen("NewGame");
-                changeScreen("NewGame");
-            }
-        });
-
-        mp.myLoadGameBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("LOADING");
-            }
-        });
-
-        mp.myOptionBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("Option");
-            }
-        });
-
-        mp.myExitBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
-
-        csp.myBackBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("Main");
-            }
-        });
-
-        op.myBackBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("Main");
-            }
-        });
-
-        op.myGeneralInfoBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("GameInfo");
-            }
-        });
-
-        op.myGameHelpBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("GameHelp");
-            }
-        });
-
-        gip.myBackBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("Option");
-            }
-        });
-
-        ghp.myBackBtn.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                changeScreen("Option");
-            }
-        });
-    }
 }
