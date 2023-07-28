@@ -22,9 +22,45 @@ public class Dungeon {
 
     public boolean checkIfEntranceToExitIsValid() {
 
-        //room class needs to be class
-        return false;
+        boolean[][] roomsvisited = new boolean[MAZE_SIZE][MAZE_SIZE];
 
+        return direction(0, 0, roomsvisited);
+    }
+
+    private boolean direction(int row, int col, boolean[][] roomsvisited) {
+
+        // Mark the current location as visited
+        roomsvisited[row][col] = true;
+
+        // If this location is out of bounds or has already been visited, it's not a valid path
+        if (row < 0 || row >= MAZE_SIZE || col < 0 || col >= MAZE_SIZE || roomsvisited[row][col]) {
+            return false;
+        }
+
+        // If this location is the exit, we've found a path!
+        if (row == MAZE_SIZE - 1 && col == MAZE_SIZE - 1) {
+            return true;
+        }
+
+        // Explore each direction from this location
+
+        // North
+        if (myMazeRoom[row][col].getDoorNorth() && direction(row - 1, col, roomsvisited)) {
+            return true;
+        }
+
+        // East
+        if (myMazeRoom[row][col].getDoorEast() && direction(row, col + 1, roomsvisited)) {
+            return true;
+        }
+
+        // South
+        if (myMazeRoom[row][col].getDoorSouth() && direction(row + 1, col, roomsvisited)) {
+            return true;
+        }
+
+        // West
+        return myMazeRoom[row][col].getDoorWest() && direction(row, col - 1, roomsvisited);
     }
 
     public void placeRandomContentInRoom() {
