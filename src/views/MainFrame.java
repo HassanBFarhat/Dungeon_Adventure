@@ -122,7 +122,7 @@ public class MainFrame extends JFrame {
         myGameInformationPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(OPTIONS_PANEL));
 
-        myGameHelpPanel.myBackBtn.addActionListener(
+        myGameHelpPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(OPTIONS_PANEL));
     }
 
