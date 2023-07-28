@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="MainFrame.java in views package refactored to follow Checkstyle + update readability">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="MainMenuPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainMenuPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +81,7 @@
       <updated>1689735461830</updated>
       <workItem from="1689735463931" duration="11168000" />
       <workItem from="1690385916697" duration="29524000" />
-      <workItem from="1690564324644" duration="3688000" />
+      <workItem from="1690564324644" duration="8238000" />
     </task>
     <task id="LOCAL-00001" summary="Commit skeleton for DungeonCharacter.java + Room.java. Also, src folder created and rooted as source">
       <option name="closed" value="true" />
@@ -198,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690566427469</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="MainMenuPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes.">
+      <option name="closed" value="true" />
+      <created>1690568188192</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690568188192</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +234,7 @@
     <MESSAGE value="Finished the CharacterSelectionPanel.java (other than changing the fonts + setting up action for begin adventure button)&#10;Created an OptionsPanel.java to house some game options for the user. (only have data fields in place." />
     <MESSAGE value="Finished OptionsPanel.java, GameInformationPanel.java, and GameHelpPanel.java&#10;Updated MainFrame.java cardLayout to hold the new panels." />
     <MESSAGE value="MainFrame.java in views package refactored to follow Checkstyle + update readability" />
-    <option name="LAST_COMMIT_MESSAGE" value="MainFrame.java in views package refactored to follow Checkstyle + update readability" />
+    <MESSAGE value="MainMenuPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
+    <option name="LAST_COMMIT_MESSAGE" value="MainMenuPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
   </component>
 </project>

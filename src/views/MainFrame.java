@@ -104,8 +104,11 @@ public class MainFrame extends JFrame {
         myMainMenuPanel.getExitBtn().addActionListener(
                 theAction -> System.exit(0));
 
-        myCharacterSelectionPanel.myBackBtn.addActionListener(
+        myCharacterSelectionPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
+
+        myCharacterSelectionPanel.getMyStartGameBtnBtn().addActionListener(
+                theAction -> System.out.println("GAME STARTING"));
 
         myOptionsPanel.myBackBtn.addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
