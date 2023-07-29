@@ -16,7 +16,23 @@ public class Dungeon {
         placeRandomMonsterInRoom();
     }
 
+    //METHOD STILL NEEDS A BIT OF WORK
     public void randomlyGenerateRooms() {
+        Random randomroom = new Random();
+
+        for (int i = 0; i < MAZE_SIZE; i++) {
+            for (int j = 0; j < MAZE_SIZE; j++) {
+
+                //values from boolean variables below are temp
+                boolean North = false;
+                boolean South = false;
+                boolean East = false;
+                boolean West = false;
+
+                myMazeRoom[i][j] = new Room(North, South, East, West);
+
+            }
+        }
 
     }
 
@@ -108,6 +124,13 @@ public class Dungeon {
     }
 
     public String toString() {
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < MAZE_SIZE; i++) {
+            for (int j = 0; j < MAZE_SIZE; j++)
+            sb.append(myMazeRoom[i][j].toString());
+            sb.append("\n");
+        }
+
+        return sb.toString();
     }
 }
