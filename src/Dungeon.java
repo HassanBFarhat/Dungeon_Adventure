@@ -29,7 +29,7 @@ public class Dungeon {
                 boolean East = false;
                 boolean West = false;
 
-                myMazeRoom[i][j] = new Room(North, South, East, West);
+                // myMazeRoom[i][j] = new Room(North, South, East, West);
 
             }
         }
