@@ -44,7 +44,7 @@ public class SQLiteDemo {
 
             statement.execute(itemsinserted);
 
-            System.out.println("Room created successfully!");
+            System.out.println("Names and items created sucessfully!");
 
         } catch (SQLException e) {
             e.printStackTrace();
