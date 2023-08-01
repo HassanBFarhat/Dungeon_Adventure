@@ -3,8 +3,9 @@ package views;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.*;
 
 public class MainFrame extends JFrame {
 
@@ -20,6 +21,8 @@ public class MainFrame extends JFrame {
     private static final String GAME_INFO_PANEL = "GameInfo";
     /** . */
     private static final String GAME_HELP_PANEL = "GameHelp";
+    /** . */
+    private static final String GAME_PLAY_PANEL = "GamePlay";
     /** . */
     private static final int FRAME_WIDTH = 1280;
     /** . */
@@ -39,7 +42,8 @@ public class MainFrame extends JFrame {
     private GameInformationPanel myGameInformationPanel;
     /** . */
     private GameHelpPanel myGameHelpPanel;
-
+    /** . */
+    private GamePlayPanel myGamePlayPanel;
 
     // constructor
 
@@ -61,6 +65,7 @@ public class MainFrame extends JFrame {
         myOptionsPanel = new OptionsPanel();
         myGameInformationPanel = new GameInformationPanel();
         myGameHelpPanel = new GameHelpPanel();
+        myGamePlayPanel = new GamePlayPanel();
     }
 
     /** . */
@@ -70,6 +75,7 @@ public class MainFrame extends JFrame {
         myCardPanel.add(myOptionsPanel, OPTIONS_PANEL);
         myCardPanel.add(myGameInformationPanel, GAME_INFO_PANEL);
         myCardPanel.add(myGameHelpPanel, GAME_HELP_PANEL);
+        myCardPanel.add(myGamePlayPanel, GAME_PLAY_PANEL);
     }
 
     /** . */
@@ -107,8 +113,16 @@ public class MainFrame extends JFrame {
         myCharacterSelectionPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
 
-        myCharacterSelectionPanel.getMyStartGameBtnBtn().addActionListener(
-                theAction -> System.out.println("GAME STARTING"));
+        myCharacterSelectionPanel.getMyStartGameBtnBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+                if (myCharacterSelectionPanel.getCharactersName().isEmpty()) {
+                    JOptionPane.showMessageDialog(myMainMenuPanel, "CANNOT START WITHOUT PUTTING A NAME!");
+                } else {
+                    changeScreen(GAME_PLAY_PANEL);
+                }
+            }
+        });
 
         myOptionsPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));

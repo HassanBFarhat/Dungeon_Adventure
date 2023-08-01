@@ -209,4 +209,9 @@ public class CharacterSelectionPanel extends JPanel {
         return myStartGameBtn;
     }
 
+    /** . */
+    public String getCharactersName() {
+        return myNameYourCharacterTextBox.getText();
+    }
+
 }
