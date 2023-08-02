@@ -49,7 +49,7 @@ public abstract class DungeonCharacter {
 
     //TODO: Finish the logic behind the attack() method
     /** . */
-    public final int attack() {
+    public int attack() {
         Random rand = new Random();
         int generatedDamage = 0;
 
