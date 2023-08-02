@@ -4,7 +4,7 @@ import views.MainMenuPanel;
 
 public class Main {
 
-    public static void main ( final String[] theArgs) {
+    public static void main(final String[] theArgs) {
         new MainFrame();
     }
 
