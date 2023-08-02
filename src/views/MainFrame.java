@@ -24,6 +24,7 @@ public class MainFrame extends JFrame {
     /** . */
     private static final String GAME_PLAY_PANEL = "GamePlay";
     /** . */
+    private static final String BATTLE_PANEL = "BattleField";
     private static final int FRAME_WIDTH = 1280;
     /** . */
     private static final int FRAME_HEIGHT = 720;
@@ -44,6 +45,8 @@ public class MainFrame extends JFrame {
     private GameHelpPanel myGameHelpPanel;
     /** . */
     private GamePlayPanel myGamePlayPanel;
+    /** . */
+    private BattlePanel myBattlePanel;
 
     // constructor
 
@@ -66,6 +69,7 @@ public class MainFrame extends JFrame {
         myGameInformationPanel = new GameInformationPanel();
         myGameHelpPanel = new GameHelpPanel();
         myGamePlayPanel = new GamePlayPanel();
+        myBattlePanel = new BattlePanel();
     }
 
     /** . */
@@ -76,6 +80,7 @@ public class MainFrame extends JFrame {
         myCardPanel.add(myGameInformationPanel, GAME_INFO_PANEL);
         myCardPanel.add(myGameHelpPanel, GAME_HELP_PANEL);
         myCardPanel.add(myGamePlayPanel, GAME_PLAY_PANEL);
+        myCardPanel.add(myBattlePanel, BATTLE_PANEL);
     }
 
     /** . */
@@ -119,7 +124,8 @@ public class MainFrame extends JFrame {
                 if (myCharacterSelectionPanel.getCharactersName().isEmpty()) {
                     JOptionPane.showMessageDialog(myMainMenuPanel, "CANNOT START WITHOUT PUTTING A NAME!");
                 } else {
-                    changeScreen(GAME_PLAY_PANEL);
+//                    changeScreen(GAME_PLAY_PANEL);
+                    changeScreen(BATTLE_PANEL);
                 }
             }
         });

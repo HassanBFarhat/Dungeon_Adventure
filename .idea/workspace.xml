@@ -4,13 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="Added instance fields and instantiations for those fields in GamePlayPanel.java class.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added constraint if no name entered for Hero, user is prompt the game cannot start without a name.&#10;- Added the BG image for the main gameplay in the dungeon.&#10;- Added the character, &quot;test&quot; sprite and the movement buttons, panel to the GamePlayPanel.java.&#10;- Added health bar to the bottom of the main game panel&#10;- Added the &quot;save game&quot; and &quot;inventory&quot; Buttons to the game panel&#10;- Made miscellaneous changes to reflect the addition of the GamePlayPanel.java in the various other view class models&#10;- Added more images to the imgs package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/DungeonCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/DungeonCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Gremlin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Ogre.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/SQLiteDemo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/Skeleton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690681769113</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="- Added constraint if no name entered for Hero, user is prompt the game cannot start without a name.&#10;- Added the BG image for the main gameplay in the dungeon.&#10;- Added the character, &quot;test&quot; sprite and the movement buttons, panel to the GamePlayPanel.java.&#10;- Added health bar to the bottom of the main game panel&#10;- Added the &quot;save game&quot; and &quot;inventory&quot; Buttons to the game panel&#10;- Made miscellaneous changes to reflect the addition of the GamePlayPanel.java in the various other view class models&#10;- Added more images to the imgs package">
+      <option name="closed" value="true" />
+      <created>1690873215744</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690873215744</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,6 +316,7 @@
     <MESSAGE value="GameHelpPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="Added BattlePanel.java and GamePlayPanel.java to views package" />
     <MESSAGE value="Added instance fields and instantiations for those fields in GamePlayPanel.java class." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added instance fields and instantiations for those fields in GamePlayPanel.java class." />
+    <MESSAGE value="- Added constraint if no name entered for Hero, user is prompt the game cannot start without a name.&#10;- Added the BG image for the main gameplay in the dungeon.&#10;- Added the character, &quot;test&quot; sprite and the movement buttons, panel to the GamePlayPanel.java.&#10;- Added health bar to the bottom of the main game panel&#10;- Added the &quot;save game&quot; and &quot;inventory&quot; Buttons to the game panel&#10;- Made miscellaneous changes to reflect the addition of the GamePlayPanel.java in the various other view class models&#10;- Added more images to the imgs package" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added constraint if no name entered for Hero, user is prompt the game cannot start without a name.&#10;- Added the BG image for the main gameplay in the dungeon.&#10;- Added the character, &quot;test&quot; sprite and the movement buttons, panel to the GamePlayPanel.java.&#10;- Added health bar to the bottom of the main game panel&#10;- Added the &quot;save game&quot; and &quot;inventory&quot; Buttons to the game panel&#10;- Made miscellaneous changes to reflect the addition of the GamePlayPanel.java in the various other view class models&#10;- Added more images to the imgs package" />
   </component>
 </project>
