@@ -42,7 +42,10 @@ public class Adventurer extends DungeonCharacter {
     }
 
     public void setMyHealingPotions(int healingPotions) {
-        this.myHealingPotions = healingPotions;
+        this.myHealingPotions += healingPotions;
+        if (this.myHealingPotions < 0) {
+            this.myHealingPotions = 0;  // Ensure it doesn't go negative
+        }
     }
 
     public int getMyHealingPotions() {
@@ -50,7 +53,10 @@ public class Adventurer extends DungeonCharacter {
     }
 
     public void setMyVisionPotions(int visionPotions) {
-        this.myVisionPotions = visionPotions;
+        this.myVisionPotions += visionPotions;
+        if (this.myVisionPotions < 0) {
+            this.myVisionPotions = 0;  // Ensure it doesn't go negative
+        }
     }
 
     public int getMyVisionPotions() {
@@ -64,7 +70,6 @@ public class Adventurer extends DungeonCharacter {
     public char[] getMyPillars() {
         return myPillars;
     }
-
 
     public String toString() {
         final StringBuilder sb = new StringBuilder();
