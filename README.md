@@ -1,5 +1,5 @@
 # Dungeon_Adventure
-Dungeon Adventure Game
+models.Dungeon Adventure Game
 - Avinash Bavisetty
 - Hassan Farhat
 - Sullivan Lucier-Benson

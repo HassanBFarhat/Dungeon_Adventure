@@ -1,13 +1,70 @@
 package views;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JTextArea;
+import javax.swing.OverlayLayout;
+
 
 public class BattlePanel extends JPanel {
 
     // constants
 
-
+    /** . */
+    private static final int ACTION_CONSOLE_WIDTH = 800;
+    /** . */
+    private static final int ACTION_CONSOLE_HEIGHT = 120;
+    /** . */
+    private static final int ACTION_CONSOLE_X_COORDINATE = 95;
+    /** . */
+    private static final int ACTION_CONSOLE_Y_COORDINATE = 530;
+    /** . */
+    private static final int HERO_AND_MONSTER_WIDTH = 200;
+    /** . */
+    private static final int HERO_AND_MONSTER_HEIGHT = 200;
+    /** . */
+    private static final int HERO_X_COORDINATE = 220;
+    /** . */
+    private static final int HERO_Y_COORDINATE = 270;
+    /** . */
+    private static final int MONSTER_X_COORDINATE = 730;
+    /** . */
+    private static final int MONSTER_Y_COORDINATE = 25;
+    /** . */
+    private static final int MINIMUM_HEALTH_SIZE = 0;
+    /** . */
+    private static final int MAXIMUM_HEALTH_SIZE = 100;
+    /** . */
+    private static final int HERO_AND_MONSTER_HEALTH_BAR_WIDTH = 250;
+    /** . */
+    private static final int HERO_AND_MONSTER_HEALTH_BAR_HEIGHT = 20;
+    /** . */
+    private static final int HERO_HEALTH_BAR_X_COORDINATE = 410;
+    /** . */
+    private static final int HERO_HEALTH_BAR_Y_COORDINATE = 350;
+    /** . */
+    private static final int MONSTER_HEALTH_BAR_X_COORDINATE = 470;
+    /** . */
+    private static final int MONSTER_HEALTH_BAR_Y_COORDINATE = 100;
+    /** . */
+    private static final int ATTACK_AND_SPECIAL_ATTACK_BUTTON_WIDTH = 120;
+    /** . */
+    private static final int HEAL_BUTTON_WIDTH = 240;
+    /** . */
+    private static final int ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT = 50;
+    /** . */
+    private static final int ATTACK_AND_HEAL_BUTTON_X_COORDINATE = 945;
+    /** . */
+    private static final int ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE = 550;
+    /** . */
+    private static final int SPECIAL_ATTACK_BUTTON_X_COORDINATE = 1065;
+    /** . */
+    private static final int HEAL_BUTTON_Y_COORDINATE = 600;
 
     // instance fields
 
@@ -36,50 +93,11 @@ public class BattlePanel extends JPanel {
     public BattlePanel() {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();
-
-        myGameActionConsole.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        myGameActionConsole.setBounds(95,530,800,120);
-        myGameActionConsole.setEditable(false);
-
-        myAttackBtn.setBounds(945, 550, 120,50);
-        mySpecialAttackBtn.setBounds(1065, 550, 120,50);
-        myHealBtn.setBounds(945, 600, 240,50);
-
-
-
-        myHeroImgLabel.setBounds(220,270,200,200);
-
-        myMonsterImgLabel.setBounds(670,25,200,200);
-
-        myHeroHealthBar.setValue(100);
-        myHeroHealthBar.setBounds(410, 350, 250, 20);
-        myHeroHealthBar.setForeground(Color.RED);
-        myHeroHealthBar.setBackground(Color.GRAY);
-        myHeroHealthBar.setString("Hero Health");
-        myHeroHealthBar.setStringPainted(true);
-
-        myMonstersHealthBar.setValue(100);
-        myMonstersHealthBar.setBounds(410, 100, 250, 20);
-        myMonstersHealthBar.setForeground(Color.RED);
-        myMonstersHealthBar.setBackground(Color.GRAY);
-        myMonstersHealthBar.setString("Monster Health");
-        myMonstersHealthBar.setStringPainted(true);
-
-
-
-
-
-        myBattleBGImgLabel.add(myAttackBtn);
-        myBattleBGImgLabel.add(mySpecialAttackBtn);
-        myBattleBGImgLabel.add(myHealBtn);
-        myBattleBGImgLabel.add(myGameActionConsole);
-        myBattleBGImgLabel.add(myHeroImgLabel);
-        myBattleBGImgLabel.add(myMonsterImgLabel);
-        myBattleBGImgLabel.add(myHeroHealthBar);
-        myBattleBGImgLabel.add(myMonstersHealthBar);
-
-
-
+        setUpBorderAndBoundsForActionConsole();
+        setUpHeroAndMonsterBGLabelBounds();
+        setUpAttackSpecialAttackAndHealButtonBounds();
+        setUpHeroAndMonsterHealthBars();
+        addAllTheComponentsToBattleBGLabel();
     }
 
 
@@ -96,8 +114,8 @@ public class BattlePanel extends JPanel {
         myAttackBtn = new JButton("Attack");
         mySpecialAttackBtn = new JButton("Special Attack");
         myHealBtn = new JButton("Heal");
-        myMonstersHealthBar = new JProgressBar(0, 100);
-        myHeroHealthBar = new JProgressBar(0, 100);
+        myMonstersHealthBar = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
+        myHeroHealthBar = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
         myGameActionConsole = new JTextArea();
     }
 
@@ -105,6 +123,79 @@ public class BattlePanel extends JPanel {
     private void setUpThisPanelsLayoutAndAddBGImg() {
         this.setLayout(new OverlayLayout(this));
         this.add(myBattleBGImgLabel);
+    }
+
+
+    /** . */
+    private void setUpBorderAndBoundsForActionConsole() {
+        myGameActionConsole.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        myGameActionConsole.setBounds(ACTION_CONSOLE_X_COORDINATE,
+                                      ACTION_CONSOLE_Y_COORDINATE,
+                                      ACTION_CONSOLE_WIDTH,
+                                      ACTION_CONSOLE_HEIGHT);
+        myGameActionConsole.setEditable(false);
+    }
+
+
+    /** . */
+    private void setUpHeroAndMonsterBGLabelBounds() {
+        myHeroImgLabel.setBounds(HERO_X_COORDINATE, HERO_Y_COORDINATE,
+                                 HERO_AND_MONSTER_WIDTH, HERO_AND_MONSTER_HEIGHT);
+        myMonsterImgLabel.setBounds(MONSTER_X_COORDINATE, MONSTER_Y_COORDINATE,
+                                    HERO_AND_MONSTER_WIDTH, HERO_AND_MONSTER_HEIGHT);
+    }
+
+
+    /** . */
+    private void setUpAttackSpecialAttackAndHealButtonBounds() {
+        myAttackBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
+                              ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
+                              ATTACK_AND_SPECIAL_ATTACK_BUTTON_WIDTH,
+                              ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT);
+        mySpecialAttackBtn.setBounds(SPECIAL_ATTACK_BUTTON_X_COORDINATE,
+                                     ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
+                                     ATTACK_AND_SPECIAL_ATTACK_BUTTON_WIDTH,
+                                     ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT);
+        myHealBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
+                            HEAL_BUTTON_Y_COORDINATE,
+                            HEAL_BUTTON_WIDTH,
+                            ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT);
+    }
+
+    /** . */
+    private void setUpHeroAndMonsterHealthBars() {
+        myHeroHealthBar.setValue(MAXIMUM_HEALTH_SIZE);
+        myHeroHealthBar.setBounds(HERO_HEALTH_BAR_X_COORDINATE,
+                                  HERO_HEALTH_BAR_Y_COORDINATE,
+                                  HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
+                                  HERO_AND_MONSTER_HEALTH_BAR_HEIGHT);
+        myHeroHealthBar.setForeground(Color.RED);
+        myHeroHealthBar.setBackground(Color.GRAY);
+        myHeroHealthBar.setString("Hero Health");
+        myHeroHealthBar.setStringPainted(true);
+
+        myMonstersHealthBar.setValue(MAXIMUM_HEALTH_SIZE);
+        myMonstersHealthBar.setBounds(MONSTER_HEALTH_BAR_X_COORDINATE,
+                                      MONSTER_HEALTH_BAR_Y_COORDINATE,
+                                      HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
+                                      HERO_AND_MONSTER_HEALTH_BAR_HEIGHT);
+        myMonstersHealthBar.setForeground(Color.RED);
+        myMonstersHealthBar.setBackground(Color.GRAY);
+        myMonstersHealthBar.setString("Monster Health");
+        myMonstersHealthBar.setStringPainted(true);
+    }
+
+
+    /** . */
+    private void addAllTheComponentsToBattleBGLabel() {
+        myBattleBGImgLabel.add(myAttackBtn);
+        myBattleBGImgLabel.add(mySpecialAttackBtn);
+        myBattleBGImgLabel.add(myHealBtn);
+        myBattleBGImgLabel.add(myGameActionConsole);
+        myBattleBGImgLabel.add(myHeroImgLabel);
+        myBattleBGImgLabel.add(myMonsterImgLabel);
+        myBattleBGImgLabel.add(myHeroHealthBar);
+        myBattleBGImgLabel.add(myMonstersHealthBar);
     }
 
 

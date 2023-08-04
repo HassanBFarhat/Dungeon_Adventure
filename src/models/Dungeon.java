@@ -1,3 +1,5 @@
+package models;
+
 import java.util.Random;
 
 public class Dungeon {
@@ -8,7 +10,7 @@ public class Dungeon {
     private String myAdventureLocation;
 
     public Dungeon() {
-//        myMazeRoom = new Room[][];
+//        myMazeRoom = new models.Room[][];
         myAdventureLocation = "0.0";
         randomlyGenerateRooms();
         checkIfEntranceToExitIsValid();
@@ -29,7 +31,7 @@ public class Dungeon {
                 boolean East = false;
                 boolean West = false;
 
-                // myMazeRoom[i][j] = new Room(North, South, East, West);
+                // myMazeRoom[i][j] = new models.Room(North, South, East, West);
 
             }
         }
@@ -102,7 +104,7 @@ public class Dungeon {
         return monster;
     }
 
-//    public DungeonCharacter placeRandomMonsterInRoom() {
+//    public models.DungeonCharacter placeRandomMonsterInRoom() {
 //        Random newRandom = new Random();
 //        int random;
 //    }

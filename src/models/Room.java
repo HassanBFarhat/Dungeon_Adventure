@@ -1,3 +1,5 @@
+package models;
+
 public class Room {
 
     // constants
@@ -172,10 +174,10 @@ public class Room {
         sb.append("Has an South Door: " + getDoorSouth() + NEW_LINE);
         sb.append("Has an East Door: " + getDoorEast() + NEW_LINE);
         sb.append("Has an West Door: " + getDoorWest() + NEW_LINE);
-        sb.append("Has an OO Pillar in Room: " + getOOPillar() + NEW_LINE);
-        sb.append("Has a Healing Potion in Room: " + getHealingPotion() + NEW_LINE);
-        sb.append("Has a Vision Potion in Room: " + getVisionPotion() + NEW_LINE);
-        sb.append("Has a Pit in Room: " + getPit() + NEW_LINE);
+        sb.append("Has an OO Pillar in models.Room: " + getOOPillar() + NEW_LINE);
+        sb.append("Has a Healing Potion in models.Room: " + getHealingPotion() + NEW_LINE);
+        sb.append("Has a Vision Potion in models.Room: " + getVisionPotion() + NEW_LINE);
+        sb.append("Has a Pit in models.Room: " + getPit() + NEW_LINE);
         return sb.toString();
     }
 

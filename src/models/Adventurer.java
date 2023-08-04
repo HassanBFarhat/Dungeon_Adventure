@@ -1,19 +1,21 @@
+package models;
+
 public class Adventurer extends DungeonCharacter {
 
-    // Attributes specific to Adventurer class
+    // Attributes specific to models.Adventurer class
     private String myName;
     private int myHitPoints;
     private int myHealingPotions;
     private int myVisionPotions;
     private char[] myPillars;
 
-    // Constructor for Adventurer class
+    // Constructor for models.Adventurer class
     protected Adventurer(final String theCharacterName, final int theCharacterHealthPoints,
                          final int theCharacterHitPoints, final int theMinimumDamageRange,
                          final int theMaximumDamageRange, final int theAttackSpeed,
                          final double theChanceToHit, int theVisionPotions, char[] thePillars) {
         super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theMinimumDamageRange, theMaximumDamageRange, theAttackSpeed, theChanceToHit);
-        // Initialization for Adventurer-specific attributes can be added here, if needed
+        // Initialization for models.Adventurer-specific attributes can be added here, if needed
         this.myName = theCharacterName;
         this.myHitPoints = theCharacterHitPoints;
         this.myHealingPotions = theCharacterHealthPoints;
@@ -21,7 +23,7 @@ public class Adventurer extends DungeonCharacter {
         this.myPillars = thePillars;
     }
 
-    // Getter and Setter methods for Adventurer-specific attributes
+    // Getter and Setter methods for models.Adventurer-specific attributes
 
     public void setMyName(String name) {
         this.myName = name;

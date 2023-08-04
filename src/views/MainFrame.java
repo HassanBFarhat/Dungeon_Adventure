@@ -12,7 +12,7 @@ public class MainFrame extends JFrame {
     // constants
 
     /** . */
-    private static final String MAIN_MENU_PANEL = "Main";
+    private static final String MAIN_MENU_PANEL = "controller.Main";
     /** . */
     private static final String NEW_GAME_PANEL = "NewGame";
     /** . */

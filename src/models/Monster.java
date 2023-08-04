@@ -1,3 +1,5 @@
+package models;
+
 public abstract class Monster extends DungeonCharacter {
 
     private static final String NEW_LINE = "\n";
@@ -52,8 +54,8 @@ public abstract class Monster extends DungeonCharacter {
 
     @Override
     public String toString() {
-        return super.toString() + "Monster's Chance to Heal: " + myMonsterChanceToHeal + NEW_LINE +
-                "Monster's Minimum Heal Points: " + myMinimumHealPoints + NEW_LINE +
-                "Monster's Maximum Heal Points: " + myMaximumHealPoints + NEW_LINE;
+        return super.toString() + "models.Monster's Chance to Heal: " + myMonsterChanceToHeal + NEW_LINE +
+                "models.Monster's Minimum Heal Points: " + myMinimumHealPoints + NEW_LINE +
+                "models.Monster's Maximum Heal Points: " + myMaximumHealPoints + NEW_LINE;
     }
 }

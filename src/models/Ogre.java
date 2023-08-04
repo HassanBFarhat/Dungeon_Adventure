@@ -1,3 +1,5 @@
+package models;
+
 class Ogre extends Monster {
 
     private static final int HEALTH_POINTS = 200;

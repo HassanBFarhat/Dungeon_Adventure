@@ -1,3 +1,5 @@
+package models;
+
 class Gremlin extends Monster {
 
     private static final int HEALTH_POINTS = 70;

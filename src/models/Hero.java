@@ -1,8 +1,10 @@
+package models;
+
 public abstract class Hero extends DungeonCharacter {
 
     protected static final String NEW_LINE = "\n";
 
-    // Attributes specific to Hero class
+    // Attributes specific to models.Hero class
     private double myChanceToBlock;
     // It's not clear yet what type 'myHeroSpecialSkill' should be.
     // Assuming an int for now. Adjust as necessary.
@@ -13,7 +15,7 @@ public abstract class Hero extends DungeonCharacter {
                 int maxDamage, int minDamage, double chanceToBlock) {
         super(name, healthPoints, hitPoints, maxDamage, minDamage, attackSpeed, chanceHit);
 
-        // Additional initialization for Hero-specific attributes
+        // Additional initialization for models.Hero-specific attributes
         this.myChanceToBlock = chanceToBlock;
         // Initialize myHeroSpecialSkill with a default value if needed
         this.myHeroSpecialSkill = hitPoints;
@@ -41,8 +43,8 @@ public abstract class Hero extends DungeonCharacter {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
-        sb.append("Hero's Chance to Block: " + myChanceToBlock + NEW_LINE);
-        sb.append("Hero's Special Skill: " + myHeroSpecialSkill + NEW_LINE);
+        sb.append("models.Hero's Chance to Block: " + myChanceToBlock + NEW_LINE);
+        sb.append("models.Hero's Special Skill: " + myHeroSpecialSkill + NEW_LINE);
         return sb.toString();
     }
 }
@@ -57,11 +59,11 @@ class Warrior extends Hero {
         super(name, 125, 125, 4, 0.8, 35, 60, 0.2);
         setChanceToBlock(0.2);
 
-        // If there's any Warrior-specific attribute initialization, do it here
+        // If there's any models.Warrior-specific attribute initialization, do it here
     }
 
     public int standardAttack() {
-        int damage = super.attack(); // Call the attack method from the DungeonCharacter class
+        int damage = super.attack(); // Call the attack method from the models.DungeonCharacter class
         // Add any additional behavior here if necessary
         return damage;
     }
@@ -82,18 +84,18 @@ class Warrior extends Hero {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
-        sb.append("Warrior's Crushing Blow Chance: " + CRUSHING_BLOW_CHANCE + NEW_LINE);
-        sb.append("Warrior's Minimum Crushing Blow Damage: " + CRUSHING_BLOW_MIN_DAMAGE + NEW_LINE);
-        sb.append("Warrior's Maximum Crushing Blow Damage: " + CRUSHING_BLOW_MAX_DAMAGE + NEW_LINE);
+        sb.append("models.Warrior's Crushing Blow Chance: " + CRUSHING_BLOW_CHANCE + NEW_LINE);
+        sb.append("models.Warrior's Minimum Crushing Blow Damage: " + CRUSHING_BLOW_MIN_DAMAGE + NEW_LINE);
+        sb.append("models.Warrior's Maximum Crushing Blow Damage: " + CRUSHING_BLOW_MAX_DAMAGE + NEW_LINE);
         return sb.toString();
     }
 
-    // Any other Warrior-specific methods can be added below
+    // Any other models.Warrior-specific methods can be added below
 }
 
 class Priestess extends Hero {
 
-    // Constant for the heal range for Priestess. Adjust these values as per the range you desire.
+    // Constant for the heal range for models.Priestess. Adjust these values as per the range you desire.
     private static final int MIN_HEAL = 10;
     private static final int MAX_HEAL = 30;
 
@@ -106,7 +108,7 @@ class Priestess extends Hero {
 
     // Default attack method with standard attack damage
     public int standardAttack() {
-        int damage = super.attack(); // Call the attack method from the DungeonCharacter class
+        int damage = super.attack(); // Call the attack method from the models.DungeonCharacter class
         // Add any additional behavior here if necessary
         return damage;
     }
@@ -125,14 +127,14 @@ class Priestess extends Hero {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
-        sb.append("Priestess's Healing Range: " + MIN_HEAL + " - " + MAX_HEAL + NEW_LINE);
+        sb.append("models.Priestess's Healing Range: " + MIN_HEAL + " - " + MAX_HEAL + NEW_LINE);
         return sb.toString();
     }
 }
 
 class Thief extends Hero {
 
-    // Constants specific to the Thief class
+    // Constants specific to the models.Thief class
     private static final double CHANCE_SURPRISE_ATTACK = 0.4;
     private static final double CHANCE_CAUGHT = 0.2;
     // Remaining 40% is a normal attack, so no need for an explicit constant.
@@ -144,7 +146,7 @@ class Thief extends Hero {
     }
 
     public int standardAttack() {
-        int damage = super.attack(); // Call the attack method from the DungeonCharacter class
+        int damage = super.attack(); // Call the attack method from the models.DungeonCharacter class
         // Add any additional behavior here if necessary
         return damage;
     }
@@ -168,8 +170,8 @@ class Thief extends Hero {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(super.toString());
-        sb.append("Thief's Chance for Surprise Attack: " + CHANCE_SURPRISE_ATTACK + NEW_LINE);
-        sb.append("Thief's Chance of Getting Caught: " + CHANCE_CAUGHT + NEW_LINE);
+        sb.append("models.Thief's Chance for Surprise Attack: " + CHANCE_SURPRISE_ATTACK + NEW_LINE);
+        sb.append("models.Thief's Chance of Getting Caught: " + CHANCE_CAUGHT + NEW_LINE);
         return sb.toString();
     }
 }
