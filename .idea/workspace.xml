@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added SQLite DB table with monster information to the project." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -271,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691111687806</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="- Added SQLite DB table with monster information to the project.">
+      <option name="closed" value="true" />
+      <created>1691122218771</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1691122218771</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,6 +331,7 @@
     <MESSAGE value="- Added constraint if no name entered for Hero, user is prompt the game cannot start without a name.&#10;- Added the BG image for the main gameplay in the dungeon.&#10;- Added the character, &quot;test&quot; sprite and the movement buttons, panel to the GamePlayPanel.java.&#10;- Added health bar to the bottom of the main game panel&#10;- Added the &quot;save game&quot; and &quot;inventory&quot; Buttons to the game panel&#10;- Made miscellaneous changes to reflect the addition of the GamePlayPanel.java in the various other view class models&#10;- Added more images to the imgs package" />
     <MESSAGE value="- Added the BattlePanel.java to display the battle panel when the user enters a room with a monster&#10;- Added battle bg img and monster sprite img.&#10;- updated appropriate classes to reflect changes." />
     <MESSAGE value="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines." />
+    <MESSAGE value="- Added SQLite DB table with monster information to the project." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added SQLite DB table with monster information to the project." />
   </component>
 </project>
