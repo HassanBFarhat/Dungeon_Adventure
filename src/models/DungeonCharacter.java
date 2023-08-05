@@ -148,7 +148,7 @@ public abstract class DungeonCharacter {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("This models.DungeonCharacter's name is " + getCharacterName() + "." + NEW_LINE);
+        sb.append("This DungeonCharacter's name is " + getCharacterName() + "." + NEW_LINE);
         sb.append("These are " + getCharacterName() + "'s stats:" + NEW_LINE);
         sb.append("***********************************************" + NEW_LINE);
         sb.append("Health: " + getCharacterHealthPoints() + NEW_LINE);

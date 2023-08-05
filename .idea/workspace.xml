@@ -4,15 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/SQLiteDemo.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DungeonCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DungeonCharacter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/DungeonCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/DungeonCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MonsterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +84,9 @@
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\imgs" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\.idea\shelf" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -319,7 +333,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691216693032</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console.">
+      <option name="closed" value="true" />
+      <created>1691251594959</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1691251594959</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -349,7 +371,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Completed Monster.java Class" />
     <MESSAGE value="added &quot;drafted&quot; attack() method in DungeonCharacter.java" />
     <MESSAGE value="added 2 enum classes for our Potential Room items and to clean up the Room class, the use of enum Direction class" />
     <MESSAGE value="Main.java, MainFrame.java, StartingScreenPanel.java added to the project" />
@@ -374,6 +395,18 @@
     <MESSAGE value="- Updated Enum's to follow naming guidelines." />
     <MESSAGE value="- Added the enums to the models package.&#10;- Added MonsterFactory.java file." />
     <MESSAGE value="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster." />
+    <MESSAGE value="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/models/Dungeon.java</url>
+          <line>173</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

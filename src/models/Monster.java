@@ -8,7 +8,7 @@ public abstract class Monster extends DungeonCharacter {
     int myMaximumHealPoints;
 
     public Monster(String name, int healthPoints, int hitPoints, int attackSpeed, double chanceHit, int maxDamage, int minDamage) {
-        super(name, healthPoints, hitPoints, maxDamage, minDamage, attackSpeed, chanceHit);
+        super(name, healthPoints, hitPoints, minDamage, maxDamage, attackSpeed, chanceHit);
     }
 
     @Override
@@ -54,8 +54,8 @@ public abstract class Monster extends DungeonCharacter {
 
     @Override
     public String toString() {
-        return super.toString() + "models.Monster's Chance to Heal: " + myMonsterChanceToHeal + NEW_LINE +
-                "models.Monster's Minimum Heal Points: " + myMinimumHealPoints + NEW_LINE +
-                "models.Monster's Maximum Heal Points: " + myMaximumHealPoints + NEW_LINE;
+        return super.toString() + "Monster's Chance to Heal: " + myMonsterChanceToHeal + NEW_LINE
+                + "Monster's Minimum Heal Points: " + myMinimumHealPoints + NEW_LINE
+                + "Monster's Maximum Heal Points: " + myMaximumHealPoints + NEW_LINE;
     }
 }

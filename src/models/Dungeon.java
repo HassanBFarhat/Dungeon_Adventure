@@ -26,8 +26,8 @@ public class Dungeon {
 
         Room currentRoom = new Room();
         List<RoomItems> pillarList = generateArrayOfPillars();
-        // MonsterFactory mF = new MonsterFactory();
-        // List<Monster> monsterList = mF.getArrayOfMonsters();
+        MonsterFactory mF = new MonsterFactory();
+        List<Monster> monsterList = mF.getMonsterList();
         boolean entrancePlaced = false;
         boolean exitPlaced = false;
         boolean abstractPillar = false;
@@ -45,7 +45,7 @@ public class Dungeon {
                         currentRoom.setEntrance(RoomItems.ENTRANCE);
                         entrancePlaced = true;
                     }
-                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, i, j);
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, monsterList, i, j);
                 } else if (i == MAZE_SIZE - 1 && !exitPlaced) {
                     // randomly decide to place exit somewhere on last row
                     final int randomExitNumber = (int) (Math.random() * 70);
@@ -53,10 +53,10 @@ public class Dungeon {
                         currentRoom.setExit(RoomItems.EXIT);
                         exitPlaced = true;
                     }
-                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, i, j);
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, monsterList, i, j);
                 } else {
                     // Randomly place items and doors in rooms.
-                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, i, j);
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, monsterList, i, j);
                     // checks to see if one of the pillars was placed into a room
                     if (!abstractPillar || !inheritancePillar || !encapsulationPillar || !polymorphismPillar) {
                         if (currentRoom.getOOPillar() == RoomItems.ABSTRACTION_PILLAR) {
@@ -95,12 +95,14 @@ public class Dungeon {
 
     private void generateAndPutItemsAndDoorsInCurrentRoom(final Room theRoom,
                                                           final List<RoomItems> thePillarList,
+                                                          final List<Monster> theMonsterList,
                                                           final int theCurrentRow,
                                                           final int theCurrentColumn) {
 
         final int randomNumberForPotion = (int) (Math.random() * 100);
         final int randomNumberForPit = (int) (Math.random() * 100);
         final int randomNumberForPillar = (int) (Math.random() * 100);
+        final int randomNumberForMonster = (int) (Math.random() * 100);
 
         // FIRST, SET ROOM DOORS
         // figures out what doors go within which room in the matrix
@@ -169,7 +171,10 @@ public class Dungeon {
             theRoom.setOOPillar(thePillarList.get(randomPillarIndex));
             thePillarList.remove(randomPillarIndex);
         }
-
+        if (randomNumberForMonster <= 90) {
+            final int randomMonsterIndex = (int) (Math.random() * 3);
+            theRoom.setRoomMonster(theMonsterList.get(randomMonsterIndex));
+        }
         //
         //  if statement to place a random monster in the room goes here
         //  implement similar to the thePillarList, but don't remove the monster
@@ -206,79 +211,6 @@ public class Dungeon {
         return value;
     }
 
-
-
-    //TODO: CAN DELETE THIS METHOD. NO USE.
-//    public boolean checkIfEntranceToExitIsValid() {
-//
-//        boolean[][] roomsvisited = new boolean[MAZE_SIZE][MAZE_SIZE];
-//
-//        return direction(0, 0, roomsvisited);
-//    }
-
-//    private boolean direction(int row, int col, boolean[][] roomsvisited) {
-//
-//        // Mark the current location as visited
-//        roomsvisited[row][col] = true;
-//
-//        // If this location is out of bounds or has already been visited, it's not a valid path
-//        if (row < 0 || row >= MAZE_SIZE || col < 0 || col >= MAZE_SIZE || roomsvisited[row][col]) {
-//            return false;
-//        }
-//
-//        // If this location is the exit, we've found a path!
-//        if (row == MAZE_SIZE - 1 && col == MAZE_SIZE - 1) {
-//            return true;
-//        }
-//
-//        // Explore each direction from this location
-//
-//        // North
-//        if (myMazeRoom[row][col].getDoorNorth() && direction(row - 1, col, roomsvisited)) {
-//            return true;
-//        }
-//
-//        // East
-//        if (myMazeRoom[row][col].getDoorEast() && direction(row, col + 1, roomsvisited)) {
-//            return true;
-//        }
-//
-//        // South
-//        if (myMazeRoom[row][col].getDoorSouth() && direction(row + 1, col, roomsvisited)) {
-//            return true;
-//        }
-//
-//        // West
-//        return myMazeRoom[row][col].getDoorWest() && direction(row, col - 1, roomsvisited);
-//    }
-    //TODO: CAN DELETE
-//    public void placeRandomContentInRoom() {
-//
-//        Random room = new Random();
-//
-//        for (int i = 0; i < MAZE_SIZE; i++ ) {
-//            for (int j = 0; j < MAZE_SIZE; j++) {
-//                myMazeRoom[i][j].setOOPillar(room.nextBoolean());
-//                myMazeRoom[i][j].setPit(room.nextBoolean());
-//                myMazeRoom[i][j].setVisionPotion(room.nextBoolean());
-//            }
-//        }
-//
-//    }
-    //TODO: CAN DELETE
-    //THIS NEEDS TO BE COMPLETEDDDDDDD!!!!!!!!
-//    public DungeonCharacter placeRandomMonsterInRoom() {
-//        Random random = new Random();
-//
-//        DungeonCharacter monster = null;
-//
-//        return monster;
-//    }
-//
-////    public models.DungeonCharacter placeRandomMonsterInRoom() {
-////        Random newRandom = new Random();
-////        int random;
-////    }
 
     public void setMazeRoom(Room[][] mazeRoom) {
         myMazeRoom = mazeRoom;

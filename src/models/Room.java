@@ -40,6 +40,8 @@ public class Room {
     private RoomItems myPit;
 
     //TODO: Need to add Monster instance data field for the room to hold a specific monster.
+    /** . */
+    private Monster myRoomMonster;
 
     // constructors
 
@@ -53,7 +55,7 @@ public class Room {
          final DoorDirections theDoorNorth, final DoorDirections theDoorEast,
          final DoorDirections theDoorSouth, final DoorDirections theDoorWest,
          final RoomItems theOOPillar, final RoomItems theHealingPotion,
-         final RoomItems theVisionPotion, final RoomItems thePit) {
+         final RoomItems theVisionPotion, final RoomItems thePit, final Monster theMonster) {
 
         setEntrance(theEntrance);
         setExit(theExit);
@@ -65,6 +67,7 @@ public class Room {
         setHealingPotion(theHealingPotion);
         setVisionPotion(theVisionPotion);
         setPit(thePit);
+        setRoomMonster(theMonster);
     }
 
     // methods
@@ -139,7 +142,6 @@ public class Room {
         return myDoorWest;
     }
 
-    //TODO: May change DT to "char" not "bool"
     /** . */
     public final void setOOPillar(final RoomItems theOOPillar) {
         myOOPillar = theOOPillar;
@@ -186,6 +188,16 @@ public class Room {
     }
 
     /** . */
+    public final void setRoomMonster(final Monster theMonster) {
+        myRoomMonster = theMonster;
+    }
+
+    /** . */
+    public final Monster getRoomMonster() {
+        return myRoomMonster;
+    }
+
+    /** . */
     @Override
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -201,6 +213,7 @@ public class Room {
         sb.append("Has a Healing Potion in Room: " + getHealingPotion() + NEW_LINE);
         sb.append("Has a Vision Potion in Room: " + getVisionPotion() + NEW_LINE);
         sb.append("Has a Pit in Room: " + getPit() + NEW_LINE);
+        sb.append("Has a Monster in Room: " + getRoomMonster() + NEW_LINE);
         return sb.toString();
     }
 
