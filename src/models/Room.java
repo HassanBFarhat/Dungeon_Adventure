@@ -39,7 +39,14 @@ public class Room {
     /** . */
     private RoomItems myPit;
 
-    // constructor
+    //TODO: Need to add Monster instance data field for the room to hold a specific monster.
+
+    // constructors
+
+    /** . */
+    Room() {
+        // default constructor
+    }
 
     /** . */
     Room(final RoomItems theEntrance, final RoomItems theExit,
