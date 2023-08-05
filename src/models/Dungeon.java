@@ -13,9 +13,9 @@ public class Dungeon {
     private String myAdventureLocation;
 
     public Dungeon() {
-//        myMazeRoom = new models.Room[][];
+        myMazeRoom = new Room[MAZE_SIZE][MAZE_SIZE];
         myAdventureLocation = "0.0";
-        randomlyGenerateRooms();
+        ////// UNDO THIS randomlyGenerateRooms();
 //        checkIfEntranceToExitIsValid();
 //        placeRandomContentInRoom();
 //        placeRandomMonsterInRoom();
@@ -37,21 +37,23 @@ public class Dungeon {
 
         for (int i = 0; i < MAZE_SIZE; i++) {
             for (int j = 0; j < MAZE_SIZE; j++) {
-
+                System.out.print("THIS IS ROOM: Maze[" + i + "][" + j + "]");
                 if (i == 0 && !entrancePlaced) {
                     // randomly decide to place entrance somewhere on first row
                     final int randomEntranceNumber = (int) (Math.random() * 70);
                     if (randomEntranceNumber > 20) {
                         currentRoom.setEntrance(RoomItems.ENTRANCE);
+                        entrancePlaced = true;
                     }
-                    entrancePlaced = true;
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, i, j);
                 } else if (i == MAZE_SIZE - 1 && !exitPlaced) {
                     // randomly decide to place exit somewhere on last row
                     final int randomExitNumber = (int) (Math.random() * 70);
                     if (randomExitNumber > 20) {
                         currentRoom.setExit(RoomItems.EXIT);
+                        exitPlaced = true;
                     }
-                    exitPlaced = true;
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, i, j);
                 } else {
                     // Randomly place items and doors in rooms.
                     generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, i, j);
@@ -67,10 +69,18 @@ public class Dungeon {
                             polymorphismPillar = true;
                         }
                     }
-                    myMazeRoom[i][j] = currentRoom;
-                    currentRoom = new Room();
                 }
+                myMazeRoom[i][j] = currentRoom;
+                System.out.println(currentRoom.toString());
+                currentRoom = new Room();
             }
+        }
+        if (checkIfMazeIsValid(myMazeRoom)) {
+            System.out.println("**************************MAZE IS GOOD**************************");
+            return;
+        } else {
+            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!MAZE IS NOT GOOD, REMAKING MAZE!!!!!!!!!!!!!!!!!!!!!!!!\n");
+            randomlyGenerateRooms();
         }
     }
 
@@ -92,28 +102,7 @@ public class Dungeon {
         final int randomNumberForPit = (int) (Math.random() * 100);
         final int randomNumberForPillar = (int) (Math.random() * 100);
 
-        if (randomNumberForPotion <= 15) {
-            theRoom.setHealingPotion(RoomItems.HEALING_POTION);
-        }
-        if (randomNumberForPit <= 10) {
-            theRoom.setPit(RoomItems.PIT);
-        }
-        if (randomNumberForPillar <= 40) {
-            final int randomPillarIndex = (int) (Math.random() * thePillarList.size());
-            theRoom.setOOPillar(thePillarList.get(randomPillarIndex));
-            thePillarList.remove(randomPillarIndex);
-        }
-
-
-        //
-        //  if statement to place a random monster in the room goes here
-        //  implement similar to the thePillarList, but don't remove the monster
-        //  when finished adding to the room.
-        //
-        //
-
-
-
+        // FIRST, SET ROOM DOORS
         // figures out what doors go within which room in the matrix
         if (theCurrentRow == 0 && theCurrentColumn > 0 && theCurrentColumn < MAZE_SIZE - 1) {
             theRoom.setDoorNorth(DoorDirections.NO_DOOR_DIRECTION);
@@ -162,9 +151,60 @@ public class Dungeon {
             theRoom.setDoorWest(DoorDirections.WEST);
         }
 
+
+        // SECOND, CHECK TO SEE IF ENTRANCE OR EXIT IS PLACED
+        if (theRoom.hasEntrance() || theRoom.hasExit()) {
+            return;
+        }
+
+        // THIRD, PLACE RANDOM ITEMS OTHERWISE.
+        if (randomNumberForPotion <= 15) {
+            theRoom.setHealingPotion(RoomItems.HEALING_POTION);
+        }
+        if (randomNumberForPit <= 10) {
+            theRoom.setPit(RoomItems.PIT);
+        }
+        if (randomNumberForPillar <= 15 && thePillarList.size() != 0) {
+            final int randomPillarIndex = (int) (Math.random() * thePillarList.size());
+            theRoom.setOOPillar(thePillarList.get(randomPillarIndex));
+            thePillarList.remove(randomPillarIndex);
+        }
+
+        //
+        //  if statement to place a random monster in the room goes here
+        //  implement similar to the thePillarList, but don't remove the monster
+        //  when finished adding to the room.
+        //
+        //
+
     }
 
+    private boolean checkIfMazeIsValid(final Room[][] theMaze) {
+        boolean value = false;
+        boolean entrance = false;
+        boolean exit = false;
+        int pillarCount = 0;
 
+        for (int i = 0; i < theMaze.length; i++) {
+            for (int j = 0; j < theMaze.length; j++) {
+                if (theMaze[i][j].hasEntrance()) {
+                    entrance = true;
+                }
+                if (theMaze[i][j].hasExit()) {
+                    exit = true;
+                }
+                if (theMaze[i][j].hasPillar()) {
+                    pillarCount++;
+                }
+            }
+        }
+
+        if (entrance && exit && pillarCount == 4) {
+            value = true;
+        }
+
+        return value;
+    }
 
 
 
