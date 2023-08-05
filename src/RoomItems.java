@@ -1,30 +1,30 @@
 public enum RoomItems {
 
     /** . */
-    Entrance,
+    ENTRANCE,
 
     /** . */
-    Exit,
+    EXIT,
 
     /** . */
-    HealingPotion,
+    HEALING_POTION,
 
     /** . */
-    VisionPotion,
+    VISION_POTION,
 
     /** . */
-    Pit,
+    PIT,
 
     /** . */
-    AbstractionPillar,
+    ABSTRACTION_PILLAR,
 
     /** . */
-    EncapsulationPillar,
+    ENCAPSULATION_PILLAR,
 
     /** . */
-    InheritancePillar,
+    INHERITANCE_PILLAR,
 
     /** . */
-    PolymorphismPillar
+    POLYMORPHISM_PILLAR
 
 }

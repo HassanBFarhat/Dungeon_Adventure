@@ -2,15 +2,15 @@ public enum DoorDirections {
 
 
     /** . */
-    North,
+    NORTH,
 
     /** . */
-    South,
+    SOUTH,
 
     /** . */
-    East,
+    EAST,
 
     /** . */
-    West
+    WEST
 
 }
