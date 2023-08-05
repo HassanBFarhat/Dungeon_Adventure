@@ -1,5 +1,6 @@
 package controller;
 
+import models.Dungeon;
 import views.MainFrame;
 
 public final class Main {
@@ -9,7 +10,10 @@ public final class Main {
     }
 
     public static void main(final String[] theArgs) {
-        new MainFrame();
+
+//        new MainFrame();
+        final Dungeon d = new Dungeon();
+        d.randomlyGenerateRooms();
     }
 
 }
