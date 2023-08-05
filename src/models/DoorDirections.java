@@ -1,3 +1,5 @@
+package models;
+
 public enum DoorDirections {
 
 
@@ -11,6 +13,9 @@ public enum DoorDirections {
     EAST,
 
     /** . */
-    WEST
+    WEST,
+
+    /** . */
+    NO_DOOR_DIRECTION
 
 }

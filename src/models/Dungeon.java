@@ -38,6 +38,7 @@ public class Dungeon {
 
     }
 
+    //TODO: CAN DELETE THIS METHOD. NO USE.
     public boolean checkIfEntranceToExitIsValid() {
 
         boolean[][] roomsvisited = new boolean[MAZE_SIZE][MAZE_SIZE];

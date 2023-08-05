@@ -10,42 +10,43 @@ public class Room {
     // instance fields
 
     /** . */
-    private boolean myEntrance;
+    private RoomItems myEntrance;
 
     /** . */
-    private boolean myExit;
+    private RoomItems myExit;
 
     /** . */
-    private boolean myDoorNorth;
+    private DoorDirections myDoorNorth;
 
     /** . */
-    private boolean myDoorEast;
+    private DoorDirections myDoorEast;
 
     /** . */
-    private boolean myDoorSouth;
+    private DoorDirections myDoorSouth;
 
     /** . */
-    private boolean myDoorWest;
+    private DoorDirections myDoorWest;
 
     /** . */
-    private boolean myOOPillar;
+    private RoomItems myOOPillar;
 
     /** . */
-    private boolean myHealingPotion;
+    private RoomItems myHealingPotion;
 
     /** . */
-    private boolean myVisionPotion;
+    private RoomItems myVisionPotion;
 
     /** . */
-    private boolean myPit;
+    private RoomItems myPit;
 
     // constructor
 
     /** . */
-    Room(final boolean theEntrance, final boolean theExit, final boolean theDoorNorth,
-         final boolean theDoorEast, final boolean theDoorSouth, final boolean theDoorWest,
-         final boolean theOOPillar, final boolean theHealingPotion,
-         final boolean theVisionPotion, final boolean thePit) {
+    Room(final RoomItems theEntrance, final RoomItems theExit,
+         final DoorDirections theDoorNorth, final DoorDirections theDoorEast,
+         final DoorDirections theDoorSouth, final DoorDirections theDoorWest,
+         final RoomItems theOOPillar, final RoomItems theHealingPotion,
+         final RoomItems theVisionPotion, final RoomItems thePit) {
 
         setEntrance(theEntrance);
         setExit(theExit);
@@ -62,103 +63,103 @@ public class Room {
     // methods
 
     /** . */
-    public final void setEntrance(final boolean theEntrance) {
+    public final void setEntrance(final RoomItems theEntrance) {
         myEntrance = theEntrance;
     }
 
     /** . */
-    public final boolean getEntrance() {
+    public final RoomItems getEntrance() {
         return myEntrance;
     }
 
     /** . */
-    public final void setExit(final boolean theExit) {
+    public final void setExit(final RoomItems theExit) {
         myExit = theExit;
     }
 
     /** . */
-    public final boolean getExit() {
+    public final RoomItems getExit() {
         return myExit;
     }
 
     /** . */
-    public final void setDoorNorth(final boolean theNorthDoor) {
+    public final void setDoorNorth(final DoorDirections theNorthDoor) {
         myDoorNorth = theNorthDoor;
     }
 
     /** . */
-    public final boolean getDoorNorth() {
+    public final DoorDirections getDoorNorth() {
         return myDoorNorth;
     }
 
     /** . */
-    public final void setDoorSouth(final boolean theSouthDoor) {
+    public final void setDoorSouth(final DoorDirections theSouthDoor) {
         myDoorSouth = theSouthDoor;
     }
 
     /** . */
-    public final boolean getDoorSouth() {
+    public final DoorDirections getDoorSouth() {
         return myDoorSouth;
     }
 
     /** . */
-    public final void setDoorEast(final boolean theEastDoor) {
+    public final void setDoorEast(final DoorDirections theEastDoor) {
         myDoorEast = theEastDoor;
     }
 
     /** . */
-    public final boolean getDoorEast() {
+    public final DoorDirections getDoorEast() {
         return myDoorEast;
     }
 
     /** . */
-    public final void setDoorWest(final boolean theWestDoor) {
+    public final void setDoorWest(final DoorDirections theWestDoor) {
         myDoorWest = theWestDoor;
     }
 
     /** . */
-    public final boolean getDoorWest() {
+    public final DoorDirections getDoorWest() {
         return myDoorWest;
     }
 
     //TODO: May change DT to "char" not "bool"
     /** . */
-    public final void setOOPillar(final boolean theOOPillar) {
+    public final void setOOPillar(final RoomItems theOOPillar) {
         myOOPillar = theOOPillar;
     }
 
     /** . */
-    public final boolean getOOPillar() {
+    public final RoomItems getOOPillar() {
         return myOOPillar;
     }
 
     /** . */
-    public final void setHealingPotion(final boolean theHealingPotion) {
+    public final void setHealingPotion(final RoomItems theHealingPotion) {
         myHealingPotion = theHealingPotion;
     }
 
     /** . */
-    public final boolean getHealingPotion() {
+    public final RoomItems getHealingPotion() {
         return myHealingPotion;
     }
 
     /** . */
-    public final void setVisionPotion(final boolean theVisionPotion) {
+    public final void setVisionPotion(final RoomItems theVisionPotion) {
         myVisionPotion = theVisionPotion;
     }
 
     /** . */
-    public final boolean getVisionPotion() {
+    public final RoomItems getVisionPotion() {
         return myVisionPotion;
     }
 
     /** . */
-    public final void setPit(final boolean thePit) {
+    public final void setPit(final RoomItems thePit) {
         myPit = thePit;
     }
 
     /** . */
-    public final boolean getPit() {
+    public final RoomItems getPit() {
         return myPit;
     }
 

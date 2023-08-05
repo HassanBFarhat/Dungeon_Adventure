@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added SQLiteDemo.java back into the project">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated Enum's to follow naming guidelines.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DoorDirections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoorDirections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/RoomItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RoomItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DoorDirections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/DoorDirections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RoomItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RoomItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +292,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691129459159</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="- Updated Enum's to follow naming guidelines.">
+      <option name="closed" value="true" />
+      <created>1691197078409</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1691197078409</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,7 +330,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated the .gitignore file" />
     <MESSAGE value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java" />
     <MESSAGE value="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java&#10;- Added NEW_LINE constant field in DungeonCharacter.java" />
     <MESSAGE value="Completed Monster.java Class" />
@@ -345,6 +354,7 @@
     <MESSAGE value="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines." />
     <MESSAGE value="- Added SQLite DB table with monster information to the project." />
     <MESSAGE value="- Added SQLiteDemo.java back into the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added SQLiteDemo.java back into the project" />
+    <MESSAGE value="- Updated Enum's to follow naming guidelines." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Updated Enum's to follow naming guidelines." />
   </component>
 </project>
