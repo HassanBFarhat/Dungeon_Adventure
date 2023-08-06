@@ -69,18 +69,21 @@ public class MonsterFactory {
                         monster.setMonsterChanceToHeal(monsterChanceToHeal);
                         monster.setMinimumHealPoints(monsterMinHealPoints);
                         monster.setMaximumHealPoints(monsterMaxHealPoints);
+                        break;
 
                     case "Gremlin":
                         monster = new Gremlin(monsterName, monsterHealth, monsterHitPoints, monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage, monsterMinDamage);
                         monster.setMonsterChanceToHeal(monsterChanceToHeal);
                         monster.setMinimumHealPoints(monsterMinHealPoints);
                         monster.setMaximumHealPoints(monsterMaxHealPoints);
+                        break;
 
                     case "Skeleton":
                         monster = new Skeleton(monsterName, monsterHealth, monsterHitPoints, monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage, monsterMinDamage);
                         monster.setMonsterChanceToHeal(monsterChanceToHeal);
                         monster.setMinimumHealPoints(monsterMinHealPoints);
                         monster.setMaximumHealPoints(monsterMaxHealPoints);
+                        break;
                 }
             }
         }

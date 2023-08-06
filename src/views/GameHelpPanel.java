@@ -102,6 +102,7 @@ public class GameHelpPanel extends JPanel {
         myGameHelpTextArea.setWrapStyleWord(true);
         myGameHelpTextArea.setEditable(false);
         myGameHelpTextArea.setOpaque(false);
+        myGameHelpTextArea.setFocusable(false);  // This line makes the text unselectable
         myGameHelpTextArea.setBounds(HELP_TEXT_AREA_X_AND_Y_AXIS, HELP_TEXT_AREA_X_AND_Y_AXIS,
                                      HELP_TEXT_AREA_WIDTH, HELP_TEXT_AREA_HEIGHT);
     }
