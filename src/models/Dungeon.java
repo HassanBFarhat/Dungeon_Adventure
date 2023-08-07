@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.logging.Logger;
+
 public class Dungeon {
 //    private static final int MAZE_SIZE = (int) Math.random();
     private static final int MAZE_SIZE = 5;
@@ -26,9 +26,7 @@ public class Dungeon {
 
         Room currentRoom = new Room();
         List<RoomItems> pillarList = generateArrayOfPillars();
-        Logger logger = Logger.getLogger(Dungeon.class.getName());
-        DatabaseManager dbManager = new DatabaseManager(logger);
-        MonsterFactory mF = new MonsterFactory(dbManager, logger);
+        MonsterFactory mF = new MonsterFactory();
         List<Monster> monsterList = mF.getMonsterList();
         boolean entrancePlaced = false;
         boolean exitPlaced = false;

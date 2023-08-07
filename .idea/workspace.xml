@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Changed the visibility of Ogre.java, Skeleton.java, and Gremlin.java to have public visibility to create the monster objects for the factory. &#10;- Completed the MonsterFactory.java class (needs refactoring to clean up code, but it works)&#10;- Added myRoomMonster instance field and getters and setters for it in the Room.java class&#10;- Implemented randomly picking and placing a monster within a room of the 2D-Matrix.&#10;- All still needs to be refactored to clean up">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Hero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameHelpPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameHelpPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adventurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Hero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/DatabaseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MonsterFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -350,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691273282350</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines.">
+      <option name="closed" value="true" />
+      <created>1691437895125</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1691437895125</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +366,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added 2 enum classes for our Potential Room items and to clean up the Room class, the use of enum Direction class" />
     <MESSAGE value="Main.java, MainFrame.java, StartingScreenPanel.java added to the project" />
     <MESSAGE value="Created the GUI MainMenu for the game, with buttons in place and BG image" />
     <MESSAGE value="Created CharacterSelectionPanel.java, which is the menu when a player starts a new game. updated DungeonCharacter.java to be an abstract class. Updated the MainMenuPanel.java to Center Title and buttons on the screen" />
@@ -393,6 +390,7 @@
     <MESSAGE value="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster." />
     <MESSAGE value="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console." />
     <MESSAGE value="- Changed the visibility of Ogre.java, Skeleton.java, and Gremlin.java to have public visibility to create the monster objects for the factory. &#10;- Completed the MonsterFactory.java class (needs refactoring to clean up code, but it works)&#10;- Added myRoomMonster instance field and getters and setters for it in the Room.java class&#10;- Implemented randomly picking and placing a monster within a room of the 2D-Matrix.&#10;- All still needs to be refactored to clean up" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changed the visibility of Ogre.java, Skeleton.java, and Gremlin.java to have public visibility to create the monster objects for the factory. &#10;- Completed the MonsterFactory.java class (needs refactoring to clean up code, but it works)&#10;- Added myRoomMonster instance field and getters and setters for it in the Room.java class&#10;- Implemented randomly picking and placing a monster within a room of the 2D-Matrix.&#10;- All still needs to be refactored to clean up" />
+    <MESSAGE value="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines." />
   </component>
 </project>

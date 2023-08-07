@@ -1,32 +1,56 @@
 package models;
 
-import java.sql.*;
-import java.util.logging.Logger;
-import java.util.logging.Level;
+import org.sqlite.SQLiteDataSource;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MonsterFactory {
 
-    private final DatabaseManager dbManager;
-    private final List<Monster> monsterList;
-    private final Logger logger;
+    // constants
 
-    public MonsterFactory(DatabaseManager dbManager, Logger logger) {
-        this.dbManager = dbManager;
-        this.logger = logger;
+    /** . */
+    private static SQLiteDataSource ds = null;
+
+    // instance fields
+
+    private final List<Monster> monsterList;
+
+    // constructor
+
+    public MonsterFactory() {
+        // try for connection to DB
+        try {
+            ds = new SQLiteDataSource();
+            ds.setUrl("jdbc:sqlite:dungeon_characters.sqlite");
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            System.exit(0);
+        }
+
         monsterList = new ArrayList<>();
         monsterList.add(createMonster("Ogre"));
         monsterList.add(createMonster("Gremlin"));
         monsterList.add(createMonster("Skeleton"));
     }
 
+
+    // methods
+
     public Monster createMonster(String monsterType) {
         Monster monster = null;
 
-        ResultSet rs = this.dbManager.queryMonster(monsterType);
+        String query = "SELECT * FROM monsters WHERE monster_name = '" + monsterType + "'";
 
-        try {
+
+        // querying DB for content
+        try (Connection conn = ds.getConnection();
+             Statement stmt = conn.createStatement()) {
+            ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
                 String monsterName = rs.getString("monster_name");
                 int monsterHealth = rs.getInt("monster_health_points");
@@ -62,8 +86,10 @@ public class MonsterFactory {
                         break;
                 }
             }
-        } catch (SQLException e) {
-            this.logger.log(Level.SEVERE, "Error parsing the result set", e);
+        }
+        catch (final SQLException e) {
+            e.printStackTrace();
+            System.exit(0);
             throw new RuntimeException(e);
         }
 
@@ -73,4 +99,7 @@ public class MonsterFactory {
     public List<Monster> getMonsterList() {
         return monsterList;
     }
+
+//    private
+
 }
