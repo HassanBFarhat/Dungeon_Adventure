@@ -98,7 +98,7 @@ public class GamePlayPanel extends JPanel {
 
     /** . */
     private void instantiateInstanceDataFields() {
-        final ImageIcon heroImg = new ImageIcon("src/imgs/TEST_HERO_SPRITE2.jpg");
+        final ImageIcon heroImg = new ImageIcon("src/imgs/Thief_Main.png");
         final ImageIcon gamePlayBGImg = new ImageIcon("src/imgs/MainGameImg1.jpg");
         myMiniMap = new JPanel();
         myCharacterAndMovementOptions = new JPanel();

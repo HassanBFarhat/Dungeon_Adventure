@@ -24,13 +24,13 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int ACTION_CONSOLE_Y_COORDINATE = 530;
     /** . */
-    private static final int HERO_AND_MONSTER_WIDTH = 200;
+    private static final int HERO_AND_MONSTER_WIDTH = 300;
     /** . */
-    private static final int HERO_AND_MONSTER_HEIGHT = 200;
+    private static final int HERO_AND_MONSTER_HEIGHT = 326;
     /** . */
     private static final int HERO_X_COORDINATE = 220;
     /** . */
-    private static final int HERO_Y_COORDINATE = 270;
+    private static final int HERO_Y_COORDINATE = 200;
     /** . */
     private static final int MONSTER_X_COORDINATE = 730;
     /** . */
@@ -105,8 +105,8 @@ public class BattlePanel extends JPanel {
 
     /** . */
     private void instantiateInstanceDataFields() {
-        final ImageIcon monsterImg = new ImageIcon("src/imgs/MONSTER_TEST_SPRITE.jpg");
-        final ImageIcon heroImg = new ImageIcon("src/imgs/TEST_HERO_SPRITE3.jpg");
+        final ImageIcon monsterImg = new ImageIcon("src/imgs/Ogre1.png");
+        final ImageIcon heroImg = new ImageIcon("src/imgs/Thief_Battle.png");
         final ImageIcon battleBGImg = new ImageIcon("src/imgs/BattleFieldImg1.png");
         myMonsterImgLabel = new JLabel(monsterImg);
         myHeroImgLabel = new JLabel(heroImg);

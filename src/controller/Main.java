@@ -13,10 +13,10 @@ public final class Main {
 
     public static void main(final String[] theArgs) {
 
-//        new MainFrame();
+        new MainFrame();
 
-        final Dungeon d = new Dungeon();
-        d.randomlyGenerateRooms();
+//        final Dungeon d = new Dungeon();
+//        d.randomlyGenerateRooms();
 
 //        MonsterFactory mf = new MonsterFactory();
 //        System.out.println(mf.getMonsterList().toString());
