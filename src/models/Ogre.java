@@ -36,10 +36,10 @@ public class Ogre extends Monster {
     }
 
 
-//    @Override
-//    public String toString() {
-//        return "Ogre";
-//    }
+    @Override
+    public String toString() {
+        return "Ogre";
+    }
 
 
 

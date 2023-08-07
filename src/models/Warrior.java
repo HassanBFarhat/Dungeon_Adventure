@@ -8,28 +8,32 @@ class Warrior extends Hero {
     private static final int MAX_DAMAGE = 60;
     private static final int MIN_DAMAGE = 35;
 
-    private static final double CRUSHING_BLOW_CHANCE = 0.4; // 40%
+    private static final double CRUSHING_BLOW_CHANCE = 0.4;
     private static final int CRUSHING_BLOW_MIN_DAMAGE = 75;
     private static final int CRUSHING_BLOW_MAX_DAMAGE = 175;
 
     public Warrior(String name) {
-        super(name, HEALTH_POINTS, HIT_POINTS, ATTACK_SPEED, CHANCE_TO_HIT, MAX_DAMAGE, MIN_DAMAGE, CHANCE_TO_BLOCK);
+        super(name, HEALTH_POINTS, HIT_POINTS, ATTACK_SPEED, CHANCE_TO_HIT, MAX_DAMAGE, MIN_DAMAGE);
         setChanceToBlock(CHANCE_TO_BLOCK);
-
-        // If there's any models.Warrior-specific attribute initialization, do it here
+        setHeroSpecialSkill("Crushing Blow");
     }
 
     @Override
-    public int specialAttack() {
-        double chance = Math.random();
-        if (chance <= CRUSHING_BLOW_CHANCE) {
-            int modifiedMinDamage = CRUSHING_BLOW_MIN_DAMAGE + getHeroSpecialSkill();
-            // If the Crushing Blow succeeds
-            return (int)(chance * (CRUSHING_BLOW_MAX_DAMAGE - modifiedMinDamage + 1)) + modifiedMinDamage;
+    public void specialAttack() {
+        double chanceForCrushingBlow = (int) (Math.random() * 100) / 100.0;
+        if (chanceForCrushingBlow >= (1 - CRUSHING_BLOW_CHANCE)) {
+            double chanceForMaxCrush = (int) (Math.random() * 100) / 100.0;
+            if (chanceForMaxCrush >= 0.8) {
+                System.out.println("MAX crushing active");
+                //do max crush to monsters health
+            } else {
+                System.out.println("MIN crushing active");
+                //do min crush to monsters health
+            }
         } else {
-            // If the special attack fails, perform a standard attack
-            return standardAttack();
+            System.out.println("Chance for crushing blow failed, normal attack commence.");
+            this.standardAttack();
         }
     }
-    // Any other models.Warrior-specific methods can be added below
+
 }
