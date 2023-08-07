@@ -15,7 +15,6 @@ public class Adventurer extends DungeonCharacter {
                          final int theMaximumDamageRange, final int theAttackSpeed,
                          final double theChanceToHit, int theVisionPotions, char[] thePillars) {
         super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theMinimumDamageRange, theMaximumDamageRange, theAttackSpeed, theChanceToHit);
-        // Initialization for models.Adventurer-specific attributes can be added here, if needed
         this.myName = theCharacterName;
         this.myHitPoints = theCharacterHitPoints;
         this.myHealingPotions = theCharacterHealthPoints;

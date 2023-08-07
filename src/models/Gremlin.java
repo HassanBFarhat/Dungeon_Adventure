@@ -31,8 +31,8 @@ public class Gremlin extends Monster {
         return super.attack();
     }
 
-//    @Override
-//    public String toString() {
-//        return "Gremlin";
-//    }
+    @Override
+    public String toString() {
+        return "Gremlin";
+    }
 }

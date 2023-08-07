@@ -30,8 +30,8 @@ public class Skeleton extends Monster {
         return super.attack();
     }
 
-//    @Override
-//    public String toString() {
-//        return "Skeleton";
-//    }
+    @Override
+    public String toString() {
+        return "Skeleton";
+    }
 }
