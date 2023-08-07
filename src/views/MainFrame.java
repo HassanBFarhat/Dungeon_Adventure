@@ -124,8 +124,8 @@ public class MainFrame extends JFrame {
                 if (myCharacterSelectionPanel.getCharactersName().isEmpty()) {
                     JOptionPane.showMessageDialog(myMainMenuPanel, "CANNOT START WITHOUT PUTTING A NAME!");
                 } else {
-//                    changeScreen(GAME_PLAY_PANEL);
-                    changeScreen(BATTLE_PANEL);
+                    changeScreen(GAME_PLAY_PANEL);
+//                    changeScreen(BATTLE_PANEL);
                 }
             }
         });
