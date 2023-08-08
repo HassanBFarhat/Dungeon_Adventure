@@ -4,37 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Within the MainFrame.java class, on the &quot;Begin Your Adventure&quot; game button, I added a for loop that checks for the entrance in the first row, once found the coordinates are stored and that room is stored in variable myCurrentRoom.&#10;- After, I have a helper method in MainFrame.java that will check all the room doors to see which ones are passable or not, the ones that are not will be greyed out and unusable, while the others will be usable.&#10;- I also set up a theoretical traversal of the maze by implementing the ActionListeners for the movement buttons, updating the rows and columns as necessary, re-checking passable doors.&#10;-">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Modified the myPillar instance field in Adventurer.java to be an ArrayList to hold our pillars. &#10;- Also added addPillarToPillarArray() method in Adventurer.java as well.&#10;- Added a getter method in all Monster subclasses to obtain their img sprites.&#10;- Added a method to the Monster.java class to be overriden by the subclasses to hold the file path for the sprite.&#10;- Added some has() boolean methods to a few fields in Room.java&#10;- In BattlePanel.java, I added current room monster and adventurer for the current game battle, added some methods to set the current room monster and the users adventurer.&#10;- Added to MainFrame.java methods for checking current room for ground loot and picking them up, checking room monster, then fighting them">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adventurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691528960861</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="- Modified the myPillar instance field in Adventurer.java to be an ArrayList to hold our pillars. &#10;- Also added addPillarToPillarArray() method in Adventurer.java as well.&#10;- Added a getter method in all Monster subclasses to obtain their img sprites.&#10;- Added a method to the Monster.java class to be overriden by the subclasses to hold the file path for the sprite.&#10;- Added some has() boolean methods to a few fields in Room.java&#10;- In BattlePanel.java, I added current room monster and adventurer for the current game battle, added some methods to set the current room monster and the users adventurer.&#10;- Added to MainFrame.java methods for checking current room for ground loot and picking them up, checking room monster, then fighting them">
+      <option name="closed" value="true" />
+      <created>1691534939829</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1691534939829</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +448,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GameInformationPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="GameHelpPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="Added BattlePanel.java and GamePlayPanel.java to views package" />
     <MESSAGE value="Added instance fields and instantiations for those fields in GamePlayPanel.java class." />
@@ -493,6 +472,7 @@
     <MESSAGE value="- Added hasRoomMonster() method to the Room.java class.&#10;- Added Img path instance fields for monster/hero and their appropriate getters/setters for those img paths in BattlePanel.java class.&#10;- Also added getter methods for Attack, SpecialAttack, and Heal Btns on the BattlePanel.java class.&#10;- Added getter methods for North, South, East, West Btns of the GamePlayPanel.java class.&#10;- Added appropriate action listeners to each of the btns on the panels in MainFrame.java class. (still designing their functionalities)" />
     <MESSAGE value="- Added getters/setters for each rooms row position and column position in Room.java.&#10;- Added a method to get the MAZE_SIZE in Dungeon.java." />
     <MESSAGE value="- Within the MainFrame.java class, on the &quot;Begin Your Adventure&quot; game button, I added a for loop that checks for the entrance in the first row, once found the coordinates are stored and that room is stored in variable myCurrentRoom.&#10;- After, I have a helper method in MainFrame.java that will check all the room doors to see which ones are passable or not, the ones that are not will be greyed out and unusable, while the others will be usable.&#10;- I also set up a theoretical traversal of the maze by implementing the ActionListeners for the movement buttons, updating the rows and columns as necessary, re-checking passable doors.&#10;-" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Within the MainFrame.java class, on the &quot;Begin Your Adventure&quot; game button, I added a for loop that checks for the entrance in the first row, once found the coordinates are stored and that room is stored in variable myCurrentRoom.&#10;- After, I have a helper method in MainFrame.java that will check all the room doors to see which ones are passable or not, the ones that are not will be greyed out and unusable, while the others will be usable.&#10;- I also set up a theoretical traversal of the maze by implementing the ActionListeners for the movement buttons, updating the rows and columns as necessary, re-checking passable doors.&#10;-" />
+    <MESSAGE value="- Modified the myPillar instance field in Adventurer.java to be an ArrayList to hold our pillars. &#10;- Also added addPillarToPillarArray() method in Adventurer.java as well.&#10;- Added a getter method in all Monster subclasses to obtain their img sprites.&#10;- Added a method to the Monster.java class to be overriden by the subclasses to hold the file path for the sprite.&#10;- Added some has() boolean methods to a few fields in Room.java&#10;- In BattlePanel.java, I added current room monster and adventurer for the current game battle, added some methods to set the current room monster and the users adventurer.&#10;- Added to MainFrame.java methods for checking current room for ground loot and picking them up, checking room monster, then fighting them" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Modified the myPillar instance field in Adventurer.java to be an ArrayList to hold our pillars. &#10;- Also added addPillarToPillarArray() method in Adventurer.java as well.&#10;- Added a getter method in all Monster subclasses to obtain their img sprites.&#10;- Added a method to the Monster.java class to be overriden by the subclasses to hold the file path for the sprite.&#10;- Added some has() boolean methods to a few fields in Room.java&#10;- In BattlePanel.java, I added current room monster and adventurer for the current game battle, added some methods to set the current room monster and the users adventurer.&#10;- Added to MainFrame.java methods for checking current room for ground loot and picking them up, checking room monster, then fighting them" />
   </component>
 </project>
