@@ -2,6 +2,8 @@ package models;
 
 public class Gremlin extends Monster {
 
+    private static final String GREMLIN_IMG_BATTLE_FILE_PATH = "src/imgs/Gremlin1.png";
+
 //    private static final int HEALTH_POINTS = 70;
 //    private static final int HIT_POINTS = 70;
 //    private static final int ATTACK_SPEED = 5;
@@ -29,6 +31,12 @@ public class Gremlin extends Monster {
 
     public int attack() {
         return super.attack();
+    }
+
+
+    @Override
+    public String getMonsterBattleImgFilePath() {
+        return GREMLIN_IMG_BATTLE_FILE_PATH;
     }
 
     @Override

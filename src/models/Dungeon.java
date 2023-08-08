@@ -172,6 +172,7 @@ public class Dungeon {
             theRoom.setOOPillar(thePillarList.get(randomPillarIndex));
             thePillarList.remove(randomPillarIndex);
         }
+        //TODO:COME BACK AND FIX THIS FOR MONSTER GENERATION IN THE DUNGEON.
         if (randomNumberForMonster <= 90) {
             final int randomMonsterIndex = (int) (Math.random() * 3);
             theRoom.setRoomMonster(theMonsterList.get(randomMonsterIndex));

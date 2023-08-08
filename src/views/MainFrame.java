@@ -205,6 +205,8 @@ public class MainFrame extends JFrame {
                 myCurrentRoomRow -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
             }
         });
 
@@ -214,6 +216,8 @@ public class MainFrame extends JFrame {
                 myCurrentRoomRow += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
             }
         });
 
@@ -223,6 +227,8 @@ public class MainFrame extends JFrame {
                 myCurrentRoomColumn += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
             }
         });
 
@@ -232,6 +238,8 @@ public class MainFrame extends JFrame {
                 myCurrentRoomColumn -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
             }
         });
 
@@ -294,6 +302,40 @@ public class MainFrame extends JFrame {
             myGamePlayPanel.getMyWestBtn().setEnabled(true);
         }
     }
+
+
+
+    /** . */
+    private void checkRoomForGroundItemsAndPit() {
+        if (myCurrentRoom.hasHealingPotion()) {
+            myAdventurer.setMyHealingPotions(1);
+        }
+        if (myCurrentRoom.hasPillar()) {
+            myAdventurer.addPillarToMyPillarsArray(myCurrentRoom.getOOPillar());
+        }
+        // Add check for vision potion too once/if implemented
+        if (myCurrentRoom.hasPit()) {
+            int randomDamage = (int) (Math.random() * 20);
+            // can put JOptionPane here letting user quickly know that they took fall damage.
+            myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() - randomDamage);
+            // Need to update health bars on GamePlayPanel to show appropriate health.
+        }
+    }
+
+    /** . */
+    private void checkRoomForMonster() {
+        if (myCurrentRoom.hasRoomMonster()) {
+            myBattlePanel.setCurrentRoomMonster(myCurrentRoom.getRoomMonster());
+            myBattlePanel.setAdventurer(myAdventurer);
+            // need to fix the health bars accordingly for this match.
+            myBattlePanel.addBothCharactersToBattlePanel();
+            changeScreen(BATTLE_PANEL);
+        }
+    }
+
+
+
+
 
 
 }

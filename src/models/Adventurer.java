@@ -1,11 +1,14 @@
 package models;
 
+import java.awt.*;
+import java.util.ArrayList;
+
 public class Adventurer extends Hero {
 
     // Attributes specific to models.Adventurer class
     private int myHealingPotions;
     private int myVisionPotions;
-    private char[] myPillars;
+    private ArrayList<RoomItems> myPillars;
 
     // Constructor for models.Adventurer class
     protected Adventurer(final String theCharacterName, final int theCharacterHealthPoints,
@@ -13,6 +16,7 @@ public class Adventurer extends Hero {
                          final int theMaximumDamageRange, final int theAttackSpeed,
                          final double theChanceToHit) {
         super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theAttackSpeed, theChanceToHit, theMaximumDamageRange, theMinimumDamageRange);
+        myPillars = new ArrayList<>();
     }
 
 
@@ -47,11 +51,11 @@ public class Adventurer extends Hero {
         return myVisionPotions;
     }
 
-    public void setMyPillars(char[] pillars) {
-        this.myPillars = pillars;
+    public void addPillarToMyPillarsArray(RoomItems thePillar) {
+        myPillars.add(thePillar);
     }
 
-    public char[] getMyPillars() {
+    public ArrayList<RoomItems> getMyPillars() {
         return myPillars;
     }
 

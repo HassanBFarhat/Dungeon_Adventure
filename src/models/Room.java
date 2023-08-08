@@ -173,6 +173,11 @@ public class Room {
     }
 
     /** . */
+    public final boolean hasHealingPotion() {
+        return getHealingPotion() != null;
+    }
+
+    /** . */
     public final void setVisionPotion(final RoomItems theVisionPotion) {
         myVisionPotion = theVisionPotion;
     }
@@ -183,6 +188,11 @@ public class Room {
     }
 
     /** . */
+    public final boolean hasVisionPotion() {
+        return getVisionPotion() != null;
+    }
+
+    /** . */
     public final void setPit(final RoomItems thePit) {
         myPit = thePit;
     }
@@ -190,6 +200,11 @@ public class Room {
     /** . */
     public final RoomItems getPit() {
         return myPit;
+    }
+
+    /** . */
+    public final boolean hasPit() {
+        return getPit() != null;
     }
 
     /** . */

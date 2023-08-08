@@ -1,5 +1,8 @@
 package views;
 
+import models.Adventurer;
+import models.Monster;
+
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -90,6 +93,10 @@ public class BattlePanel extends JPanel {
     private String myHeroBattleImgPath;
     /** . */
     private String myMonsterBattleImgPath;
+    /** . */
+    private Monster myCurrentRoomMonster;
+    /** . */
+    private Adventurer myAdventurer;
 
     // constructor
 
@@ -98,40 +105,27 @@ public class BattlePanel extends JPanel {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();
         setUpBorderAndBoundsForActionConsole();
-        setUpHeroAndMonsterBGLabelBounds();
+//        setUpHeroAndMonsterBGLabelBounds();
         setUpAttackSpecialAttackAndHealButtonBounds();
         setUpHeroAndMonsterHealthBars();
         addAllTheComponentsToBattleBGLabel();
+
+
+
     }
 
 
     // methods
 
-    public void setHeroBattleImgFilePath(final String theHeroBattleImgFilePath) {
-        myHeroBattleImgPath = theHeroBattleImgFilePath;
-    }
-
-
-    public String getHeroBattleImgPath() {
-        return myHeroBattleImgPath;
-    }
-
-    public void setMonsterBattleImgFilePath(final String theMonsterBattleImgFilePath) {
-        myMonsterBattleImgPath = theMonsterBattleImgFilePath;
-    }
-
-
-    public String getMonsterBattleImgPath() {
-        return myMonsterBattleImgPath;
-    }
 
     public void addBothCharactersToBattlePanel() {
-        final ImageIcon monsterImg = new ImageIcon(getMonsterBattleImgPath());
-        final ImageIcon heroImg = new ImageIcon(getHeroBattleImgPath());
+        final ImageIcon monsterImg = new ImageIcon(myCurrentRoomMonster.getMonsterBattleImgFilePath());
+        final ImageIcon heroImg = new ImageIcon(myAdventurer.getAdventurerBattleImgFilePath());
         myMonsterImgLabel = new JLabel(monsterImg);
         myHeroImgLabel = new JLabel(heroImg);
         myBattleBGImgLabel.add(myHeroImgLabel);
         myBattleBGImgLabel.add(myMonsterImgLabel);
+        setUpHeroAndMonsterBGLabelBounds();
     }
 
 
@@ -235,6 +229,14 @@ public class BattlePanel extends JPanel {
 
     public JButton getMyHealBtn() {
         return myHealBtn;
+    }
+
+    public void setCurrentRoomMonster(final Monster theMonster) {
+        myCurrentRoomMonster = theMonster;
+    }
+
+    public void setAdventurer(final Adventurer theAdventurer) {
+        myAdventurer = theAdventurer;
     }
 
 }

@@ -11,6 +11,13 @@ public abstract class Monster extends DungeonCharacter {
         super(name, healthPoints, hitPoints, minDamage, maxDamage, attackSpeed, chanceHit);
     }
 
+
+    public String getMonsterBattleImgFilePath() {
+        return "No Main file found";
+    }
+
+
+
     @Override
     public int attack() {
         return super.attack();

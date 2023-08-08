@@ -2,6 +2,8 @@ package models;
 
 public class Skeleton extends Monster {
 
+    private static final String SKELETON_IMG_BATTLE_FILE_PATH = "src/imgs/Skeleton1.png";
+
 //    private static final int HEALTH_POINTS = 100;
 //    private static final int HIT_POINTS = 100;
 //    private static final int ATTACK_SPEED = 3;
@@ -28,6 +30,12 @@ public class Skeleton extends Monster {
 
     public int attack() {
         return super.attack();
+    }
+
+
+    @Override
+    public String getMonsterBattleImgFilePath() {
+        return SKELETON_IMG_BATTLE_FILE_PATH;
     }
 
     @Override

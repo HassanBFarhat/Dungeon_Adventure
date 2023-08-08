@@ -2,6 +2,8 @@ package models;
 
 public class Ogre extends Monster {
 
+    private static final String OGRE_IMG_BATTLE_FILE_PATH = "src/imgs/Ogre1.png";
+
 //    private static final int HEALTH_POINTS = 200;
 //    private static final int HIT_POINTS = 200;
 //    private static final int ATTACK_SPEED = 2;
@@ -33,6 +35,11 @@ public class Ogre extends Monster {
 
     public int attack() {
         return super.attack();
+    }
+
+    @Override
+    public String getMonsterBattleImgFilePath() {
+        return OGRE_IMG_BATTLE_FILE_PATH;
     }
 
 
