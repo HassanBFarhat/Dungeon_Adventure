@@ -86,6 +86,10 @@ public class BattlePanel extends JPanel {
     private JButton myHealBtn;
     /** . */
     private JTextArea myGameActionConsole;
+    /** . */
+    private String myHeroBattleImgPath;
+    /** . */
+    private String myMonsterBattleImgPath;
 
     // constructor
 
@@ -103,13 +107,37 @@ public class BattlePanel extends JPanel {
 
     // methods
 
-    /** . */
-    private void instantiateInstanceDataFields() {
-        final ImageIcon monsterImg = new ImageIcon("src/imgs/Gremlin1.png");
-        final ImageIcon heroImg = new ImageIcon("src/imgs/Thief_Battle.png");
-        final ImageIcon battleBGImg = new ImageIcon("src/imgs/BattleFieldImg1.png");
+    public void setHeroBattleImgFilePath(final String theHeroBattleImgFilePath) {
+        myHeroBattleImgPath = theHeroBattleImgFilePath;
+    }
+
+
+    public String getHeroBattleImgPath() {
+        return myHeroBattleImgPath;
+    }
+
+    public void setMonsterBattleImgFilePath(final String theMonsterBattleImgFilePath) {
+        myMonsterBattleImgPath = theMonsterBattleImgFilePath;
+    }
+
+
+    public String getMonsterBattleImgPath() {
+        return myMonsterBattleImgPath;
+    }
+
+    public void addBothCharactersToBattlePanel() {
+        final ImageIcon monsterImg = new ImageIcon(getMonsterBattleImgPath());
+        final ImageIcon heroImg = new ImageIcon(getHeroBattleImgPath());
         myMonsterImgLabel = new JLabel(monsterImg);
         myHeroImgLabel = new JLabel(heroImg);
+        myBattleBGImgLabel.add(myHeroImgLabel);
+        myBattleBGImgLabel.add(myMonsterImgLabel);
+    }
+
+
+    /** . */
+    private void instantiateInstanceDataFields() {
+        final ImageIcon battleBGImg = new ImageIcon("src/imgs/BattleFieldImg1.png");
         myBattleBGImgLabel = new JLabel(battleBGImg);
         myAttackBtn = new JButton("Attack");
         mySpecialAttackBtn = new JButton("Special Attack");
@@ -192,11 +220,21 @@ public class BattlePanel extends JPanel {
         myBattleBGImgLabel.add(mySpecialAttackBtn);
         myBattleBGImgLabel.add(myHealBtn);
         myBattleBGImgLabel.add(myGameActionConsole);
-        myBattleBGImgLabel.add(myHeroImgLabel);
-        myBattleBGImgLabel.add(myMonsterImgLabel);
         myBattleBGImgLabel.add(myHeroHealthBar);
         myBattleBGImgLabel.add(myMonstersHealthBar);
     }
 
+
+    public JButton getMyAttackBtn() {
+        return myAttackBtn;
+    }
+
+    public JButton getMySpecialAttackBtn() {
+        return mySpecialAttackBtn;
+    }
+
+    public JButton getMyHealBtn() {
+        return myHealBtn;
+    }
 
 }

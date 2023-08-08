@@ -170,6 +170,26 @@ public class GamePlayPanel extends JPanel {
         attachDirectionButtonsToEnumDirections();
     }
 
+
+    public JButton getMyNorthBtn() {
+        return myNorthBtn;
+    }
+
+    public JButton getMySouthBtn() {
+        return mySouthBtn;
+    }
+
+    public JButton getMyEastBtn() {
+        return myEastBtn;
+    }
+
+    public JButton getMyWestBtn() {
+        return myWestBtn;
+    }
+
+
+
+
     /**
      * attachs enum directions to the directional buttons in the game
      */

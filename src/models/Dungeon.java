@@ -21,7 +21,6 @@ public class Dungeon {
 //        placeRandomMonsterInRoom();
     }
 
-    //TODO: Needs to implement MonsterFactory to then add randomized monster to the room.
     public void randomlyGenerateRooms() {
 
         Room currentRoom = new Room();

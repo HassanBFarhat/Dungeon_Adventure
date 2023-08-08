@@ -1,9 +1,6 @@
 package views;
 
-import models.Adventurer;
-import models.Priestess;
-import models.Thief;
-import models.Warrior;
+import models.*;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -54,6 +51,8 @@ public class MainFrame extends JFrame {
     private BattlePanel myBattlePanel;
     /** . */
     private Adventurer myAdventurer;
+    /** . */
+    private Dungeon myDungeon;
 
     // constructor
 
@@ -62,6 +61,7 @@ public class MainFrame extends JFrame {
         setUpFramePanels();
         setUpMainFrame();
         setUpPanelButtons();
+        createMainGameMaze();
     }
 
 
@@ -77,7 +77,14 @@ public class MainFrame extends JFrame {
         myGameHelpPanel = new GameHelpPanel();
         myGamePlayPanel = new GamePlayPanel();
         myBattlePanel = new BattlePanel();
+        myDungeon = new Dungeon();
     }
+
+    /** . */
+    private void createMainGameMaze() {
+        myDungeon.randomlyGenerateRooms();
+    }
+
 
     /** . */
     private void setUpFramePanels() {
@@ -138,10 +145,18 @@ public class MainFrame extends JFrame {
                     } else if (myCharacterSelectionPanel.getHeroOptionFromBox().equals("Thief")) {
                         myAdventurer = new Thief();
                     }
+
+                    /*
+                        We also need to implement when this btn is pressed, we need to use myDungeon.getMaze()
+                        and check the first row to see where the entrance is; afterwards, we must place our
+                        Adventurer at that location to start. ADD HERE.
+                     */
+
                     myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());
                     myGamePlayPanel.addingPlayerChosenAdventurerImgToPanel();
-//                    changeScreen(GAME_PLAY_PANEL);
-                    changeScreen(BATTLE_PANEL);
+                    changeScreen(GAME_PLAY_PANEL);
+//                    changeScreen(BATTLE_PANEL);
+
                 }
             }
         });
@@ -160,6 +175,57 @@ public class MainFrame extends JFrame {
 
         myGameHelpPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(OPTIONS_PANEL));
+
+        myGamePlayPanel.getMyNorthBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
+        myGamePlayPanel.getMySouthBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
+        myGamePlayPanel.getMyEastBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
+        myGamePlayPanel.getMyWestBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
+
+        myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
+        myBattlePanel.getMySpecialAttackBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
+        myBattlePanel.getMyHealBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+
+            }
+        });
+
     }
 
     /** . */

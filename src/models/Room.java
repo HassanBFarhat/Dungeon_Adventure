@@ -198,6 +198,11 @@ public class Room {
     }
 
     /** . */
+    public final boolean hasRoomMonster() {
+        return getRoomMonster() != null;
+    }
+
+    /** . */
     @Override
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
