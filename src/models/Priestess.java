@@ -1,5 +1,5 @@
 package models;
-public class Priestess extends Hero {
+public class Priestess extends Adventurer {
     private static final String PRIESTESS_NAME = "Priestess";
     private static final int HEALTH_POINTS = 75;
     private static final int HIT_POINTS = 75;
@@ -13,7 +13,7 @@ public class Priestess extends Hero {
 
     // Constructor
     public Priestess() {
-        super(PRIESTESS_NAME, HEALTH_POINTS, HIT_POINTS, ATTACK_SPEED, CHANCE_TO_HIT, MAX_DAMAGE, MIN_DAMAGE);
+        super(PRIESTESS_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE, ATTACK_SPEED, CHANCE_TO_HIT);
         setChanceToBlock(CHANCE_TO_BLOCK);
         setHeroSpecialSkill("Heal");
     }

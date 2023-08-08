@@ -1,5 +1,5 @@
 package models;
-public class Warrior extends Hero {
+public class Warrior extends Adventurer {
     private static final String WARRIOR_NAME = "Warrior";
     private static final int HEALTH_POINTS = 125;
     private static final int HIT_POINTS = 125;
@@ -14,7 +14,7 @@ public class Warrior extends Hero {
     private static final int CRUSHING_BLOW_MAX_DAMAGE = 175;
 
     public Warrior() {
-        super(WARRIOR_NAME, HEALTH_POINTS, HIT_POINTS, ATTACK_SPEED, CHANCE_TO_HIT, MAX_DAMAGE, MIN_DAMAGE);
+        super(WARRIOR_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE, ATTACK_SPEED, CHANCE_TO_HIT);
         setChanceToBlock(CHANCE_TO_BLOCK);
         setHeroSpecialSkill("Crushing Blow");
     }

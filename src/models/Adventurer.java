@@ -1,10 +1,8 @@
 package models;
 
-public class Adventurer extends DungeonCharacter {
+public class Adventurer extends Hero {
 
     // Attributes specific to models.Adventurer class
-    private String myName;
-    private int myHitPoints;
     private int myHealingPotions;
     private int myVisionPotions;
     private char[] myPillars;
@@ -13,32 +11,10 @@ public class Adventurer extends DungeonCharacter {
     protected Adventurer(final String theCharacterName, final int theCharacterHealthPoints,
                          final int theCharacterHitPoints, final int theMinimumDamageRange,
                          final int theMaximumDamageRange, final int theAttackSpeed,
-                         final double theChanceToHit, int theVisionPotions, char[] thePillars) {
-        super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theMinimumDamageRange, theMaximumDamageRange, theAttackSpeed, theChanceToHit);
-        this.myName = theCharacterName;
-        this.myHitPoints = theCharacterHitPoints;
-        this.myHealingPotions = theCharacterHealthPoints;
-        this.myVisionPotions = theVisionPotions;
-        this.myPillars = thePillars;
+                         final double theChanceToHit) {
+        super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theAttackSpeed, theChanceToHit, theMaximumDamageRange, theMinimumDamageRange);
     }
 
-    // Getter and Setter methods for models.Adventurer-specific attributes
-
-    public void setMyName(String name) {
-        this.myName = name;
-    }
-
-    public String getMyName() {
-        return myName;
-    }
-
-    public void setMyHitPoints(int hitPoints) {
-        this.myHitPoints = hitPoints;
-    }
-
-    public int getMyHitPoints() {
-        return myHitPoints;
-    }
 
     public void setMyHealingPotions(int healingPotions) {
         this.myHealingPotions += healingPotions;
@@ -72,8 +48,6 @@ public class Adventurer extends DungeonCharacter {
 
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-
-        // Use the superclass's toString() for shared attributes
         sb.append(super.toString());
         return sb.toString();
     }
