@@ -4,22 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Changed the family hierarchy of Hero's. DungeonCharacter -&gt; Hero -&gt; Adventurer -&gt; Warrior, Thief, Priestess&#10;- Refactored Adventurer.java class">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adventurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -396,7 +387,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691454566915</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user.">
+      <option name="closed" value="true" />
+      <created>1691461180681</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1691461180681</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,7 +413,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished OptionsPanel.java, GameInformationPanel.java, and GameHelpPanel.java&#10;Updated MainFrame.java cardLayout to hold the new panels." />
     <MESSAGE value="MainFrame.java in views package refactored to follow Checkstyle + update readability" />
     <MESSAGE value="MainMenuPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="CharacterSelectionPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
@@ -439,6 +437,7 @@
     <MESSAGE value="- Removed parameters from the contractors" />
     <MESSAGE value="- Updated visibility for the hero subclasses from default -&gt; public" />
     <MESSAGE value="- Changed the family hierarchy of Hero's. DungeonCharacter -&gt; Hero -&gt; Adventurer -&gt; Warrior, Thief, Priestess&#10;- Refactored Adventurer.java class" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Changed the family hierarchy of Hero's. DungeonCharacter -&gt; Hero -&gt; Adventurer -&gt; Warrior, Thief, Priestess&#10;- Refactored Adventurer.java class" />
+    <MESSAGE value="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user." />
   </component>
 </project>

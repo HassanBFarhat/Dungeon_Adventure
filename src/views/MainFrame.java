@@ -140,7 +140,8 @@ public class MainFrame extends JFrame {
                     }
                     myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());
                     myGamePlayPanel.addingPlayerChosenAdventurerImgToPanel();
-                    changeScreen(GAME_PLAY_PANEL);
+//                    changeScreen(GAME_PLAY_PANEL);
+                    changeScreen(BATTLE_PANEL);
                 }
             }
         });
