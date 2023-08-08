@@ -150,6 +150,9 @@ public class MainFrame extends JFrame {
                         We also need to implement when this btn is pressed, we need to use myDungeon.getMaze()
                         and check the first row to see where the entrance is; afterwards, we must place our
                         Adventurer at that location to start. ADD HERE.
+
+                        Also want to check here the types of doors available for the user in the current
+                        cell of the matrix.
                      */
 
                     myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());

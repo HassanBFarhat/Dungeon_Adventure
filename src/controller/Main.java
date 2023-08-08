@@ -18,12 +18,12 @@ public final class Main {
         final Dungeon d = new Dungeon();
         d.randomlyGenerateRooms();
 
-        System.out.println(d.getMyMazeRoom()[4][4]);
-        System.out.println();
-        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster());
-        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster().getCharacterHealthPoints());
-        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster().getCharacterHitPoints());
-        System.out.println(d.getMyMazeRoom()[4][4].getHealingPotion());
+//        System.out.println(d.getMyMazeRoom()[4][4]);
+//        System.out.println();
+//        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster());
+//        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster().getCharacterHealthPoints());
+//        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster().getCharacterHitPoints());
+//        System.out.println(d.getMyMazeRoom()[4][4].getHealingPotion());
 
 
 //        MonsterFactory mf = new MonsterFactory();

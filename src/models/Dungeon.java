@@ -37,6 +37,8 @@ public class Dungeon {
         for (int i = 0; i < MAZE_SIZE; i++) {
             for (int j = 0; j < MAZE_SIZE; j++) {
                 System.out.print("THIS IS ROOM: Maze[" + i + "][" + j + "]");
+                currentRoom.setMyRowPosition(i);
+                currentRoom.setMyColumnPosition(j);
                 if (i == 0 && !entrancePlaced) {
                     // randomly decide to place entrance somewhere on first row
                     final int randomEntranceNumber = (int) (Math.random() * 70);
@@ -218,6 +220,11 @@ public class Dungeon {
     public Room[][] getMyMazeRoom() {
         return myMazeRoom;
     }
+
+    public int getMazeSize() {
+        return MAZE_SIZE;
+    }
+
 
     public void setMyAdventureLocation(String myAdventureLocation) {
         this.myAdventureLocation = myAdventureLocation;

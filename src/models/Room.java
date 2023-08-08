@@ -43,6 +43,11 @@ public class Room {
     /** . */
     private Monster myRoomMonster;
 
+    /** . */
+    private int myRowPostion;
+    /** . */
+    private int myColumnPostion;
+
     // constructors
 
     /** . */
@@ -203,6 +208,26 @@ public class Room {
     }
 
     /** . */
+    public void setMyRowPosition(final int theRowPosition) {
+        myRowPostion = theRowPosition;
+    }
+
+    /** . */
+    public int getMyRowPosition() {
+        return myRowPostion;
+    }
+
+    /** . */
+    public void setMyColumnPosition(final int theColumnPosition) {
+        myColumnPostion = theColumnPosition;
+    }
+
+    /** . */
+    public int getMyColumnPosition() {
+        return myColumnPostion;
+    }
+
+    /** . */
     @Override
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -210,6 +235,8 @@ public class Room {
         sb.append("***********************************" + NEW_LINE);
         sb.append("Has an Entrance: " + getEntrance() + NEW_LINE);
         sb.append("Has an Exit: " + getExit() + NEW_LINE);
+        sb.append("Row Position: " + getMyRowPosition() + NEW_LINE);
+        sb.append("Column Position: " + getMyColumnPosition() + NEW_LINE);
         sb.append("Has an North Door: " + getDoorNorth() + NEW_LINE);
         sb.append("Has an South Door: " + getDoorSouth() + NEW_LINE);
         sb.append("Has an East Door: " + getDoorEast() + NEW_LINE);
