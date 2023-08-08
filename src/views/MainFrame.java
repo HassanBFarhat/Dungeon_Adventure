@@ -53,6 +53,12 @@ public class MainFrame extends JFrame {
     private Adventurer myAdventurer;
     /** . */
     private Dungeon myDungeon;
+    /** . */
+    private int myCurrentRoomRow;
+    /** . */
+    private int myCurrentRoomColumn;
+    /** . */
+    private Room myCurrentRoom;
 
     // constructor
 
@@ -78,6 +84,9 @@ public class MainFrame extends JFrame {
         myGamePlayPanel = new GamePlayPanel();
         myBattlePanel = new BattlePanel();
         myDungeon = new Dungeon();
+        myCurrentRoomRow = 0;
+        myCurrentRoomColumn = 0;
+        myCurrentRoom = new Room();
     }
 
     /** . */
@@ -146,6 +155,17 @@ public class MainFrame extends JFrame {
                         myAdventurer = new Thief();
                     }
 
+                    for (int j = 0; j < myDungeon.getMazeSize(); j++) {
+                        if (myDungeon.getMyMazeRoom()[0][j].hasEntrance()) {
+                            myCurrentRoomRow = 0;
+                            myCurrentRoomColumn = j;
+
+                            myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                        }
+                    }
+
+                    checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+
                     /*
                         We also need to implement when this btn is pressed, we need to use myDungeon.getMaze()
                         and check the first row to see where the entrance is; afterwards, we must place our
@@ -182,30 +202,42 @@ public class MainFrame extends JFrame {
         myGamePlayPanel.getMyNorthBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-
+                myCurrentRoomRow -= 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
             }
         });
 
         myGamePlayPanel.getMySouthBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-
+                myCurrentRoomRow += 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
             }
         });
 
         myGamePlayPanel.getMyEastBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-
+                myCurrentRoomColumn += 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
             }
         });
 
         myGamePlayPanel.getMyWestBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-
+                myCurrentRoomColumn -= 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
             }
         });
+
+
+
+
 
 
         myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
@@ -235,5 +267,33 @@ public class MainFrame extends JFrame {
     private void changeScreen(final String theScreen) {
         ((CardLayout) myCardPanel.getLayout()).show(myCardPanel, theScreen);
     }
+
+
+    /** . */
+    private void checkToSeeIfDoorsArePassable(final int theCurrRow, final int theCurrColumn) {
+        final Room currentRoom = myDungeon.getMyMazeRoom()[theCurrRow][theCurrColumn];
+
+        if (currentRoom.getDoorNorth().equals(DoorDirections.NO_DOOR_DIRECTION)) {
+            myGamePlayPanel.getMyNorthBtn().setEnabled(false);
+        } else {
+            myGamePlayPanel.getMyNorthBtn().setEnabled(true);
+        }
+        if (currentRoom.getDoorSouth().equals(DoorDirections.NO_DOOR_DIRECTION)) {
+            myGamePlayPanel.getMySouthBtn().setEnabled(false);
+        } else {
+            myGamePlayPanel.getMySouthBtn().setEnabled(true);
+        }
+        if (currentRoom.getDoorEast().equals(DoorDirections.NO_DOOR_DIRECTION)) {
+            myGamePlayPanel.getMyEastBtn().setEnabled(false);
+        } else {
+            myGamePlayPanel.getMyEastBtn().setEnabled(true);
+        }
+        if (currentRoom.getDoorWest().equals(DoorDirections.NO_DOOR_DIRECTION)) {
+            myGamePlayPanel.getMyWestBtn().setEnabled(false);
+        } else {
+            myGamePlayPanel.getMyWestBtn().setEnabled(true);
+        }
+    }
+
 
 }

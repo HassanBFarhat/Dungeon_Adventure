@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added hasRoomMonster() method to the Room.java class.&#10;- Added Img path instance fields for monster/hero and their appropriate getters/setters for those img paths in BattlePanel.java class.&#10;- Also added getter methods for Attack, SpecialAttack, and Heal Btns on the BattlePanel.java class.&#10;- Added getter methods for North, South, East, West Btns of the GamePlayPanel.java class.&#10;- Added appropriate action listeners to each of the btns on the panels in MainFrame.java class. (still designing their functionalities)">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added getters/setters for each rooms row position and column position in Room.java.&#10;- Added a method to get the MAZE_SIZE in Dungeon.java.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
@@ -414,7 +410,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691475341120</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="- Added getters/setters for each rooms row position and column position in Room.java.&#10;- Added a method to get the MAZE_SIZE in Dungeon.java.">
+      <option name="closed" value="true" />
+      <created>1691477760591</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1691477760591</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -432,7 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="CharacterSelectionPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="OptionsPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="GameInformationPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
     <MESSAGE value="GameHelpPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes." />
@@ -457,6 +460,7 @@
     <MESSAGE value="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user." />
     <MESSAGE value="- Added resized Gremlin1.png sprite image" />
     <MESSAGE value="- Added hasRoomMonster() method to the Room.java class.&#10;- Added Img path instance fields for monster/hero and their appropriate getters/setters for those img paths in BattlePanel.java class.&#10;- Also added getter methods for Attack, SpecialAttack, and Heal Btns on the BattlePanel.java class.&#10;- Added getter methods for North, South, East, West Btns of the GamePlayPanel.java class.&#10;- Added appropriate action listeners to each of the btns on the panels in MainFrame.java class. (still designing their functionalities)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added hasRoomMonster() method to the Room.java class.&#10;- Added Img path instance fields for monster/hero and their appropriate getters/setters for those img paths in BattlePanel.java class.&#10;- Also added getter methods for Attack, SpecialAttack, and Heal Btns on the BattlePanel.java class.&#10;- Added getter methods for North, South, East, West Btns of the GamePlayPanel.java class.&#10;- Added appropriate action listeners to each of the btns on the panels in MainFrame.java class. (still designing their functionalities)" />
+    <MESSAGE value="- Added getters/setters for each rooms row position and column position in Room.java.&#10;- Added a method to get the MAZE_SIZE in Dungeon.java." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Added getters/setters for each rooms row position and column position in Room.java.&#10;- Added a method to get the MAZE_SIZE in Dungeon.java." />
   </component>
 </project>

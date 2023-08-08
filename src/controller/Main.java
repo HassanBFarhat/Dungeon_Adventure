@@ -18,6 +18,8 @@ public final class Main {
         final Dungeon d = new Dungeon();
         d.randomlyGenerateRooms();
 
+        System.out.println();
+
 //        System.out.println(d.getMyMazeRoom()[4][4]);
 //        System.out.println();
 //        System.out.println(d.getMyMazeRoom()[4][4].getRoomMonster());

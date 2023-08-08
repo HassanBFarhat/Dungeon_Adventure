@@ -51,12 +51,12 @@ public class Room {
     // constructors
 
     /** . */
-    Room() {
+    public Room() {
         // default constructor
     }
 
     /** . */
-    Room(final RoomItems theEntrance, final RoomItems theExit,
+    public Room(final RoomItems theEntrance, final RoomItems theExit,
          final DoorDirections theDoorNorth, final DoorDirections theDoorEast,
          final DoorDirections theDoorSouth, final DoorDirections theDoorWest,
          final RoomItems theOOPillar, final RoomItems theHealingPotion,
