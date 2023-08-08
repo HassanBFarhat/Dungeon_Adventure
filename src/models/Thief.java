@@ -1,5 +1,5 @@
 package models;
-class Thief extends Hero {
+public class Thief extends Hero {
     private static final String THIEF_NAME = "Thief";
     private static final int HEALTH_POINTS = 75;
     private static final int HIT_POINTS = 75;
