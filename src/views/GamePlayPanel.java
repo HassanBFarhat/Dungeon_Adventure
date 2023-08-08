@@ -1,5 +1,7 @@
 package views;
 
+import models.DoorDirections;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -164,6 +166,35 @@ public class GamePlayPanel extends JPanel {
                                                 CHARACTER_PANEL_Y_COORDINATE,
                                                 CHARACTER_PANEL_AND_HEALTH_BAR_WIDTH,
                                                 CHARACTER_PANEL_HEIGHT);
+
+        attachDirectionButtonsToEnumDirections();
+    }
+
+    /**
+     * attachs enum directions to the directional buttons in the game
+     */
+    private void attachDirectionButtonsToEnumDirections() {
+        myNorthBtn.addActionListener(theAction -> moveAdventurer(DoorDirections.NORTH));
+        mySouthBtn.addActionListener(theAction -> moveAdventurer(DoorDirections.SOUTH));
+        myEastBtn.addActionListener(theAction -> moveAdventurer(DoorDirections.EAST));
+        myWestBtn.addActionListener(theAction -> moveAdventurer(DoorDirections.WEST));
+    }
+
+    /**
+     * logic to move character in different directions
+     * @param direction
+     */
+    private void moveAdventurer(DoorDirections direction) {
+        switch (direction) {
+            case NORTH:
+                break;
+            case SOUTH:
+                break;
+            case EAST:
+                break;
+            case WEST:
+                break;
+        }
     }
 
     /** . */
