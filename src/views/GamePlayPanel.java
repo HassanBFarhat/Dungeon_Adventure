@@ -77,7 +77,8 @@ public class GamePlayPanel extends JPanel {
     private JButton myInventoryBtn;
     /** . */
     private JButton mySaveGameBtn;
-
+    /** . */
+    private String myHeroMainImgPath;
 
     // constructor
 
@@ -96,13 +97,32 @@ public class GamePlayPanel extends JPanel {
 
     // methods
 
+    public void addingPlayerChosenAdventurerImgToPanel() {
+        final ImageIcon heroImg = new ImageIcon(getMainImgPath());
+        myHeroJPGLabel = new JLabel(heroImg);
+        myCharacterAndMovementOptions.add(myHeroJPGLabel, BorderLayout.CENTER);
+    }
+
+
+    public void setHeroMainImgFilePath(final String theMainImgFilePath) {
+//        System.out.println(theMainImgFilePath);
+        myHeroMainImgPath = theMainImgFilePath;
+//        System.out.println(myHeroMainImgPath);
+    }
+
+
+    public String getMainImgPath() {
+//        System.out.println(myHeroMainImgPath);
+        return myHeroMainImgPath;
+    }
+
     /** . */
     private void instantiateInstanceDataFields() {
-        final ImageIcon heroImg = new ImageIcon("src/imgs/Thief_Main.png");
+//        final ImageIcon heroImg = new ImageIcon(getMainImgPath());
         final ImageIcon gamePlayBGImg = new ImageIcon("src/imgs/MainGameImg1.jpg");
         myMiniMap = new JPanel();
         myCharacterAndMovementOptions = new JPanel();
-        myHeroJPGLabel = new JLabel(heroImg);
+//        myHeroJPGLabel = new JLabel(heroImg);
         myGameBGLabel = new JLabel(gamePlayBGImg);
         myNorthBtn = new JButton("Move North");
         mySouthBtn = new JButton("Move South");
@@ -135,7 +155,7 @@ public class GamePlayPanel extends JPanel {
     /** . */
     private void addButtonsAndHeroImageToCharacterAndMovementPanel() {
         myCharacterAndMovementOptions.setLayout(new BorderLayout());
-        myCharacterAndMovementOptions.add(myHeroJPGLabel, BorderLayout.CENTER);
+//        myCharacterAndMovementOptions.add(myHeroJPGLabel, BorderLayout.CENTER);
         myCharacterAndMovementOptions.add(myNorthBtn, BorderLayout.NORTH);
         myCharacterAndMovementOptions.add(mySouthBtn, BorderLayout.SOUTH);
         myCharacterAndMovementOptions.add(myEastBtn, BorderLayout.EAST);

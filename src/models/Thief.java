@@ -1,6 +1,8 @@
 package models;
 public class Thief extends Adventurer {
     private static final String THIEF_NAME = "Thief";
+    private static final String THIEF_IMG_MAIN_FILE_PATH = "src/imgs/Thief_Main.png";
+    private static final String THIEF_IMG_BATTLE_FILE_PATH = "src/imgs/Thief_Battle.png";
     private static final int HEALTH_POINTS = 75;
     private static final int HIT_POINTS = 75;
     private static final int ATTACK_SPEED = 6;
@@ -20,6 +22,18 @@ public class Thief extends Adventurer {
         setChanceToBlock(CHANCE_TO_BLOCK);
         setHeroSpecialSkill("Surprise Attack");
     }
+
+    @Override
+    public String getAdventurerMainImgFilePath() {
+        return THIEF_IMG_MAIN_FILE_PATH;
+    }
+
+    @Override
+    public String getAdventurerBattleImgFilePath() {
+        return THIEF_IMG_BATTLE_FILE_PATH;
+    }
+
+
     @Override
     public void specialAttack() {
         double chanceForSurpriseAttackOdds = (int) (Math.random() * 100) / 100.0;

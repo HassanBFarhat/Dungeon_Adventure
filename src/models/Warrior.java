@@ -1,6 +1,8 @@
 package models;
 public class Warrior extends Adventurer {
     private static final String WARRIOR_NAME = "Warrior";
+    private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
+    private static final String WARRIOR_IMG_BATTLE_FILE_PATH = "src/imgs/Warrior_Battle.png";
     private static final int HEALTH_POINTS = 125;
     private static final int HIT_POINTS = 125;
     private static final int ATTACK_SPEED = 4;
@@ -18,6 +20,19 @@ public class Warrior extends Adventurer {
         setChanceToBlock(CHANCE_TO_BLOCK);
         setHeroSpecialSkill("Crushing Blow");
     }
+
+    @Override
+    public String getAdventurerMainImgFilePath() {
+        return WARRIOR_IMG_MAIN_FILE_PATH;
+    }
+
+    @Override
+    public String getAdventurerBattleImgFilePath() {
+        return WARRIOR_IMG_BATTLE_FILE_PATH;
+    }
+
+
+
 
     @Override
     public void specialAttack() {

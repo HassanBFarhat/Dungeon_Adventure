@@ -214,4 +214,14 @@ public class CharacterSelectionPanel extends JPanel {
         return myNameYourCharacterTextBox.getText();
     }
 
+    /** . */
+    public String getHeroOptionFromBox() {
+        return (String) myHeroOptionsDropDownBox.getSelectedItem();
+    }
+
+    /** . */
+    public String getGameDifficultyFromBox() {
+        return (String) myDifficultyOptionsDropDownBox.getSelectedItem();
+    }
+
 }

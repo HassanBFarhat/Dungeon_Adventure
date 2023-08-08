@@ -1,5 +1,10 @@
 package views;
 
+import models.Adventurer;
+import models.Priestess;
+import models.Thief;
+import models.Warrior;
+
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -47,6 +52,8 @@ public class MainFrame extends JFrame {
     private GamePlayPanel myGamePlayPanel;
     /** . */
     private BattlePanel myBattlePanel;
+    /** . */
+    private Adventurer myAdventurer;
 
     // constructor
 
@@ -124,8 +131,16 @@ public class MainFrame extends JFrame {
                 if (myCharacterSelectionPanel.getCharactersName().isEmpty()) {
                     JOptionPane.showMessageDialog(myMainMenuPanel, "CANNOT START WITHOUT PUTTING A NAME!");
                 } else {
+                    if (myCharacterSelectionPanel.getHeroOptionFromBox().equals("Warrior")) {
+                        myAdventurer = new Warrior();
+                    } else if (myCharacterSelectionPanel.getHeroOptionFromBox().equals("Priestess")) {
+                        myAdventurer = new Priestess();
+                    } else if (myCharacterSelectionPanel.getHeroOptionFromBox().equals("Thief")) {
+                        myAdventurer = new Thief();
+                    }
+                    myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());
+                    myGamePlayPanel.addingPlayerChosenAdventurerImgToPanel();
                     changeScreen(GAME_PLAY_PANEL);
-//                    changeScreen(BATTLE_PANEL);
                 }
             }
         });

@@ -16,6 +16,15 @@ public class Adventurer extends Hero {
     }
 
 
+    public String getAdventurerMainImgFilePath() {
+        return "No Main file found";
+    }
+
+    public String getAdventurerBattleImgFilePath() {
+        return "No Battle file found";
+    }
+
+
     public void setMyHealingPotions(int healingPotions) {
         this.myHealingPotions += healingPotions;
         if (this.myHealingPotions < 0) {
@@ -46,10 +55,12 @@ public class Adventurer extends Hero {
         return myPillars;
     }
 
+
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append(super.toString());
         return sb.toString();
     }
+
 }
 

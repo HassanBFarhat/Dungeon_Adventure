@@ -1,6 +1,8 @@
 package models;
 public class Priestess extends Adventurer {
     private static final String PRIESTESS_NAME = "Priestess";
+    private static final String PRIESTESS_IMG_MAIN_FILE_PATH = "src/imgs/Priestess_Main.png";
+    private static final String PRIESTESS_IMG_BATTLE_FILE_PATH = "src/imgs/Priestess_Battle.png";
     private static final int HEALTH_POINTS = 75;
     private static final int HIT_POINTS = 75;
     private static final int ATTACK_SPEED = 5;
@@ -17,6 +19,17 @@ public class Priestess extends Adventurer {
         setChanceToBlock(CHANCE_TO_BLOCK);
         setHeroSpecialSkill("Heal");
     }
+
+    @Override
+    public String getAdventurerMainImgFilePath() {
+        return PRIESTESS_IMG_MAIN_FILE_PATH;
+    }
+
+    @Override
+    public String getAdventurerBattleImgFilePath() {
+        return PRIESTESS_IMG_BATTLE_FILE_PATH;
+    }
+
 
     // Special skill: heal
     @Override
