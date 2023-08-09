@@ -74,7 +74,13 @@ public abstract class DungeonCharacter {
 
     /** . */
     public final void setCharacterHealthPoints(final int theHealthPoints) {
-        myCharacterHealthPoints = theHealthPoints;
+
+        if (theHealthPoints <= 0) {
+            myCharacterHealthPoints = 0;
+        } else {
+            myCharacterHealthPoints = theHealthPoints;
+        }
+
     }
 
     /** . */

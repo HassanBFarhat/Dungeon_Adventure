@@ -252,15 +252,39 @@ public class BattlePanel extends JPanel {
         myAdventurer = theAdventurer;
     }
 
+    public JProgressBar getMyHeroHealthBar() {
+        return myHeroHealthBar;
+    }
+
+    public JProgressBar getMyMonsterHealthBar() {
+        return myMonstersHealthBar;
+    }
+
+
     public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer, final Monster theMonster) {
+//        myHeroHealthBar.setMinimum(MINIMUM_HEALTH_SIZE);
+//        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
         myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());
+//        myMonstersHealthBar.setMinimum(MINIMUM_HEALTH_SIZE);
+//        myMonstersHealthBar.setMaximum(theMonster.getCharacterHealthPoints());
         myMonstersHealthBar.setValue(theMonster.getCharacterHealthPoints());
     }
 
     public void updateHealthBarsForHeroAndMonster(final int theNewHeroStats, final int theNewMonsterStats) {
         myHeroHealthBar.setValue(theNewHeroStats);
-        myMonstersHealthBar.setValue(theNewMonsterStats);
+        if (theNewMonsterStats <= 0) {
+            myMonstersHealthBar.setValue(0);
+        } else {
+            myMonstersHealthBar.setValue(theNewMonsterStats);
+        }
+
     }
+
+    public void updateHealthBarForMonster(final int theNewMonsterStats) {
+        myMonstersHealthBar.setValue(theNewMonsterStats);
+        System.out.println(myMonstersHealthBar.getValue());
+    }
+
 
     public void updateHealthBarsForHero(final int theNewHeroStats) {
         myHeroHealthBar.setValue(theNewHeroStats);

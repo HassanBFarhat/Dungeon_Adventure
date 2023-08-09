@@ -60,6 +60,8 @@ public class MainFrame extends JFrame {
     private int myCurrentRoomColumn;
     /** . */
     private Room myCurrentRoom;
+    /** . */
+    private int myMonsterInitialHealth;
 
     // constructor
 
@@ -88,6 +90,7 @@ public class MainFrame extends JFrame {
         myCurrentRoomRow = 0;
         myCurrentRoomColumn = 0;
         myCurrentRoom = new Room();
+        myMonsterInitialHealth = 0;
     }
 
     /** . */
@@ -260,8 +263,10 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 System.out.println("You attacked the monster");
                 final Monster roomMonster = myCurrentRoom.getRoomMonster();
+                System.out.println("BEFORE" + roomMonster.getCharacterHealthPoints());
                 roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.attack());
-                myBattlePanel.updateHealthBarsForHeroAndMonster(myAdventurer.getCharacterHealthPoints(), roomMonster.getCharacterHealthPoints());
+                System.out.println(roomMonster.getCharacterHealthPoints());
+                myBattlePanel.updateHealthBarForMonster(roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();
             }
@@ -272,8 +277,10 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 System.out.println("You used Special Attack");
                 final Monster roomMonster = myCurrentRoom.getRoomMonster();
+//                System.out.println("BEFORE" + roomMonster.getCharacterHealthPoints());
                 roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
-                myBattlePanel.updateHealthBarsForHeroAndMonster(myAdventurer.getCharacterHealthPoints(), roomMonster.getCharacterHealthPoints());
+//                System.out.println(roomMonster.getCharacterHealthPoints());
+                myBattlePanel.updateHealthBarForMonster(roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();
             }
@@ -367,6 +374,7 @@ public class MainFrame extends JFrame {
     /** . */
     private void checkRoomForMonster() {
         if (myCurrentRoom.hasRoomMonster()) {
+            myMonsterInitialHealth = myCurrentRoom.getRoomMonster().getCharacterHealthPoints();
             myBattlePanel.setCurrentRoomMonster(myCurrentRoom.getRoomMonster());
             myBattlePanel.setAdventurer(myAdventurer);
             // need to fix the health bars accordingly for this match.
@@ -379,6 +387,7 @@ public class MainFrame extends JFrame {
     private void checkIfMonsterHealthIsZero() {
         if (myCurrentRoom.getRoomMonster().getCharacterHealthPoints() <= 0) {
             System.out.println("You beat the monster");
+            myCurrentRoom.getRoomMonster().setCharacterHealthPoints(myMonsterInitialHealth);
             myCurrentRoom.setRoomMonster(null);
             myBattlePanel.getMyMonsterImgLabel().setVisible(false);
             changeScreen(GAME_PLAY_PANEL);
