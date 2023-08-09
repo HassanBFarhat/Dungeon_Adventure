@@ -252,4 +252,8 @@ public class BattlePanel extends JPanel {
         myAdventurer = theAdventurer;
     }
 
+    public JLabel getMyMonsterImgLabel() {
+        return myMonsterImgLabel;
+    }
+
 }

@@ -371,6 +371,7 @@ public class MainFrame extends JFrame {
         if (myCurrentRoom.getRoomMonster().getCharacterHealthPoints() <= 0) {
             System.out.println("You beat the monster");
             myCurrentRoom.setRoomMonster(null);
+            myBattlePanel.getMyMonsterImgLabel().setVisible(false);
             changeScreen(GAME_PLAY_PANEL);
         }
     }
@@ -380,6 +381,7 @@ public class MainFrame extends JFrame {
             System.out.println("You Died");
             // Put a quick JOptionpane here before death panel
 //            changeScreen(LOSING_PANEL);
+//            changeScreen(MAIN_MENU_PANEL);
         }
     }
 
