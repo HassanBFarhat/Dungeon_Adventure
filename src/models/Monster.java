@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Random;
+
 public abstract class Monster extends DungeonCharacter {
 
     private static final String NEW_LINE = "\n";
@@ -24,22 +26,22 @@ public abstract class Monster extends DungeonCharacter {
     }
 
     public int heal() {
-        if (Math.random() < myMonsterChanceToHeal) {
-            int healAmount;
-
-            healAmount = (int) (Math.random() * (myMaximumHealPoints - myMinimumHealPoints + 1))
-                    + myMinimumHealPoints;
-            setCharacterHealthPoints(getCharacterHealthPoints() + healAmount);
-            return healAmount;
+        final Random random = new Random();
+        int randomHeal = 0;
+        final int randomChanceToHeal = (int) (Math.random() * 100);
+        if (randomChanceToHeal >= (1 - getMonsterChanceToHeal())) {
+            randomHeal = random.nextInt(
+                    getMaximumHealPoints() - getMinimumHealPoints() + 1)
+                    + getMinimumHealPoints();
         }
-        return 0;
+        return randomHeal;
     }
 
     public void setMonsterChanceToHeal(final double chance) {
         myMonsterChanceToHeal = chance;
     }
 
-    public double getMonsterChangeToHeal() {
+    public double getMonsterChanceToHeal() {
         return myMonsterChanceToHeal;
     }
 

@@ -186,6 +186,14 @@ public class GamePlayPanel extends JPanel {
         return myWestBtn;
     }
 
+    public JButton getMyInventoryBtn() {
+        return myInventoryBtn;
+    }
+
+    public JButton getMySaveGameBtn() {
+        return mySaveGameBtn;
+    }
+
 
     /** . */
     private void setUpHeroHealthBar() {

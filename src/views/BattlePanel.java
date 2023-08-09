@@ -55,19 +55,19 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int MONSTER_HEALTH_BAR_Y_COORDINATE = 180;
     /** . */
-    private static final int ATTACK_AND_SPECIAL_ATTACK_BUTTON_WIDTH = 120;
+    private static final int ALL_BUTTONS_WIDTH = 120;
     /** . */
     private static final int HEAL_BUTTON_WIDTH = 240;
     /** . */
-    private static final int ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT = 50;
+    private static final int ALL_BUTTONS_HEIGHT = 50;
     /** . */
     private static final int ATTACK_AND_HEAL_BUTTON_X_COORDINATE = 945;
     /** . */
     private static final int ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE = 550;
     /** . */
-    private static final int SPECIAL_ATTACK_BUTTON_X_COORDINATE = 1065;
+    private static final int SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE = 1065;
     /** . */
-    private static final int HEAL_BUTTON_Y_COORDINATE = 600;
+    private static final int HEAL_AND_BLOCK_BUTTON_Y_COORDINATE = 600;
 
     // instance fields
 
@@ -87,6 +87,8 @@ public class BattlePanel extends JPanel {
     private JButton mySpecialAttackBtn;
     /** . */
     private JButton myHealBtn;
+    /** . */
+    private JButton myBlockBtn;
     /** . */
     private JTextArea myGameActionConsole;
     /** . */
@@ -136,6 +138,7 @@ public class BattlePanel extends JPanel {
         myAttackBtn = new JButton("Attack");
         mySpecialAttackBtn = new JButton("Special Attack");
         myHealBtn = new JButton("Heal");
+        myBlockBtn = new JButton("Block");
         myMonstersHealthBar = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
         myHeroHealthBar = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
         myGameActionConsole = new JTextArea();
@@ -172,16 +175,21 @@ public class BattlePanel extends JPanel {
     private void setUpAttackSpecialAttackAndHealButtonBounds() {
         myAttackBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                               ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
-                              ATTACK_AND_SPECIAL_ATTACK_BUTTON_WIDTH,
-                              ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT);
-        mySpecialAttackBtn.setBounds(SPECIAL_ATTACK_BUTTON_X_COORDINATE,
+                              ALL_BUTTONS_WIDTH,
+                              ALL_BUTTONS_HEIGHT);
+        mySpecialAttackBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
                                      ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
-                                     ATTACK_AND_SPECIAL_ATTACK_BUTTON_WIDTH,
-                                     ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT);
+                                     ALL_BUTTONS_WIDTH,
+                                     ALL_BUTTONS_HEIGHT);
         myHealBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
-                            HEAL_BUTTON_Y_COORDINATE,
-                            HEAL_BUTTON_WIDTH,
-                            ATTACK_AND_SPECIAL_ATTACK_AND_HEAL_BUTTON_HEIGHT);
+                            HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
+                            ALL_BUTTONS_WIDTH,
+                            ALL_BUTTONS_HEIGHT);
+        myBlockBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
+                             HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
+                             ALL_BUTTONS_WIDTH,
+                             ALL_BUTTONS_HEIGHT);
+
     }
 
     /** . */
@@ -213,6 +221,7 @@ public class BattlePanel extends JPanel {
         myBattleBGImgLabel.add(myAttackBtn);
         myBattleBGImgLabel.add(mySpecialAttackBtn);
         myBattleBGImgLabel.add(myHealBtn);
+        myBattleBGImgLabel.add(myBlockBtn);
         myBattleBGImgLabel.add(myGameActionConsole);
         myBattleBGImgLabel.add(myHeroHealthBar);
         myBattleBGImgLabel.add(myMonstersHealthBar);
@@ -229,6 +238,10 @@ public class BattlePanel extends JPanel {
 
     public JButton getMyHealBtn() {
         return myHealBtn;
+    }
+
+    public JButton getMyBlockBtn() {
+        return myBlockBtn;
     }
 
     public void setCurrentRoomMonster(final Monster theMonster) {

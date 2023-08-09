@@ -44,29 +44,17 @@ public abstract class DungeonCharacter {
 
     // methods
 
-
-
-
-
-
-    //TODO: Finish the logic behind the attack() method
     /** . */
     public int attack() {
-        Random rand = new Random();
-        int generatedDamage = 0;
-
-        if (rand.nextInt(100) + 1 <= 80) {
-            generatedDamage = (int) (Math.random()
-                                * (getMaximumDamageRange() - getMinimumDamageRange())
-                                + getMinimumDamageRange());
-
-            // Display damage success msg after attack
-            System.out.println("SUCCESS");
-        } else {
-            System.out.println("FAILED");
-            // Display failed attack msg afterwards
+        final Random random = new Random();
+        int randomDamage = 0;
+        final int randomChanceToAttack = (int) (Math.random() * 100);
+        if (randomChanceToAttack >= (1 - getChanceToHit())) {
+            randomDamage = random.nextInt(
+                    getMaximumDamageRange() - getMinimumDamageRange() + 1)
+                    + getMinimumDamageRange();
         }
-        return generatedDamage;
+        return randomDamage;
     }
 
 

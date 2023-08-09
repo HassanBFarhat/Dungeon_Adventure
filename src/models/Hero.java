@@ -17,8 +17,8 @@ public abstract class Hero extends DungeonCharacter {
 
     // method
 
-    protected void specialAttack() {
-
+    public int specialAttack() {
+        return 0;
     }
 
     public int standardAttack() {

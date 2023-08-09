@@ -35,21 +35,24 @@ public class Thief extends Adventurer {
 
 
     @Override
-    public void specialAttack() {
-        double chanceForSurpriseAttackOdds = (int) (Math.random() * 100) / 100.0;
-        if (chanceForSurpriseAttackOdds >= (1 - SURPRISE_ATTACK_ODDS)) {
-            double chanceForSuccessfulSurpriseAttack = (int) (Math.random() * 60) / 100.0;
-            if (chanceForSuccessfulSurpriseAttack >= (SURPRISE_ATTACK_ODDS - CHANCE_SURPRISE_ATTACK)) {
-                System.out.println("Thief Attacks Twice!");
-                this.standardAttack();
-                this.standardAttack();
-            } else {
-                System.out.println("Thief got caught, no attacking this round.");
-                // no damaging monster
-            }
+    public int attack() {
+        return super.attack();
+    }
+
+
+    @Override
+    public int specialAttack() {
+        final double chanceForSurpriseAttackOdds = (int) (Math.random() * 100) / 100.0;
+        if (chanceForSurpriseAttackOdds >= (1 - CHANCE_CAUGHT)) {
+            System.out.println("Thief Caught. No attack.");
+        } else if (chanceForSurpriseAttackOdds >= (1 - SURPRISE_ATTACK_ODDS)) {
+            System.out.println("Thief Attacks Twice!");
+            this.standardAttack();
+            this.standardAttack();
         } else {
             System.out.println("Special Attack attempt not successful, resorting to normal attack");
             this.standardAttack();
         }
+        return 0;
     }
 }

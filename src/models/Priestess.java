@@ -1,4 +1,7 @@
 package models;
+
+import java.util.Random;
+
 public class Priestess extends Adventurer {
     private static final String PRIESTESS_NAME = "Priestess";
     private static final String PRIESTESS_IMG_MAIN_FILE_PATH = "src/imgs/Priestess_Main.png";
@@ -31,14 +34,18 @@ public class Priestess extends Adventurer {
     }
 
 
+    @Override
+    public int attack() {
+        return super.attack();
+    }
+
     // Special skill: heal
     @Override
-    public void specialAttack() {
-        double chanceForHeal = (int) (Math.random() * 100) / 100.0;
-        if (chanceForHeal >= 0.6) {
-            this.setCharacterHealthPoints(this.getCharacterHealthPoints() + MAX_HEAL);
-        } else {
-            this.setCharacterHealthPoints(this.getCharacterHealthPoints() + MIN_HEAL);
-        }
+    public int specialAttack() {
+        System.out.println("Priestess healed herself.");
+        final Random random = new Random();
+        final int randomHealAmount = random.nextInt(MAX_HEAL - MIN_HEAL + 1) + MIN_HEAL;
+        this.setCharacterHealthPoints(this.getCharacterHealthPoints() + randomHealAmount);
+        return 0;
     }
 }

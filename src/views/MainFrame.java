@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
@@ -243,29 +244,62 @@ public class MainFrame extends JFrame {
             }
         });
 
+        myGamePlayPanel.getMyInventoryBtn().addActionListener(
+                theAction -> System.out.println("Inventory check"));
 
-
-
+        myGamePlayPanel.getMySaveGameBtn().addActionListener(
+                theAction -> System.out.println("SAVING"));
 
 
         myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-
+                System.out.println("You attacked the monster");
+                final Monster roomMonster = myCurrentRoom.getRoomMonster();
+                roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.attack());
+                checkIfMonsterHealthIsZero();
+                checkIfAdventurerHealthIsZero();
             }
         });
 
         myBattlePanel.getMySpecialAttackBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-
+                System.out.println("You used Special Attack");
+                final Monster roomMonster = myCurrentRoom.getRoomMonster();
+                roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
+                checkIfMonsterHealthIsZero();
+                checkIfAdventurerHealthIsZero();
             }
         });
 
         myBattlePanel.getMyHealBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
+                final Random random = new Random();
+                final int randomHealAmount = random.nextInt(15 - 5 + 1) + 5;
+                if (myAdventurer.getMyHealingPotions() > 0) {
+                    myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() + randomHealAmount);
+                } else {
+                    System.out.println("No potions to use for healing.");
+                }
+            }
+        });
 
+        myBattlePanel.getMyBlockBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+                final double randomChanceToBlock = (int) (Math.random() * 100) / 100.0;
+                if (randomChanceToBlock >= (1 - myAdventurer.getChanceToHit())) {
+                    System.out.println("Block Successful! No Damage Taken.");
+                } else {
+                    System.out.println("Block Failed. Monster Attacked.");
+                    // insert monster attacking here
+                    final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
+                    myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
+                    checkIfMonsterHealthIsZero();
+                    checkIfAdventurerHealthIsZero();
+                }
             }
         });
 
@@ -333,9 +367,21 @@ public class MainFrame extends JFrame {
         }
     }
 
+    private void checkIfMonsterHealthIsZero() {
+        if (myCurrentRoom.getRoomMonster().getCharacterHealthPoints() <= 0) {
+            System.out.println("You beat the monster");
+            myCurrentRoom.setRoomMonster(null);
+            changeScreen(GAME_PLAY_PANEL);
+        }
+    }
 
-
-
+    private void checkIfAdventurerHealthIsZero() {
+        if (myAdventurer.getCharacterHealthPoints() <= 0) {
+            System.out.println("You Died");
+            // Put a quick JOptionpane here before death panel
+//            changeScreen(LOSING_PANEL);
+        }
+    }
 
 
 }

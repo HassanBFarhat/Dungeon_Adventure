@@ -1,4 +1,7 @@
 package models;
+
+import java.util.Random;
+
 public class Warrior extends Adventurer {
     private static final String WARRIOR_NAME = "Warrior";
     private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
@@ -32,24 +35,21 @@ public class Warrior extends Adventurer {
     }
 
 
+    @Override
+    public int attack() {
+        return super.attack();
+    }
 
 
     @Override
-    public void specialAttack() {
-        double chanceForCrushingBlow = (int) (Math.random() * 100) / 100.0;
+    public int specialAttack() {
+        final Random random = new Random();
+        final double chanceForCrushingBlow = (int) (Math.random() * 100) / 100.0;
+        int randomCrushAmount = 0;
         if (chanceForCrushingBlow >= (1 - CRUSHING_BLOW_CHANCE)) {
-            double chanceForMaxCrush = (int) (Math.random() * 100) / 100.0;
-            if (chanceForMaxCrush >= 0.8) {
-                System.out.println("MAX crushing active");
-                //do max crush to monsters health
-            } else {
-                System.out.println("MIN crushing active");
-                //do min crush to monsters health
-            }
-        } else {
-            System.out.println("Chance for crushing blow failed, normal attack commence.");
-            this.standardAttack();
+            randomCrushAmount = random.nextInt(CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1) + CRUSHING_BLOW_MIN_DAMAGE;
         }
+        return randomCrushAmount;
     }
 
 }
