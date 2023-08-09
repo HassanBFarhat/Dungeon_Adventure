@@ -156,6 +156,8 @@ public class MainFrame extends JFrame {
                         myAdventurer = new Thief();
                     }
 
+
+
                     for (int j = 0; j < myDungeon.getMazeSize(); j++) {
                         if (myDungeon.getMyMazeRoom()[0][j].hasEntrance()) {
                             myCurrentRoomRow = 0;
@@ -178,7 +180,9 @@ public class MainFrame extends JFrame {
 
                     myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());
                     myGamePlayPanel.addingPlayerChosenAdventurerImgToPanel();
+                    myGamePlayPanel.setMyAdventurer(myAdventurer);
                     changeScreen(GAME_PLAY_PANEL);
+                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats();
 //                    changeScreen(BATTLE_PANEL);
 
                 }
@@ -257,6 +261,7 @@ public class MainFrame extends JFrame {
                 System.out.println("You attacked the monster");
                 final Monster roomMonster = myCurrentRoom.getRoomMonster();
                 roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.attack());
+                myBattlePanel.updateHealthBarsForHeroAndMonster(myAdventurer.getCharacterHealthPoints(), roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();
             }
@@ -268,6 +273,7 @@ public class MainFrame extends JFrame {
                 System.out.println("You used Special Attack");
                 final Monster roomMonster = myCurrentRoom.getRoomMonster();
                 roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
+                myBattlePanel.updateHealthBarsForHeroAndMonster(myAdventurer.getCharacterHealthPoints(), roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();
             }
@@ -280,6 +286,7 @@ public class MainFrame extends JFrame {
                 final int randomHealAmount = random.nextInt(15 - 5 + 1) + 5;
                 if (myAdventurer.getMyHealingPotions() > 0) {
                     myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() + randomHealAmount);
+                    myBattlePanel.updateHealthBarsForHero(myAdventurer.getCharacterHealthPoints());
                 } else {
                     System.out.println("No potions to use for healing.");
                 }
@@ -297,6 +304,7 @@ public class MainFrame extends JFrame {
                     // insert monster attacking here
                     final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
                     myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
+                    myBattlePanel.updateHealthBarsForHero(myAdventurer.getCharacterHealthPoints());
                     checkIfMonsterHealthIsZero();
                     checkIfAdventurerHealthIsZero();
                 }
@@ -363,6 +371,7 @@ public class MainFrame extends JFrame {
             myBattlePanel.setAdventurer(myAdventurer);
             // need to fix the health bars accordingly for this match.
             myBattlePanel.addBothCharactersToBattlePanel();
+            myBattlePanel.setUpHealthBarsForHeroAndMonster(myAdventurer, myCurrentRoom.getRoomMonster());
             changeScreen(BATTLE_PANEL);
         }
     }

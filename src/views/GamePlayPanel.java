@@ -1,5 +1,6 @@
 package views;
 
+import models.Adventurer;
 import models.DoorDirections;
 
 import java.awt.BorderLayout;
@@ -19,7 +20,7 @@ public class GamePlayPanel extends JPanel {
     /** . */
     private static final int MINIMUM_HEALTH_SIZE = 0;
     /** . */
-    private static final int MAXIMUM_HEALTH_SIZE = 100;
+//    private static final int MAXIMUM_HEALTH_SIZE = 100;
     /** . */
     private static final int CHARACTER_MOVEMENT_BTN_WIDTH = 100;
     /** . */
@@ -81,6 +82,8 @@ public class GamePlayPanel extends JPanel {
     private JButton mySaveGameBtn;
     /** . */
     private String myHeroMainImgPath;
+    /** . */
+    private Adventurer myAdventurer;
 
     // constructor
 
@@ -94,6 +97,7 @@ public class GamePlayPanel extends JPanel {
         setUpMiniMapAndItsBounds();
         setUpSaveAndInventoryButtonBounds();
         addAllTheComponentsToGameBGLabel();
+//        setUpHealthBarWithAdventurerHealthStats();
     }
 
 
@@ -130,7 +134,7 @@ public class GamePlayPanel extends JPanel {
         mySouthBtn = new JButton("Move South");
         myEastBtn = new JButton("Move East");
         myWestBtn = new JButton("Move West");
-        myCharactersHealth = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
+        myCharactersHealth = new JProgressBar();
         myInventoryBtn = new JButton("Inventory");
         mySaveGameBtn = new JButton("Save Game");
     }
@@ -197,7 +201,8 @@ public class GamePlayPanel extends JPanel {
 
     /** . */
     private void setUpHeroHealthBar() {
-        myCharactersHealth.setValue(MAXIMUM_HEALTH_SIZE);
+        System.out.println("Trying to set up main health bar");
+//        myCharactersHealth.setValue(myAdventurer.getCharacterHealthPoints());
         myCharactersHealth.setBounds(CHARACTER_PANEL_AND_HEALTH_BAR_X_COORDINATE,
                                      HEALTH_BAR_Y_COORDINATE,
                                      CHARACTER_PANEL_AND_HEALTH_BAR_WIDTH,
@@ -236,5 +241,13 @@ public class GamePlayPanel extends JPanel {
         myGameBGLabel.add(mySaveGameBtn);
     }
 
+
+    public void setMyAdventurer(final Adventurer theAdventurer) {
+        myAdventurer = theAdventurer;
+    }
+
+    public void setUpHealthBarWithAdventurerHealthStats() {
+        myCharactersHealth.setValue(myAdventurer.getCharacterHealthPoints());
+    }
 
 }

@@ -41,7 +41,7 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int MINIMUM_HEALTH_SIZE = 0;
     /** . */
-    private static final int MAXIMUM_HEALTH_SIZE = 100;
+//    private static final int MAXIMUM_HEALTH_SIZE = 100;
     /** . */
     private static final int HERO_AND_MONSTER_HEALTH_BAR_WIDTH = 250;
     /** . */
@@ -139,8 +139,8 @@ public class BattlePanel extends JPanel {
         mySpecialAttackBtn = new JButton("Special Attack");
         myHealBtn = new JButton("Heal");
         myBlockBtn = new JButton("Block");
-        myMonstersHealthBar = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
-        myHeroHealthBar = new JProgressBar(MINIMUM_HEALTH_SIZE, MAXIMUM_HEALTH_SIZE);
+        myMonstersHealthBar = new JProgressBar();
+        myHeroHealthBar = new JProgressBar();
         myGameActionConsole = new JTextArea();
     }
 
@@ -194,7 +194,7 @@ public class BattlePanel extends JPanel {
 
     /** . */
     private void setUpHeroAndMonsterHealthBars() {
-        myHeroHealthBar.setValue(MAXIMUM_HEALTH_SIZE);
+//        myHeroHealthBar.setValue(myAdventurer.getCharacterHealthPoints());
         myHeroHealthBar.setBounds(HERO_HEALTH_BAR_X_COORDINATE,
                                   HERO_HEALTH_BAR_Y_COORDINATE,
                                   HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
@@ -204,7 +204,7 @@ public class BattlePanel extends JPanel {
         myHeroHealthBar.setString("Hero Health");
         myHeroHealthBar.setStringPainted(true);
 
-        myMonstersHealthBar.setValue(MAXIMUM_HEALTH_SIZE);
+//        myMonstersHealthBar.setValue(myCurrentRoomMonster.getCharacterHealthPoints());
         myMonstersHealthBar.setBounds(MONSTER_HEALTH_BAR_X_COORDINATE,
                                       MONSTER_HEALTH_BAR_Y_COORDINATE,
                                       HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
@@ -250,6 +250,20 @@ public class BattlePanel extends JPanel {
 
     public void setAdventurer(final Adventurer theAdventurer) {
         myAdventurer = theAdventurer;
+    }
+
+    public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer, final Monster theMonster) {
+        myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());
+        myMonstersHealthBar.setValue(theMonster.getCharacterHealthPoints());
+    }
+
+    public void updateHealthBarsForHeroAndMonster(final int theNewHeroStats, final int theNewMonsterStats) {
+        myHeroHealthBar.setValue(theNewHeroStats);
+        myMonstersHealthBar.setValue(theNewMonsterStats);
+    }
+
+    public void updateHealthBarsForHero(final int theNewHeroStats) {
+        myHeroHealthBar.setValue(theNewHeroStats);
     }
 
     public JLabel getMyMonsterImgLabel() {
