@@ -11,7 +11,7 @@ public abstract class Hero extends DungeonCharacter {
 
     public Hero(String name, int healthPoints, int hitPoints, int attackSpeed, double chanceHit,
                 int maxDamage, int minDamage) {
-        super(name, healthPoints, hitPoints, maxDamage, minDamage, attackSpeed, chanceHit);
+        super(name, healthPoints, hitPoints, minDamage, maxDamage, attackSpeed, chanceHit);
     }
 
 

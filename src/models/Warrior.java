@@ -35,10 +35,6 @@ public class Warrior extends Adventurer {
     }
 
 
-    @Override
-    public int attack() {
-        return super.attack();
-    }
 
 
     @Override

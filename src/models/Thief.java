@@ -34,10 +34,6 @@ public class Thief extends Adventurer {
     }
 
 
-    @Override
-    public int attack() {
-        return super.attack();
-    }
 
 
     @Override

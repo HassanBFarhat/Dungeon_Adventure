@@ -34,10 +34,6 @@ public class Priestess extends Adventurer {
     }
 
 
-    @Override
-    public int attack() {
-        return super.attack();
-    }
 
     // Special skill: heal
     @Override
