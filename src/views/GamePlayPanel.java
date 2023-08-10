@@ -43,13 +43,13 @@ public class GamePlayPanel extends JPanel {
     /** . */
     private static final int MINI_MAP_Y_COORDINATE = 25;
     /** . */
-    private static final int SAVE_AND_INVENTORY_BUTTON_WIDTH = 100;
+    private static final int SAVE_AND_INVENTORY_BUTTON_WIDTH = 150;
     /** . */
     private static final int SAVE_AND_INVENTORY_BUTTON_HEIGHT = 40;
     /** . */
     private static final int SAVE_BUTTON_X_COORDINATE = 145;
     /** . */
-    private static final int INVENTORY_X_COORDINATE = 1035;
+    private static final int INVENTORY_X_COORDINATE = 985;
     /** . */
     private static final int SAVE_AND_INVENTORY_Y_COORDINATE = 620;
 
@@ -127,10 +127,10 @@ public class GamePlayPanel extends JPanel {
         myCharacterAndMovementOptions = new JPanel();
 //        myHeroJPGLabel = new JLabel(heroImg);
         myGameBGLabel = new JLabel(gamePlayBGImg);
-        myNorthBtn = new JButton("Move North");
-        mySouthBtn = new JButton("Move South");
-        myEastBtn = new JButton("Move East");
-        myWestBtn = new JButton("Move West");
+        myNorthBtn = new JButton("North");
+        mySouthBtn = new JButton("South");
+        myEastBtn = new JButton("East");
+        myWestBtn = new JButton("West");
         myCharactersHealth = new JProgressBar();
         myInventoryBtn = new JButton("Inventory");
         mySaveGameBtn = new JButton("Save Game");
@@ -148,12 +148,16 @@ public class GamePlayPanel extends JPanel {
     private void setCharacterButtonsPreferredSize() {
         myNorthBtn.setPreferredSize(new Dimension(CHARACTER_MOVEMENT_BTN_WIDTH,
                                     CHARACTER_MOVEMENT_BTN_HEIGHT));
+        myNorthBtn.setFont(new Font("Freestyle Script", Font.BOLD, 45));
         mySouthBtn.setPreferredSize(new Dimension(CHARACTER_MOVEMENT_BTN_WIDTH,
                                     CHARACTER_MOVEMENT_BTN_HEIGHT));
+        mySouthBtn.setFont(new Font("Freestyle Script", Font.BOLD, 45));
         myEastBtn.setPreferredSize(new Dimension(CHARACTER_MOVEMENT_BTN_WIDTH,
                                     CHARACTER_MOVEMENT_BTN_HEIGHT));
+        myEastBtn.setFont(new Font("Freestyle Script", Font.BOLD, 45));
         myWestBtn.setPreferredSize(new Dimension(CHARACTER_MOVEMENT_BTN_WIDTH,
                                     CHARACTER_MOVEMENT_BTN_HEIGHT));
+        myWestBtn.setFont(new Font("Freestyle Script", Font.BOLD, 45));
     }
 
     /** . */
@@ -206,6 +210,7 @@ public class GamePlayPanel extends JPanel {
                                      HEALTH_BAR_Y_COORDINATE,
                                      CHARACTER_PANEL_AND_HEALTH_BAR_WIDTH,
                                      HEALTH_BAR_HEIGHT);
+        myCharactersHealth.setFont(new Font("Freestyle Script", Font.BOLD, 30));
         myCharactersHealth.setForeground(Color.RED);
         myCharactersHealth.setBackground(Color.GRAY);
         myCharactersHealth.setString("Health");
@@ -246,10 +251,12 @@ public class GamePlayPanel extends JPanel {
                                 SAVE_AND_INVENTORY_Y_COORDINATE,
                                 SAVE_AND_INVENTORY_BUTTON_WIDTH,
                                 SAVE_AND_INVENTORY_BUTTON_HEIGHT);
+        mySaveGameBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
         myInventoryBtn.setBounds(INVENTORY_X_COORDINATE,
                                  SAVE_AND_INVENTORY_Y_COORDINATE,
                                  SAVE_AND_INVENTORY_BUTTON_WIDTH,
                                  SAVE_AND_INVENTORY_BUTTON_HEIGHT);
+        myInventoryBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
     }
 
     /** . */

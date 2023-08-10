@@ -3,7 +3,7 @@ package views;
 import models.Adventurer;
 import models.Monster;
 
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,7 +23,7 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int ACTION_CONSOLE_HEIGHT = 120;
     /** . */
-    private static final int ACTION_CONSOLE_X_COORDINATE = 95;
+    private static final int ACTION_CONSOLE_X_COORDINATE = 50;
     /** . */
     private static final int ACTION_CONSOLE_Y_COORDINATE = 530;
     /** . */
@@ -45,7 +45,7 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int HERO_AND_MONSTER_HEALTH_BAR_WIDTH = 250;
     /** . */
-    private static final int HERO_AND_MONSTER_HEALTH_BAR_HEIGHT = 20;
+    private static final int HERO_AND_MONSTER_HEALTH_BAR_HEIGHT = 26;
     /** . */
     private static final int HERO_HEALTH_BAR_X_COORDINATE = 400;
     /** . */
@@ -55,17 +55,17 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int MONSTER_HEALTH_BAR_Y_COORDINATE = 180;
     /** . */
-    private static final int ALL_BUTTONS_WIDTH = 120;
+    private static final int ALL_BUTTONS_WIDTH = 170;
     /** . */
     private static final int HEAL_BUTTON_WIDTH = 240;
     /** . */
     private static final int ALL_BUTTONS_HEIGHT = 50;
     /** . */
-    private static final int ATTACK_AND_HEAL_BUTTON_X_COORDINATE = 945;
+    private static final int ATTACK_AND_HEAL_BUTTON_X_COORDINATE = 880;
     /** . */
     private static final int ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE = 550;
     /** . */
-    private static final int SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE = 1065;
+    private static final int SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE = 1050;
     /** . */
     private static final int HEAL_AND_BLOCK_BUTTON_Y_COORDINATE = 600;
 
@@ -177,18 +177,22 @@ public class BattlePanel extends JPanel {
                               ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
                               ALL_BUTTONS_WIDTH,
                               ALL_BUTTONS_HEIGHT);
+        myAttackBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
         mySpecialAttackBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
                                      ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
                                      ALL_BUTTONS_WIDTH,
                                      ALL_BUTTONS_HEIGHT);
+        mySpecialAttackBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
         myHealBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                             HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
                             ALL_BUTTONS_WIDTH,
                             ALL_BUTTONS_HEIGHT);
+        myHealBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
         myBlockBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
                              HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
                              ALL_BUTTONS_WIDTH,
                              ALL_BUTTONS_HEIGHT);
+        myBlockBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
 
     }
 
@@ -199,6 +203,7 @@ public class BattlePanel extends JPanel {
                                   HERO_HEALTH_BAR_Y_COORDINATE,
                                   HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
                                   HERO_AND_MONSTER_HEALTH_BAR_HEIGHT);
+        myHeroHealthBar.setFont(new Font("Freestyle Script", Font.BOLD, 23));
         myHeroHealthBar.setForeground(Color.RED);
         myHeroHealthBar.setBackground(Color.GRAY);
         myHeroHealthBar.setString("Hero Health");
@@ -209,6 +214,7 @@ public class BattlePanel extends JPanel {
                                       MONSTER_HEALTH_BAR_Y_COORDINATE,
                                       HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
                                       HERO_AND_MONSTER_HEALTH_BAR_HEIGHT);
+        myMonstersHealthBar.setFont(new Font("Freestyle Script", Font.BOLD, 23));
         myMonstersHealthBar.setForeground(Color.RED);
         myMonstersHealthBar.setBackground(Color.GRAY);
         myMonstersHealthBar.setString("Monster Health");

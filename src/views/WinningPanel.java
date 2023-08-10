@@ -8,11 +8,11 @@ public class WinningPanel extends JPanel {
     // constants
 
     /** . */
-    private static final String LABEL_FONT_STYLE = "Arial";
+    private static final String LABEL_FONT_STYLE = "Freestyle Script";
     /** . */
-    private static final int LABEL_FONT_SIZE = 20;
+    private static final int LABEL_FONT_SIZE = 30;
     /** . */
-    private static final int BUTTON_WIDTH = 100;
+    private static final int BUTTON_WIDTH = 120;
     /** . */
     private static final int BUTTON_HEIGHT = 40;
     /** . */
@@ -74,6 +74,7 @@ public class WinningPanel extends JPanel {
     private void setTheSizeOfTheButtonsAndBoundsOnThisPanel() {
         myMainMenuButton.setBounds(155, 200,
                 BUTTON_WIDTH, BUTTON_HEIGHT);
+        myMainMenuButton.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 29));
     }
 
 

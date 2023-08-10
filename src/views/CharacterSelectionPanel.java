@@ -15,35 +15,35 @@ public class CharacterSelectionPanel extends JPanel {
     // constants
 
     /** . */
-    private static final String LABEL_FONT_STYLE = "Arial";
+    private static final String LABEL_FONT_STYLE = "Freestyle Script";
     /** . */
-    private static final int LABEL_FONT_SIZE = 15;
+    private static final int LABEL_FONT_SIZE = 30;
     /** . */
-    private static final int LABEL_HEIGHT = 20;
+    private static final int LABEL_HEIGHT = 30;
     /** . */
     private static final int NAME_CHARACTER_LABEL_WIDTH = 150;
     /** . */
-    private static final int SELECT_CHARACTER_LABEL_WIDTH = 150;
+    private static final int SELECT_CHARACTER_LABEL_WIDTH = 160;
     /** . */
-    private static final int CHOOSE_DIFFICULTY_LABEL_WIDTH = 160;
+    private static final int CHOOSE_DIFFICULTY_LABEL_WIDTH = 170;
     /** . */
-    private static final int NAME_CHARACTER_LABEL_X_AXIS = 49;
+    private static final int NAME_CHARACTER_LABEL_X_AXIS = 50;
     /** . */
     private static final int SELECT_CHARACTER_LABEL_X_AXIS = 50;
     /** . */
-    private static final int CHOOSE_DIFFICULTY_LABEL_X_AXIS = 43;
+    private static final int CHOOSE_DIFFICULTY_LABEL_X_AXIS = 50;
     /** . */
     private static final int NAME_CHARACTER_LABEL_AND_TEXT_BOX_Y_AXIS = 50;
     /** . */
-    private static final int SELECT_CHARACTER_LABEL_AND_COMBO_BOX_Y_AXIS = 100;
+    private static final int SELECT_CHARACTER_LABEL_AND_COMBO_BOX_Y_AXIS = 105;
     /** . */
-    private static final int CHOOSE_DIFFICULTY_LABEL_AND_COMBO_BOX_Y_AXIS = 150;
+    private static final int CHOOSE_DIFFICULTY_LABEL_AND_COMBO_BOX_Y_AXIS = 155;
     /** . */
-    private static final int COMBO_BOX_AND_TEXT_BOX_X_AXIS = 210;
+    private static final int COMBO_BOX_AND_TEXT_BOX_X_AXIS = 230;
     /** . */
     private static final int COMBO_BOX_AND_TEXT_BOX_WIDTH = 150;
     /** . */
-    private static final int COMBO_BOX_AND_TEXT_BOX_HEIGHT = 20;
+    private static final int COMBO_BOX_AND_TEXT_BOX_HEIGHT = 25;
     /** . */
     private static final Color GRAY_TRANSPARENT_COLOR = new Color(128, 128, 128, 80);
     /** . */
@@ -63,7 +63,7 @@ public class CharacterSelectionPanel extends JPanel {
     /** . */
     private static final int ALL_BUTTONS_WIDTH = 155;
     /** . */
-    private static final int ALL_BUTTONS_HEIGHT = 20;
+    private static final int ALL_BUTTONS_HEIGHT = 30;
 
     // instance fields
 
@@ -109,16 +109,16 @@ public class CharacterSelectionPanel extends JPanel {
         mySelectCharacterLabel = new JLabel("Choose your Hero: ");
         final String[] heroChoices = {"Warrior", "Priestess", "Thief"};
         myHeroOptionsDropDownBox = new JComboBox(heroChoices);
-        myNameYourCharacterLabel = new JLabel("Name of your Hero: ");
+        myNameYourCharacterLabel = new JLabel("Name your Hero: ");
         myNameYourCharacterTextBox = new JTextField();
-        myChooseDifficultyLabel = new JLabel("Choose the Difficulty: ");
+        myChooseDifficultyLabel = new JLabel("Choose Difficulty: ");
         final String[] difficultyChoices = {"Easy", "Medium", "Hard"};
         myDifficultyOptionsDropDownBox = new JComboBox(difficultyChoices);
         myTransparentComponentHoldingPanel = new JPanel();
         final ImageIcon bgImg = new ImageIcon("src/imgs/MainMenuBG_Image.jpg");
         myNewGameBGLabel = new JLabel(bgImg);
         myBackBtn = new JButton("Back");
-        myStartGameBtn = new JButton("Begin your Adventure");
+        myStartGameBtn = new JButton("Begin Adventure");
     }
 
     /** . */
@@ -154,25 +154,35 @@ public class CharacterSelectionPanel extends JPanel {
     /** . */
     private void addAllDropDownBoxAndTextBoxToTransparentPanel() {
         myNameYourCharacterTextBox.setBounds(COMBO_BOX_AND_TEXT_BOX_X_AXIS,
-                                             NAME_CHARACTER_LABEL_AND_TEXT_BOX_Y_AXIS,
+                                             60,
                                              COMBO_BOX_AND_TEXT_BOX_WIDTH,
                                              COMBO_BOX_AND_TEXT_BOX_HEIGHT);
+        myNameYourCharacterTextBox.setFont(
+                new Font(LABEL_FONT_STYLE, Font.BOLD, 25));
         myHeroOptionsDropDownBox.setBounds(COMBO_BOX_AND_TEXT_BOX_X_AXIS,
-                                           SELECT_CHARACTER_LABEL_AND_COMBO_BOX_Y_AXIS,
+                                           110,
                                            COMBO_BOX_AND_TEXT_BOX_WIDTH,
                                            COMBO_BOX_AND_TEXT_BOX_HEIGHT);
+        myHeroOptionsDropDownBox.setFont(
+                new Font(LABEL_FONT_STYLE, Font.BOLD, 24));
         myDifficultyOptionsDropDownBox.setBounds(COMBO_BOX_AND_TEXT_BOX_X_AXIS,
-                                                 CHOOSE_DIFFICULTY_LABEL_AND_COMBO_BOX_Y_AXIS,
+                                                 160,
                                                  COMBO_BOX_AND_TEXT_BOX_WIDTH,
                                                  COMBO_BOX_AND_TEXT_BOX_HEIGHT);
+        myDifficultyOptionsDropDownBox.setFont(
+                new Font(LABEL_FONT_STYLE, Font.BOLD, 24));
     }
 
     /** . */
     private void setUpAllButtonsBounds() {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, ALL_BUTTONS_Y_AXIS,
                             ALL_BUTTONS_WIDTH, ALL_BUTTONS_HEIGHT);
+        myBackBtn.setFont(
+                new Font(LABEL_FONT_STYLE, Font.BOLD, 25));
         myStartGameBtn.setBounds(START_GAME_BUTTON_X_AXIS, ALL_BUTTONS_Y_AXIS,
                                  ALL_BUTTONS_WIDTH, ALL_BUTTONS_HEIGHT);
+        myStartGameBtn.setFont(
+                new Font(LABEL_FONT_STYLE, Font.BOLD, 25));
     }
 
     /** . */

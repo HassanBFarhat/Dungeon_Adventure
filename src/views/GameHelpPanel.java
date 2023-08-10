@@ -2,45 +2,40 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.OverlayLayout;
+import javax.swing.*;
 
 public class GameHelpPanel extends JPanel {
 
     // constants
 
     /** . */
-    private static final String LABEL_FONT_STYLE = "Arial";
+    private static final String LABEL_FONT_STYLE = "Freestyle Script";
     /** . */
-    private static final int LABEL_FONT_SIZE = 15;
+    private static final int LABEL_FONT_SIZE = 30;
     /** . */
     private static final Color GRAY_TRANSPARENT_COLOR = new Color(128, 128, 128, 80);
     /** . */
-    private static final int TRANSPARENT_PANEL_X_AXIS = 440;
+    private static final int TRANSPARENT_PANEL_X_AXIS = 340;
     /** . */
-    private static final int TRANSPARENT_PANEL_Y_AXIS = 200;
+    private static final int TRANSPARENT_PANEL_Y_AXIS = 50;
     /** . */
-    private static final int TRANSPARENT_PANEL_WIDTH = 410;
+    private static final int TRANSPARENT_PANEL_WIDTH = 600;
     /** . */
-    private static final int TRANSPARENT_PANEL_HEIGHT = 300;
+    private static final int TRANSPARENT_PANEL_HEIGHT = 600;
     /** . */
     private static final int BACK_BUTTON_X_AXIS = 50;
     /** . */
-    private static final int BACK_BUTTON_Y_AXIS = 240;
+    private static final int BACK_BUTTON_Y_AXIS = 550;
     /** . */
     private static final int BACK_BUTTON_WIDTH = 75;
     /** . */
-    private static final int BACK_BUTTON_HEIGHT = 20;
+    private static final int BACK_BUTTON_HEIGHT = 30;
     /** . */
     private static final int HELP_TEXT_AREA_X_AND_Y_AXIS = 10;
     /** . */
-    private static final int HELP_TEXT_AREA_WIDTH = 380;
+    private static final int HELP_TEXT_AREA_WIDTH = 590;
     /** . */
-    private static final int HELP_TEXT_AREA_HEIGHT = 230;
+    private static final int HELP_TEXT_AREA_HEIGHT = 530;
 
     // instance fields
     /** . */
@@ -70,16 +65,19 @@ public class GameHelpPanel extends JPanel {
     /** . */
     private void instantiateInstanceDataFields() {
         final String gameHelpText = """
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER\s
-                THIS IS A PLACE HOLDER ----- THIS IS A PLACEHOLDER""";
+                - Press on screen North, South, East, West buttons to move\s
+                  throughout the dungeon. Or use arrow keys or WASD keys.\s
+                - When battling a monster, use Attack for normal attack, use\s
+                  Special Attack for Hero's Special move, use Heal to heal\s
+                  if you have any potions, and use Block to try and block monster.\s
+                - Healing Potions are picked up automatically when the hero enters\s
+                  a room of the dungeon.\s
+                - Inventory is accessed through the "Inventory" button in the main\s
+                  game panel. Tells you how many potions and which pillars you've\s
+                  collected.\s
+                - Options Menu can be accessed by pressing ESC key.\s
+                - The button "Save" on the main game panel is used to save current\s
+                  game.""";
         final ImageIcon bgImg = new ImageIcon("src/imgs/MainMenuBG_Image.jpg");
         myGameHelpBGLabel = new JLabel(bgImg);
         myTransparentHoldingPanel = new JPanel();
@@ -111,6 +109,7 @@ public class GameHelpPanel extends JPanel {
     private void setUpAllButtonsBounds() {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, BACK_BUTTON_Y_AXIS,
                             BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT);
+        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
     }
 
     /** . */

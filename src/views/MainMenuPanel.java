@@ -4,20 +4,14 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.OverlayLayout;
+import javax.swing.*;
 
 public class MainMenuPanel extends JPanel {
 
     // constants
 
     /** . */
-    private static final int TITLE_FONT_SIZE = 100;
+    private static final int TITLE_FONT_SIZE = 120;
     /** . */
     private static final int BUTTON_WIDTH = 100;
     /** . */
@@ -44,8 +38,9 @@ public class MainMenuPanel extends JPanel {
     public MainMenuPanel() {
         this.setLayout(new OverlayLayout(this));
         instantiateInstanceDataFields();
-        setUpTitleAndAddBackgroundImage();
-        setTheSizeOfTheButtonsOnThisPanel();
+        addBackgroundImage();
+        setUpTitleAndBounds();
+        setTheSizeAndBoundsOfTheButtonsOnThisPanel();
         centerAllComponentsOnThisPanel();
         addTitleAndButtonsOnTopOfBGImage();
     }
@@ -58,26 +53,38 @@ public class MainMenuPanel extends JPanel {
         final ImageIcon mainMenuBGImg = new ImageIcon("src/imgs/MainMenuBG_Image.jpg");
 
         myStartNewGameBtn = new JButton("NEW GAME");
-        myLoadGameBtn = new JButton("     LOAD     ");
-        myOptionBtn = new JButton(" OPTIONS  ");
-        myExitBtn = new JButton("      EXIT      ");
+        myLoadGameBtn = new JButton("LOAD");
+        myOptionBtn = new JButton("OPTIONS");
+        myExitBtn = new JButton("EXIT");
         myMainMenuBGLabel = new JLabel(mainMenuBGImg);
         myTitleLabel = new JLabel("Dungeon Adventure");
     }
 
     /** . */
-    private void setUpTitleAndAddBackgroundImage() {
-        myTitleLabel.setFont(new Font("Arial", Font.BOLD, TITLE_FONT_SIZE));
-        myTitleLabel.setForeground(Color.WHITE);
+    private void addBackgroundImage() {
         this.add(myMainMenuBGLabel);
     }
 
     /** . */
-    private void setTheSizeOfTheButtonsOnThisPanel() {
-        myStartNewGameBtn.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-        myLoadGameBtn.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-        myOptionBtn.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
-        myExitBtn.setPreferredSize(new Dimension(BUTTON_WIDTH, BUTTON_HEIGHT));
+    private void setUpTitleAndBounds() {
+        this.setLayout(new OverlayLayout(this));
+        myTitleLabel.setFont(new Font("Vivaldi", Font.BOLD, TITLE_FONT_SIZE));
+        myTitleLabel.setForeground(Color.WHITE);
+//        myTitleLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+        myTitleLabel.setBounds(190, 0, 900, 150);
+        this.add(myMainMenuBGLabel);
+    }
+
+    /** . */
+    private void setTheSizeAndBoundsOfTheButtonsOnThisPanel() {
+        myStartNewGameBtn.setBounds(590, 300, BUTTON_WIDTH, BUTTON_HEIGHT);
+        myStartNewGameBtn.setFont(new Font("Freestyle Script", Font.BOLD, 17));
+        myLoadGameBtn.setBounds(590, 340, BUTTON_WIDTH, BUTTON_HEIGHT);
+        myLoadGameBtn.setFont(new Font("Freestyle Script", Font.BOLD, 17));
+        myOptionBtn.setBounds(590, 380, BUTTON_WIDTH, BUTTON_HEIGHT);
+        myOptionBtn.setFont(new Font("Freestyle Script", Font.BOLD, 17));
+        myExitBtn.setBounds(590, 420, BUTTON_WIDTH, BUTTON_HEIGHT);
+        myExitBtn.setFont(new Font("Freestyle Script", Font.BOLD, 17));
     }
 
     /** . */
@@ -91,7 +98,7 @@ public class MainMenuPanel extends JPanel {
 
     /** . */
     private void addTitleAndButtonsOnTopOfBGImage() {
-        myMainMenuBGLabel.setLayout(new BoxLayout(myMainMenuBGLabel, BoxLayout.Y_AXIS));
+        myMainMenuBGLabel.setLayout(null);
 
         myMainMenuBGLabel.add(myTitleLabel);
         myMainMenuBGLabel.add(Box.createVerticalGlue());

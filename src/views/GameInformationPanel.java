@@ -2,47 +2,42 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.OverlayLayout;
+import javax.swing.*;
 
 public class GameInformationPanel extends JPanel {
 
     // constants
 
     /** . */
-    private static final String LABEL_FONT_STYLE = "Arial";
+    private static final String LABEL_FONT_STYLE = "Freestyle Script";
     /** . */
-    private static final int LABEL_FONT_SIZE = 15;
+    private static final int LABEL_FONT_SIZE = 30;
     /** . */
     private static final Color GRAY_TRANSPARENT_COLOR = new Color(128, 128, 128, 80);
     /** . */
     private static final int BACK_BUTTON_X_AXIS = 50;
     /** . */
-    private static final int BACK_BUTTON_Y_AXIS = 240;
+    private static final int BACK_BUTTON_Y_AXIS = 350;
     /** . */
     private static final int BACK_BUTTON_WIDTH = 75;
     /** . */
-    private static final int BACK_BUTTON_HEIGHT = 20;
+    private static final int BACK_BUTTON_HEIGHT = 30;
     /** . */
-    private static final int TRANSPARENT_PANEL_X_AXIS = 440;
+    private static final int TRANSPARENT_PANEL_X_AXIS = 340;
     /** . */
-    private static final int TRANSPARENT_PANEL_Y_AXIS = 200;
+    private static final int TRANSPARENT_PANEL_Y_AXIS = 150;
     /** . */
-    private static final int TRANSPARENT_PANEL_WIDTH = 410;
+    private static final int TRANSPARENT_PANEL_WIDTH = 600;
     /** . */
-    private static final int TRANSPARENT_PANEL_HEIGHT = 300;
+    private static final int TRANSPARENT_PANEL_HEIGHT = 400;
     /** . */
-    private static final int INFORMATION_TEXT_AREA_X_AXIS = 10;
+    private static final int INFORMATION_TEXT_AREA_X_AXIS = 15;
     /** . */
     private static final int INFORMATION_TEXT_AREA_Y_AXIS = 5;
     /** . */
-    private static final int INFORMATION_TEXT_AREA_WIDTH = 380;
+    private static final int INFORMATION_TEXT_AREA_WIDTH = 590;
     /** . */
-    private static final int INFORMATION_TEXT_AREA_HEIGHT = 230;
+    private static final int INFORMATION_TEXT_AREA_HEIGHT = 340;
 
     // instance fields
 
@@ -73,14 +68,12 @@ public class GameInformationPanel extends JPanel {
     /** . */
     private void instantiateInstanceDataFields() {
         final String gameInfoText = """
-                In this Dungeon Adventure Game, you will be placed\s
-                within a room of the Dungeon with the task of visiting\s
-                the rooms to obtain the 4 OO Principle keys:\s
-                Abstraction, Encapsulation, Inheritance, Polymorphism.\s
-                You have the option of choosing between 3 hero's,\s
-                but know this... you're journey to obtaining the keys\s
-                won't be an easy one. Your hero will have to fight a\s
-                monster within each room.\s
+                In this Dungeon Adventure Game, you will be placed within a room\s
+                of the Dungeon with the task of visiting the rooms to obtain the\s
+                4 OO Principle keys: Abstraction, Encapsulation, Inheritance, Polymorphism.\s
+                You have the option of choosing between 3 hero's, but know this...\s
+                you're journey to obtaining the keys won't be an easy one.\s
+                Your hero will have to fight a monster within each room.\s
                 "Oh." What are the monsters you ask? Heh, win or\s
                 lose, I guess you'll just have to play and find out!""";
         final ImageIcon bgImg = new ImageIcon("src/imgs/MainMenuBG_Image.jpg");
@@ -116,6 +109,7 @@ public class GameInformationPanel extends JPanel {
     private void setUpAllButtonsBounds() {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, BACK_BUTTON_Y_AXIS,
                             BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT);
+        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
     }
 
     /** . */

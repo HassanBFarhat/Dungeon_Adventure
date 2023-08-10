@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated MainFrame.java to initialize the heros battle health bar when game starts, as well as understand if the heros health reaches 0 due to pit damage, the player losing screen appears.&#10;- Updated GamePlayPanel.java and BattlePanel.java to correctly display all Monster and Hero health bars and update accordingly.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameHelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameHelpPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameInformationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameInformationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameOverPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainMenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/OptionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/OptionsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/WinningPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/WinningPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +97,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="8987000" />
+      <workItem from="1691656373898" duration="17771000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -106,14 +105,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00006" summary="added &quot;drafted&quot; attack() method in DungeonCharacter.java">
-      <option name="closed" value="true" />
-      <created>1690007439200</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1690007439200</updated>
     </task>
     <task id="LOCAL-00007" summary="added 2 enum classes for our Potential Room items and to clean up the Room class, the use of enum Direction class">
       <option name="closed" value="true" />
@@ -491,7 +482,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691686924091</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented.">
+      <option name="closed" value="true" />
+      <created>1691690120293</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1691690120293</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster." />
     <MESSAGE value="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console." />
     <MESSAGE value="- Changed the visibility of Ogre.java, Skeleton.java, and Gremlin.java to have public visibility to create the monster objects for the factory. &#10;- Completed the MonsterFactory.java class (needs refactoring to clean up code, but it works)&#10;- Added myRoomMonster instance field and getters and setters for it in the Room.java class&#10;- Implemented randomly picking and placing a monster within a room of the 2D-Matrix.&#10;- All still needs to be refactored to clean up" />
     <MESSAGE value="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines." />
@@ -534,7 +532,8 @@
     <MESSAGE value="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java" />
     <MESSAGE value="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value." />
     <MESSAGE value="- Updated MainFrame.java to initialize the heros battle health bar when game starts, as well as understand if the heros health reaches 0 due to pit damage, the player losing screen appears.&#10;- Updated GamePlayPanel.java and BattlePanel.java to correctly display all Monster and Hero health bars and update accordingly." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Updated MainFrame.java to initialize the heros battle health bar when game starts, as well as understand if the heros health reaches 0 due to pit damage, the player losing screen appears.&#10;- Updated GamePlayPanel.java and BattlePanel.java to correctly display all Monster and Hero health bars and update accordingly." />
+    <MESSAGE value="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

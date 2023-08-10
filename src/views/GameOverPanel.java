@@ -9,11 +9,11 @@ public class GameOverPanel extends JPanel {
     // constants
 
     /** . */
-    private static final String LABEL_FONT_STYLE = "Arial";
+    private static final String LABEL_FONT_STYLE = "Freestyle Script";
     /** . */
-    private static final int LABEL_FONT_SIZE = 20;
+    private static final int LABEL_FONT_SIZE = 30;
     /** . */
-    private static final int BUTTON_WIDTH = 100;
+    private static final int BUTTON_WIDTH = 120;
     /** . */
     private static final int BUTTON_HEIGHT = 40;
     /** . */
@@ -76,8 +76,10 @@ public class GameOverPanel extends JPanel {
     private void setTheSizeOfTheButtonsAndBoundsOnThisPanel() {
         myYesPlayAgainButton.setBounds(80, 200,
                                         BUTTON_WIDTH, BUTTON_HEIGHT);
+        myYesPlayAgainButton.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 29));
         myMainMenuButton.setBounds(230, 200,
                                     BUTTON_WIDTH, BUTTON_HEIGHT);
+        myMainMenuButton.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 29));
     }
 
 
