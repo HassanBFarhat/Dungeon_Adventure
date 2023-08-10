@@ -47,7 +47,7 @@ public class Room implements Serializable {
 
     //TODO: Need to add Monster instance data field for the room to hold a specific monster.
     /** . */
-    private Monster myRoomMonster;
+    private AbstractMonster myRoomMonster;
 
     /** . */
     private int myRowPostion;
@@ -66,7 +66,7 @@ public class Room implements Serializable {
          final DoorDirections theDoorNorth, final DoorDirections theDoorEast,
          final DoorDirections theDoorSouth, final DoorDirections theDoorWest,
          final RoomItems theOOPillar, final RoomItems theHealingPotion,
-         final RoomItems theVisionPotion, final RoomItems thePit, final Monster theMonster) {
+         final RoomItems theVisionPotion, final RoomItems thePit, final AbstractMonster theMonster) {
 
         setEntrance(theEntrance);
         setExit(theExit);
@@ -214,12 +214,12 @@ public class Room implements Serializable {
     }
 
     /** . */
-    public final void setRoomMonster(final Monster theMonster) {
+    public final void setRoomMonster(final AbstractMonster theMonster) {
         myRoomMonster = theMonster;
     }
 
     /** . */
-    public final Monster getRoomMonster() {
+    public final AbstractMonster getRoomMonster() {
         return myRoomMonster;
     }
 

@@ -4,20 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Push out\ changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameHelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameHelpPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameInformationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameInformationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameOverPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainMenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/OptionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/OptionsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/WinningPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/WinningPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DoorDirections.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DoorDirections.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DungeonCharacter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Hero.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/RoomItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/RoomItems.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adventurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/DoorDirections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/DoorDirections.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/DungeonCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/AbstractDungeonCharacter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/AbstractHero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/RoomItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RoomItems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +111,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="17771000" />
+      <workItem from="1691656373898" duration="23225000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -105,22 +119,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00007" summary="added 2 enum classes for our Potential Room items and to clean up the Room class, the use of enum Direction class">
-      <option name="closed" value="true" />
-      <created>1690049759947</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1690049759947</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Main.java, MainFrame.java, StartingScreenPanel.java added to the project">
-      <option name="closed" value="true" />
-      <created>1690087681320</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1690087681320</updated>
     </task>
     <task id="LOCAL-00009" summary="Created the GUI MainMenu for the game, with buttons in place and BG image">
       <option name="closed" value="true" />
@@ -490,7 +488,23 @@
       <option name="project" value="LOCAL" />
       <updated>1691690120293</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="- Revamped and Redesigned all the panels within the view package.">
+      <option name="closed" value="true" />
+      <created>1691699099161</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1691699099161</updated>
+    </task>
+    <task id="LOCAL-00056" summary="- Push out\ changes">
+      <option name="closed" value="true" />
+      <created>1691699145678</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1691699145678</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,8 +522,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console." />
-    <MESSAGE value="- Changed the visibility of Ogre.java, Skeleton.java, and Gremlin.java to have public visibility to create the monster objects for the factory. &#10;- Completed the MonsterFactory.java class (needs refactoring to clean up code, but it works)&#10;- Added myRoomMonster instance field and getters and setters for it in the Room.java class&#10;- Implemented randomly picking and placing a monster within a room of the 2D-Matrix.&#10;- All still needs to be refactored to clean up" />
     <MESSAGE value="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines." />
     <MESSAGE value="- Reverted back to Original." />
     <MESSAGE value="- Added character sprites to the imgs package for usage amoongst the project." />
@@ -533,7 +545,9 @@
     <MESSAGE value="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value." />
     <MESSAGE value="- Updated MainFrame.java to initialize the heros battle health bar when game starts, as well as understand if the heros health reaches 0 due to pit damage, the player losing screen appears.&#10;- Updated GamePlayPanel.java and BattlePanel.java to correctly display all Monster and Hero health bars and update accordingly." />
     <MESSAGE value="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented." />
+    <MESSAGE value="- Revamped and Redesigned all the panels within the view package." />
+    <MESSAGE value="- Push out\ changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Push out\ changes" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

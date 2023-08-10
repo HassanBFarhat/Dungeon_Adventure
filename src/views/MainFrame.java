@@ -298,7 +298,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
                 System.out.println("You attacked the monster");
-                final Monster roomMonster = myCurrentRoom.getRoomMonster();
+                final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
                 System.out.println("BEFORE" + roomMonster.getCharacterHealthPoints());
                 roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.attack());
                 System.out.println(roomMonster.getCharacterHealthPoints());
@@ -313,7 +313,7 @@ public class MainFrame extends JFrame {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
                 System.out.println("You used Special Attack");
-                final Monster roomMonster = myCurrentRoom.getRoomMonster();
+                final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
                 if (myAdventurer.getCharacterName().equals("Warrior")) {
                     roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
                 } else if (myAdventurer.getCharacterName().equals("Priestess")) {
@@ -497,7 +497,7 @@ public class MainFrame extends JFrame {
         try {
             myAdventurer = Adventurer.loadFile("src/models/savefile.ser");
             if(myCurrentRoom.hasRoomMonster()) {
-                Monster loadedMonster = Monster.loadFile("ssrc/models/savefile.ser");
+                AbstractMonster loadedMonster = AbstractMonster.loadFile("ssrc/models/savefile.ser");
                 myCurrentRoom.setRoomMonster(loadedMonster);
             }
             myDungeon = Dungeon.loadFile("src/models/savefile.ser");
@@ -509,7 +509,7 @@ public class MainFrame extends JFrame {
     }
 
 
-    private void monsterAttacksHero(final Monster theMonster) {
+    private void monsterAttacksHero(final AbstractMonster theMonster) {
         if (theMonster != null) {
             JOptionPane.showMessageDialog(myBattlePanel, "Monsters Turn To Attack");
             final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();

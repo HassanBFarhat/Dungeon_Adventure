@@ -18,7 +18,7 @@ public class MonsterFactory {
 
     // instance fields
 
-    private final List<Monster> monsterList;
+    private final List<AbstractMonster> monsterList;
 
     // constructor
 
@@ -41,8 +41,8 @@ public class MonsterFactory {
 
     // methods
 
-    public Monster createMonster(String monsterType) {
-        Monster monster = null;
+    public AbstractMonster createMonster(String monsterType) {
+        AbstractMonster monster = null;
 
         String query = "SELECT * FROM monsters WHERE monster_name = '" + monsterType + "'";
 
@@ -96,7 +96,7 @@ public class MonsterFactory {
         return monster;
     }
 
-    public List<Monster> getMonsterList() {
+    public List<AbstractMonster> getMonsterList() {
         return monsterList;
     }
 

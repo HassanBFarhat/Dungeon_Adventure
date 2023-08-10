@@ -3,7 +3,6 @@ package models;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Dungeon implements Serializable {
 
@@ -46,7 +45,7 @@ public class Dungeon implements Serializable {
         Room currentRoom = new Room();
         List<RoomItems> pillarList = generateArrayOfPillars();
         MonsterFactory mF = new MonsterFactory();
-        List<Monster> monsterList = mF.getMonsterList();
+        List<AbstractMonster> monsterList = mF.getMonsterList();
         boolean entrancePlaced = false;
         boolean exitPlaced = false;
         boolean abstractPillar = false;
@@ -116,7 +115,7 @@ public class Dungeon implements Serializable {
 
     private void generateAndPutItemsAndDoorsInCurrentRoom(final Room theRoom,
                                                           final List<RoomItems> thePillarList,
-                                                          final List<Monster> theMonsterList,
+                                                          final List<AbstractMonster> theMonsterList,
                                                           final int theCurrentRow,
                                                           final int theCurrentColumn) {
 

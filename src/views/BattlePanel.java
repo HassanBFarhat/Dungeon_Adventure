@@ -1,7 +1,7 @@
 package views;
 
 import models.Adventurer;
-import models.Monster;
+import models.AbstractMonster;
 
 import java.awt.*;
 import javax.swing.BorderFactory;
@@ -96,7 +96,7 @@ public class BattlePanel extends JPanel {
     /** . */
     private String myMonsterBattleImgPath;
     /** . */
-    private Monster myCurrentRoomMonster;
+    private AbstractMonster myCurrentRoomMonster;
     /** . */
     private Adventurer myAdventurer;
 
@@ -250,7 +250,7 @@ public class BattlePanel extends JPanel {
         return myBlockBtn;
     }
 
-    public void setCurrentRoomMonster(final Monster theMonster) {
+    public void setCurrentRoomMonster(final AbstractMonster theMonster) {
         myCurrentRoomMonster = theMonster;
     }
 
@@ -267,7 +267,7 @@ public class BattlePanel extends JPanel {
     }
 
 
-    public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer, final Monster theMonster) {
+    public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer, final AbstractMonster theMonster) {
 //        myHeroHealthBar.setMaximum(0);
 //        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
         myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());

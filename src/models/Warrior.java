@@ -4,46 +4,70 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Random;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class Warrior extends Adventurer implements Serializable {
-
-
-    private static final String WARRIOR_NAME = "Warrior";
-    private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
-    private static final String WARRIOR_IMG_BATTLE_FILE_PATH = "src/imgs/Warrior_Battle.png";
-    private static final int HEALTH_POINTS = 125;
-    private static final int HIT_POINTS = 125;
-    private static final int ATTACK_SPEED = 4;
-    private static final double CHANCE_TO_HIT = 0.8;
-    private static final double CHANCE_TO_BLOCK = 0.2;
-    private static final int MAX_DAMAGE = 60;
-    private static final int MIN_DAMAGE = 35;
-
-    private static final double CRUSHING_BLOW_CHANCE = 0.4;
-    private static final int CRUSHING_BLOW_MIN_DAMAGE = 75;
-    private static final int CRUSHING_BLOW_MAX_DAMAGE = 175;
 
     @Serial
     private static final long serialVersionUID = 3747422476561415822L;
 
+    // constants
+    /** . */
+    private static final String WARRIOR_NAME = "Warrior";
+    /** . */
+    private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
+    /** . */
+    private static final String WARRIOR_IMG_BATTLE_FILE_PATH = "src/imgs/Warrior_Battle.png";
+    /** . */
+    private static final int HEALTH_POINTS = 125;
+    /** . */
+    private static final int HIT_POINTS = 125;
+    /** . */
+    private static final int ATTACK_SPEED = 4;
+    /** . */
+    private static final double CHANCE_TO_HIT = 0.8;
+    /** . */
+    private static final double CHANCE_TO_BLOCK = 0.2;
+    /** . */
+    private static final int MAX_DAMAGE = 60;
+    /** . */
+    private static final int MIN_DAMAGE = 35;
+    /** . */
+    private static final double CRUSHING_BLOW_CHANCE = 0.4;
+    /** . */
+    private static final int CRUSHING_BLOW_MIN_DAMAGE = 75;
+    /** . */
+    private static final int CRUSHING_BLOW_MAX_DAMAGE = 175;
+
+
+    // constructor
+
     public Warrior() {
-        super(WARRIOR_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE, ATTACK_SPEED, CHANCE_TO_HIT);
+        super(WARRIOR_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE,
+                ATTACK_SPEED, CHANCE_TO_HIT);
         setChanceToBlock(CHANCE_TO_BLOCK);
         setHeroSpecialSkill("Crushing Blow");
     }
 
+
+    // methods
+
+    /** . */
     @Override
     public String getAdventurerMainImgFilePath() {
         return WARRIOR_IMG_MAIN_FILE_PATH;
     }
 
+    /** . */
     @Override
     public String getAdventurerBattleImgFilePath() {
         return WARRIOR_IMG_BATTLE_FILE_PATH;
     }
 
-
-
-
+    /** . */
     @Override
     public int specialAttack() {
         final Random random = new Random();
@@ -52,7 +76,9 @@ public class Warrior extends Adventurer implements Serializable {
         System.out.println("Warrior tried crushing blow");
         if (chanceForCrushingBlow >= (1 - CRUSHING_BLOW_CHANCE)) {
             System.out.println("Crushing blow success");
-            randomCrushAmount = random.nextInt(CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1) + CRUSHING_BLOW_MIN_DAMAGE;
+            randomCrushAmount =
+                    random.nextInt(CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1)
+                            + CRUSHING_BLOW_MIN_DAMAGE;
         } else {
             System.out.println("Crushing blow failed");
         }

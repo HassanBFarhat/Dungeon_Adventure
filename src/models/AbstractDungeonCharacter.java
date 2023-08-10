@@ -2,15 +2,18 @@ package models;
 
 import java.util.Random;
 
-public abstract class DungeonCharacter {
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
+public abstract class AbstractDungeonCharacter {
 
     // constants
-
     /** . */
     private static final String NEW_LINE = "\n";
 
     // instance fields
-
     /** . */
     private String myCharacterName;
     /** . */
@@ -26,13 +29,14 @@ public abstract class DungeonCharacter {
     /** . */
     private double myChanceToHit;
 
+
     // constructor
 
     /** . */
-    DungeonCharacter(final String theCharacterName, final int theCharacterHealthPoints,
-                     final int theCharacterHitPoints, final int theMinimumDamageRange,
-                     final int theMaximumDamageRange, final int theAttackSpeed,
-                     final double theChanceToHit) {
+    AbstractDungeonCharacter(final String theCharacterName, final int theCharacterHealthPoints,
+                             final int theCharacterHitPoints, final int theMinimumDamageRange,
+                             final int theMaximumDamageRange, final int theAttackSpeed,
+                             final double theChanceToHit) {
         setCharacterName(theCharacterName);
         setCharacterHealthPoints(theCharacterHealthPoints);
         setCharacterHitPoints(theCharacterHitPoints);
@@ -57,11 +61,6 @@ public abstract class DungeonCharacter {
         return randomDamage;
     }
 
-
-
-
-
-
     /** . */
     public final void setCharacterName(final String theName) {
         myCharacterName = theName;
@@ -74,13 +73,7 @@ public abstract class DungeonCharacter {
 
     /** . */
     public final void setCharacterHealthPoints(final int theHealthPoints) {
-
-        if (theHealthPoints <= 0) {
-            myCharacterHealthPoints = 0;
-        } else {
-            myCharacterHealthPoints = theHealthPoints;
-        }
-
+        myCharacterHealthPoints = Math.max(theHealthPoints, 0);
     }
 
     /** . */
@@ -153,6 +146,5 @@ public abstract class DungeonCharacter {
         sb.append("Chance to Hit: " + getChanceToHit() + NEW_LINE);
         return sb.toString();
     }
-
 
 }
