@@ -1,5 +1,11 @@
 package models;
-public abstract class Hero extends DungeonCharacter {
+
+import java.io.Serializable;
+
+public abstract class Hero extends DungeonCharacter implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     protected static final String NEW_LINE = "\n";
 
     private double myChanceToBlock;

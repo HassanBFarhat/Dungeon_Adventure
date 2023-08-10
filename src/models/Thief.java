@@ -1,5 +1,11 @@
 package models;
-public class Thief extends Adventurer {
+
+import java.io.Serializable;
+
+public class Thief extends Adventurer implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private static final String THIEF_NAME = "Thief";
     private static final String THIEF_IMG_MAIN_FILE_PATH = "src/imgs/Thief_Main.png";
     private static final String THIEF_IMG_BATTLE_FILE_PATH = "src/imgs/Thief_Battle.png";

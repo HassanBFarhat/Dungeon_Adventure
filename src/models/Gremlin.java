@@ -1,6 +1,11 @@
 package models;
 
-public class Gremlin extends Monster {
+import java.io.Serializable;
+
+public class Gremlin extends Monster implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private static final String GREMLIN_IMG_BATTLE_FILE_PATH = "src/imgs/Gremlin1.png";
 

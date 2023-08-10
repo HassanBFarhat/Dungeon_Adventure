@@ -1,14 +1,34 @@
 package models;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 
-public class Adventurer extends Hero {
+public class Adventurer extends Hero implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     // Attributes specific to models.Adventurer class
     private int myHealingPotions;
     private int myVisionPotions;
     private ArrayList<RoomItems> myPillars;
+
+    public void saveToFile(String filename, Adventurer adventurer) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(adventurer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Adventurer loadFile(String filename) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+            return (Adventurer) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     // Constructor for models.Adventurer class
     protected Adventurer(final String theCharacterName, final int theCharacterHealthPoints,

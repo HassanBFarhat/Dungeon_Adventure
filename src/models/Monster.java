@@ -1,13 +1,33 @@
 package models;
 
+import java.io.*;
 import java.util.Random;
 
-public abstract class Monster extends DungeonCharacter {
+public abstract class Monster extends DungeonCharacter implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private static final String NEW_LINE = "\n";
     double myMonsterChanceToHeal;
     int myMinimumHealPoints;
     int myMaximumHealPoints;
+
+    public void saveToFile(String filename) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Monster loadFile(String filename) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+            return (Monster) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public Monster(String name, int healthPoints, int hitPoints, int attackSpeed, double chanceHit, int maxDamage, int minDamage) {
         super(name, healthPoints, hitPoints, minDamage, maxDamage, attackSpeed, chanceHit);

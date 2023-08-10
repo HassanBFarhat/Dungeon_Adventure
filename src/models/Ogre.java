@@ -1,6 +1,11 @@
 package models;
 
-public class Ogre extends Monster {
+import java.io.Serializable;
+
+public class Ogre extends Monster implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     private static final String OGRE_IMG_BATTLE_FILE_PATH = "src/imgs/Ogre1.png";
 

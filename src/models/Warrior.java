@@ -1,8 +1,12 @@
 package models;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Warrior extends Adventurer {
+public class Warrior extends Adventurer implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private static final String WARRIOR_NAME = "Warrior";
     private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
     private static final String WARRIOR_IMG_BATTLE_FILE_PATH = "src/imgs/Warrior_Battle.png";

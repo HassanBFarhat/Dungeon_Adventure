@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.Random;
 import javax.swing.*;
 
@@ -134,7 +135,11 @@ public class MainFrame extends JFrame {
                 theAction -> changeScreen(NEW_GAME_PANEL));
 
         myMainMenuPanel.getLoadGameBtn().addActionListener(
-                theAction -> System.out.println("LOADING"));
+                theAction -> {
+                    loadGame();
+                    System.out.println("LOADING");
+                    changeScreen(GAME_PLAY_PANEL);
+                });
 
         myMainMenuPanel.getOptionsBtn().addActionListener(
                 theAction -> changeScreen(OPTIONS_PANEL));
@@ -260,8 +265,9 @@ public class MainFrame extends JFrame {
                 theAction -> JOptionPane.showMessageDialog(this, "Health Potions " + myAdventurer.getMyHealingPotions() + "\n Pillars Collected: " + myAdventurer.getMyPillars().toString()));
 
         myGamePlayPanel.getMySaveGameBtn().addActionListener(
-                theAction -> System.out.println("SAVING"));
-
+                theAction -> { saveGame();
+                System.out.println("SAVING");
+                });
 
         myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
             @Override
@@ -407,6 +413,35 @@ public class MainFrame extends JFrame {
             // Put a quick JOptionpane here before death panel
 //            changeScreen(LOSING_PANEL);
 //            changeScreen(MAIN_MENU_PANEL);
+        }
+    }
+
+    private void saveGame() {
+        try {
+            myAdventurer.saveToFile("src/models/savefile.ser", myAdventurer);
+
+            if(myCurrentRoom.hasRoomMonster()) {
+                myCurrentRoom.getRoomMonster().saveToFile("src/models/monster_savefile.ser");
+            }
+            myDungeon.saveToFile("src/models/savefile.ser");
+        } catch (IOException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "game could not be saved.");
+        }
+    }
+
+    private void loadGame() {
+        try {
+            myAdventurer = Adventurer.loadFile("src/models/savefile.ser");
+            if(myCurrentRoom.hasRoomMonster()) {
+                Monster loadedMonster = Monster.loadFile("src/models/monster_savefile.ser");
+                myCurrentRoom.setRoomMonster(loadedMonster);
+            }
+            myDungeon = Dungeon.loadFile("src/models/monster_savefile.ser");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "game was unable to load.");
         }
     }
 

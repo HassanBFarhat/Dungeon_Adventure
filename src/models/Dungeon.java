@@ -1,14 +1,34 @@
 package models;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Dungeon {
-//    private static final int MAZE_SIZE = (int) Math.random();
+public class Dungeon implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+
+    //    private static final int MAZE_SIZE = (int) Math.random();
     private static final int MAZE_SIZE = 5;
 
+    public void saveToFile(String filename) throws IOException {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
+            oos.writeObject(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
+    public static Dungeon loadFile(String filename) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
+            return (Dungeon) in.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     private Room[][] myMazeRoom;
     private String myAdventureLocation;
 
