@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added semi-functioning character health bar. Need to debug reseting value when new monster appears.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Debugged the healthbars, now working properly during battles.&#10;- NEEDS REFACTORING">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DungeonCharacter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DungeonCharacter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/DungeonCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/DungeonCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -471,7 +476,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691559032055</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="- Debugged the healthbars, now working properly during battles.&#10;- NEEDS REFACTORING">
+      <option name="closed" value="true" />
+      <created>1691563458884</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1691563458884</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added the BattlePanel.java to display the battle panel when the user enters a room with a monster&#10;- Added battle bg img and monster sprite img.&#10;- updated appropriate classes to reflect changes." />
     <MESSAGE value="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines." />
     <MESSAGE value="- Added SQLite DB table with monster information to the project." />
     <MESSAGE value="- Added SQLiteDemo.java back into the project" />
@@ -514,7 +526,8 @@
     <MESSAGE value="- Added getter method to BattlePanel.java to access the monster image label&#10;- MainFrame.java uses that new getter method to disable the visibility of the old monster to allow new ones to spawn in without showing previous monsters." />
     <MESSAGE value="- Debugged the Hero.java class to properly execute attack() method." />
     <MESSAGE value="- Added semi-functioning character health bar. Need to debug reseting value when new monster appears." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added semi-functioning character health bar. Need to debug reseting value when new monster appears." />
+    <MESSAGE value="- Debugged the healthbars, now working properly during battles.&#10;- NEEDS REFACTORING" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Debugged the healthbars, now working properly during battles.&#10;- NEEDS REFACTORING" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

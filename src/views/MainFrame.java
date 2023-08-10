@@ -180,6 +180,7 @@ public class MainFrame extends JFrame {
                         Also want to check here the types of doors available for the user in the current
                         cell of the matrix.
                      */
+                    myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
 
                     myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());
                     myGamePlayPanel.addingPlayerChosenAdventurerImgToPanel();
@@ -212,6 +213,7 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 myCurrentRoomRow -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
@@ -223,6 +225,7 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 myCurrentRoomRow += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
@@ -234,6 +237,7 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 myCurrentRoomColumn += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
@@ -245,6 +249,7 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 myCurrentRoomColumn -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()[myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
@@ -252,7 +257,7 @@ public class MainFrame extends JFrame {
         });
 
         myGamePlayPanel.getMyInventoryBtn().addActionListener(
-                theAction -> System.out.println("Inventory check"));
+                theAction -> JOptionPane.showMessageDialog(this, "Health Potions " + myAdventurer.getMyHealingPotions() + "\n Pillars Collected: " + myAdventurer.getMyPillars().toString()));
 
         myGamePlayPanel.getMySaveGameBtn().addActionListener(
                 theAction -> System.out.println("SAVING"));
@@ -358,9 +363,11 @@ public class MainFrame extends JFrame {
     private void checkRoomForGroundItemsAndPit() {
         if (myCurrentRoom.hasHealingPotion()) {
             myAdventurer.setMyHealingPotions(1);
+            myCurrentRoom.setHealingPotion(null);
         }
         if (myCurrentRoom.hasPillar()) {
             myAdventurer.addPillarToMyPillarsArray(myCurrentRoom.getOOPillar());
+            myCurrentRoom.setOOPillar(null);
         }
         // Add check for vision potion too once/if implemented
         if (myCurrentRoom.hasPit()) {

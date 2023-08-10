@@ -1,7 +1,6 @@
 package views;
 
 import models.Adventurer;
-import models.DoorDirections;
 
 import java.awt.*;
 import javax.swing.ImageIcon;
@@ -83,8 +82,6 @@ public class GamePlayPanel extends JPanel {
     /** . */
     private Adventurer myAdventurer;
     private int[][] dungeon;
-    private int myRow;
-    private int myCol;
     // constructor
 
     /** . */
@@ -96,7 +93,7 @@ public class GamePlayPanel extends JPanel {
         setUpHeroHealthBar();
 
         // Set up the mini map (which now includes dungeon initialization and starting position)
-        setUpMiniMapAndItsBounds();
+//        setUpMiniMapAndItsBounds();
 
         setUpSaveAndInventoryButtonBounds();
         addAllTheComponentsToGameBGLabel();
@@ -137,7 +134,7 @@ public class GamePlayPanel extends JPanel {
         myCharactersHealth = new JProgressBar();
         myInventoryBtn = new JButton("Inventory");
         mySaveGameBtn = new JButton("Save Game");
-
+        dungeon = new int[5][5];
 
     }
 
@@ -164,10 +161,6 @@ public class GamePlayPanel extends JPanel {
         myCharacterAndMovementOptions.setLayout(new BorderLayout());
 
         // Set up action listeners for the movement buttons
-        myNorthBtn.addActionListener(e -> moveNorth());
-        mySouthBtn.addActionListener(e -> moveSouth());
-        myEastBtn.addActionListener(e -> moveEast());
-        myWestBtn.addActionListener(e -> moveWest());
 //        myCharacterAndMovementOptions.add(myHeroJPGLabel, BorderLayout.CENTER);
         myCharacterAndMovementOptions.add(myNorthBtn, BorderLayout.NORTH);
         myCharacterAndMovementOptions.add(mySouthBtn, BorderLayout.SOUTH);
@@ -220,29 +213,31 @@ public class GamePlayPanel extends JPanel {
     }
 
     /** . */
-    private void setUpMiniMapAndItsBounds() {
+    public void updateMiniMap(final int theCurrentRow, final int theCurrentColumn) {
         // Initialize dungeon and set starting position
-        dungeon = new int[5][5];
-        myRow = 0;
-        myCol = 0;
-        dungeon[myRow][myCol] = 2;  // Assuming 2 represents the player's starting position
-
+        // Remove old labels
+        myMiniMap.removeAll();
+        dungeon[theCurrentRow][theCurrentColumn] = 2;  // Assuming 2 represents the player's starting position
         myMiniMap.setBounds(MINI_MAP_X_COORDINATE, MINI_MAP_Y_COORDINATE,
                 MINI_MAP_WIDTH, MINI_MAP_HEIGHT);
         myMiniMap.setBackground(Color.PINK);
         myMiniMap.setLayout(new GridLayout(dungeon.length, dungeon[0].length));
-
         for(int i = 0; i < dungeon.length; i++) {
             for(int j = 0; j < dungeon[i].length; j++) {
                 JPanel cell = new JPanel();
+//                cell.setPreferredSize(new Dimension(40, 40));
                 if(dungeon[i][j] == 2) {  // If it's the starting position
                     cell.setBackground(Color.RED); // Representing player's starting & current position
+                    dungeon[i][j] = 0;
                 } else {
                     cell.setBackground(Color.BLUE); // Default color or representation
                 }
                 myMiniMap.add(cell);
             }
         }
+        // minimap is updated
+        myMiniMap.revalidate();
+        myMiniMap.repaint();
     }
 
     /** . */
@@ -274,72 +269,5 @@ public class GamePlayPanel extends JPanel {
     public void setUpHealthBarWithAdventurerHealthStats() {
         myCharactersHealth.setValue(myAdventurer.getCharacterHealthPoints());
     }
-    public void moveAdventurer(int rowChange, int colChange) {
-        // Ensure the move doesn't exceed dungeon boundaries
-        if (myRow + rowChange >= 0 && myRow + rowChange < dungeon.length &&
-                myCol + colChange >= 0 && myCol + colChange < dungeon[0].length) {
 
-            // Mark the current cell as visited
-            dungeon[myRow][myCol] = 1;
-
-            // Adjust the adventurer's position
-            myRow += rowChange;
-            myCol += colChange;
-
-            // Mark the new cell as current
-            dungeon[myRow][myCol] = 2;
-
-            // Update the visual mini-map
-            updateMap();
-        }
-    }
-    public void moveNorth() {
-        moveAdventurer(-1, 0);
-    }
-
-    public void moveSouth() {
-        moveAdventurer(1, 0);
-    }
-
-    public void moveEast() {
-        moveAdventurer(0, 1);
-    }
-
-    public void moveWest() {
-        moveAdventurer(0, -1);
-    }
-
-    public void updateMap() {
-        // Remove old labels
-        myMiniMap.removeAll();
-
-        for (int row = 0; row < dungeon.length; row++) {
-            for (int col = 0; col < dungeon[0].length; col++) {
-                // Create a new label for the cell
-                JLabel cellLabel = new JLabel();
-                cellLabel.setOpaque(true);
-                cellLabel.setPreferredSize(new Dimension(20, 20));
-
-                // Set the label's color based on the dungeon cell's value
-                switch (dungeon[row][col]) {
-                    case 0:
-                        cellLabel.setBackground(Color.BLUE);  // Unvisited room
-                        break;
-                    case 1:
-                        cellLabel.setBackground(Color.GRAY);   // Visited room
-                        break;
-                    case 2:
-                        cellLabel.setBackground(Color.RED);     // Current room
-                        break;
-                }
-
-                // minimap panel
-                myMiniMap.add(cellLabel);
-            }
-        }
-
-        // minimap is updated
-        myMiniMap.revalidate();
-        myMiniMap.repaint();
-    }
 }
