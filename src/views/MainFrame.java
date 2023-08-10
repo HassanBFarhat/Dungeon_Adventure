@@ -280,6 +280,7 @@ public class MainFrame extends JFrame {
                 myBattlePanel.updateHealthBarForMonster(roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();
+                monsterAttacksHero(myCurrentRoom.getRoomMonster());
             }
         });
 
@@ -294,6 +295,7 @@ public class MainFrame extends JFrame {
                 myBattlePanel.updateHealthBarForMonster(roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();
+                monsterAttacksHero(myCurrentRoom.getRoomMonster());
             }
         });
 
@@ -305,6 +307,7 @@ public class MainFrame extends JFrame {
                 if (myAdventurer.getMyHealingPotions() > 0) {
                     myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() + randomHealAmount);
                     myBattlePanel.updateHealthBarsForHero(myAdventurer.getCharacterHealthPoints());
+                    myAdventurer.setMyHealingPotions(-1);
                 } else {
                     System.out.println("No potions to use for healing.");
                 }
@@ -403,6 +406,7 @@ public class MainFrame extends JFrame {
             myCurrentRoom.getRoomMonster().setCharacterHealthPoints(myMonsterInitialHealth);
             myCurrentRoom.setRoomMonster(null);
             myBattlePanel.getMyMonsterImgLabel().setVisible(false);
+            myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats();
             changeScreen(GAME_PLAY_PANEL);
         }
     }
@@ -444,6 +448,19 @@ public class MainFrame extends JFrame {
             JOptionPane.showMessageDialog(this, "game was unable to load.");
         }
     }
+
+
+    private void monsterAttacksHero(final Monster theMonster) {
+        if (theMonster != null) {
+            JOptionPane.showMessageDialog(myBattlePanel, "Monsters Turn To Attack");
+            final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
+            myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
+            myBattlePanel.updateHealthBarsForHero(myAdventurer.getCharacterHealthPoints());
+            checkIfMonsterHealthIsZero();
+            checkIfAdventurerHealthIsZero();
+        }
+    }
+
 
 
 }

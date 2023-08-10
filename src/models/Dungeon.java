@@ -184,19 +184,19 @@ public class Dungeon implements Serializable {
         if (randomNumberForPotion <= 90) {
             theRoom.setHealingPotion(RoomItems.HEALING_POTION);
         }
-//        if (randomNumberForPit <= 10) {
-//            theRoom.setPit(RoomItems.PIT);
-//        }
+        if (randomNumberForPit <= 10) {
+            theRoom.setPit(RoomItems.PIT);
+        }
         if (randomNumberForPillar <= 15 && thePillarList.size() != 0) {
             final int randomPillarIndex = (int) (Math.random() * thePillarList.size());
             theRoom.setOOPillar(thePillarList.get(randomPillarIndex));
             thePillarList.remove(randomPillarIndex);
         }
         //TODO:COME BACK AND FIX THIS FOR MONSTER GENERATION IN THE DUNGEON.
-//        if (randomNumberForMonster <= 90) {
-//            final int randomMonsterIndex = (int) (Math.random() * 3);
-//            theRoom.setRoomMonster(theMonsterList.get(randomMonsterIndex));
-//        }
+        if (randomNumberForMonster <= 90) {
+            final int randomMonsterIndex = (int) (Math.random() * 3);
+            theRoom.setRoomMonster(theMonsterList.get(randomMonsterIndex));
+        }
         //
         //  if statement to place a random monster in the room goes here
         //  implement similar to the thePillarList, but don't remove the monster
