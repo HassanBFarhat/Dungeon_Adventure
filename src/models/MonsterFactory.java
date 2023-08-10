@@ -1,105 +1,119 @@
 package models;
 
-import org.sqlite.SQLiteDataSource;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import org.sqlite.SQLiteDataSource;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class MonsterFactory {
 
     // constants
-
     /** . */
-    private static SQLiteDataSource ds = null;
+    private static final String OGRE = "Ogre";
+    /** . */
+    private static final String GREMLIN = "Gremlin";
+    /** . */
+    private static final String SKELETON = "Skeleton";
+
 
     // instance fields
+    /** . */
+    private static SQLiteDataSource myDs;
+    /** . */
+    private final List<AbstractMonster> myMonsterList;
 
-    private final List<AbstractMonster> monsterList;
 
     // constructor
 
     public MonsterFactory() {
         // try for connection to DB
         try {
-            ds = new SQLiteDataSource();
-            ds.setUrl("jdbc:sqlite:dungeon_characters.sqlite");
-        } catch ( Exception e ) {
+            myDs = new SQLiteDataSource();
+            myDs.setUrl("jdbc:sqlite:dungeon_characters.sqlite");
+        } catch (final Exception e) {
             e.printStackTrace();
             System.exit(0);
         }
-
-        monsterList = new ArrayList<>();
-        monsterList.add(createMonster("Ogre"));
-        monsterList.add(createMonster("Gremlin"));
-        monsterList.add(createMonster("Skeleton"));
+        myMonsterList = new ArrayList<>();
+        myMonsterList.add(createMonster(OGRE));
+        myMonsterList.add(createMonster(GREMLIN));
+        myMonsterList.add(createMonster(SKELETON));
     }
 
 
     // methods
 
-    public AbstractMonster createMonster(String monsterType) {
+    /** . */
+    public AbstractMonster createMonster(final String theMonsterType) {
         AbstractMonster monster = null;
-
-        String query = "SELECT * FROM monsters WHERE monster_name = '" + monsterType + "'";
-
+        final String query
+                = "SELECT * FROM monsters WHERE monster_name = '" + theMonsterType + "'";
 
         // querying DB for content
-        try (Connection conn = ds.getConnection();
+        try (Connection conn = myDs.getConnection();
              Statement stmt = conn.createStatement()) {
-            ResultSet rs = stmt.executeQuery(query);
+            final ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
-                String monsterName = rs.getString("monster_name");
-                int monsterHealth = rs.getInt("monster_health_points");
-                int monsterHitPoints = rs.getInt("monster_hit_points");
-                int monsterMinDamage = rs.getInt("monster_min_damage");
-                int monsterMaxDamage = rs.getInt("monster_max_damage");
-                int monsterAttackSpeed = rs.getInt("monster_attack_speed");
-                double monsterChanceToHit = rs.getDouble("monster_chance_to_hit");
-                double monsterChanceToHeal = rs.getDouble("monster_chance_to_heal");
-                int monsterMinHealPoints = rs.getInt("monster_min_heal_points");
-                int monsterMaxHealPoints = rs.getInt("monster_max_heal_points");
+                final String monsterName = rs.getString("monster_name");
+                final int monsterHealth = rs.getInt("monster_health_points");
+                final int monsterHitPoints = rs.getInt("monster_hit_points");
+                final int monsterMinDamage = rs.getInt("monster_min_damage");
+                final int monsterMaxDamage = rs.getInt("monster_max_damage");
+                final int monsterAttackSpeed = rs.getInt("monster_attack_speed");
+                final double monsterChanceToHit = rs.getDouble("monster_chance_to_hit");
+                final double monsterChanceToHeal = rs.getDouble("monster_chance_to_heal");
+                final int monsterMinHealPoints = rs.getInt("monster_min_heal_points");
+                final int monsterMaxHealPoints = rs.getInt("monster_max_heal_points");
 
-                switch (monsterType) {
-                    case "Ogre":
-                        monster = new Ogre(monsterName, monsterHealth, monsterHitPoints, monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage, monsterMinDamage);
+                switch (theMonsterType) {
+                    case OGRE -> {
+                        monster = new Ogre(monsterName, monsterHealth, monsterHitPoints,
+                                monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage,
+                                monsterMinDamage);
                         monster.setMonsterChanceToHeal(monsterChanceToHeal);
                         monster.setMinimumHealPoints(monsterMinHealPoints);
                         monster.setMaximumHealPoints(monsterMaxHealPoints);
-                        break;
-
-                    case "Gremlin":
-                        monster = new Gremlin(monsterName, monsterHealth, monsterHitPoints, monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage, monsterMinDamage);
+                    }
+                    case GREMLIN -> {
+                        monster = new Gremlin(monsterName, monsterHealth, monsterHitPoints,
+                                monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage,
+                                monsterMinDamage);
                         monster.setMonsterChanceToHeal(monsterChanceToHeal);
                         monster.setMinimumHealPoints(monsterMinHealPoints);
                         monster.setMaximumHealPoints(monsterMaxHealPoints);
-                        break;
-
-                    case "Skeleton":
-                        monster = new Skeleton(monsterName, monsterHealth, monsterHitPoints, monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage, monsterMinDamage);
+                    }
+                    case SKELETON -> {
+                        monster = new Skeleton(monsterName, monsterHealth, monsterHitPoints,
+                                monsterAttackSpeed, monsterChanceToHit, monsterMaxDamage,
+                                monsterMinDamage);
                         monster.setMonsterChanceToHeal(monsterChanceToHeal);
                         monster.setMinimumHealPoints(monsterMinHealPoints);
                         monster.setMaximumHealPoints(monsterMaxHealPoints);
-                        break;
+                    }
+                    default -> {
+                        System.out.println("No monsters are being created.");
+                    }
                 }
             }
-        }
-        catch (final SQLException e) {
+        } catch (final SQLException e) {
             e.printStackTrace();
             System.exit(0);
             throw new RuntimeException(e);
         }
-
         return monster;
     }
 
-    public List<AbstractMonster> getMonsterList() {
-        return monsterList;
+    /** . */
+    public List<AbstractMonster> getMyMonsterList() {
+        return myMonsterList;
     }
-
-//    private
 
 }

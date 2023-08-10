@@ -4,34 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Push out\ changes">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/controller/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DoorDirections.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DoorDirections.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/DungeonCharacter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Hero.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/RoomItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/RoomItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adventurer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/DoorDirections.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/DoorDirections.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/DungeonCharacter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/AbstractDungeonCharacter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Hero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/AbstractHero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/RoomItems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RoomItems.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MonsterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +93,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="23225000" />
+      <workItem from="1691656373898" duration="26239000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -119,14 +101,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Created the GUI MainMenu for the game, with buttons in place and BG image">
-      <option name="closed" value="true" />
-      <created>1690252424780</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1690252424781</updated>
     </task>
     <task id="LOCAL-00010" summary="Created CharacterSelectionPanel.java, which is the menu when a player starts a new game. updated DungeonCharacter.java to be an abstract class. Updated the MainMenuPanel.java to Center Title and buttons on the screen">
       <option name="closed" value="true" />
@@ -504,7 +478,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691699145678</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)">
+      <option name="closed" value="true" />
+      <created>1691706154557</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1691706154557</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -522,7 +504,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added @overriden toString() method for Ogre, Gremlin, Skeleton&#10;- Fixed Hero constructor to utilize set methods, and fixed it's toString() method to utilize the get methods&#10;- Fixed all the Hero's specialAttack() methods to specification guidelines." />
     <MESSAGE value="- Reverted back to Original." />
     <MESSAGE value="- Added character sprites to the imgs package for usage amoongst the project." />
     <MESSAGE value="- Removed parameters from the contractors" />
@@ -547,7 +528,8 @@
     <MESSAGE value="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented." />
     <MESSAGE value="- Revamped and Redesigned all the panels within the view package." />
     <MESSAGE value="- Push out\ changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Push out\ changes" />
+    <MESSAGE value="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

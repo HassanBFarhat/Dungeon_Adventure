@@ -4,6 +4,11 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class Dungeon implements Serializable {
 
     //    private static final int MAZE_SIZE = (int) Math.random();
@@ -45,7 +50,7 @@ public class Dungeon implements Serializable {
         Room currentRoom = new Room();
         List<RoomItems> pillarList = generateArrayOfPillars();
         MonsterFactory mF = new MonsterFactory();
-        List<AbstractMonster> monsterList = mF.getMonsterList();
+        List<AbstractMonster> monsterList = mF.getMyMonsterList();
         boolean entrancePlaced = false;
         boolean exitPlaced = false;
         boolean abstractPillar = false;

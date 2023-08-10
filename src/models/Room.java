@@ -3,83 +3,56 @@ package models;
 import java.io.Serial;
 import java.io.Serializable;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class Room implements Serializable {
-
-    // constants
-
-    /** . */
-    private static final String NEW_LINE = "\n";
 
     @Serial
     private static final long serialVersionUID = -8845860585432504096L;
 
-    // instance fields
+    // constants
+    /** . */
+    private static final String NEW_LINE = "\n";
 
+
+    // instance fields
     /** . */
     private RoomItems myEntrance;
-
     /** . */
     private RoomItems myExit;
-
     /** . */
     private DoorDirections myDoorNorth;
-
     /** . */
     private DoorDirections myDoorEast;
-
     /** . */
     private DoorDirections myDoorSouth;
-
     /** . */
     private DoorDirections myDoorWest;
-
     /** . */
     private RoomItems myOOPillar;
-
     /** . */
     private RoomItems myHealingPotion;
-
     /** . */
     private RoomItems myVisionPotion;
-
     /** . */
     private RoomItems myPit;
-
-    //TODO: Need to add Monster instance data field for the room to hold a specific monster.
     /** . */
     private AbstractMonster myRoomMonster;
-
     /** . */
     private int myRowPostion;
     /** . */
     private int myColumnPostion;
 
+
     // constructors
 
-    /** . */
     public Room() {
         // default constructor
     }
 
-    /** . */
-    public Room(final RoomItems theEntrance, final RoomItems theExit,
-         final DoorDirections theDoorNorth, final DoorDirections theDoorEast,
-         final DoorDirections theDoorSouth, final DoorDirections theDoorWest,
-         final RoomItems theOOPillar, final RoomItems theHealingPotion,
-         final RoomItems theVisionPotion, final RoomItems thePit, final AbstractMonster theMonster) {
-
-        setEntrance(theEntrance);
-        setExit(theExit);
-        setDoorNorth(theDoorNorth);
-        setDoorEast(theDoorEast);
-        setDoorSouth(theDoorSouth);
-        setDoorWest(theDoorWest);
-        setOOPillar(theOOPillar);
-        setHealingPotion(theHealingPotion);
-        setVisionPotion(theVisionPotion);
-        setPit(thePit);
-        setRoomMonster(theMonster);
-    }
 
     // methods
 
@@ -183,20 +156,20 @@ public class Room implements Serializable {
         return getHealingPotion() != null;
     }
 
-    /** . */
-    public final void setVisionPotion(final RoomItems theVisionPotion) {
-        myVisionPotion = theVisionPotion;
-    }
-
-    /** . */
-    public final RoomItems getVisionPotion() {
-        return myVisionPotion;
-    }
-
-    /** . */
-    public final boolean hasVisionPotion() {
-        return getVisionPotion() != null;
-    }
+//    /** . */
+//    public final void setVisionPotion(final RoomItems theVisionPotion) {
+//        myVisionPotion = theVisionPotion;
+//    }
+//
+//    /** . */
+//    public final RoomItems getVisionPotion() {
+//        return myVisionPotion;
+//    }
+//
+//    /** . */
+//    public final boolean hasVisionPotion() {
+//        return getVisionPotion() != null;
+//    }
 
     /** . */
     public final void setPit(final RoomItems thePit) {
@@ -264,11 +237,10 @@ public class Room implements Serializable {
         sb.append("Has an West Door: " + getDoorWest() + NEW_LINE);
         sb.append("Has an OO Pillar in Room: " + getOOPillar() + NEW_LINE);
         sb.append("Has a Healing Potion in Room: " + getHealingPotion() + NEW_LINE);
-        sb.append("Has a Vision Potion in Room: " + getVisionPotion() + NEW_LINE);
+//        sb.append("Has a Vision Potion in Room: " + getVisionPotion() + NEW_LINE);
         sb.append("Has a Pit in Room: " + getPit() + NEW_LINE);
         sb.append("Has a Monster in Room: " + getRoomMonster() + NEW_LINE);
         return sb.toString();
     }
-
 
 }
