@@ -202,8 +202,9 @@ public class MainFrame extends JFrame {
                     myGamePlayPanel.setHeroMainImgFilePath(myAdventurer.getAdventurerMainImgFilePath());
                     myGamePlayPanel.addingPlayerChosenAdventurerImgToPanel();
                     myGamePlayPanel.setMyAdventurer(myAdventurer);
+                    myBattlePanel.initializeHeroBattleHealthBarMaxMin(myAdventurer);
                     changeScreen(GAME_PLAY_PANEL);
-                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats();
+                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
 
                 }
             }
@@ -233,6 +234,7 @@ public class MainFrame extends JFrame {
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
             }
         });
 
@@ -245,6 +247,7 @@ public class MainFrame extends JFrame {
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
             }
         });
 
@@ -257,6 +260,7 @@ public class MainFrame extends JFrame {
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
             }
         });
 
@@ -269,6 +273,7 @@ public class MainFrame extends JFrame {
                 checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
             }
         });
 
@@ -409,8 +414,10 @@ public class MainFrame extends JFrame {
         // Add check for vision potion too once/if implemented
         if (myCurrentRoom.hasPit()) {
             int randomDamage = (int) (Math.random() * 20);
+            JOptionPane.showMessageDialog(myGamePlayPanel, "You fell into a pit and took damage!");
             // can put JOptionPane here letting user quickly know that they took fall damage.
             myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() - randomDamage);
+            myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
             // Need to update health bars on GamePlayPanel to show appropriate health.
         }
     }
@@ -434,7 +441,7 @@ public class MainFrame extends JFrame {
             myCurrentRoom.getRoomMonster().setCharacterHealthPoints(myMonsterInitialHealth);
             myCurrentRoom.setRoomMonster(null);
             myBattlePanel.getMyMonsterImgLabel().setVisible(false);
-            myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats();
+            myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
             changeScreen(GAME_PLAY_PANEL);
         }
     }

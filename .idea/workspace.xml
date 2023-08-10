@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,15 +98,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="2558000" />
-    </task>
-    <task id="LOCAL-00003" summary="updated the .gitignore file">
-      <option name="closed" value="true" />
-      <created>1689827585652</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1689827585652</updated>
+      <workItem from="1691656373898" duration="5964000" />
     </task>
     <task id="LOCAL-00004" summary="Third Commit: &#10;- Fixed the toString() method in DungeonCharacter class to reflect the changes made for extended children classes.&#10;- Finished the getters/setters for the data fields of DungeonCharacter.java&#10;- Added NEW_LINE constant field in DungeonCharacter.java">
       <option name="closed" value="true" />
@@ -482,7 +483,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691648550381</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value.">
+      <option name="closed" value="true" />
+      <created>1691683453538</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1691683453539</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -500,7 +509,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Updated Enum's to follow naming guidelines." />
     <MESSAGE value="- Added the enums to the models package.&#10;- Added MonsterFactory.java file." />
     <MESSAGE value="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster." />
     <MESSAGE value="- Debugged randomlyGenerateRooms() method in Dungeon.java to generate playable maze.&#10;- added a checkIfMazeIsValid() method to check if our 2D maze is valid with all appropriate OO Pillar keys and entrance and exit for player.&#10;- Within the Room.java class, I added hasEntrance(), hasExit(), hasPillar() methods to return a boolean if the room contains one of those items.&#10;&#10;- NOTE: Main.java used to test random room generation within the console." />
@@ -525,7 +533,8 @@
     <MESSAGE value="- Fixed the updateMinimap() method to actually update the heros real position in the dungeon&#10;-" />
     <MESSAGE value="- Added GameOverPanel.java and WinningPanel.java to views package.&#10;- Finished Battle logic, working as intended." />
     <MESSAGE value="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java" />
+    <MESSAGE value="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

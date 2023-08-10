@@ -262,10 +262,10 @@ public class BattlePanel extends JPanel {
 
 
     public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer, final Monster theMonster) {
-//        myHeroHealthBar.setMinimum(MINIMUM_HEALTH_SIZE);
+//        myHeroHealthBar.setMaximum(0);
 //        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
         myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());
-//        myMonstersHealthBar.setMinimum(MINIMUM_HEALTH_SIZE);
+//        myMonstersHealthBar.setMaximum(0);
 //        myMonstersHealthBar.setMaximum(theMonster.getCharacterHealthPoints());
         myMonstersHealthBar.setValue(theMonster.getCharacterHealthPoints());
     }
@@ -279,6 +279,12 @@ public class BattlePanel extends JPanel {
         }
 
     }
+
+    public void initializeHeroBattleHealthBarMaxMin(final Adventurer theAdventurer) {
+        myHeroHealthBar.setMaximum(0);
+        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
+    }
+
 
     public void updateHealthBarForMonster(final int theNewMonsterStats) {
         myMonstersHealthBar.setValue(theNewMonsterStats);

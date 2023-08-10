@@ -263,11 +263,17 @@ public class GamePlayPanel extends JPanel {
 
     public void setMyAdventurer(final Adventurer theAdventurer) {
         myAdventurer = theAdventurer;
-        setUpHealthBarWithAdventurerHealthStats();
+        setUpHealthBarWithAdventurerHealthStats(theAdventurer);
     }
 
-    public void setUpHealthBarWithAdventurerHealthStats() {
-        myCharactersHealth.setValue(myAdventurer.getCharacterHealthPoints());
+    public void setUpHealthBarWithAdventurerHealthStats(final Adventurer theAdventurer) {
+        myCharactersHealth.setMaximum(0);
+        myCharactersHealth.setMaximum(theAdventurer.getCharacterHealthPoints());
+        myCharactersHealth.setValue(theAdventurer.getCharacterHealthPoints());
+    }
+
+    public void updateAdventurerHealthBar(final Adventurer theAdventurer) {
+        myCharactersHealth.setValue(theAdventurer.getCharacterHealthPoints());
     }
 
 }
