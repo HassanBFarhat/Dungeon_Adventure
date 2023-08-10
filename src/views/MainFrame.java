@@ -428,6 +428,7 @@ public class MainFrame extends JFrame {
                 myCurrentRoom.getRoomMonster().saveToFile("src/models/monster_savefile.ser");
             }
             myDungeon.saveToFile("src/models/savefile.ser");
+
         } catch (IOException e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "game could not be saved.");
@@ -438,10 +439,10 @@ public class MainFrame extends JFrame {
         try {
             myAdventurer = Adventurer.loadFile("src/models/savefile.ser");
             if(myCurrentRoom.hasRoomMonster()) {
-                Monster loadedMonster = Monster.loadFile("src/models/monster_savefile.ser");
+                Monster loadedMonster = Monster.loadFile("ssrc/models/savefile.ser");
                 myCurrentRoom.setRoomMonster(loadedMonster);
             }
-            myDungeon = Dungeon.loadFile("src/models/monster_savefile.ser");
+            myDungeon = Dungeon.loadFile("src/models/savefile.ser");
 
         } catch (Exception e) {
             e.printStackTrace();

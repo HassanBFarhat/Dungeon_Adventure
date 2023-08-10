@@ -1,11 +1,11 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Random;
 
 public class Warrior extends Adventurer implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     private static final String WARRIOR_NAME = "Warrior";
     private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
@@ -21,6 +21,9 @@ public class Warrior extends Adventurer implements Serializable {
     private static final double CRUSHING_BLOW_CHANCE = 0.4;
     private static final int CRUSHING_BLOW_MIN_DAMAGE = 75;
     private static final int CRUSHING_BLOW_MAX_DAMAGE = 175;
+
+    @Serial
+    private static final long serialVersionUID = 3747422476561415822L;
 
     public Warrior() {
         super(WARRIOR_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE, ATTACK_SPEED, CHANCE_TO_HIT);

@@ -1,11 +1,11 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Random;
 
 public class Priestess extends Adventurer implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     private static final String PRIESTESS_NAME = "Priestess";
     private static final String PRIESTESS_IMG_MAIN_FILE_PATH = "src/imgs/Priestess_Main.png";
@@ -19,6 +19,9 @@ public class Priestess extends Adventurer implements Serializable {
     private static final int MIN_DAMAGE = 25;
     private static final int MIN_HEAL = 10;
     private static final int MAX_HEAL = 30;
+
+    @Serial
+    private static final long serialVersionUID = -4337052340195714754L;
 
     // Constructor
     public Priestess() {

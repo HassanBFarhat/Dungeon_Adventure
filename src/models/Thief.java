@@ -1,10 +1,10 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Thief extends Adventurer implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     private static final String THIEF_NAME = "Thief";
     private static final String THIEF_IMG_MAIN_FILE_PATH = "src/imgs/Thief_Main.png";
@@ -19,6 +19,9 @@ public class Thief extends Adventurer implements Serializable {
     private static final double SURPRISE_ATTACK_ODDS = 0.6;
     private static final double CHANCE_SURPRISE_ATTACK = 0.4;
     private static final double CHANCE_CAUGHT = 0.2;
+
+    @Serial
+    private static final long serialVersionUID = 8850439520184187280L;
 
 
     // Constructor

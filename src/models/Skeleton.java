@@ -1,13 +1,16 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Skeleton extends Monster implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
 
     private static final String SKELETON_IMG_BATTLE_FILE_PATH = "src/imgs/Skeleton1.png";
+
+    @Serial
+    private static final long serialVersionUID = -5448755600554862879L;
 
 //    private static final int HEALTH_POINTS = 100;
 //    private static final int HIT_POINTS = 100;

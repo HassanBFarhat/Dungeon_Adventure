@@ -6,8 +6,8 @@ import java.util.ArrayList;
 
 public class Adventurer extends Hero implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
+    @Serial
+    private static final long serialVersionUID = 1322284771007316582L;
     // Attributes specific to models.Adventurer class
     private int myHealingPotions;
     private int myVisionPotions;

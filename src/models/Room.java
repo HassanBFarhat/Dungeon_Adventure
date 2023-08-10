@@ -1,16 +1,17 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Room implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
 
     // constants
 
     /** . */
     private static final String NEW_LINE = "\n";
+
+    @Serial
+    private static final long serialVersionUID = -8845860585432504096L;
 
     // instance fields
 

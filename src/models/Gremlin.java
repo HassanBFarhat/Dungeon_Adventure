@@ -1,13 +1,14 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Gremlin extends Monster implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+    
 
     private static final String GREMLIN_IMG_BATTLE_FILE_PATH = "src/imgs/Gremlin1.png";
+    @Serial
+    private static final long serialVersionUID = -5687175985038661820L;
 
 //    private static final int HEALTH_POINTS = 70;
 //    private static final int HIT_POINTS = 70;

@@ -1,12 +1,14 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public abstract class Hero extends DungeonCharacter implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     protected static final String NEW_LINE = "\n";
+    @Serial
+    private static final long serialVersionUID = 4675854409591872348L;
 
     private double myChanceToBlock;
 

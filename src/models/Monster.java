@@ -5,9 +5,10 @@ import java.util.Random;
 
 public abstract class Monster extends DungeonCharacter implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
     private static final String NEW_LINE = "\n";
+    @Serial
+    private static final long serialVersionUID = 1618814556113403060L;
     double myMonsterChanceToHeal;
     int myMinimumHealPoints;
     int myMaximumHealPoints;

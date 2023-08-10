@@ -1,13 +1,15 @@
 package models;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class Ogre extends Monster implements Serializable {
 
-    private static final long serialVersionUID = 1L;
 
 
     private static final String OGRE_IMG_BATTLE_FILE_PATH = "src/imgs/Ogre1.png";
+    @Serial
+    private static final long serialVersionUID = -3135985768945417554L;
 
 //    private static final int HEALTH_POINTS = 200;
 //    private static final int HIT_POINTS = 200;

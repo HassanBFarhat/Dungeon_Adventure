@@ -7,11 +7,11 @@ import java.util.Random;
 
 public class Dungeon implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-
-
     //    private static final int MAZE_SIZE = (int) Math.random();
     private static final int MAZE_SIZE = 5;
+
+    @Serial
+    private static final long serialVersionUID = -8905573779050064748L;
 
     public void saveToFile(String filename) throws IOException {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
