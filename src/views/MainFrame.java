@@ -71,6 +71,8 @@ public class MainFrame extends JFrame {
     private GameOverPanel myGameOverPanel;
     /** . */
     private WinningPanel myWinningPanel;
+    /** . */
+    private ImageIcon myTitleIcon;
 
     // constructor
 
@@ -87,6 +89,8 @@ public class MainFrame extends JFrame {
 
     /** . */
     private void instantiateInstanceDataFields() {
+        myTitleIcon = new ImageIcon("src/imgs/DungeonDoorProjectIcon.png");
+
         myCardPanel = new JPanel(new CardLayout());
         myMainMenuPanel = new MainMenuPanel();
         myCharacterSelectionPanel = new CharacterSelectionPanel();
@@ -129,6 +133,7 @@ public class MainFrame extends JFrame {
         this.setTitle("Dungeon Adventure");
         this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setIconImage(myTitleIcon.getImage());
 
         final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         final int centerX = (screenSize.width - this.getWidth()) / 2;
@@ -235,6 +240,7 @@ public class MainFrame extends JFrame {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
             }
         });
 
@@ -248,6 +254,7 @@ public class MainFrame extends JFrame {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
             }
         });
 
@@ -261,6 +268,7 @@ public class MainFrame extends JFrame {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
             }
         });
 
@@ -274,6 +282,7 @@ public class MainFrame extends JFrame {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
             }
         });
 
@@ -454,6 +463,20 @@ public class MainFrame extends JFrame {
             changeScreen(GAME_OVER_PANEL);
         }
     }
+
+
+    private void checkIfHeroIsAbleToExit() {
+        if (myAdventurer.getMyPillars().size() == 4 && myCurrentRoom.hasExit()) {
+            int usersChoice = JOptionPane.showConfirmDialog(myGamePlayPanel, "You've found the Exit! \nYou've also collected all the Pillars. \nWould you like to exit?", null, JOptionPane.YES_NO_OPTION);
+            if (usersChoice == 0) {
+                changeScreen(WINNING_PANEL);
+            }
+        } else if (myCurrentRoom.hasExit()) {
+            JOptionPane.showMessageDialog(myGamePlayPanel, "Sorry, you cannot exit the dungeon until all pillars are found. \nBut hey, now you know where the exit is!");
+        }
+    }
+
+
 
     private void saveGame() {
         try {
