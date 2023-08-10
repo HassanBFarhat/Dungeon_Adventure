@@ -28,6 +28,10 @@ public class MainFrame extends JFrame {
     /** . */
     private static final String GAME_PLAY_PANEL = "GamePlay";
     /** . */
+    private static final String GAME_OVER_PANEL = "GameOver";
+    /** . */
+    private static final String WINNING_PANEL = "Winner";
+    /** . */
     private static final String BATTLE_PANEL = "BattleField";
     private static final int FRAME_WIDTH = 1280;
     /** . */
@@ -63,6 +67,10 @@ public class MainFrame extends JFrame {
     private Room myCurrentRoom;
     /** . */
     private int myMonsterInitialHealth;
+    /** . */
+    private GameOverPanel myGameOverPanel;
+    /** . */
+    private WinningPanel myWinningPanel;
 
     // constructor
 
@@ -92,6 +100,8 @@ public class MainFrame extends JFrame {
         myCurrentRoomColumn = 0;
         myCurrentRoom = new Room();
         myMonsterInitialHealth = 0;
+        myGameOverPanel = new GameOverPanel();
+        myWinningPanel = new WinningPanel();
     }
 
     /** . */
@@ -109,6 +119,8 @@ public class MainFrame extends JFrame {
         myCardPanel.add(myGameHelpPanel, GAME_HELP_PANEL);
         myCardPanel.add(myGamePlayPanel, GAME_PLAY_PANEL);
         myCardPanel.add(myBattlePanel, BATTLE_PANEL);
+        myCardPanel.add(myGameOverPanel, GAME_OVER_PANEL);
+        myCardPanel.add(myWinningPanel, WINNING_PANEL);
     }
 
     /** . */
@@ -192,7 +204,6 @@ public class MainFrame extends JFrame {
                     myGamePlayPanel.setMyAdventurer(myAdventurer);
                     changeScreen(GAME_PLAY_PANEL);
                     myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats();
-//                    changeScreen(BATTLE_PANEL);
 
                 }
             }
@@ -332,6 +343,18 @@ public class MainFrame extends JFrame {
             }
         });
 
+
+        myGameOverPanel.getPlayAgainBtn().addActionListener(
+                theAction -> changeScreen(NEW_GAME_PANEL));
+                // also make sure that dungeon.generatemaze() is ran to generate a new maze, clear out old inventory too.
+                // pretty much re-instantiate the objects here to start over
+
+        myGameOverPanel.getMyMainMenuBtn().addActionListener(
+                theAction -> changeScreen(MAIN_MENU_PANEL));
+
+        myWinningPanel.getMyMainMenuBtn().addActionListener(
+                theAction -> changeScreen(MAIN_MENU_PANEL));
+
     }
 
     /** . */
@@ -415,8 +438,8 @@ public class MainFrame extends JFrame {
         if (myAdventurer.getCharacterHealthPoints() <= 0) {
             System.out.println("You Died");
             // Put a quick JOptionpane here before death panel
-//            changeScreen(LOSING_PANEL);
-//            changeScreen(MAIN_MENU_PANEL);
+            JOptionPane.showMessageDialog(myBattlePanel, "You have Died a painful death!");
+            changeScreen(GAME_OVER_PANEL);
         }
     }
 
