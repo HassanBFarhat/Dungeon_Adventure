@@ -48,7 +48,6 @@ public class Priestess extends Adventurer implements Serializable {
         System.out.println("Priestess healed herself.");
         final Random random = new Random();
         final int randomHealAmount = random.nextInt(MAX_HEAL - MIN_HEAL + 1) + MIN_HEAL;
-        this.setCharacterHealthPoints(this.getCharacterHealthPoints() + randomHealAmount);
-        return 0;
+        return randomHealAmount;
     }
 }

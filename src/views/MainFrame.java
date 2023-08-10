@@ -300,9 +300,14 @@ public class MainFrame extends JFrame {
             public void actionPerformed(final ActionEvent theEvent) {
                 System.out.println("You used Special Attack");
                 final Monster roomMonster = myCurrentRoom.getRoomMonster();
-//                System.out.println("BEFORE" + roomMonster.getCharacterHealthPoints());
-                roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
-//                System.out.println(roomMonster.getCharacterHealthPoints());
+                if (myAdventurer.getCharacterName().equals("Warrior")) {
+                    roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
+                } else if (myAdventurer.getCharacterName().equals("Priestess")) {
+                    myAdventurer.setCharacterHealthPoints(myAdventurer.getCharacterHealthPoints() + myAdventurer.specialAttack());
+                    myBattlePanel.updateHealthBarsForHero(myAdventurer.getCharacterHealthPoints());
+                } else if (myAdventurer.getCharacterName().equals("Thief")) {
+                    roomMonster.setCharacterHealthPoints(roomMonster.getCharacterHealthPoints() - myAdventurer.specialAttack());
+                }
                 myBattlePanel.updateHealthBarForMonster(roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
                 checkIfAdventurerHealthIsZero();

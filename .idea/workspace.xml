@@ -4,36 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added GameOverPanel.java and WinningPanel.java to views package.&#10;- Finished Battle logic, working as intended.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Hero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Hero.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Monster.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/savefile.ser" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/savefile.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameOverPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameOverPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/WinningPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/WinningPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/savefile.ser" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/savefile.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameOverPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/WinningPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/WinningPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,14 +89,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-    </task>
-    <task id="LOCAL-00002" summary="updated the .gitignore file">
-      <option name="closed" value="true" />
-      <created>1689827562485</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1689827562485</updated>
+      <workItem from="1691656373898" duration="2558000" />
     </task>
     <task id="LOCAL-00003" summary="updated the .gitignore file">
       <option name="closed" value="true" />
@@ -505,7 +474,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691642879236</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java">
+      <option name="closed" value="true" />
+      <created>1691648550381</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1691648550381</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -523,7 +500,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added SQLiteDemo.java back into the project" />
     <MESSAGE value="- Updated Enum's to follow naming guidelines." />
     <MESSAGE value="- Added the enums to the models package.&#10;- Added MonsterFactory.java file." />
     <MESSAGE value="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster." />
@@ -548,7 +524,8 @@
     <MESSAGE value="- Debugged the healthbars, now working properly during battles.&#10;- NEEDS REFACTORING" />
     <MESSAGE value="- Fixed the updateMinimap() method to actually update the heros real position in the dungeon&#10;-" />
     <MESSAGE value="- Added GameOverPanel.java and WinningPanel.java to views package.&#10;- Finished Battle logic, working as intended." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added GameOverPanel.java and WinningPanel.java to views package.&#10;- Finished Battle logic, working as intended." />
+    <MESSAGE value="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

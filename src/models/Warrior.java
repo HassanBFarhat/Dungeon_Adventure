@@ -49,8 +49,12 @@ public class Warrior extends Adventurer implements Serializable {
         final Random random = new Random();
         final double chanceForCrushingBlow = (int) (Math.random() * 100) / 100.0;
         int randomCrushAmount = 0;
+        System.out.println("Warrior tried crushing blow");
         if (chanceForCrushingBlow >= (1 - CRUSHING_BLOW_CHANCE)) {
+            System.out.println("Crushing blow success");
             randomCrushAmount = random.nextInt(CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1) + CRUSHING_BLOW_MIN_DAMAGE;
+        } else {
+            System.out.println("Crushing blow failed");
         }
         return randomCrushAmount;
     }
