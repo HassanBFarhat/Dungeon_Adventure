@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refactored Room.java and MonsterFactory.java, STILL WORKING ON Dungeon.java refactor">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refactored Dungeon.java class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Dungeon.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +85,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="29706000" />
+      <workItem from="1691656373898" duration="30382000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -95,14 +93,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00011" summary="When &quot;New Game&quot; Btn is pressed, CardLayout Manager updates to CharacterSelectionPanel.java and when &quot;Back&quot; Btn is pressed on that panel, it takes us back to MainMenuPanel.java.">
-      <option name="closed" value="true" />
-      <created>1690412376470</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1690412376470</updated>
     </task>
     <task id="LOCAL-00012" summary="Finished the CharacterSelectionPanel.java (other than changing the fonts + setting up action for begin adventure button)&#10;Created an OptionsPanel.java to house some game options for the user. (only have data fields in place.">
       <option name="closed" value="true" />
@@ -480,7 +470,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691708777844</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="- Refactored Dungeon.java class">
+      <option name="closed" value="true" />
+      <created>1691715085484</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1691715085484</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,7 +496,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added character sprites to the imgs package for usage amoongst the project." />
     <MESSAGE value="- Removed parameters from the contractors" />
     <MESSAGE value="- Updated visibility for the hero subclasses from default -&gt; public" />
     <MESSAGE value="- Changed the family hierarchy of Hero's. DungeonCharacter -&gt; Hero -&gt; Adventurer -&gt; Warrior, Thief, Priestess&#10;- Refactored Adventurer.java class" />
@@ -523,7 +520,8 @@
     <MESSAGE value="- Push out\ changes" />
     <MESSAGE value="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)" />
     <MESSAGE value="- Refactored Room.java and MonsterFactory.java, STILL WORKING ON Dungeon.java refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Refactored Room.java and MonsterFactory.java, STILL WORKING ON Dungeon.java refactor" />
+    <MESSAGE value="- Refactored Dungeon.java class" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Refactored Dungeon.java class" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

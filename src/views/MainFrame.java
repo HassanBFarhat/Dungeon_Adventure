@@ -287,7 +287,7 @@ public class MainFrame extends JFrame {
         });
 
         myGamePlayPanel.getMyInventoryBtn().addActionListener(
-                theAction -> JOptionPane.showMessageDialog(this, "Health Potions " + myAdventurer.getMyHealingPotions() + "\n Pillars Collected: " + myAdventurer.getMyPillars().toString()));
+                theAction -> JOptionPane.showMessageDialog(this, "Health Potions " + myAdventurer.getMyHealingPotions() + "\nPillars Collected: " + myAdventurer.getMyPillars().toString()));
 
         myGamePlayPanel.getMySaveGameBtn().addActionListener(
                 theAction -> { saveGame();
