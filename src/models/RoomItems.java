@@ -1,7 +1,7 @@
 package models;
 
 /**
- *
+ * @author Avinash Bavisetty
  * @author Hassan Bassam Farhat
  * @version Summer 2023
  */
@@ -13,8 +13,6 @@ public enum RoomItems {
     EXIT,
     /** . */
     HEALING_POTION,
-    /** . */
-    VISION_POTION,
     /** . */
     PIT,
     /** . */

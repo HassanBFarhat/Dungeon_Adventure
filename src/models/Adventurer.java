@@ -24,18 +24,17 @@ public class Adventurer extends AbstractHero implements Serializable {
 
     /** . */
     private int myHealingPotions;
-//    /** . */
-//    private int myVisionPotions;
+
     /** . */
     private final ArrayList<RoomItems> myPillars;
 
 
     // constructor
 
-    protected Adventurer(final String theCharacterName, final int theCharacterHealthPoints,
-                         final int theCharacterHitPoints, final int theMinimumDamageRange,
-                         final int theMaximumDamageRange, final int theAttackSpeed,
-                         final double theChanceToHit) {
+    public Adventurer(final String theCharacterName, final int theCharacterHealthPoints,
+                      final int theCharacterHitPoints, final int theMinimumDamageRange,
+                      final int theMaximumDamageRange, final int theAttackSpeed,
+                      final double theChanceToHit) {
         super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints,
                 theAttackSpeed, theChanceToHit, theMaximumDamageRange, theMinimumDamageRange);
         myPillars = new ArrayList<>();
@@ -102,17 +101,4 @@ public class Adventurer extends AbstractHero implements Serializable {
     public String toString() {
         return super.toString();
     }
-
-
-//    public void setMyVisionPotions(final int theVisionPotions) {
-//        this.myVisionPotions += theVisionPotions;
-//        if (this.myVisionPotions < 0) {
-//            this.myVisionPotions = 0;
-//        }
-//    }
-//
-//    public int getMyVisionPotions() {
-//        return myVisionPotions;
-//    }
-
 }
