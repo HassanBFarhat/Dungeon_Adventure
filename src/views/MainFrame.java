@@ -168,6 +168,8 @@ public class MainFrame extends JFrame implements Serializable {
                     // Method for deserialization of object.
                     myAdventurer = (Adventurer) in.readObject();
                     myDungeon = (Dungeon) in.readObject();
+                    myGamePlayPanel = (GamePlayPanel) in.readObject();
+                    myBattlePanel = (BattlePanel) in.readObject();
 //                    myCurrentRoom = (Room) in.readObject();
                     in.close();
                     file.close();
@@ -327,6 +329,8 @@ public class MainFrame extends JFrame implements Serializable {
                     // Method for Serialization of Object
                     out.writeObject(myAdventurer);
                     out.writeObject(myDungeon);
+                    out.writeObject(myGamePlayPanel);
+                    out.writeObject(myBattlePanel);
 //                    out.writeObject(myCurrentRoom);
                     out.close();
                     file.close();
