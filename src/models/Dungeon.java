@@ -1,6 +1,12 @@
 package models;
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,46 +17,45 @@ import java.util.List;
  */
 public class Dungeon implements Serializable {
 
-    //    private static final int MAZE_SIZE = (int) Math.random();
-    private static final int MAZE_SIZE = 5;
-
     @Serial
     private static final long serialVersionUID = -8905573779050064748L;
 
-    public void saveToFile(String filename) throws IOException {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename))) {
-            oos.writeObject(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    // constants
+    /** . */
+    private static final int MAZE_SIZE = 5;
+    /** . */
+    private static final int MAX_PILLAR_COUNT = 4;
+    /** . */
+    private static final int ENTRANCE_AND_EXIT_THRESHOLD = 20;
+    /** . */
+    private static final int POTION_PLACEMENT_POSSIBILITY = 90;
+    /** . */
+    private static final int PIT_PLACEMENT_POSSIBILITY = 90;
+    /** . */
+    private static final int PILLAR_PLACEMENT_POSSIBILITY = 15;
+    /** . */
+    private static final int MONSTER_PLACEMENT_POSSIBILITY = 85;
 
-    public static Dungeon loadFile(String filename) {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
-            return (Dungeon) in.readObject();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-    private Room[][] myMazeRoom;
-    private String myAdventureLocation;
+    // instance fields
+    /** . */
+    private final Room[][] myMazeRoom;
+
+
+    // constructor
 
     public Dungeon() {
         myMazeRoom = new Room[MAZE_SIZE][MAZE_SIZE];
-        myAdventureLocation = "0.0";
-        ////// UNDO THIS randomlyGenerateRooms();
-//        checkIfEntranceToExitIsValid();
-//        placeRandomContentInRoom();
-//        placeRandomMonsterInRoom();
     }
 
-    public void randomlyGenerateRooms() {
 
+    // methods
+
+    /** . */
+    public void randomlyGenerateRooms() {
         Room currentRoom = new Room();
-        List<RoomItems> pillarList = generateArrayOfPillars();
-        MonsterFactory mF = new MonsterFactory();
-        List<AbstractMonster> monsterList = mF.getMyMonsterList();
+        final List<RoomItems> pillarList = generateArrayOfPillars();
+        final MonsterFactory mF = new MonsterFactory();
+        final List<AbstractMonster> monsterList = mF.getMyMonsterList();
         boolean entrancePlaced = false;
         boolean exitPlaced = false;
         boolean abstractPillar = false;
@@ -58,57 +63,59 @@ public class Dungeon implements Serializable {
         boolean encapsulationPillar = false;
         boolean polymorphismPillar = false;
 
-        for (int i = 0; i < MAZE_SIZE; i++) {
-            for (int j = 0; j < MAZE_SIZE; j++) {
-                System.out.print("THIS IS ROOM: Maze[" + i + "][" + j + "]");
-                currentRoom.setMyRowPosition(i);
-                currentRoom.setMyColumnPosition(j);
-                if (i == 0 && !entrancePlaced) {
+        for (int row = 0; row < MAZE_SIZE; row++) {
+            for (int col = 0; col < MAZE_SIZE; col++) {
+                System.out.print("THIS IS ROOM: Maze[" + row + "][" + col + "]");
+                currentRoom.setMyRowPosition(row);
+                currentRoom.setMyColumnPosition(col);
+                if (row == 0 && !entrancePlaced) {
                     // randomly decide to place entrance somewhere on first row
                     final int randomEntranceNumber = (int) (Math.random() * 70);
-                    if (randomEntranceNumber > 20) {
+                    if (randomEntranceNumber > ENTRANCE_AND_EXIT_THRESHOLD) {
                         currentRoom.setEntrance(RoomItems.ENTRANCE);
                         entrancePlaced = true;
                     }
-                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, monsterList, i, j);
-                } else if (i == MAZE_SIZE - 1 && !exitPlaced) {
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList,
+                                                             monsterList, row, col);
+                } else if (row == MAZE_SIZE - 1 && !exitPlaced) {
                     // randomly decide to place exit somewhere on last row
                     final int randomExitNumber = (int) (Math.random() * 70);
-                    if (randomExitNumber > 20) {
+                    if (randomExitNumber > ENTRANCE_AND_EXIT_THRESHOLD) {
                         currentRoom.setExit(RoomItems.EXIT);
                         exitPlaced = true;
                     }
-                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, monsterList, i, j);
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList,
+                                                             monsterList, row, col);
                 } else {
                     // Randomly place items and doors in rooms.
-                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList, monsterList, i, j);
+                    generateAndPutItemsAndDoorsInCurrentRoom(currentRoom, pillarList,
+                                                             monsterList, row, col);
                     // checks to see if one of the pillars was placed into a room
-                    if (!abstractPillar || !inheritancePillar || !encapsulationPillar || !polymorphismPillar) {
+                    if (!abstractPillar || !inheritancePillar
+                            || !encapsulationPillar || !polymorphismPillar) {
                         if (currentRoom.getOOPillar() == RoomItems.ABSTRACTION_PILLAR) {
                             abstractPillar = true;
                         } else if (currentRoom.getOOPillar() == RoomItems.INHERITANCE_PILLAR) {
                             inheritancePillar = true;
-                        } else if (currentRoom.getOOPillar() == RoomItems.ENCAPSULATION_PILLAR) {
+                        } else if (currentRoom.getOOPillar()
+                                == RoomItems.ENCAPSULATION_PILLAR) {
                             encapsulationPillar = true;
                         } else {
                             polymorphismPillar = true;
                         }
                     }
                 }
-                myMazeRoom[i][j] = currentRoom;
+                myMazeRoom[row][col] = currentRoom;
                 System.out.println(currentRoom.toString());
                 currentRoom = new Room();
             }
         }
-        if (checkIfMazeIsValid(myMazeRoom)) {
-            System.out.println("**************************MAZE IS GOOD**************************");
-            return;
-        } else {
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!MAZE IS NOT GOOD, REMAKING MAZE!!!!!!!!!!!!!!!!!!!!!!!!\n");
+        if (!checkIfMazeIsValid(myMazeRoom)) {
             randomlyGenerateRooms();
         }
     }
 
+    /** . */
     private List<RoomItems> generateArrayOfPillars() {
         final List<RoomItems> arr = new ArrayList<>();
         arr.add(RoomItems.ABSTRACTION_PILLAR);
@@ -118,17 +125,27 @@ public class Dungeon implements Serializable {
         return arr;
     }
 
+    /** . */
     private void generateAndPutItemsAndDoorsInCurrentRoom(final Room theRoom,
                                                           final List<RoomItems> thePillarList,
-                                                          final List<AbstractMonster> theMonsterList,
+                                                          final List<AbstractMonster>
+                                                                  theMonsterList,
                                                           final int theCurrentRow,
                                                           final int theCurrentColumn) {
+        // Firstly, set up the doors within the matrix
+        setRoomDoors(theRoom, theCurrentRow, theCurrentColumn);
+        // Secondly, check if entrance or exit has been placed
+        if (theRoom.hasEntrance() || theRoom.hasExit()) {
+            return;
+        }
+        // Thirdly, randomize items, and monsters within the current room of matrix
+        setRandomItemsAndMonstersInRoom(theRoom, thePillarList, theMonsterList);
+    }
 
-        final int randomNumberForPotion = (int) (Math.random() * 100);
-        final int randomNumberForPit = (int) (Math.random() * 100);
-        final int randomNumberForPillar = (int) (Math.random() * 100);
-        final int randomNumberForMonster = (int) (Math.random() * 100);
-
+    /** . */
+    private void setRoomDoors(final Room theRoom,
+                              final int theCurrentRow,
+                              final int theCurrentColumn) {
         // FIRST, SET ROOM DOORS
         // figures out what doors go within which room in the matrix
         if (theCurrentRow == 0 && theCurrentColumn > 0 && theCurrentColumn < MAZE_SIZE - 1) {
@@ -136,17 +153,20 @@ public class Dungeon implements Serializable {
             theRoom.setDoorSouth(DoorDirections.SOUTH);
             theRoom.setDoorEast(DoorDirections.EAST);
             theRoom.setDoorWest(DoorDirections.WEST);
-        } else if (theCurrentRow == MAZE_SIZE - 1 && theCurrentColumn > 0 && theCurrentColumn < MAZE_SIZE - 1) {
+        } else if (theCurrentRow == MAZE_SIZE - 1 && theCurrentColumn > 0
+                && theCurrentColumn < MAZE_SIZE - 1) {
             theRoom.setDoorNorth(DoorDirections.NORTH);
             theRoom.setDoorSouth(DoorDirections.NO_DOOR_DIRECTION);
             theRoom.setDoorEast(DoorDirections.EAST);
             theRoom.setDoorWest(DoorDirections.WEST);
-        } else if (theCurrentRow > 0 && theCurrentRow < MAZE_SIZE - 1 && theCurrentColumn == 0) {
+        } else if (theCurrentRow > 0 && theCurrentRow < MAZE_SIZE - 1
+                && theCurrentColumn == 0) {
             theRoom.setDoorNorth(DoorDirections.NORTH);
             theRoom.setDoorSouth(DoorDirections.SOUTH);
             theRoom.setDoorEast(DoorDirections.EAST);
             theRoom.setDoorWest(DoorDirections.NO_DOOR_DIRECTION);
-        } else if (theCurrentRow > 0 && theCurrentRow < MAZE_SIZE - 1 && theCurrentColumn == MAZE_SIZE - 1) {
+        } else if (theCurrentRow > 0 && theCurrentRow < MAZE_SIZE - 1
+                && theCurrentColumn == MAZE_SIZE - 1) {
             theRoom.setDoorNorth(DoorDirections.NORTH);
             theRoom.setDoorSouth(DoorDirections.SOUTH);
             theRoom.setDoorEast(DoorDirections.NO_DOOR_DIRECTION);
@@ -177,96 +197,102 @@ public class Dungeon implements Serializable {
             theRoom.setDoorEast(DoorDirections.EAST);
             theRoom.setDoorWest(DoorDirections.WEST);
         }
+    }
 
-
-        // SECOND, CHECK TO SEE IF ENTRANCE OR EXIT IS PLACED
-        if (theRoom.hasEntrance() || theRoom.hasExit()) {
-            return;
-        }
+    /** . */
+    private void setRandomItemsAndMonstersInRoom(final Room theRoom,
+                                                 final List<RoomItems> thePillarList,
+                                                 final List<AbstractMonster> theMonsterList) {
+        final int randomNumberForPotion = (int) (Math.random() * 100);
+        final int randomNumberForPit = (int) (Math.random() * 100);
+        final int randomNumberForPillar = (int) (Math.random() * 100);
+        final int randomNumberForMonster = (int) (Math.random() * 100);
 
         // THIRD, PLACE RANDOM ITEMS OTHERWISE.
-        if (randomNumberForPotion <= 90) {
+        if (randomNumberForPotion >= POTION_PLACEMENT_POSSIBILITY) {
             theRoom.setHealingPotion(RoomItems.HEALING_POTION);
         }
-        if (randomNumberForPit <= 10) {
+        if (randomNumberForPit >= PIT_PLACEMENT_POSSIBILITY) {
             theRoom.setPit(RoomItems.PIT);
         }
-        if (randomNumberForPillar <= 15 && thePillarList.size() != 0) {
+        if (randomNumberForPillar <= PILLAR_PLACEMENT_POSSIBILITY
+                && thePillarList.size() != 0) {
             final int randomPillarIndex = (int) (Math.random() * thePillarList.size());
             theRoom.setOOPillar(thePillarList.get(randomPillarIndex));
             thePillarList.remove(randomPillarIndex);
         }
-        //TODO:COME BACK AND FIX THIS FOR MONSTER GENERATION IN THE DUNGEON.
-        if (randomNumberForMonster <= 90) {
+        if (randomNumberForMonster >= MONSTER_PLACEMENT_POSSIBILITY) {
             final int randomMonsterIndex = (int) (Math.random() * 3);
             theRoom.setRoomMonster(theMonsterList.get(randomMonsterIndex));
         }
-        //
-        //  if statement to place a random monster in the room goes here
-        //  implement similar to the thePillarList, but don't remove the monster
-        //  when finished adding to the room.
-        //
-        //
-
     }
 
+
+    /** . */
     private boolean checkIfMazeIsValid(final Room[][] theMaze) {
         boolean value = false;
         boolean entrance = false;
         boolean exit = false;
         int pillarCount = 0;
-
-        for (int i = 0; i < theMaze.length; i++) {
+        for (Room[] rooms : theMaze) {
             for (int j = 0; j < theMaze.length; j++) {
-                if (theMaze[i][j].hasEntrance()) {
+                if (rooms[j].hasEntrance()) {
                     entrance = true;
                 }
-                if (theMaze[i][j].hasExit()) {
+                if (rooms[j].hasExit()) {
                     exit = true;
                 }
-                if (theMaze[i][j].hasPillar()) {
+                if (rooms[j].hasPillar()) {
                     pillarCount++;
                 }
             }
         }
-
-        if (entrance && exit && pillarCount == 4) {
+        if (entrance && exit && pillarCount == MAX_PILLAR_COUNT) {
             value = true;
         }
-
         return value;
     }
 
-
-    public void setMazeRoom(Room[][] mazeRoom) {
-        myMazeRoom = mazeRoom;
-    }
-
+    /** . */
     public Room[][] getMyMazeRoom() {
         return myMazeRoom;
     }
 
+    /** . */
     public int getMazeSize() {
         return MAZE_SIZE;
     }
 
-
-    public void setMyAdventureLocation(String myAdventureLocation) {
-        this.myAdventureLocation = myAdventureLocation;
-    }
-
-    public String getMyAdventureLocation() {
-        return myAdventureLocation;
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < MAZE_SIZE; i++) {
-            for (int j = 0; j < MAZE_SIZE; j++)
-            sb.append(myMazeRoom[i][j].toString());
-            sb.append("\n");
+    /** . */
+    public void saveToFile(final String theFilename) throws IOException {
+        try (ObjectOutputStream oos
+                     = new ObjectOutputStream(new FileOutputStream(theFilename))) {
+            oos.writeObject(this);
+        } catch (final IOException e) {
+            e.printStackTrace();
         }
+    }
 
+    /** . */
+    public static Dungeon loadFile(final String theFilename) {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(theFilename))) {
+            return (Dungeon) in.readObject();
+        } catch (final IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /** . */
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < MAZE_SIZE; i++) {
+            for (int j = 0; j < MAZE_SIZE; j++) {
+                sb.append(myMazeRoom[i][j].toString());
+                sb.append("\n");
+            }
+        }
         return sb.toString();
     }
+
 }
