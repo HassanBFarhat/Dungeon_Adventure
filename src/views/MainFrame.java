@@ -7,11 +7,14 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.io.*;
 import java.util.Random;
 import javax.swing.*;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -9118850470601436365L;
 
     // constants
 
@@ -36,6 +39,7 @@ public class MainFrame extends JFrame {
     private static final int FRAME_WIDTH = 1280;
     /** . */
     private static final int FRAME_HEIGHT = 720;
+
 
     // instance fields
 
@@ -73,6 +77,8 @@ public class MainFrame extends JFrame {
     private WinningPanel myWinningPanel;
     /** . */
     private ImageIcon myTitleIcon;
+    /** . */
+    private String fileName = "serialized_game_data.ser";
 
     // constructor
 
@@ -151,12 +157,33 @@ public class MainFrame extends JFrame {
         myMainMenuPanel.getStartNewGameBtn().addActionListener(
                 theAction -> changeScreen(NEW_GAME_PANEL));
 
-        myMainMenuPanel.getLoadGameBtn().addActionListener(
-                theAction -> {
-                    loadGame();
-                    System.out.println("LOADING");
-                    changeScreen(GAME_PLAY_PANEL);
-                });
+        myMainMenuPanel.getLoadGameBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+                //Deserialization
+                try {
+                    // Reading Object from file
+                    final FileInputStream file = new FileInputStream(fileName);
+                    final ObjectInputStream in = new ObjectInputStream(file);
+                    // Method for deserialization of object.
+                    myAdventurer = (Adventurer) in.readObject();
+                    myDungeon = (Dungeon) in.readObject();
+//                    myCurrentRoom = (Room) in.readObject();
+                    in.close();
+                    file.close();
+                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                    System.out.println(myAdventurer.toString());
+                    System.out.println(myDungeon.toString());
+                    System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+//                    System.out.println(myCurrentRoom.toString());
+                } catch (final Exception e) {
+                    e.printStackTrace();
+                    System.exit(0);
+                }
+                changeScreen(GAME_PLAY_PANEL);
+            }
+        });
+
 
         myMainMenuPanel.getOptionsBtn().addActionListener(
                 theAction -> changeScreen(OPTIONS_PANEL));
@@ -289,10 +316,37 @@ public class MainFrame extends JFrame {
         myGamePlayPanel.getMyInventoryBtn().addActionListener(
                 theAction -> JOptionPane.showMessageDialog(this, "Health Potions " + myAdventurer.getMyHealingPotions() + "\nPillars Collected: " + myAdventurer.getMyPillars().toString()));
 
-        myGamePlayPanel.getMySaveGameBtn().addActionListener(
-                theAction -> { saveGame();
-                System.out.println("SAVING");
-                });
+        myGamePlayPanel.getMySaveGameBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theEvent) {
+                // Serialization
+                try {
+                    // Saving Object in a File
+                    final FileOutputStream file = new FileOutputStream(fileName);
+                    final ObjectOutputStream out = new ObjectOutputStream(file);
+                    // Method for Serialization of Object
+                    out.writeObject(myAdventurer);
+                    out.writeObject(myDungeon);
+//                    out.writeObject(myCurrentRoom);
+                    out.close();
+                    file.close();
+                    System.out.println("############################################################################################");
+                    System.out.println(myAdventurer.toString());
+                    System.out.println(myDungeon.toString());
+                    System.out.println("############################################################################################");
+//                    System.out.println(myCurrentRoom.toString());
+                } catch (final Exception e) {
+                    e.printStackTrace();
+                    System.exit(0);
+                }
+
+                myAdventurer = null;
+                myDungeon = null;
+//                myCurrentRoom = null;
+                changeScreen(MAIN_MENU_PANEL);
+            }
+        });
+
 
         myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
             @Override
@@ -477,36 +531,35 @@ public class MainFrame extends JFrame {
     }
 
 
-
-    private void saveGame() {
-        try {
-            myAdventurer.saveToFile("src/models/savefile.ser", myAdventurer);
-
-            if(myCurrentRoom.hasRoomMonster()) {
-                myCurrentRoom.getRoomMonster().saveToFile("src/models/monster_savefile.ser");
-            }
-            myDungeon.saveToFile("src/models/savefile.ser");
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "game could not be saved.");
-        }
-    }
-
-    private void loadGame() {
-        try {
-            myAdventurer = Adventurer.loadFile("src/models/savefile.ser");
-            if(myCurrentRoom.hasRoomMonster()) {
-                AbstractMonster loadedMonster = AbstractMonster.loadFile("ssrc/models/savefile.ser");
-                myCurrentRoom.setRoomMonster(loadedMonster);
-            }
-            myDungeon = Dungeon.loadFile("src/models/savefile.ser");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "game was unable to load.");
-        }
-    }
+//    private void saveGame() {
+//        try {
+//            myAdventurer.saveToFile("src/models/savefile.ser", myAdventurer);
+//
+//            if(myCurrentRoom.hasRoomMonster()) {
+//                myCurrentRoom.getRoomMonster().saveToFile("src/models/monster_savefile.ser");
+//            }
+//            myDungeon.saveToFile("src/models/savefile.ser");
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "game could not be saved.");
+//        }
+//    }
+//
+//    private void loadGame() {
+//        try {
+//            myAdventurer = Adventurer.loadFile("src/models/savefile.ser");
+//            if(myCurrentRoom.hasRoomMonster()) {
+//                AbstractMonster loadedMonster = AbstractMonster.loadFile("ssrc/models/savefile.ser");
+//                myCurrentRoom.setRoomMonster(loadedMonster);
+//            }
+//            myDungeon = Dungeon.loadFile("src/models/savefile.ser");
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "game was unable to load.");
+//        }
+//    }
 
 
     private void monsterAttacksHero(final AbstractMonster theMonster) {
