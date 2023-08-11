@@ -12,6 +12,7 @@ import java.util.ArrayList;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public class Adventurer extends AbstractHero implements Serializable {

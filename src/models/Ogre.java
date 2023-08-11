@@ -6,10 +6,14 @@ import java.io.Serializable;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public class Ogre extends AbstractMonster implements Serializable {
 
+
+    protected Ogre() {
+    }
     @Serial
     private static final long serialVersionUID = -3135985768945417554L;
 

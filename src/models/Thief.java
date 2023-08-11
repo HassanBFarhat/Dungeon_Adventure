@@ -6,6 +6,7 @@ import java.io.Serializable;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public class Thief extends Adventurer implements Serializable {

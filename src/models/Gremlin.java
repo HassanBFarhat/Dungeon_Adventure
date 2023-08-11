@@ -6,9 +6,13 @@ import java.io.Serializable;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public class Gremlin extends AbstractMonster implements Serializable {
+
+    protected Gremlin() {
+    }
 
     @Serial
     private static final long serialVersionUID = -5687175985038661820L;

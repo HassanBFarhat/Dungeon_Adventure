@@ -12,6 +12,7 @@ import java.util.Random;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public abstract class AbstractMonster
@@ -42,6 +43,9 @@ public abstract class AbstractMonster
                            final int theMinDamage) {
         super(theName, theHealthPoints, theHitPoints, theMinDamage,
                 theMaxDamage, theAttackSpeed, theChanceHit);
+    }
+
+    protected AbstractMonster() {
     }
 
 

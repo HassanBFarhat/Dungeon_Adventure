@@ -10,6 +10,9 @@ import java.io.Serializable;
  */
 public class Skeleton extends AbstractMonster implements Serializable {
 
+    protected Skeleton() {
+    }
+
     @Serial
     private static final long serialVersionUID = -5448755600554862879L;
 

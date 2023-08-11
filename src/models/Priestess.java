@@ -7,6 +7,7 @@ import java.util.Random;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public class Priestess extends Adventurer implements Serializable {

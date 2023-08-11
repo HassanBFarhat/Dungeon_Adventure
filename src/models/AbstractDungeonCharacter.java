@@ -5,6 +5,7 @@ import java.util.Random;
 /**
  *
  * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
  * @version Summer 2023
  */
 public abstract class AbstractDungeonCharacter {
@@ -44,6 +45,9 @@ public abstract class AbstractDungeonCharacter {
         setMaximumDamageRange(theMaximumDamageRange);
         setAttackSpeed(theAttackSpeed);
         setChanceToHit(theChanceToHit);
+    }
+
+    protected AbstractDungeonCharacter() {
     }
 
     // methods
