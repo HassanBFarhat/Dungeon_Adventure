@@ -11,9 +11,6 @@ import java.io.Serializable;
  */
 public class Gremlin extends AbstractMonster implements Serializable {
 
-    protected Gremlin() {
-    }
-
     @Serial
     private static final long serialVersionUID = -5687175985038661820L;
 
@@ -23,6 +20,9 @@ public class Gremlin extends AbstractMonster implements Serializable {
 
 
     // constructor
+
+    protected Gremlin() {
+    }
 
     public Gremlin(final String theName, final int theHealth, final int theHit,
                    final int theAttack, final double theChance, final int theMaxDam,

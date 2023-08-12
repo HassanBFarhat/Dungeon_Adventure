@@ -64,6 +64,16 @@ public class CharacterSelectionPanel extends JPanel {
     private static final int ALL_BUTTONS_WIDTH = 155;
     /** . */
     private static final int ALL_BUTTONS_HEIGHT = 30;
+    /** . */
+    private static final int BACK_AND_START_BTN_AND_CHARACTER_TEXT = 25;
+    /** . */
+    private static final int HERO_AND_DIFFICULTY_TEXT_SIZE = 24;
+    /** . */
+    private static final int CHARACTER_Y_AXIS = 60;
+    /** . */
+    private static final int HERO_DROPDOWN_Y_AXIS = 110;
+    /** . */
+    private static final int DIFFICULTY_DROPDOWN_Y_AXIS = 160;
 
     // instance fields
 
@@ -103,6 +113,34 @@ public class CharacterSelectionPanel extends JPanel {
 
 
     // methods
+
+    /** . */
+    public JButton getMyBackBtn() {
+        return myBackBtn;
+    }
+
+    /** . */
+    public JButton getMyStartGameBtnBtn() {
+        return myStartGameBtn;
+    }
+
+    /** . */
+    public String getCharactersName() {
+        return myNameYourCharacterTextBox.getText();
+    }
+
+    /** . */
+    public String getHeroOptionFromBox() {
+        return (String) myHeroOptionsDropDownBox.getSelectedItem();
+    }
+
+    /** . */
+    public String getGameDifficultyFromBox() {
+        return (String) myDifficultyOptionsDropDownBox.getSelectedItem();
+    }
+
+
+    // private methods
 
     /** . */
     private void instantiateInstanceDataFields() {
@@ -154,23 +192,23 @@ public class CharacterSelectionPanel extends JPanel {
     /** . */
     private void addAllDropDownBoxAndTextBoxToTransparentPanel() {
         myNameYourCharacterTextBox.setBounds(COMBO_BOX_AND_TEXT_BOX_X_AXIS,
-                                             60,
+                                             CHARACTER_Y_AXIS,
                                              COMBO_BOX_AND_TEXT_BOX_WIDTH,
                                              COMBO_BOX_AND_TEXT_BOX_HEIGHT);
         myNameYourCharacterTextBox.setFont(
-                new Font(LABEL_FONT_STYLE, Font.BOLD, 25));
+                new Font(LABEL_FONT_STYLE, Font.BOLD, BACK_AND_START_BTN_AND_CHARACTER_TEXT));
         myHeroOptionsDropDownBox.setBounds(COMBO_BOX_AND_TEXT_BOX_X_AXIS,
-                                           110,
+                                           HERO_DROPDOWN_Y_AXIS,
                                            COMBO_BOX_AND_TEXT_BOX_WIDTH,
                                            COMBO_BOX_AND_TEXT_BOX_HEIGHT);
         myHeroOptionsDropDownBox.setFont(
-                new Font(LABEL_FONT_STYLE, Font.BOLD, 24));
+                new Font(LABEL_FONT_STYLE, Font.BOLD, HERO_AND_DIFFICULTY_TEXT_SIZE));
         myDifficultyOptionsDropDownBox.setBounds(COMBO_BOX_AND_TEXT_BOX_X_AXIS,
-                                                 160,
+                                                 DIFFICULTY_DROPDOWN_Y_AXIS,
                                                  COMBO_BOX_AND_TEXT_BOX_WIDTH,
                                                  COMBO_BOX_AND_TEXT_BOX_HEIGHT);
         myDifficultyOptionsDropDownBox.setFont(
-                new Font(LABEL_FONT_STYLE, Font.BOLD, 24));
+                new Font(LABEL_FONT_STYLE, Font.BOLD, HERO_AND_DIFFICULTY_TEXT_SIZE));
     }
 
     /** . */
@@ -178,11 +216,11 @@ public class CharacterSelectionPanel extends JPanel {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, ALL_BUTTONS_Y_AXIS,
                             ALL_BUTTONS_WIDTH, ALL_BUTTONS_HEIGHT);
         myBackBtn.setFont(
-                new Font(LABEL_FONT_STYLE, Font.BOLD, 25));
+                new Font(LABEL_FONT_STYLE, Font.BOLD, BACK_AND_START_BTN_AND_CHARACTER_TEXT));
         myStartGameBtn.setBounds(START_GAME_BUTTON_X_AXIS, ALL_BUTTONS_Y_AXIS,
                                  ALL_BUTTONS_WIDTH, ALL_BUTTONS_HEIGHT);
         myStartGameBtn.setFont(
-                new Font(LABEL_FONT_STYLE, Font.BOLD, 25));
+                new Font(LABEL_FONT_STYLE, Font.BOLD, BACK_AND_START_BTN_AND_CHARACTER_TEXT));
     }
 
     /** . */
@@ -207,31 +245,6 @@ public class CharacterSelectionPanel extends JPanel {
     private void setUpBGPanelStyleAndAddTransparentPanelToIt() {
         myNewGameBGLabel.setLayout(null);
         myNewGameBGLabel.add(myTransparentComponentHoldingPanel);
-    }
-
-    /** . */
-    public JButton getMyBackBtn() {
-        return myBackBtn;
-    }
-
-    /** . */
-    public JButton getMyStartGameBtnBtn() {
-        return myStartGameBtn;
-    }
-
-    /** . */
-    public String getCharactersName() {
-        return myNameYourCharacterTextBox.getText();
-    }
-
-    /** . */
-    public String getHeroOptionFromBox() {
-        return (String) myHeroOptionsDropDownBox.getSelectedItem();
-    }
-
-    /** . */
-    public String getGameDifficultyFromBox() {
-        return (String) myDifficultyOptionsDropDownBox.getSelectedItem();
     }
 
 }

@@ -11,9 +11,6 @@ import java.io.Serializable;
  */
 public class Ogre extends AbstractMonster implements Serializable {
 
-
-    protected Ogre() {
-    }
     @Serial
     private static final long serialVersionUID = -3135985768945417554L;
 
@@ -23,6 +20,9 @@ public class Ogre extends AbstractMonster implements Serializable {
 
 
     // constructor
+
+    protected Ogre() {
+    }
 
     public Ogre(final String theName, final int theHealth, final int theHit,
                 final int theAttack, final double theChance, final int theMaxDam,

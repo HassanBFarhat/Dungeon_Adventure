@@ -1,9 +1,9 @@
 package views;
 
-import models.Adventurer;
-import models.AbstractMonster;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.Serial;
+import java.io.Serializable;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -12,9 +12,13 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.JTextArea;
 import javax.swing.OverlayLayout;
+import models.AbstractMonster;
+import models.Adventurer;
 
+public class BattlePanel extends JPanel implements Serializable {
 
-public class BattlePanel extends JPanel {
+    @Serial
+    private static final long serialVersionUID = -4498408607411363508L;
 
     // constants
 
@@ -39,10 +43,6 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int MONSTER_Y_COORDINATE = 25;
     /** . */
-    private static final int MINIMUM_HEALTH_SIZE = 0;
-    /** . */
-//    private static final int MAXIMUM_HEALTH_SIZE = 100;
-    /** . */
     private static final int HERO_AND_MONSTER_HEALTH_BAR_WIDTH = 250;
     /** . */
     private static final int HERO_AND_MONSTER_HEALTH_BAR_HEIGHT = 26;
@@ -57,8 +57,6 @@ public class BattlePanel extends JPanel {
     /** . */
     private static final int ALL_BUTTONS_WIDTH = 170;
     /** . */
-    private static final int HEAL_BUTTON_WIDTH = 240;
-    /** . */
     private static final int ALL_BUTTONS_HEIGHT = 50;
     /** . */
     private static final int ATTACK_AND_HEAL_BUTTON_X_COORDINATE = 880;
@@ -68,6 +66,13 @@ public class BattlePanel extends JPanel {
     private static final int SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE = 1050;
     /** . */
     private static final int HEAL_AND_BLOCK_BUTTON_Y_COORDINATE = 600;
+    /** . */
+    private static final int BUTTON_TEXT_SIZE = 30;
+    /** . */
+    private static final int HEALTHBARS_TEXT_SIZE = 23;
+    /** . */
+    private static final String FONT_CHOICE = "Freestyle Script";
+
 
     // instance fields
 
@@ -92,13 +97,10 @@ public class BattlePanel extends JPanel {
     /** . */
     private JTextArea myGameActionConsole;
     /** . */
-    private String myHeroBattleImgPath;
-    /** . */
-    private String myMonsterBattleImgPath;
-    /** . */
     private AbstractMonster myCurrentRoomMonster;
     /** . */
     private Adventurer myAdventurer;
+
 
     // constructor
 
@@ -107,21 +109,18 @@ public class BattlePanel extends JPanel {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();
         setUpBorderAndBoundsForActionConsole();
-//        setUpHeroAndMonsterBGLabelBounds();
         setUpAttackSpecialAttackAndHealButtonBounds();
         setUpHeroAndMonsterHealthBars();
         addAllTheComponentsToBattleBGLabel();
-
-
-
     }
 
 
     // methods
 
-
+    /** . */
     public void addBothCharactersToBattlePanel() {
-        final ImageIcon monsterImg = new ImageIcon(myCurrentRoomMonster.getMonsterBattleImgFilePath());
+        final ImageIcon monsterImg =
+                new ImageIcon(myCurrentRoomMonster.getMonsterBattleImgFilePath());
         final ImageIcon heroImg = new ImageIcon(myAdventurer.getAdventurerBattleImgFilePath());
         myMonsterImgLabel = new JLabel(monsterImg);
         myHeroImgLabel = new JLabel(heroImg);
@@ -130,6 +129,67 @@ public class BattlePanel extends JPanel {
         setUpHeroAndMonsterBGLabelBounds();
     }
 
+    /** . */
+    public JButton getMyAttackBtn() {
+        return myAttackBtn;
+    }
+
+    /** . */
+    public JButton getMySpecialAttackBtn() {
+        return mySpecialAttackBtn;
+    }
+
+    /** . */
+    public JButton getMyHealBtn() {
+        return myHealBtn;
+    }
+
+    /** . */
+    public JButton getMyBlockBtn() {
+        return myBlockBtn;
+    }
+
+    /** . */
+    public void setCurrentRoomMonster(final AbstractMonster theMonster) {
+        myCurrentRoomMonster = theMonster;
+    }
+
+    /** . */
+    public void setAdventurer(final Adventurer theAdventurer) {
+        myAdventurer = theAdventurer;
+    }
+
+    /** . */
+    public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer,
+                                                 final AbstractMonster theMonster) {
+        myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());
+        myMonstersHealthBar.setValue(theMonster.getCharacterHealthPoints());
+    }
+
+    /** . */
+    public void initializeHeroBattleHealthBarMaxMin(final Adventurer theAdventurer) {
+        myHeroHealthBar.setMaximum(0);
+        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
+    }
+
+    /** . */
+    public void updateHealthBarForMonster(final int theNewMonsterStats) {
+        myMonstersHealthBar.setValue(theNewMonsterStats);
+        System.out.println(myMonstersHealthBar.getValue());
+    }
+
+    /** . */
+    public void updateHealthBarsForHero(final int theNewHeroStats) {
+        myHeroHealthBar.setValue(theNewHeroStats);
+    }
+
+    /** . */
+    public JLabel getMyMonsterImgLabel() {
+        return myMonsterImgLabel;
+    }
+
+
+    // private methods
 
     /** . */
     private void instantiateInstanceDataFields() {
@@ -150,7 +210,6 @@ public class BattlePanel extends JPanel {
         this.add(myBattleBGImgLabel);
     }
 
-
     /** . */
     private void setUpBorderAndBoundsForActionConsole() {
         myGameActionConsole.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -161,7 +220,6 @@ public class BattlePanel extends JPanel {
         myGameActionConsole.setEditable(false);
     }
 
-
     /** . */
     private void setUpHeroAndMonsterBGLabelBounds() {
         myHeroImgLabel.setBounds(HERO_X_COORDINATE, HERO_Y_COORDINATE,
@@ -170,57 +228,53 @@ public class BattlePanel extends JPanel {
                                     HERO_AND_MONSTER_WIDTH, HERO_AND_MONSTER_HEIGHT);
     }
 
-
     /** . */
     private void setUpAttackSpecialAttackAndHealButtonBounds() {
         myAttackBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                               ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
                               ALL_BUTTONS_WIDTH,
                               ALL_BUTTONS_HEIGHT);
-        myAttackBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
+        myAttackBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
         mySpecialAttackBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
                                      ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
                                      ALL_BUTTONS_WIDTH,
                                      ALL_BUTTONS_HEIGHT);
-        mySpecialAttackBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
+        mySpecialAttackBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
         myHealBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                             HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
                             ALL_BUTTONS_WIDTH,
                             ALL_BUTTONS_HEIGHT);
-        myHealBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
+        myHealBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
         myBlockBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
                              HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
                              ALL_BUTTONS_WIDTH,
                              ALL_BUTTONS_HEIGHT);
-        myBlockBtn.setFont(new Font("Freestyle Script", Font.BOLD, 30));
+        myBlockBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
 
     }
 
     /** . */
     private void setUpHeroAndMonsterHealthBars() {
-//        myHeroHealthBar.setValue(myAdventurer.getCharacterHealthPoints());
         myHeroHealthBar.setBounds(HERO_HEALTH_BAR_X_COORDINATE,
                                   HERO_HEALTH_BAR_Y_COORDINATE,
                                   HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
                                   HERO_AND_MONSTER_HEALTH_BAR_HEIGHT);
-        myHeroHealthBar.setFont(new Font("Freestyle Script", Font.BOLD, 23));
+        myHeroHealthBar.setFont(new Font(FONT_CHOICE, Font.BOLD, HEALTHBARS_TEXT_SIZE));
         myHeroHealthBar.setForeground(Color.RED);
         myHeroHealthBar.setBackground(Color.GRAY);
         myHeroHealthBar.setString("Hero Health");
         myHeroHealthBar.setStringPainted(true);
 
-//        myMonstersHealthBar.setValue(myCurrentRoomMonster.getCharacterHealthPoints());
         myMonstersHealthBar.setBounds(MONSTER_HEALTH_BAR_X_COORDINATE,
                                       MONSTER_HEALTH_BAR_Y_COORDINATE,
                                       HERO_AND_MONSTER_HEALTH_BAR_WIDTH,
                                       HERO_AND_MONSTER_HEALTH_BAR_HEIGHT);
-        myMonstersHealthBar.setFont(new Font("Freestyle Script", Font.BOLD, 23));
+        myMonstersHealthBar.setFont(new Font(FONT_CHOICE, Font.BOLD, HEALTHBARS_TEXT_SIZE));
         myMonstersHealthBar.setForeground(Color.RED);
         myMonstersHealthBar.setBackground(Color.GRAY);
         myMonstersHealthBar.setString("Monster Health");
         myMonstersHealthBar.setStringPainted(true);
     }
-
 
     /** . */
     private void addAllTheComponentsToBattleBGLabel() {
@@ -231,79 +285,6 @@ public class BattlePanel extends JPanel {
         myBattleBGImgLabel.add(myGameActionConsole);
         myBattleBGImgLabel.add(myHeroHealthBar);
         myBattleBGImgLabel.add(myMonstersHealthBar);
-    }
-
-
-    public JButton getMyAttackBtn() {
-        return myAttackBtn;
-    }
-
-    public JButton getMySpecialAttackBtn() {
-        return mySpecialAttackBtn;
-    }
-
-    public JButton getMyHealBtn() {
-        return myHealBtn;
-    }
-
-    public JButton getMyBlockBtn() {
-        return myBlockBtn;
-    }
-
-    public void setCurrentRoomMonster(final AbstractMonster theMonster) {
-        myCurrentRoomMonster = theMonster;
-    }
-
-    public void setAdventurer(final Adventurer theAdventurer) {
-        myAdventurer = theAdventurer;
-    }
-
-    public JProgressBar getMyHeroHealthBar() {
-        return myHeroHealthBar;
-    }
-
-    public JProgressBar getMyMonsterHealthBar() {
-        return myMonstersHealthBar;
-    }
-
-
-    public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer, final AbstractMonster theMonster) {
-//        myHeroHealthBar.setMaximum(0);
-//        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
-        myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());
-//        myMonstersHealthBar.setMaximum(0);
-//        myMonstersHealthBar.setMaximum(theMonster.getCharacterHealthPoints());
-        myMonstersHealthBar.setValue(theMonster.getCharacterHealthPoints());
-    }
-
-    public void updateHealthBarsForHeroAndMonster(final int theNewHeroStats, final int theNewMonsterStats) {
-        myHeroHealthBar.setValue(theNewHeroStats);
-        if (theNewMonsterStats <= 0) {
-            myMonstersHealthBar.setValue(0);
-        } else {
-            myMonstersHealthBar.setValue(theNewMonsterStats);
-        }
-
-    }
-
-    public void initializeHeroBattleHealthBarMaxMin(final Adventurer theAdventurer) {
-        myHeroHealthBar.setMaximum(0);
-        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
-    }
-
-
-    public void updateHealthBarForMonster(final int theNewMonsterStats) {
-        myMonstersHealthBar.setValue(theNewMonsterStats);
-        System.out.println(myMonstersHealthBar.getValue());
-    }
-
-
-    public void updateHealthBarsForHero(final int theNewHeroStats) {
-        myHeroHealthBar.setValue(theNewHeroStats);
-    }
-
-    public JLabel getMyMonsterImgLabel() {
-        return myMonsterImgLabel;
     }
 
 }

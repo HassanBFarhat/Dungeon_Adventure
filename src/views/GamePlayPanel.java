@@ -3,6 +3,8 @@ package views;
 import models.Adventurer;
 
 import java.awt.*;
+import java.io.Serial;
+import java.io.Serializable;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -10,7 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.OverlayLayout;
 
-public class GamePlayPanel extends JPanel {
+public class GamePlayPanel extends JPanel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = -2961735935580999270L;
 
     // constants
 
@@ -52,6 +57,7 @@ public class GamePlayPanel extends JPanel {
     private static final int INVENTORY_X_COORDINATE = 985;
     /** . */
     private static final int SAVE_AND_INVENTORY_Y_COORDINATE = 620;
+
 
     // instance fields
 
