@@ -1,3 +1,4 @@
+
 package models;
 
 import java.sql.Connection;
@@ -31,25 +32,39 @@ public class MonsterFactory {
     /** . */
     private final List<AbstractMonster> myMonsterList;
 
-
     // constructor
 
-    public MonsterFactory() {
-        // try for connection to DB
-        try {
-            myDs = new SQLiteDataSource();
-            myDs.setUrl("jdbc:sqlite:dungeon_characters.sqlite");
-        } catch (final Exception e) {
-            e.printStackTrace();
-            System.exit(0);
+    public MonsterFactory(SQLiteDataSource ds) {
+        if (ds == null) {
+            try {
+                myDs = new SQLiteDataSource();
+                myDs.setUrl("jdbc:sqlite:dungeon_characters.sqlite");
+            } catch (final Exception e) {
+                e.printStackTrace();
+                System.exit(0);
+            }
+        } else {
+            myDs = ds;
         }
         myMonsterList = new ArrayList<>();
         myMonsterList.add(createMonster(OGRE));
         myMonsterList.add(createMonster(GREMLIN));
         myMonsterList.add(createMonster(SKELETON));
     }
+    // New no-argument constructor that delegates to the existing constructor
+    public MonsterFactory() {
+        this(null); // Calls the other constructor with null, causing it to use the default data source
+    }
 
 
+//    // Package-private constructor for testing
+//    MonsterFactory(SQLiteDataSource ds) {
+//        myDs = ds;
+//        myMonsterList = new ArrayList<>();
+//        myMonsterList.add(createMonster(OGRE));
+//        myMonsterList.add(createMonster(GREMLIN));
+//        myMonsterList.add(createMonster(SKELETON));
+//    }
     // methods
 
     /** . */
@@ -111,6 +126,12 @@ public class MonsterFactory {
         }
         return monster;
     }
+
+    // Package-private setter method for testing
+    public void setMyDs(SQLiteDataSource ds) {
+        myDs = ds;
+    }
+
 
     /** . */
     public List<AbstractMonster> getMyMonsterList() {
