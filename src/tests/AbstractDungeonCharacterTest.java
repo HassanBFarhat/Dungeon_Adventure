@@ -70,7 +70,7 @@ class AbstractDungeonCharacterTest {
 
     private static class TestDungeonCharacter extends AbstractDungeonCharacter {
         public TestDungeonCharacter(String theCharacterName, int theCharacterHealthPoints, int theCharacterHitPoints, int theMinimumDamageRange, int theMaximumDamageRange, int theAttackSpeed, double theChanceToHit) {
-            super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theMinimumDamageRange, theMaximumDamageRange, theAttackSpeed, theChanceToHit);
+//            super(theCharacterName, theCharacterHealthPoints, theCharacterHitPoints, theMinimumDamageRange, theMaximumDamageRange, theAttackSpeed, theChanceToHit);
         }
     }
 }

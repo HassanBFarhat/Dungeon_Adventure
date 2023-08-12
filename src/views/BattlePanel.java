@@ -2,8 +2,6 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.io.Serial;
-import java.io.Serializable;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,10 +19,7 @@ import models.Adventurer;
  * @author Avinash Bavisetty
  * @version Summer 2023
  */
-public class BattlePanel extends JPanel implements Serializable {
-
-    @Serial
-    private static final long serialVersionUID = -4498408607411363508L;
+public class BattlePanel extends JPanel {
 
     // constants
 

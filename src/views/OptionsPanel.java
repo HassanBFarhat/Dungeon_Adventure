@@ -16,6 +16,11 @@ import javax.swing.OverlayLayout;
  * @version Summer 2023
  */
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class OptionsPanel extends JPanel {
 
     // constants
@@ -23,7 +28,7 @@ public class OptionsPanel extends JPanel {
     /** . */
     private static final String LABEL_FONT_STYLE = "Freestyle Script";
     /** . */
-    private static final int LABEL_FONT_SIZE = 30;
+    private static final int LABEL_FONT_SIZE = 28;
     /** . */
     private static final Color GRAY_TRANSPARENT_COLOR = new Color(128, 128, 128, 80);
     /** . */
@@ -49,12 +54,6 @@ public class OptionsPanel extends JPanel {
     /** . */
     private static final int AUDIO_ON_OFF_LABEL_HEIGHT = 50;
     /** . */
-    private static final int AUDIO_ON_OFF_LABEL_Y_AXIS = 100;
-    /** . */
-    private static final int AUDIO_ON_OFF_BUTTON_X_AXIS = 205;
-    /** . */
-    private static final int AUDIO_ON_OFF_BUTTON_Y_AXIS = 100;
-    /** . */
     private static final int AUDIO_ON_OFF_BUTTON_WIDTH = 100;
     /** . */
     private static final int AUDIO_ON_OFF_AND_BACK_BUTTONS_HEIGHT = 30;
@@ -74,6 +73,16 @@ public class OptionsPanel extends JPanel {
     private static final int BACK_BUTTON_Y_AXIS = 240;
     /** . */
     private static final int BACK_BUTTON_WIDTH = 75;
+    /** . */
+    private static final int AUDIO_ON_OFF_X_AXIS = 225;
+    /** . */
+    private static final int AUDIO_ON_OFF_Y_AXIS = 95;
+    /** . */
+    private static final int SLIDER_HEIGHT = 20;
+    /** . */
+    private static final int SLIDER_Y_AXIS = 45;
+    /** . */
+    private static final int AUDIO_ON_OFF_TEXT_Y_AXIS = 80;
 
 
     // instance fields
@@ -113,6 +122,24 @@ public class OptionsPanel extends JPanel {
     // methods
 
     /** . */
+    public JButton getMyGeneralInfoBtn() {
+        return myGeneralInfoBtn;
+    }
+
+    /** . */
+    public JButton getMyGameHelpBtn() {
+        return myGameHelpBtn;
+    }
+
+    /** . */
+    public JButton getMyBackBtn() {
+        return myBackBtn;
+    }
+
+
+    // private methods
+
+    /** . */
     private void instantiateInstanceDataFields() {
         myAudioText = new JLabel("Audio Volume: ");
         myAudioSlider = new JSlider();
@@ -140,38 +167,37 @@ public class OptionsPanel extends JPanel {
                               AUDIO_TEXT_AND_SLIDER_Y_AXIS,
                               AUDIO_TEXT_AND_SLIDER_WIDTH,
                               AUDIO_TEXT_AND_SLIDER_HEIGHT);
-        myAudioSlider.setBounds(SLIDER_X_AXIS, 45,
-                                AUDIO_TEXT_AND_SLIDER_WIDTH, 20);
+        myAudioSlider.setBounds(SLIDER_X_AXIS, SLIDER_Y_AXIS,
+                                AUDIO_TEXT_AND_SLIDER_WIDTH, SLIDER_HEIGHT);
         myAudioOnOffText.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myAudioOnOffText.setForeground(Color.WHITE);
         myAudioOnOffText.setBounds(AUDIO_TEXT_AND_AUDIO_ON_OFF_TEXT_X_AXIS,
-                                   80,
+                                   AUDIO_ON_OFF_TEXT_Y_AXIS,
                                    AUDIO_ON_OFF_LABEL_WIDTH,
                                    AUDIO_ON_OFF_LABEL_HEIGHT);
     }
 
     /** . */
     private void setUpAllButtonsBounds() {
-        myAudioOnOffBtn.setBounds(225,
-                                  95,
+        myAudioOnOffBtn.setBounds(AUDIO_ON_OFF_X_AXIS, AUDIO_ON_OFF_Y_AXIS,
                                   AUDIO_ON_OFF_BUTTON_WIDTH,
                                   AUDIO_ON_OFF_AND_BACK_BUTTONS_HEIGHT);
-        myAudioOnOffBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
+        myAudioOnOffBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myGeneralInfoBtn.setBounds(GENERAL_INFO_AND_GAME_HELP_BUTTONS_X_AXIS,
                                    GENERAL_INFO_BUTTON_Y_AXIS,
                                    GENERAL_INFO_AND_GAME_HELP_BUTTONS_WIDTH,
                                    GENERAL_INFO_AND_GAME_HELP_BUTTONS_HEIGHT);
-        myGeneralInfoBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
+        myGeneralInfoBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myGameHelpBtn.setBounds(GENERAL_INFO_AND_GAME_HELP_BUTTONS_X_AXIS,
                                 GAME_HELP_BUTTON_Y_AXIS,
                                 GENERAL_INFO_AND_GAME_HELP_BUTTONS_WIDTH,
                                 GENERAL_INFO_AND_GAME_HELP_BUTTONS_HEIGHT);
-        myGameHelpBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
+        myGameHelpBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS,
                             BACK_BUTTON_Y_AXIS,
                             BACK_BUTTON_WIDTH,
                             AUDIO_ON_OFF_AND_BACK_BUTTONS_HEIGHT);
-        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
+        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
     }
 
     /** . */
@@ -193,21 +219,6 @@ public class OptionsPanel extends JPanel {
     private void setUpBGPanelStyleAndAddTransparentPanelToIt() {
         myOptionsBGLabel.setLayout(null);
         myOptionsBGLabel.add(myTransparentHoldingPanel);
-    }
-
-    /** . */
-    public JButton getMyGeneralInfoBtn() {
-        return myGeneralInfoBtn;
-    }
-
-    /** . */
-    public JButton getMyGameHelpBtn() {
-        return myGameHelpBtn;
-    }
-
-    /** . */
-    public JButton getMyBackBtn() {
-        return myBackBtn;
     }
 
 }
