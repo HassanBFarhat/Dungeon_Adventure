@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.OverlayLayout;
 
 /**
- *
+ * @author Avinash Bavisetty
  * @author Hassan Bassam Farhat
  * @version Summer 2023
  */

@@ -6,6 +6,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @author Avinash Bavisetty
+ * @version Summer 2023
+ */
 public class DungeonTest {
     private static class DummyCharacter extends AbstractDungeonCharacter {}
 

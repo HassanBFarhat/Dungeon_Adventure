@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- *
+ * @author Avinash Bavisetty
  * @author Hassan Bassam Farhat
  * @version Summer 2023
  */

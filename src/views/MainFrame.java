@@ -11,6 +11,12 @@ import java.io.*;
 import java.util.Random;
 import javax.swing.*;
 
+/**
+ * @author Avinash Bavisetty
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
+
 public class MainFrame extends JFrame implements Serializable {
 
     @Serial

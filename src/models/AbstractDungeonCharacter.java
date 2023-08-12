@@ -34,10 +34,10 @@ public abstract class AbstractDungeonCharacter {
     // constructor
 
     /** . */
-    AbstractDungeonCharacter(final String theCharacterName, final int theCharacterHealthPoints,
-                             final int theCharacterHitPoints, final int theMinimumDamageRange,
-                             final int theMaximumDamageRange, final int theAttackSpeed,
-                             final double theChanceToHit) {
+    public AbstractDungeonCharacter(final String theCharacterName, final int theCharacterHealthPoints,
+                                    final int theCharacterHitPoints, final int theMinimumDamageRange,
+                                    final int theMaximumDamageRange, final int theAttackSpeed,
+                                    final double theChanceToHit) {
         setCharacterName(theCharacterName);
         setCharacterHealthPoints(theCharacterHealthPoints);
         setCharacterHitPoints(theCharacterHitPoints);

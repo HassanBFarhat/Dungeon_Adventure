@@ -10,6 +10,12 @@ import javax.swing.JSlider;
 import javax.swing.JToggleButton;
 import javax.swing.OverlayLayout;
 
+/**
+ * @author Avinash Bavisetty
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
+
 public class OptionsPanel extends JPanel {
 
     // constants

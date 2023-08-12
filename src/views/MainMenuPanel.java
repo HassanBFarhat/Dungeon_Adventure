@@ -6,6 +6,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.*;
 
+/**
+ * @author Avinash Bavisetty
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
+
 public class MainMenuPanel extends JPanel {
 
     // constants

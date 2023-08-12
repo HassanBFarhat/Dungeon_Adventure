@@ -3,6 +3,12 @@ package views;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * @author Avinash Bavisetty
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
+
 public class WinningPanel extends JPanel {
 
     // constants

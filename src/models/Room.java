@@ -4,7 +4,7 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
- *
+ * @author Avinash Bavisetty
  * @author Hassan Bassam Farhat
  * @version Summer 2023
  */
@@ -35,8 +35,6 @@ public class Room implements Serializable {
     private RoomItems myOOPillar;
     /** . */
     private RoomItems myHealingPotion;
-    /** . */
-    private RoomItems myVisionPotion;
     /** . */
     private RoomItems myPit;
     /** . */

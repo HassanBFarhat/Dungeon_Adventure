@@ -12,6 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.OverlayLayout;
 
+/**
+ * @author Avinash Bavisetty
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
+
 public class GamePlayPanel extends JPanel implements Serializable {
 
     @Serial
