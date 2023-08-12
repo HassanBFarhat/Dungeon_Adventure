@@ -15,6 +15,11 @@ import javax.swing.OverlayLayout;
 import models.AbstractMonster;
 import models.Adventurer;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class BattlePanel extends JPanel implements Serializable {
 
     @Serial

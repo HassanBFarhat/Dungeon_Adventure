@@ -2,8 +2,18 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.OverlayLayout;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class GameInformationPanel extends JPanel {
 
     // constants
@@ -38,6 +48,8 @@ public class GameInformationPanel extends JPanel {
     private static final int INFORMATION_TEXT_AREA_WIDTH = 590;
     /** . */
     private static final int INFORMATION_TEXT_AREA_HEIGHT = 340;
+    /** . */
+    private static final int BACK_BTN_FONT_SIZE = 28;
 
     // instance fields
 
@@ -64,6 +76,13 @@ public class GameInformationPanel extends JPanel {
 
 
     // methods
+
+    /** . */
+    public JButton getMyBackBtn() {
+        return myBackBtn;
+    }
+
+    // private methods
 
     /** . */
     private void instantiateInstanceDataFields() {
@@ -109,7 +128,7 @@ public class GameInformationPanel extends JPanel {
     private void setUpAllButtonsBounds() {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, BACK_BUTTON_Y_AXIS,
                             BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT);
-        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
+        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, BACK_BTN_FONT_SIZE));
     }
 
     /** . */
@@ -126,11 +145,6 @@ public class GameInformationPanel extends JPanel {
     private void setUpBGPanelStyleAndAddTransparentPanelToIt() {
         myGameInfoBGLabel.setLayout(null);
         myGameInfoBGLabel.add(myTransparentHoldingPanel);
-    }
-
-    /** . */
-    public JButton getMyBackBtn() {
-        return myBackBtn;
     }
 
 }

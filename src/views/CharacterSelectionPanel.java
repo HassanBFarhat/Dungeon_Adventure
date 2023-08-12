@@ -10,6 +10,11 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.OverlayLayout;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class CharacterSelectionPanel extends JPanel {
 
     // constants

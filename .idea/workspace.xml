@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Quick update for the save/load">
-      <change beforePath="$PROJECT_DIR$/.idea/Dungeon_Adventure.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Dungeon_Adventure.iml" afterDir="false" />
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated Monster subclasses to pass checkstyle criteria.&#10;- Refactored BattlePanel.java and CharacterSelectionPanel.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/RoomItems.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/RoomItems.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serialized_game_data.ser" beforeDir="false" afterPath="$PROJECT_DIR$/serialized_game_data.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/DungeonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/DungeonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameHelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameHelpPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameInformationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameInformationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameOverPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +94,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="41326000" />
+      <workItem from="1691656373898" duration="44318000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -113,14 +102,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00015" summary="MainMenuPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes.">
-      <option name="closed" value="true" />
-      <created>1690568188192</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1690568188192</updated>
     </task>
     <task id="LOCAL-00016" summary="CharacterSelectionPanel.java in views package refactored to follow Checkstyle + update readability. Also, MainFrame.java updated to reflect changes.">
       <option name="closed" value="true" />
@@ -498,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691722276618</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="- Updated Monster subclasses to pass checkstyle criteria.&#10;- Refactored BattlePanel.java and CharacterSelectionPanel.java">
+      <option name="closed" value="true" />
+      <created>1691799777353</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1691799777353</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user." />
     <MESSAGE value="- Added resized Gremlin1.png sprite image" />
     <MESSAGE value="- Added hasRoomMonster() method to the Room.java class.&#10;- Added Img path instance fields for monster/hero and their appropriate getters/setters for those img paths in BattlePanel.java class.&#10;- Also added getter methods for Attack, SpecialAttack, and Heal Btns on the BattlePanel.java class.&#10;- Added getter methods for North, South, East, West Btns of the GamePlayPanel.java class.&#10;- Added appropriate action listeners to each of the btns on the panels in MainFrame.java class. (still designing their functionalities)" />
     <MESSAGE value="- Added getters/setters for each rooms row position and column position in Room.java.&#10;- Added a method to get the MAZE_SIZE in Dungeon.java." />
@@ -541,7 +529,8 @@
     <MESSAGE value="- Small modification to MainFrame.java" />
     <MESSAGE value="- Worked on save/load feature of the game." />
     <MESSAGE value="- Quick update for the save/load" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Quick update for the save/load" />
+    <MESSAGE value="- Updated Monster subclasses to pass checkstyle criteria.&#10;- Refactored BattlePanel.java and CharacterSelectionPanel.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Updated Monster subclasses to pass checkstyle criteria.&#10;- Refactored BattlePanel.java and CharacterSelectionPanel.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

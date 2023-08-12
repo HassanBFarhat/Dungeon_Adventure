@@ -2,8 +2,18 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.OverlayLayout;
 
+/**
+ *
+ * @author Hassan Bassam Farhat
+ * @version Summer 2023
+ */
 public class GameHelpPanel extends JPanel {
 
     // constants
@@ -36,6 +46,8 @@ public class GameHelpPanel extends JPanel {
     private static final int HELP_TEXT_AREA_WIDTH = 590;
     /** . */
     private static final int HELP_TEXT_AREA_HEIGHT = 530;
+    /** . */
+    private static final int BACK_BTN_FONT_SIZE = 28;
 
     // instance fields
     /** . */
@@ -61,6 +73,13 @@ public class GameHelpPanel extends JPanel {
 
 
     // methods
+
+    /** . */
+    public JButton getMyBackBtn() {
+        return myBackBtn;
+    }
+
+    // private methods
 
     /** . */
     private void instantiateInstanceDataFields() {
@@ -100,7 +119,7 @@ public class GameHelpPanel extends JPanel {
         myGameHelpTextArea.setWrapStyleWord(true);
         myGameHelpTextArea.setEditable(false);
         myGameHelpTextArea.setOpaque(false);
-        myGameHelpTextArea.setFocusable(false);  // This line makes the text unselectable
+        myGameHelpTextArea.setFocusable(false);
         myGameHelpTextArea.setBounds(HELP_TEXT_AREA_X_AND_Y_AXIS, HELP_TEXT_AREA_X_AND_Y_AXIS,
                                      HELP_TEXT_AREA_WIDTH, HELP_TEXT_AREA_HEIGHT);
     }
@@ -109,7 +128,7 @@ public class GameHelpPanel extends JPanel {
     private void setUpAllButtonsBounds() {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, BACK_BUTTON_Y_AXIS,
                             BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT);
-        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, 28));
+        myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, BACK_BTN_FONT_SIZE));
     }
 
     /** . */
@@ -126,11 +145,6 @@ public class GameHelpPanel extends JPanel {
     private void setUpBGPanelStyleAndAddTransparentPanelToIt() {
         myGameHelpBGLabel.setLayout(null);
         myGameHelpBGLabel.add(myTransparentHoldingPanel);
-    }
-
-    /** . */
-    public JButton getMyBackBtn() {
-        return myBackBtn;
     }
 
 }
