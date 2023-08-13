@@ -477,10 +477,10 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private void setUpGameOverAndWinningPanelsActionListeners() {
         myGameOverPanel.getPlayAgainBtn().addActionListener(
-                theAction -> changeScreen(NEW_GAME_PANEL));
-        // also make sure that dungeon.generatemaze() is ran to generate a new maze,
-        // clear out old inventory too. pretty much re-instantiate the objects here
-        // to start over
+                theAction -> {
+                    startingNewGameSameWindow();
+                    changeScreen(NEW_GAME_PANEL);
+                });
         myGameOverPanel.getMyMainMenuBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
 
@@ -596,6 +596,16 @@ public class MainFrame extends JFrame implements Serializable {
             checkIfMonsterHealthIsZero();
             checkIfAdventurerHealthIsZero();
         }
+    }
+
+    /** . */
+    private void startingNewGameSameWindow() {
+        myDungeon.randomlyGenerateRooms();
+        myGamePlayPanel.getMyAdventurerImgLabel().setVisible(false);
+        myBattlePanel.getMyMonsterImgLabel().setVisible(false);
+        myBattlePanel.getMyAdventurerImgLabel().setVisible(false);
+        myBattlePanel.setVisible(false);
+        myAdventurer = null;
     }
 
 }

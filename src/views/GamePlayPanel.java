@@ -97,6 +97,8 @@ public class GamePlayPanel extends JPanel {
     /** . */
     private String myHeroMainImgPath;
     /** . */
+    private JLabel myHeroImgLabel;
+    /** . */
     private int[][] myDungeon;
 
 
@@ -115,11 +117,10 @@ public class GamePlayPanel extends JPanel {
     // methods
 
     /** . */
-
-    // methods
     public void addingPlayerChosenAdventurerImgToPanel() {
         final ImageIcon heroImg = new ImageIcon(getMainImgPath());
         final JLabel heroJPGLabel = new JLabel(heroImg);
+        myHeroImgLabel = heroJPGLabel;
         myCharacterAndMovementOptions.add(heroJPGLabel, BorderLayout.CENTER);
     }
 
@@ -202,6 +203,11 @@ public class GamePlayPanel extends JPanel {
     /** . */
     public void updateAdventurerHealthBar(final Adventurer theAdventurer) {
         myCharactersHealth.setValue(theAdventurer.getCharacterHealthPoints());
+    }
+
+    /** . */
+    public JLabel getMyAdventurerImgLabel() {
+        return myHeroImgLabel;
     }
 
 

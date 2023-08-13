@@ -189,6 +189,10 @@ public class BattlePanel extends JPanel {
         return myMonsterImgLabel;
     }
 
+    /** . */
+    public JLabel getMyAdventurerImgLabel() {
+        return myHeroImgLabel;
+    }
 
     // private methods
 
