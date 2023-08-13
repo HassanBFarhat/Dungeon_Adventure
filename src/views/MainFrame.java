@@ -404,6 +404,18 @@ public class MainFrame extends JFrame implements Serializable {
                 myBattlePanel.updateHealthBarForMonster(
                         roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
+
+                if (roomMonster.getCharacterHealthPoints() <= 20) {
+                    final int randomChanceToHealSelf = (int) (Math.random() * 100);
+                    if (randomChanceToHealSelf >= 80) {
+                        JOptionPane.showMessageDialog(myBattlePanel, "Monster Healed Itself!");
+                        roomMonster.setCharacterHealthPoints(
+                                roomMonster.getCharacterHealthPoints() + roomMonster.heal());
+                    }
+                    myBattlePanel.updateHealthBarForMonster(
+                            roomMonster.getCharacterHealthPoints());
+                }
+
                 checkIfAdventurerHealthIsZero();
                 monsterAttacksHero(myCurrentRoom.getRoomMonster());
             }
