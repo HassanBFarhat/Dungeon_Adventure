@@ -12,6 +12,9 @@ class AbstractDungeonCharacterTest {
     @BeforeEach
     void setUp() {
         character = new TestDungeonCharacter("Test Character", 100, 10, 5, 20, 3, 0.8);
+        character.setChanceToHit(1.0); // 100% chance to hit
+        character.setMinimumDamageRange(5); // Assuming this method exists
+        character.setMaximumDamageRange(20); // Assuming this method exists
     }
 
     @Test

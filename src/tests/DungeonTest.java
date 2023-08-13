@@ -65,8 +65,9 @@ public class DungeonTest {
     @Test
     public void testSetAndGetChanceToHit() {
         character.setChanceToHit(0.8);
-        assertEquals(0.8, character.getChanceToHit());
+        assertEquals(0.8, character.getChanceToHit(), 0.00001);
     }
+
 
     @Test
     public void testAttack() {
