@@ -19,10 +19,7 @@ public class Priestess extends Adventurer implements Serializable {
     /** . */
     private static final String PRIESTESS_NAME = "Priestess";
     /** . */
-    private static final String PRIESTESS_IMG_MAIN_FILE_PATH = "src/imgs/Priestess_Main.png";
-    /** . */
-    private static final String PRIESTESS_IMG_BATTLE_FILE_PATH
-            = "src/imgs/Priestess_Battle.png";
+    private static final String PRIESTESS_FILE_PATH = "src/imgs/Priestess.png";
     /** . */
     private static final int HEALTH_POINTS = 75;
     /** . */
@@ -58,13 +55,13 @@ public class Priestess extends Adventurer implements Serializable {
     /** . */
     @Override
     public String getAdventurerMainImgFilePath() {
-        return PRIESTESS_IMG_MAIN_FILE_PATH;
+        return PRIESTESS_FILE_PATH;
     }
 
     /** . */
     @Override
     public String getAdventurerBattleImgFilePath() {
-        return PRIESTESS_IMG_BATTLE_FILE_PATH;
+        return PRIESTESS_FILE_PATH;
     }
 
     /** . */

@@ -18,9 +18,8 @@ public class Thief extends Adventurer implements Serializable {
     /** . */
     private static final String THIEF_NAME = "Thief";
     /** . */
-    private static final String THIEF_IMG_MAIN_FILE_PATH = "src/imgs/Thief_Main.png";
-    /** . */
-    private static final String THIEF_IMG_BATTLE_FILE_PATH = "src/imgs/Thief_Battle.png";
+    private static final String THIEF_FILE_PATH = "src/imgs/Thief.png";
+
     /** . */
     private static final int HEALTH_POINTS = 75;
     /** . */
@@ -56,13 +55,13 @@ public class Thief extends Adventurer implements Serializable {
     /** . */
     @Override
     public String getAdventurerMainImgFilePath() {
-        return THIEF_IMG_MAIN_FILE_PATH;
+        return THIEF_FILE_PATH;
     }
 
     /** . */
     @Override
     public String getAdventurerBattleImgFilePath() {
-        return THIEF_IMG_BATTLE_FILE_PATH;
+        return THIEF_FILE_PATH;
     }
 
     /** . */

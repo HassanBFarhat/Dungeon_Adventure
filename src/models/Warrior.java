@@ -19,9 +19,7 @@ public class Warrior extends Adventurer implements Serializable {
     /** . */
     private static final String WARRIOR_NAME = "Warrior";
     /** . */
-    private static final String WARRIOR_IMG_MAIN_FILE_PATH = "src/imgs/Warrior_Main.png";
-    /** . */
-    private static final String WARRIOR_IMG_BATTLE_FILE_PATH = "src/imgs/Warrior_Battle.png";
+    private static final String WARRIOR_FILE_PATH = "src/imgs/Warrior.png";
     /** . */
     private static final int HEALTH_POINTS = 125;
     /** . */
@@ -59,13 +57,13 @@ public class Warrior extends Adventurer implements Serializable {
     /** . */
     @Override
     public String getAdventurerMainImgFilePath() {
-        return WARRIOR_IMG_MAIN_FILE_PATH;
+        return WARRIOR_FILE_PATH;
     }
 
     /** . */
     @Override
     public String getAdventurerBattleImgFilePath() {
-        return WARRIOR_IMG_BATTLE_FILE_PATH;
+        return WARRIOR_FILE_PATH;
     }
 
     /** . */
