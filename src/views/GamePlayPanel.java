@@ -196,7 +196,7 @@ public class GamePlayPanel extends JPanel {
     /** . */
     public void setUpHealthBarWithAdventurerHealthStats(final Adventurer theAdventurer) {
         myCharactersHealth.setMaximum(0);
-        myCharactersHealth.setMaximum(theAdventurer.getCharacterHealthPoints());
+        myCharactersHealth.setMaximum(theAdventurer.getCharacterHitPoints());
         myCharactersHealth.setValue(theAdventurer.getCharacterHealthPoints());
     }
 

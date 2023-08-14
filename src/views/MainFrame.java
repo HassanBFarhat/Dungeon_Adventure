@@ -5,12 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serial;
-import java.io.Serializable;
+import java.io.*;
 import java.util.Random;
 import javax.sound.sampled.FloatControl;
 import javax.swing.*;
@@ -116,6 +111,8 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private Action rightAction;
     /** . */
+    private JFileChooser fileChooser;
+    /** . */
     private final String myFileName = "serialized_game_data.ser";
 
 
@@ -151,6 +148,7 @@ public class MainFrame extends JFrame implements Serializable {
         myGameOverPanel = new GameOverPanel();
         myWinningPanel = new WinningPanel();
         myMusic = new Music();
+        fileChooser = new JFileChooser();
     }
 
     /** . */
@@ -211,22 +209,28 @@ public class MainFrame extends JFrame implements Serializable {
         myMainMenuPanel.getLoadGameBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-                //Deserialization
-                try {
-                    // Reading Object from file
-                    final FileInputStream file = new FileInputStream(myFileName);
-                    final ObjectInputStream in = new ObjectInputStream(file);
-                    // Method for deserialization of object.
-                    myAdventurer = (Adventurer) in.readObject();
-                    myDungeon = (Dungeon) in.readObject();
-                    in.close();
-                    file.close();
-                } catch (final Exception e) {
-                    e.printStackTrace();
-                    System.exit(0);
+                int returnValue = fileChooser.showOpenDialog(myMainMenuPanel);
+                if (returnValue == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(selectedFile))) {
+                        myDungeon = (Dungeon) inputStream.readObject();
+                        myAdventurer = (Adventurer) inputStream.readObject();
+                        myCurrentRoomRow = (int) inputStream.readObject();
+                        myCurrentRoomColumn = (int) inputStream.readObject();
+//                        myGamePlayPanel = (GamePlayPanel) inputStream.readObject();
+                    } catch (IOException | ClassNotFoundException e) {
+                        e.printStackTrace();
+                    }
                 }
+                System.out.println("LOADED CORRECTLY");
+                System.out.println(myAdventurer.toString());
+                initializeGamePlayPanelAndBattlePanel();
+                myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
+                myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
                 changeScreen(GAME_PLAY_PANEL);
             }
+
         });
 
         myMainMenuPanel.getOptionsBtn().addActionListener(
@@ -267,6 +271,7 @@ public class MainFrame extends JFrame implements Serializable {
         } else if (myCharacterSelectionPanel.getHeroOptionFromBox().equals(THIEF)) {
             myAdventurer = new Thief();
         }
+        System.out.println(myAdventurer.toString());
         for (int j = 0; j < myDungeon.getMazeSize(); j++) {
             if (myDungeon.getMyMazeRoom()[0][j].hasEntrance()) {
                 myCurrentRoomRow = 0;
@@ -441,25 +446,23 @@ public class MainFrame extends JFrame implements Serializable {
         });
 
         myGamePlayPanel.getMySaveGameBtn().addActionListener(theEvent -> {
-            // Serialization
-            try {
-                // Saving Object in a File
-                final FileOutputStream file = new FileOutputStream(myFileName);
-                final ObjectOutputStream out = new ObjectOutputStream(file);
-                // Method for Serialization of Object
-                out.writeObject(myAdventurer);
-                out.writeObject(myDungeon);
-                out.writeObject(myGamePlayPanel);
-                out.writeObject(myBattlePanel);
-                out.close();
-                file.close();
-            } catch (final Exception e) {
-                e.printStackTrace();
-                System.exit(0);
+            int returnValue = fileChooser.showSaveDialog(this);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                System.out.println(myAdventurer.toString());
+                try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(selectedFile))) {
+                    outputStream.writeObject(myDungeon);
+                    outputStream.writeObject(myAdventurer);
+                    outputStream.writeObject(myCurrentRoomRow);
+                    outputStream.writeObject(myCurrentRoomColumn);
+//                    outputStream.writeObject(myGamePlayPanel);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            myAdventurer = null;
-            myDungeon = null;
+            System.out.println("SAVE COMPLETED PROPERLY");
             changeScreen(MAIN_MENU_PANEL);
+            startingNewGameSameWindow();
         });
     }
 

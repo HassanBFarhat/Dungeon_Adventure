@@ -1,5 +1,7 @@
 package models;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -8,7 +10,11 @@ import java.util.Random;
  * @author Avinash Bavisetty
  * @version Summer 2023
  */
-public abstract class AbstractDungeonCharacter {
+public abstract class AbstractDungeonCharacter implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 3275576433211800933L;
+
 
     // constants
     /** . */

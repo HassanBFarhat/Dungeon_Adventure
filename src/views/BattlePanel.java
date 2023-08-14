@@ -164,7 +164,7 @@ public class BattlePanel extends JPanel {
     /** . */
     public void initializeHeroBattleHealthBarMaxMin(final Adventurer theAdventurer) {
         myHeroHealthBar.setMaximum(0);
-        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHealthPoints());
+        myHeroHealthBar.setMaximum(theAdventurer.getCharacterHitPoints());
     }
 
     /** . */
