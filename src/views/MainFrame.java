@@ -491,24 +491,25 @@ public class MainFrame extends JFrame implements Serializable {
         myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-                System.out.println("You attacked the monster");
                 myBattlePanel.getMyGameActionText().append("You attacked the monster\n");
+                final int monsterDamageTaken = myAdventurer.attack();
                 final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
-                System.out.println("BEFORE" + roomMonster.getCharacterHealthPoints());
                 roomMonster.setCharacterHealthPoints(
-                        roomMonster.getCharacterHealthPoints() - myAdventurer.attack());
-                System.out.println(roomMonster.getCharacterHealthPoints());
+                        roomMonster.getCharacterHealthPoints() - monsterDamageTaken);
+                myBattlePanel.getMyGameActionText().append("Monster Took " + monsterDamageTaken + " Damage\n");
                 myBattlePanel.updateHealthBarForMonster(
                         roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
 
                 if (roomMonster.getCharacterHealthPoints() <= 20) {
                     final int randomChanceToHealSelf = (int) (Math.random() * 100);
+                    final int randomPointsHealed = roomMonster.heal();
                     if (randomChanceToHealSelf >= 80) {
-                        JOptionPane.showMessageDialog(myBattlePanel, "Monster Healed Itself!");
-                        myBattlePanel.getMyGameActionText().append("Monster Healed Itself!\n");
+                        myBattlePanel.getMyGameActionText().append("Wait... Monster Healed Itself!\n");
                         roomMonster.setCharacterHealthPoints(
-                                roomMonster.getCharacterHealthPoints() + roomMonster.heal());
+                                roomMonster.getCharacterHealthPoints() + randomPointsHealed);
+                        myBattlePanel.getMyGameActionText().append("Monster Healed " + randomPointsHealed + " Health Points\n");
+
                     }
                     myBattlePanel.updateHealthBarForMonster(
                             roomMonster.getCharacterHealthPoints());
@@ -522,7 +523,6 @@ public class MainFrame extends JFrame implements Serializable {
         myBattlePanel.getMySpecialAttackBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-                System.out.println("You used Special Attack");
                 myBattlePanel.getMyGameActionText().append("You used Special Attack\n");
 
                 final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
@@ -555,14 +555,15 @@ public class MainFrame extends JFrame implements Serializable {
                 final Random random = new Random();
                 final int randomHealAmount = random.nextInt(15 - 5 + 1) + 5;
                 if (myAdventurer.getMyHealingPotions() > 0) {
+                    myBattlePanel.getMyGameActionText().append("You used Heal to gain " + randomHealAmount + " health points.\n");
                     myAdventurer.setCharacterHealthPoints(
                             myAdventurer.getCharacterHealthPoints() + randomHealAmount);
                     myBattlePanel.updateHealthBarsForHero(
                             myAdventurer.getCharacterHealthPoints());
                     myAdventurer.setMyHealingPotions(-1);
+                    myBattlePanel.getMyGameActionText().append("You have " + myAdventurer.getMyHealingPotions() + " Healing Potions Left.\n");
                 } else {
-                    System.out.println("No potions to use for healing.");
-                    myBattlePanel.getMyGameActionText().append("No potions to use for healing.\n");
+                    myBattlePanel.getMyGameActionText().append("No potions left to use for healing.\n");
 
                 }
             }
@@ -713,21 +714,19 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private void monsterAttacksHero(final AbstractMonster theMonster) {
         if (theMonster != null) {
-            JOptionPane.showMessageDialog(myBattlePanel, "Monsters Turn To Attack");
             myBattlePanel.getMyGameActionText().append("Monsters Turn To Attack\n");
 
             final double randomChanceToBlock = (int) (Math.random() * 100) / 100.0;
             if (randomChanceToBlock >= (1 - myAdventurer.getChanceToHit())) {
-                JOptionPane.showMessageDialog(myBattlePanel, "Block Successful! No Damage Taken.");
-                myBattlePanel.getMyGameActionText().append("Block Successful! No Damage Taken.\n");
+                myBattlePanel.getMyGameActionText().append("You Blocked the Monsters Attack Successfully! No Damage Taken.\n");
 
             } else {
-                JOptionPane.showMessageDialog(myBattlePanel, "Block Failed. Monster Still Attacked.");
-                myBattlePanel.getMyGameActionText().append("Block Failed. Monster Still Attacked.\n");
+                myBattlePanel.getMyGameActionText().append("You failed to Block the Monsters Attack.\n");
 
                 final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
                 myAdventurer.setCharacterHealthPoints(
                         myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
+                myBattlePanel.getMyGameActionText().append("You took " + monsterAttackAmount + " Points of Damage\n");
                 myBattlePanel.updateHealthBarsForHero(
                         myAdventurer.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
