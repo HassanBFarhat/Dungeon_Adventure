@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refactored Main Gameplay panel sprites to fit the page better.">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refixing blocking on battle logic to actually work now.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$14.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$16.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +186,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="70806000" />
+      <workItem from="1691656373898" duration="72814000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -188,14 +194,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00024" summary="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines.">
-      <option name="closed" value="true" />
-      <created>1691111687806</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1691111687806</updated>
     </task>
     <task id="LOCAL-00025" summary="- Added SQLite DB table with monster information to the project.">
       <option name="closed" value="true" />
@@ -573,7 +571,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692028789162</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="- Refixing blocking on battle logic to actually work now.">
+      <option name="closed" value="true" />
+      <created>1692030757294</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1692030757295</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -591,7 +597,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added getter method to BattlePanel.java to access the monster image label&#10;- MainFrame.java uses that new getter method to disable the visibility of the old monster to allow new ones to spawn in without showing previous monsters." />
     <MESSAGE value="- Debugged the Hero.java class to properly execute attack() method." />
     <MESSAGE value="- Added semi-functioning character health bar. Need to debug reseting value when new monster appears." />
     <MESSAGE value="- Debugged the healthbars, now working properly during battles.&#10;- NEEDS REFACTORING" />
@@ -616,7 +621,8 @@
     <MESSAGE value="- Refactored music into separate class&#10;- Got music slider and toggle button to work in OptionsPanel.java" />
     <MESSAGE value="- Added WASD and Arrow Key binds to move the player through the dungeon" />
     <MESSAGE value="- Refactored Main Gameplay panel sprites to fit the page better." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Refactored Main Gameplay panel sprites to fit the page better." />
+    <MESSAGE value="- Refixing blocking on battle logic to actually work now." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Refixing blocking on battle logic to actually work now." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

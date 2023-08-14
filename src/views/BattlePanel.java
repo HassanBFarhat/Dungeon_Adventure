@@ -2,14 +2,8 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JTextArea;
-import javax.swing.OverlayLayout;
+import javax.swing.*;
+
 import models.AbstractMonster;
 import models.Adventurer;
 
@@ -94,7 +88,9 @@ public class BattlePanel extends JPanel {
     /** . */
     private JButton myHealBtn;
     /** . */
-    private JTextArea myGameActionConsole;
+    private JTextArea myGameActionText;
+    /** . */
+    private JScrollPane myGameScrollConsole;
     /** . */
     private AbstractMonster myCurrentRoomMonster;
     /** . */
@@ -143,6 +139,10 @@ public class BattlePanel extends JPanel {
         return myHealBtn;
     }
 
+    /** . */
+    public JTextArea getMyGameActionText() {
+        return myGameActionText;
+    }
 
     /** . */
     public void setCurrentRoomMonster(final AbstractMonster theMonster) {
@@ -199,7 +199,8 @@ public class BattlePanel extends JPanel {
         myHealBtn = new JButton("Heal");
         myMonstersHealthBar = new JProgressBar();
         myHeroHealthBar = new JProgressBar();
-        myGameActionConsole = new JTextArea();
+        myGameActionText = new JTextArea();
+        myGameScrollConsole = new JScrollPane(myGameActionText);
     }
 
     /** . */
@@ -210,12 +211,14 @@ public class BattlePanel extends JPanel {
 
     /** . */
     private void setUpBorderAndBoundsForActionConsole() {
-        myGameActionConsole.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        myGameActionConsole.setBounds(ACTION_CONSOLE_X_COORDINATE,
+        myGameScrollConsole.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        myGameScrollConsole.setBounds(ACTION_CONSOLE_X_COORDINATE,
                                       ACTION_CONSOLE_Y_COORDINATE,
                                       ACTION_CONSOLE_WIDTH,
                                       ACTION_CONSOLE_HEIGHT);
-        myGameActionConsole.setEditable(false);
+        myGameActionText.setFont(new Font(FONT_CHOICE, Font.BOLD, 25));
+        myGameActionText.setLineWrap(true);
+        myGameActionText.setEditable(false);
     }
 
     /** . */
@@ -273,7 +276,7 @@ public class BattlePanel extends JPanel {
         myBattleBGImgLabel.add(myAttackBtn);
         myBattleBGImgLabel.add(mySpecialAttackBtn);
         myBattleBGImgLabel.add(myHealBtn);
-        myBattleBGImgLabel.add(myGameActionConsole);
+        myBattleBGImgLabel.add(myGameScrollConsole);
         myBattleBGImgLabel.add(myHeroHealthBar);
         myBattleBGImgLabel.add(myMonstersHealthBar);
     }
