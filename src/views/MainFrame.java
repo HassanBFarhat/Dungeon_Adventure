@@ -580,10 +580,16 @@ public class MainFrame extends JFrame implements Serializable {
                     changeScreen(NEW_GAME_PANEL);
                 });
         myGameOverPanel.getMyMainMenuBtn().addActionListener(
-                theAction -> changeScreen(MAIN_MENU_PANEL));
+                theAction -> {
+                    startingNewGameSameWindow();
+                    changeScreen(MAIN_MENU_PANEL);
+                });
 
         myWinningPanel.getMyMainMenuBtn().addActionListener(
-                theAction -> changeScreen(MAIN_MENU_PANEL));
+                theAction -> {
+                    startingNewGameSameWindow();
+                    changeScreen(MAIN_MENU_PANEL);
+                });
     }
 
     /** . */
@@ -737,9 +743,11 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private void startingNewGameSameWindow() {
         myDungeon.randomlyGenerateRooms();
+        myCharacterSelectionPanel.setMyNameYourCharacterTextBox(null);
         myGamePlayPanel.getMyAdventurerImgLabel().setVisible(false);
         myBattlePanel.getMyMonsterImgLabel().setVisible(false);
         myBattlePanel.getMyAdventurerImgLabel().setVisible(false);
+        myBattlePanel.getMyGameActionText().setText("");
         myBattlePanel.setVisible(false);
         myAdventurer = null;
     }

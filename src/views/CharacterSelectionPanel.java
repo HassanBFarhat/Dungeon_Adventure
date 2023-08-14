@@ -135,6 +135,11 @@ public class CharacterSelectionPanel extends JPanel {
     }
 
     /** . */
+    public void setMyNameYourCharacterTextBox(final String theName) {
+        myNameYourCharacterTextBox.setText(theName);
+    }
+
+    /** . */
     public String getHeroOptionFromBox() {
         return (String) myHeroOptionsDropDownBox.getSelectedItem();
     }
