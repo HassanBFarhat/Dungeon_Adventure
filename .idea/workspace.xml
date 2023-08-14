@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Removed system.out.prints from hero subclasses and MainFrame/BattlePanel">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Fixed bug when starting a new game">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -184,7 +179,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="76103000" />
+      <workItem from="1691656373898" duration="78489000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -192,14 +187,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00028" summary="- Added the enums to the models package.&#10;- Added MonsterFactory.java file.">
-      <option name="closed" value="true" />
-      <created>1691199594373</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1691199594373</updated>
     </task>
     <task id="LOCAL-00029" summary="- Added default constructor to the Room.java class so each item can be set randomly within the Dungeon.java classes generateRandomRoom() method.&#10;- Completed majority of room randomization/generation. In order for it to be fully complete, MonsterFactory will have to be implemented + Room.java will need to add an instance field to hold the monster.">
       <option name="closed" value="true" />
@@ -577,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692034855976</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="- Fixed bug when starting a new game">
+      <option name="closed" value="true" />
+      <created>1692036024199</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1692036024199</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -595,7 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Fixed the updateMinimap() method to actually update the heros real position in the dungeon&#10;-" />
     <MESSAGE value="- Added GameOverPanel.java and WinningPanel.java to views package.&#10;- Finished Battle logic, working as intended." />
     <MESSAGE value="- Completed GameOverPanel.java&#10;- Completed WinningPanel.java" />
     <MESSAGE value="- Updated the special attack button on the battle page to be fully functioning with each hero.&#10;- Updated the specialAttack() method in all hero subclasses to return a new value." />
@@ -620,7 +614,8 @@
     <MESSAGE value="- Battle Panel console explaining to user implemeneted" />
     <MESSAGE value="- Battle Panel console refactored" />
     <MESSAGE value="- Removed system.out.prints from hero subclasses and MainFrame/BattlePanel" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Removed system.out.prints from hero subclasses and MainFrame/BattlePanel" />
+    <MESSAGE value="- Fixed bug when starting a new game" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed bug when starting a new game" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

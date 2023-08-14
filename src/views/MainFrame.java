@@ -581,14 +581,14 @@ public class MainFrame extends JFrame implements Serializable {
                 });
         myGameOverPanel.getMyMainMenuBtn().addActionListener(
                 theAction -> {
-                    startingNewGameSameWindow();
                     changeScreen(MAIN_MENU_PANEL);
+                    startingNewGameSameWindow();
                 });
 
         myWinningPanel.getMyMainMenuBtn().addActionListener(
                 theAction -> {
-                    startingNewGameSameWindow();
                     changeScreen(MAIN_MENU_PANEL);
+                    startingNewGameSameWindow();
                 });
     }
 
@@ -687,6 +687,7 @@ public class MainFrame extends JFrame implements Serializable {
     private void checkIfAdventurerHealthIsZero() {
         if (myAdventurer.getCharacterHealthPoints() <= 0) {
             JOptionPane.showMessageDialog(myBattlePanel, "You have Died a painful death!");
+            startingNewGameSameWindow();
             changeScreen(GAME_OVER_PANEL);
         }
     }
