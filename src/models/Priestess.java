@@ -67,7 +67,6 @@ public class Priestess extends Adventurer implements Serializable {
     /** . */
     @Override
     public int specialAttack() {
-        System.out.println("Priestess healed herself.");
         final Random random = new Random();
         return random.nextInt(MAX_HEAL - MIN_HEAL + 1) + MIN_HEAL;
     }

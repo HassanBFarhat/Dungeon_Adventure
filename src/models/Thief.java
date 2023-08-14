@@ -70,14 +70,10 @@ public class Thief extends Adventurer implements Serializable {
         final double chanceForSurpriseAttackOdds = (int) (Math.random() * 100) / 100.0;
         int totalDamage = 0;
         if (chanceForSurpriseAttackOdds >= (1 - CHANCE_CAUGHT)) {
-            System.out.println("Thief Caught. No attack.");
         } else if (chanceForSurpriseAttackOdds >= (1 - SURPRISE_ATTACK_ODDS)) {
-            System.out.println("Thief Attacks Twice!");
             totalDamage += this.attack();
             totalDamage += this.attack();
         } else {
-            System.out.println("Special Attack attempt not successful, "
-                    + "resorting to normal attack");
             totalDamage += this.attack();
         }
         return totalDamage;

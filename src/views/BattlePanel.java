@@ -170,7 +170,6 @@ public class BattlePanel extends JPanel {
     /** . */
     public void updateHealthBarForMonster(final int theNewMonsterStats) {
         myMonstersHealthBar.setValue(theNewMonsterStats);
-        System.out.println(myMonstersHealthBar.getValue());
     }
 
     /** . */

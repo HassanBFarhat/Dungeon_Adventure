@@ -526,20 +526,21 @@ public class MainFrame extends JFrame implements Serializable {
                 myBattlePanel.getMyGameActionText().append("You used Special Attack\n");
 
                 final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
+                final int specialDamage = myAdventurer.specialAttack();
                 if (myAdventurer.getCharacterName().equals(WARRIOR)) {
                     roomMonster.setCharacterHealthPoints(
-                            roomMonster.getCharacterHealthPoints()
-                                    - myAdventurer.specialAttack());
+                            roomMonster.getCharacterHealthPoints() - specialDamage);
+                    myBattlePanel.getMyGameActionText().append("You dealt " + specialDamage + " damage to the monster\n");
                 } else if (myAdventurer.getCharacterName().equals(PRIESTESS)) {
                     myAdventurer.setCharacterHealthPoints(
-                            myAdventurer.getCharacterHealthPoints()
-                                    + myAdventurer.specialAttack());
+                            myAdventurer.getCharacterHealthPoints() + specialDamage);
+                    myBattlePanel.getMyGameActionText().append("You Healed Yourself " + specialDamage + " points\n");
                     myBattlePanel.updateHealthBarsForHero(
                             myAdventurer.getCharacterHealthPoints());
                 } else if (myAdventurer.getCharacterName().equals(THIEF)) {
                     roomMonster.setCharacterHealthPoints(
-                            roomMonster.getCharacterHealthPoints()
-                                    - myAdventurer.specialAttack());
+                            roomMonster.getCharacterHealthPoints() - specialDamage);
+                    myBattlePanel.getMyGameActionText().append("You dealt " + specialDamage + " damage to the monster.\n");
                 }
                 myBattlePanel.updateHealthBarForMonster(
                         roomMonster.getCharacterHealthPoints());
@@ -666,7 +667,6 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private void checkIfMonsterHealthIsZero() {
         if (myCurrentRoom.getRoomMonster().getCharacterHealthPoints() <= 0) {
-            System.out.println("You beat the monster");
             JOptionPane.showMessageDialog(myBattlePanel, "You beat the monster!");
             myCurrentRoom.getRoomMonster().setCharacterHealthPoints(myMonsterInitialHealth);
             myCurrentRoom.setRoomMonster(null);
@@ -680,7 +680,6 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private void checkIfAdventurerHealthIsZero() {
         if (myAdventurer.getCharacterHealthPoints() <= 0) {
-            System.out.println("You Died");
             JOptionPane.showMessageDialog(myBattlePanel, "You have Died a painful death!");
             changeScreen(GAME_OVER_PANEL);
         }
