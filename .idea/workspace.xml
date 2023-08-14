@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added WASD and Arrow Key binds to move the player through the dungeon">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refactored Main Gameplay panel sprites to fit the page better.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +82,92 @@
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="AbstractDungeonCharacterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Dungeon_Adventure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AbstractDungeonCharacterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdventurerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Dungeon_Adventure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AdventurerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DungeonTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Dungeon_Adventure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.DungeonTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MonsterFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Dungeon_Adventure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.MonsterFactoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Dungeon_Adventure" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.RoomTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MonsterFactoryTest" />
+        <item itemvalue="JUnit.RoomTest" />
+        <item itemvalue="JUnit.DungeonTest" />
+        <item itemvalue="JUnit.AdventurerTest" />
+        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -97,7 +180,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="68841000" />
+      <workItem from="1691656373898" duration="70806000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -105,22 +188,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00022" summary="- Added constraint if no name entered for Hero, user is prompt the game cannot start without a name.&#10;- Added the BG image for the main gameplay in the dungeon.&#10;- Added the character, &quot;test&quot; sprite and the movement buttons, panel to the GamePlayPanel.java.&#10;- Added health bar to the bottom of the main game panel&#10;- Added the &quot;save game&quot; and &quot;inventory&quot; Buttons to the game panel&#10;- Made miscellaneous changes to reflect the addition of the GamePlayPanel.java in the various other view class models&#10;- Added more images to the imgs package">
-      <option name="closed" value="true" />
-      <created>1690873215744</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1690873215744</updated>
-    </task>
-    <task id="LOCAL-00023" summary="- Added the BattlePanel.java to display the battle panel when the user enters a room with a monster&#10;- Added battle bg img and monster sprite img.&#10;- updated appropriate classes to reflect changes.">
-      <option name="closed" value="true" />
-      <created>1691000928690</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1691000928690</updated>
     </task>
     <task id="LOCAL-00024" summary="- Added a controller and models package to follow MVC standards&#10;- Moved appropriate packages to their designated package.&#10;- Refactored GamePlayPanel to follow Checkstyle guidelines.&#10;- Refactoreed BattlePanel to follow Checkstyle guidelines.">
       <option name="closed" value="true" />
@@ -490,7 +557,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692028086690</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="- Refactored Main Gameplay panel sprites to fit the page better.">
+      <option name="closed" value="true" />
+      <created>1692028774517</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1692028774517</updated>
+    </task>
+    <task id="LOCAL-00071" summary="- Refactored Main Gameplay panel sprites to fit the page better.">
+      <option name="closed" value="true" />
+      <created>1692028789162</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1692028789162</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -508,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Added getter methods to the GamePlayPanel.java to access the save game and inventory button.&#10;- Updated the attack() method in the DungeonCharacter.java class&#10;- Added a Block Button to the BattlePanel&#10;- Refactored the heal() method in Monster.java&#10;- Refactored the specialAttack() methods for all subclasses&#10;- Added AttackBtn, SpecialAttackBtn, HealBtn, BlockBtn functionality in MainFrame.java class" />
     <MESSAGE value="- Added getter method to BattlePanel.java to access the monster image label&#10;- MainFrame.java uses that new getter method to disable the visibility of the old monster to allow new ones to spawn in without showing previous monsters." />
     <MESSAGE value="- Debugged the Hero.java class to properly execute attack() method." />
     <MESSAGE value="- Added semi-functioning character health bar. Need to debug reseting value when new monster appears." />
@@ -533,7 +615,8 @@
     <MESSAGE value="- Added random healing to Monsters during battle" />
     <MESSAGE value="- Refactored music into separate class&#10;- Got music slider and toggle button to work in OptionsPanel.java" />
     <MESSAGE value="- Added WASD and Arrow Key binds to move the player through the dungeon" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added WASD and Arrow Key binds to move the player through the dungeon" />
+    <MESSAGE value="- Refactored Main Gameplay panel sprites to fit the page better." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Refactored Main Gameplay panel sprites to fit the page better." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -94,8 +94,6 @@ public class BattlePanel extends JPanel {
     /** . */
     private JButton myHealBtn;
     /** . */
-    private JButton myBlockBtn;
-    /** . */
     private JTextArea myGameActionConsole;
     /** . */
     private AbstractMonster myCurrentRoomMonster;
@@ -145,10 +143,6 @@ public class BattlePanel extends JPanel {
         return myHealBtn;
     }
 
-    /** . */
-    public JButton getMyBlockBtn() {
-        return myBlockBtn;
-    }
 
     /** . */
     public void setCurrentRoomMonster(final AbstractMonster theMonster) {
@@ -203,7 +197,6 @@ public class BattlePanel extends JPanel {
         myAttackBtn = new JButton("Attack");
         mySpecialAttackBtn = new JButton("Special Attack");
         myHealBtn = new JButton("Heal");
-        myBlockBtn = new JButton("Block");
         myMonstersHealthBar = new JProgressBar();
         myHeroHealthBar = new JProgressBar();
         myGameActionConsole = new JTextArea();
@@ -247,15 +240,9 @@ public class BattlePanel extends JPanel {
         mySpecialAttackBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
         myHealBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                             HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
-                            ALL_BUTTONS_WIDTH,
+                            340,
                             ALL_BUTTONS_HEIGHT);
         myHealBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
-        myBlockBtn.setBounds(SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE,
-                             HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
-                             ALL_BUTTONS_WIDTH,
-                             ALL_BUTTONS_HEIGHT);
-        myBlockBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
-
     }
 
     /** . */
@@ -286,7 +273,6 @@ public class BattlePanel extends JPanel {
         myBattleBGImgLabel.add(myAttackBtn);
         myBattleBGImgLabel.add(mySpecialAttackBtn);
         myBattleBGImgLabel.add(myHealBtn);
-        myBattleBGImgLabel.add(myBlockBtn);
         myBattleBGImgLabel.add(myGameActionConsole);
         myBattleBGImgLabel.add(myHeroHealthBar);
         myBattleBGImgLabel.add(myMonstersHealthBar);

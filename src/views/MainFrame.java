@@ -562,24 +562,6 @@ public class MainFrame extends JFrame implements Serializable {
             }
         });
 
-        myBattlePanel.getMyBlockBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent theEvent) {
-                final double randomChanceToBlock = (int) (Math.random() * 100) / 100.0;
-                if (randomChanceToBlock >= (1 - myAdventurer.getChanceToHit())) {
-                    System.out.println("Block Successful! No Damage Taken.");
-                } else {
-                    System.out.println("Block Failed. Monster Attacked.");
-                    final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
-                    myAdventurer.setCharacterHealthPoints(
-                            myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
-                    myBattlePanel.updateHealthBarsForHero(
-                            myAdventurer.getCharacterHealthPoints());
-                    checkIfMonsterHealthIsZero();
-                    checkIfAdventurerHealthIsZero();
-                }
-            }
-        });
     }
 
     /** . */
@@ -724,12 +706,19 @@ public class MainFrame extends JFrame implements Serializable {
     private void monsterAttacksHero(final AbstractMonster theMonster) {
         if (theMonster != null) {
             JOptionPane.showMessageDialog(myBattlePanel, "Monsters Turn To Attack");
-            final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
-            myAdventurer.setCharacterHealthPoints(
-                    myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
-            myBattlePanel.updateHealthBarsForHero(myAdventurer.getCharacterHealthPoints());
-            checkIfMonsterHealthIsZero();
-            checkIfAdventurerHealthIsZero();
+            final double randomChanceToBlock = (int) (Math.random() * 100) / 100.0;
+            if (randomChanceToBlock >= (1 - myAdventurer.getChanceToHit())) {
+                JOptionPane.showMessageDialog(myBattlePanel, "Block Successful! No Damage Taken.");
+            } else {
+                JOptionPane.showMessageDialog(myBattlePanel, "Block Failed. Monster Still Attacked.");
+                final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
+                myAdventurer.setCharacterHealthPoints(
+                        myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
+                myBattlePanel.updateHealthBarsForHero(
+                        myAdventurer.getCharacterHealthPoints());
+                checkIfMonsterHealthIsZero();
+                checkIfAdventurerHealthIsZero();
+            }
         }
     }
 
