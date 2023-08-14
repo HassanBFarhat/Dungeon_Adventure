@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added random healing to Monsters during battle">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Refactored music into separate class&#10;- Got music slider and toggle button to work in OptionsPanel.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
@@ -18,11 +19,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/OptionsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/OptionsPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/track001.wav" beforeDir="false" afterPath="$PROJECT_DIR$/src/music/track001.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/OptionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/OptionsPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +105,7 @@
       <workItem from="1690385916697" duration="29524000" />
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
-      <workItem from="1691656373898" duration="63815000" />
+      <workItem from="1691656373898" duration="68004000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -116,14 +113,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Added BattlePanel.java and GamePlayPanel.java to views package">
-      <option name="closed" value="true" />
-      <created>1690678056563</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1690678056563</updated>
     </task>
     <task id="LOCAL-00021" summary="Added instance fields and instantiations for those fields in GamePlayPanel.java class.">
       <option name="closed" value="true" />
@@ -501,7 +490,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691901048817</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="- Refactored music into separate class&#10;- Got music slider and toggle button to work in OptionsPanel.java">
+      <option name="closed" value="true" />
+      <created>1692022740102</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1692022740102</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -519,7 +516,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Within the MainFrame.java class, on the &quot;Begin Your Adventure&quot; game button, I added a for loop that checks for the entrance in the first row, once found the coordinates are stored and that room is stored in variable myCurrentRoom.&#10;- After, I have a helper method in MainFrame.java that will check all the room doors to see which ones are passable or not, the ones that are not will be greyed out and unusable, while the others will be usable.&#10;- I also set up a theoretical traversal of the maze by implementing the ActionListeners for the movement buttons, updating the rows and columns as necessary, re-checking passable doors.&#10;-" />
     <MESSAGE value="- Modified the myPillar instance field in Adventurer.java to be an ArrayList to hold our pillars. &#10;- Also added addPillarToPillarArray() method in Adventurer.java as well.&#10;- Added a getter method in all Monster subclasses to obtain their img sprites.&#10;- Added a method to the Monster.java class to be overriden by the subclasses to hold the file path for the sprite.&#10;- Added some has() boolean methods to a few fields in Room.java&#10;- In BattlePanel.java, I added current room monster and adventurer for the current game battle, added some methods to set the current room monster and the users adventurer.&#10;- Added to MainFrame.java methods for checking current room for ground loot and picking them up, checking room monster, then fighting them" />
     <MESSAGE value="- Added getter methods to the GamePlayPanel.java to access the save game and inventory button.&#10;- Updated the attack() method in the DungeonCharacter.java class&#10;- Added a Block Button to the BattlePanel&#10;- Refactored the heal() method in Monster.java&#10;- Refactored the specialAttack() methods for all subclasses&#10;- Added AttackBtn, SpecialAttackBtn, HealBtn, BlockBtn functionality in MainFrame.java class" />
     <MESSAGE value="- Added getter method to BattlePanel.java to access the monster image label&#10;- MainFrame.java uses that new getter method to disable the visibility of the old monster to allow new ones to spawn in without showing previous monsters." />
@@ -544,7 +540,8 @@
     <MESSAGE value="- Updated Monster subclasses to pass checkstyle criteria.&#10;- Refactored half of the view package classes." />
     <MESSAGE value="- Updated MainFrame.java, GamePlayPanel.java, BattlePanel.java, to reflect changes if a player decides to play again." />
     <MESSAGE value="- Added random healing to Monsters during battle" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Added random healing to Monsters during battle" />
+    <MESSAGE value="- Refactored music into separate class&#10;- Got music slider and toggle button to work in OptionsPanel.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Refactored music into separate class&#10;- Got music slider and toggle button to work in OptionsPanel.java" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

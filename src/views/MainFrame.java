@@ -13,10 +13,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Random;
 import javax.sound.sampled.FloatControl;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -111,6 +108,14 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private ImageIcon myTitleIcon;
     /** . */
+    private Action upAction;
+    /** . */
+    private Action downAction;
+    /** . */
+    private Action leftAction;
+    /** . */
+    private Action rightAction;
+    /** . */
     private final String myFileName = "serialized_game_data.ser";
 
 
@@ -187,7 +192,9 @@ public class MainFrame extends JFrame implements Serializable {
         setUpMainMenuPanelBtnActionListeners();
         setUpCharacterSelectionPanelActionListeners();
         setUpOptionsGameInfoAndGameHelpActionListeners();
-        setUpGamePlayPanelBtnActionListeners();
+        setUpGamePlayPanelBtnsActionListeners();
+        setUpKeyMovementActions();
+        bindMovementBtnsToKeyStrokes();
         setUpBattlePanelBtnActionListeners();
         setUpGameOverAndWinningPanelsActionListeners();
         setUpMusicControlsActionListeners();
@@ -298,11 +305,77 @@ public class MainFrame extends JFrame implements Serializable {
                 theAction -> changeScreen(OPTIONS_PANEL));
     }
 
+
     /** . */
-    private void setUpGamePlayPanelBtnActionListeners() {
+    private void setUpKeyMovementActions() {
+        upAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myCurrentRoomRow -= 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()
+                        [myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
+            }
+        };
+
+        downAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myCurrentRoomRow += 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()
+                        [myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
+            }
+        };
+
+        leftAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myCurrentRoomColumn -= 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()
+                        [myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
+            }
+        };
+
+        rightAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                myCurrentRoomColumn += 1;
+                myCurrentRoom = myDungeon.getMyMazeRoom()
+                        [myCurrentRoomRow][myCurrentRoomColumn];
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                checkRoomForGroundItemsAndPit();
+                checkRoomForMonster();
+                checkIfAdventurerHealthIsZero();
+                checkIfHeroIsAbleToExit();
+            }
+        };
+    }
+
+
+
+    /** . */
+    private void setUpGamePlayPanelBtnsActionListeners() {
         myGamePlayPanel.getMyNorthBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent theEvent) {
+            public void actionPerformed(ActionEvent e) {
                 myCurrentRoomRow -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -314,10 +387,9 @@ public class MainFrame extends JFrame implements Serializable {
                 checkIfHeroIsAbleToExit();
             }
         });
-
         myGamePlayPanel.getMySouthBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent theEvent) {
+            public void actionPerformed(ActionEvent e) {
                 myCurrentRoomRow += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -329,10 +401,9 @@ public class MainFrame extends JFrame implements Serializable {
                 checkIfHeroIsAbleToExit();
             }
         });
-
         myGamePlayPanel.getMyEastBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent theEvent) {
+            public void actionPerformed(ActionEvent e) {
                 myCurrentRoomColumn += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -344,10 +415,9 @@ public class MainFrame extends JFrame implements Serializable {
                 checkIfHeroIsAbleToExit();
             }
         });
-
         myGamePlayPanel.getMyWestBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent theEvent) {
+            public void actionPerformed(ActionEvent e) {
                 myCurrentRoomColumn -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -391,7 +461,29 @@ public class MainFrame extends JFrame implements Serializable {
             myDungeon = null;
             changeScreen(MAIN_MENU_PANEL);
         });
+    }
 
+    /** . */
+    private void bindMovementBtnsToKeyStrokes() {
+        myGamePlayPanel.getMyNorthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("W"), "w clicked");
+        myGamePlayPanel.getMyNorthBtn().getActionMap().put("w clicked", upAction);
+        myGamePlayPanel.getMyNorthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "up arrow clicked");
+        myGamePlayPanel.getMyNorthBtn().getActionMap().put("up arrow clicked", upAction);
+
+        myGamePlayPanel.getMySouthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("S"), "s clicked");
+        myGamePlayPanel.getMySouthBtn().getActionMap().put("s clicked", downAction);
+        myGamePlayPanel.getMySouthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down arrow clicked");
+        myGamePlayPanel.getMySouthBtn().getActionMap().put("down arrow clicked", downAction);
+//
+        myGamePlayPanel.getMyEastBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("D"), "d clicked");
+        myGamePlayPanel.getMyEastBtn().getActionMap().put("d clicked", rightAction);
+        myGamePlayPanel.getMyEastBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "right arrow clicked");
+        myGamePlayPanel.getMyEastBtn().getActionMap().put("right arrow clicked", rightAction);
+//
+        myGamePlayPanel.getMyWestBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("A"), "a clicked");
+        myGamePlayPanel.getMyWestBtn().getActionMap().put("a clicked", leftAction);
+        myGamePlayPanel.getMyWestBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "left arrow clicked");
+        myGamePlayPanel.getMyWestBtn().getActionMap().put("left arrow clicked", leftAction);
     }
 
     /** . */
