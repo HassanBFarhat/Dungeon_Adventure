@@ -12,18 +12,15 @@ import java.io.ObjectOutputStream;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Random;
+import javax.sound.sampled.FloatControl;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import models.AbstractMonster;
-import models.Adventurer;
-import models.DoorDirections;
-import models.Dungeon;
-import models.Priestess;
-import models.Room;
-import models.Thief;
-import models.Warrior;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import models.*;
 
 /**
  * @author Avinash Bavisetty
@@ -110,6 +107,8 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private WinningPanel myWinningPanel;
     /** . */
+    private Music myMusic;
+    /** . */
     private ImageIcon myTitleIcon;
     /** . */
     private final String myFileName = "serialized_game_data.ser";
@@ -146,6 +145,7 @@ public class MainFrame extends JFrame implements Serializable {
         myMonsterInitialHealth = 0;
         myGameOverPanel = new GameOverPanel();
         myWinningPanel = new WinningPanel();
+        myMusic = new Music();
     }
 
     /** . */
@@ -190,6 +190,10 @@ public class MainFrame extends JFrame implements Serializable {
         setUpGamePlayPanelBtnActionListeners();
         setUpBattlePanelBtnActionListeners();
         setUpGameOverAndWinningPanelsActionListeners();
+        setUpMusicControlsActionListeners();
+
+
+
     }
 
     /** . */
@@ -499,6 +503,33 @@ public class MainFrame extends JFrame implements Serializable {
         myWinningPanel.getMyMainMenuBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
     }
+
+    /** . */
+    private void setUpMusicControlsActionListeners() {
+        myOptionsPanel.getMyAudioOnOffBtn().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent theE) {
+                if (myOptionsPanel.getMyAudioOnOffBtn().isSelected()) {
+                    myMusic.stopAudio();
+                } else {
+                    myMusic.playAudio();
+                }
+            }
+        });
+
+        myOptionsPanel.getMyAudioSlider().addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(final ChangeEvent theE) {
+                if (myMusic.getMyAudioClip() != null) {
+                    final float volume = (float)
+                            myOptionsPanel.getMyAudioSlider().getValue() / 100.0f;
+                    final FloatControl gainControl = (FloatControl) myMusic.getMyAudioClip().getControl(FloatControl.Type.MASTER_GAIN);
+                    gainControl.setValue(20f * (float) Math.log10(volume));
+                }
+            }
+        });
+    }
+
 
     /** . */
     private void changeScreen(final String theScreen) {

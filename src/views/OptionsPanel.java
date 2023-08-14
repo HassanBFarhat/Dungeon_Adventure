@@ -136,13 +136,23 @@ public class OptionsPanel extends JPanel {
         return myBackBtn;
     }
 
+    /** . */
+    public JToggleButton getMyAudioOnOffBtn() {
+        return myAudioOnOffBtn;
+    }
+
+    /** . */
+    public JSlider getMyAudioSlider() {
+        return myAudioSlider;
+    }
+
 
     // private methods
 
     /** . */
     private void instantiateInstanceDataFields() {
         myAudioText = new JLabel("Audio Volume: ");
-        myAudioSlider = new JSlider();
+        myAudioSlider = new JSlider(0, 100);
         myAudioOnOffText = new JLabel("Audio On/Off: ");
         myAudioOnOffBtn = new JToggleButton("On/Off");
         myGeneralInfoBtn = new JButton("General Information");
