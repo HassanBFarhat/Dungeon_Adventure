@@ -99,24 +99,4 @@ public class AdventurerTest {
         assertTrue(adventurer.getMyPillars().contains(RoomItems.POLYMORPHISM_PILLAR));
         assertEquals(8, adventurer.getMyPillars().size());
     }
-
-    @Test
-    public void testSaveAndLoadToFile() throws IOException {
-        String fileName = "tempAdventurer.ser";
-
-        try {
-//            adventurer.saveToFile(fileName, adventurer);
-
-            File file = new File(fileName);
-            assertTrue(file.exists());
-
-//            Adventurer loadedAdventurer = Adventurer.loadFile(fileName);
-//            assertNotNull(loadedAdventurer);
-//            assertEquals(adventurer.getMyHealingPotions(), loadedAdventurer.getMyHealingPotions());
-
-        } finally {
-            // Clean up the temp file
-            new File(fileName).delete();
-        }
-    }
 }

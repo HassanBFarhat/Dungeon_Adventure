@@ -17,46 +17,66 @@ public class BattlePanel extends JPanel {
 
     // constants
 
-    /** . */
+    /** width of the action console. */
     private static final int ACTION_CONSOLE_WIDTH = 800;
-    /** . */
+
+    /** Height of the action console .*/
     private static final int ACTION_CONSOLE_HEIGHT = 120;
-    /** . */
+
+    /** X coordinate of the Action console. */
     private static final int ACTION_CONSOLE_X_COORDINATE = 50;
-    /** . */
+
+    /** Y coordinate of the Action console. */
     private static final int ACTION_CONSOLE_Y_COORDINATE = 530;
-    /** . */
+
+    /** Width of the monsters and heroes on screen. */
     private static final int HERO_AND_MONSTER_WIDTH = 300;
-    /** . */
+
+    /** Height of the monsters and heroes on screen. */
     private static final int HERO_AND_MONSTER_HEIGHT = 326;
-    /** . */
+
+    /** X coordinate of the Hero on screen. */
     private static final int HERO_X_COORDINATE = 150;
-    /** . */
+
+    /** Y coordinate of the Hero on screen. */
     private static final int HERO_Y_COORDINATE = 200;
-    /** . */
+
+    /** X coordinate of the Monster on screen. */
     private static final int MONSTER_X_COORDINATE = 730;
-    /** . */
+
+    /** Y coordinate of the Monster on screen. */
     private static final int MONSTER_Y_COORDINATE = 25;
-    /** . */
+
+    /** Width of the Health Bar. */
     private static final int HERO_AND_MONSTER_HEALTH_BAR_WIDTH = 250;
-    /** . */
+
+    /** Height of the Health Bar. */
     private static final int HERO_AND_MONSTER_HEALTH_BAR_HEIGHT = 26;
-    /** . */
+
+    /** X Coordinate of the Hero Health Bar. */
     private static final int HERO_HEALTH_BAR_X_COORDINATE = 400;
-    /** . */
+
+    /** Y Coordinate of the Hero Health Bar. */
     private static final int HERO_HEALTH_BAR_Y_COORDINATE = 350;
-    /** . */
+
+    /** X coordinate of Monster Health Bar. */
     private static final int MONSTER_HEALTH_BAR_X_COORDINATE = 490;
-    /** . */
+
+    /** Y coordinate of Monster Health Bar. */
     private static final int MONSTER_HEALTH_BAR_Y_COORDINATE = 180;
-    /** . */
+
+    /** All the buttons width on the screen. */
     private static final int ALL_BUTTONS_WIDTH = 170;
-    /** . */
+
+    /** All the buttons height on the screen. */
     private static final int ALL_BUTTONS_HEIGHT = 50;
-    /** . */
+
+    /** Attack and Healh button X coordinate. */
     private static final int ATTACK_AND_HEAL_BUTTON_X_COORDINATE = 880;
-    /** . */
+
+    /** Attack and Healh button Y coordinate. */
     private static final int ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE = 550;
+
     /** . */
     private static final int SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE = 1050;
     /** . */
