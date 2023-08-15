@@ -11,9 +11,12 @@ import javax.swing.JTextArea;
 import javax.swing.OverlayLayout;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  This panel is responsible for letting a player know that the game is over, and they lost,
+ *  either from dying from a monster, or losing all their health from a pit.
+ *
+ *  @author Avinash Bavisetty
+ *  @author Hassan Bassam Farhat
+ *  @version Summer 2023
  */
 public class GameOverPanel extends JPanel {
 
@@ -67,7 +70,10 @@ public class GameOverPanel extends JPanel {
 
     // constructors
 
-    /** sets up the GameOverPanel as well as the components required for teh components that need to be displayed. */
+    /**
+     *  Sets up the GameOverPanel as well as the components required for teh components
+     *  that need to be displayed.
+     */
     public GameOverPanel() {
         this.setLayout(new OverlayLayout(this));
         instantiateInstanceDataFields();

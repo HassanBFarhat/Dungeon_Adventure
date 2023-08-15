@@ -11,15 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.OverlayLayout;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
- */
-
-/**
+ *  This panel is the first thing that a player will see when booting up the game for the
+ *  first time. It gives the options of new game, load, options, and exit.
  *
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  @author Avinash Bavisetty
+ *  @author Hassan Bassam Farhat
+ *  @version Summer 2023
  */
 public class MainMenuPanel extends JPanel {
 
@@ -71,7 +68,10 @@ public class MainMenuPanel extends JPanel {
 
     // constructor
 
-    /** sets up the MainMenuPanel as well as the components required for the components that need to be displayed. */
+    /**
+     *  Sets up the MainMenuPanel as well as the components required for the components
+     *  that need to be displayed.
+     */
     public MainMenuPanel() {
         this.setLayout(new OverlayLayout(this));
         instantiateInstanceDataFields();

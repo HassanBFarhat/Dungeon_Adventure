@@ -11,15 +11,13 @@ import javax.swing.JToggleButton;
 import javax.swing.OverlayLayout;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
- */
-
-/**
+ *  This panel houses the various options to a player. Lowering or increasing the volume of
+ *  the background music through a slider, toggling the music on my off, and accesses the
+ *  GameHelp and GameInformation panels from this Options panel section.
  *
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class OptionsPanel extends JPanel {
 
@@ -83,6 +81,8 @@ public class OptionsPanel extends JPanel {
     private static final int SLIDER_Y_AXIS = 45;
     /** audio on or off text y coordinate. */
     private static final int AUDIO_ON_OFF_TEXT_Y_AXIS = 80;
+    /** The max the music volume can be. */
+    private static final int MAX_VOLUME = 100;
 
 
     // instance fields
@@ -107,8 +107,10 @@ public class OptionsPanel extends JPanel {
     private JPanel myTransparentHoldingPanel;
 
 
-    /** sets up the OptionsPanel as well as the components required for options to display correctly. */
-
+    /**
+     *  Sets up the OptionsPanel as well as the components required for options to
+     *  display correctly.
+     */
     public OptionsPanel() {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();
@@ -152,7 +154,7 @@ public class OptionsPanel extends JPanel {
     /** instantiating data fields for OPtionsPanel that provides options. */
     private void instantiateInstanceDataFields() {
         myAudioText = new JLabel("Audio Volume: ");
-        myAudioSlider = new JSlider(0, 100);
+        myAudioSlider = new JSlider(0, MAX_VOLUME);
         myAudioOnOffText = new JLabel("Audio On/Off: ");
         myAudioOnOffBtn = new JToggleButton("On/Off");
         myGeneralInfoBtn = new JButton("General Information");

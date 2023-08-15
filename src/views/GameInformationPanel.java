@@ -10,9 +10,12 @@ import javax.swing.JTextArea;
 import javax.swing.OverlayLayout;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  This panel lets the player know what this game is about and the tasks at hand that
+ *  need to be executed to win/play the game.
+ *
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class GameInformationPanel extends JPanel {
 
@@ -110,7 +113,10 @@ public class GameInformationPanel extends JPanel {
         this.add(myGameInfoBGLabel);
     }
 
-    /** sets up conditions and style for the game info text to execute and to display correctly. */
+    /**
+     *  Sets up conditions and style for the game info text to execute and to display
+     *  correctly.
+     */
     private void setUpConditionsAndStyleForGameInfoText() {
         myGameInfoTextArea.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myGameInfoTextArea.setForeground(Color.WHITE);

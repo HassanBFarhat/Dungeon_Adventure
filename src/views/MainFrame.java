@@ -40,8 +40,8 @@ import models.Warrior;
  *  This is the entry point for having all necessary models and panels instantiated and
  *  accessed to link up main game components.
  *
- *  @author Avinash Bavisetty
  *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
  *  @version Summer 2023
  */
 public class MainFrame extends JFrame implements Serializable {
@@ -251,27 +251,24 @@ public class MainFrame extends JFrame implements Serializable {
         myMainMenuPanel.getStartNewGameBtn().addActionListener(
                 theAction -> changeScreen(NEW_GAME_PANEL));
 
-        myMainMenuPanel.getLoadGameBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent theEvent) {
-                final int returnValue = myFileChooser.showOpenDialog(myMainMenuPanel);
-                if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    final File selectedFile = myFileChooser.getSelectedFile();
-                    try (ObjectInputStream inputStream = new ObjectInputStream(
-                            new FileInputStream(selectedFile))) {
-                        myDungeon = (Dungeon) inputStream.readObject();
-                        myAdventurer = (Adventurer) inputStream.readObject();
-                        myCurrentRoomRow = (int) inputStream.readObject();
-                        myCurrentRoomColumn = (int) inputStream.readObject();
-                    } catch (final IOException | ClassNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    initializeGamePlayPanelAndBattlePanel();
-                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
-                    myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
-                    myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
-                    changeScreen(GAME_PLAY_PANEL);
+        myMainMenuPanel.getLoadGameBtn().addActionListener(theEvent -> {
+            final int returnValue = myFileChooser.showOpenDialog(myMainMenuPanel);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                final File selectedFile = myFileChooser.getSelectedFile();
+                try (ObjectInputStream inputStream = new ObjectInputStream(
+                        new FileInputStream(selectedFile))) {
+                    myDungeon = (Dungeon) inputStream.readObject();
+                    myAdventurer = (Adventurer) inputStream.readObject();
+                    myCurrentRoomRow = (int) inputStream.readObject();
+                    myCurrentRoomColumn = (int) inputStream.readObject();
+                } catch (final IOException | ClassNotFoundException e) {
+                    e.printStackTrace();
                 }
+                initializeGamePlayPanelAndBattlePanel();
+                myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
+                myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
+                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                changeScreen(GAME_PLAY_PANEL);
             }
         });
 
@@ -554,94 +551,85 @@ public class MainFrame extends JFrame implements Serializable {
      *  for the player to utilize when battling a monster within the 2D-dungeon maze.
      */
     private void setUpBattlePanelBtnActionListeners() {
-        myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent theEvent) {
-                myBattlePanel.getMyGameActionText().append("You attacked the monster\n");
-                final int monsterDamageTaken = myAdventurer.attack();
-                final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
+        myBattlePanel.getMyAttackBtn().addActionListener(theEvent -> {
+            myBattlePanel.getMyGameActionText().append("You attacked the monster\n");
+            final int monsterDamageTaken = myAdventurer.attack();
+            final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
+            roomMonster.setCharacterHealthPoints(
+                    roomMonster.getCharacterHealthPoints() - monsterDamageTaken);
+            myBattlePanel.getMyGameActionText().append(
+                    "Monster Took " + monsterDamageTaken + " Damage\n");
+            myBattlePanel.updateHealthBarForMonster(
+                    roomMonster.getCharacterHealthPoints());
+            checkIfMonsterHealthIsZero();
+
+            if (roomMonster.getCharacterHealthPoints()
+                    <= MONSTERS_MIN_HEALTH_TO_TRY_HEAL) {
+                final int randomChanceToHealSelf = (int) (Math.random() * 100);
+                final int randomPointsHealed = roomMonster.heal();
+                if (randomChanceToHealSelf >= MONSTERS_CHANCE_TO_TRY_HEAL) {
+                    myBattlePanel.getMyGameActionText().append(
+                            "Wait... Monster Healed Itself!\n");
+                    roomMonster.setCharacterHealthPoints(
+                            roomMonster.getCharacterHealthPoints() + randomPointsHealed);
+                    myBattlePanel.getMyGameActionText().append(
+                            "Monster Healed " + randomPointsHealed + " Health Points\n");
+                }
+                myBattlePanel.updateHealthBarForMonster(
+                        roomMonster.getCharacterHealthPoints());
+            }
+            checkIfAdventurerHealthIsZero();
+            monsterAttacksHero(myCurrentRoom.getRoomMonster());
+        });
+
+        myBattlePanel.getMySpecialAttackBtn().addActionListener(theEvent -> {
+            myBattlePanel.getMyGameActionText().append("You used Special Attack\n");
+
+            final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
+            final int specialDamage = myAdventurer.specialAttack();
+            if (myAdventurer.getCharacterName().equals(WARRIOR)) {
                 roomMonster.setCharacterHealthPoints(
-                        roomMonster.getCharacterHealthPoints() - monsterDamageTaken);
+                        roomMonster.getCharacterHealthPoints() - specialDamage);
                 myBattlePanel.getMyGameActionText().append(
-                        "Monster Took " + monsterDamageTaken + " Damage\n");
-                myBattlePanel.updateHealthBarForMonster(
-                        roomMonster.getCharacterHealthPoints());
-                checkIfMonsterHealthIsZero();
-
-                if (roomMonster.getCharacterHealthPoints()
-                        <= MONSTERS_MIN_HEALTH_TO_TRY_HEAL) {
-                    final int randomChanceToHealSelf = (int) (Math.random() * 100);
-                    final int randomPointsHealed = roomMonster.heal();
-                    if (randomChanceToHealSelf >= MONSTERS_CHANCE_TO_TRY_HEAL) {
-                        myBattlePanel.getMyGameActionText().append(
-                                "Wait... Monster Healed Itself!\n");
-                        roomMonster.setCharacterHealthPoints(
-                                roomMonster.getCharacterHealthPoints() + randomPointsHealed);
-                        myBattlePanel.getMyGameActionText().append(
-                                "Monster Healed " + randomPointsHealed + " Health Points\n");
-                    }
-                    myBattlePanel.updateHealthBarForMonster(
-                            roomMonster.getCharacterHealthPoints());
-                }
-                checkIfAdventurerHealthIsZero();
-                monsterAttacksHero(myCurrentRoom.getRoomMonster());
+                        YOU_DEALT + specialDamage + DAMAGE_TO_THE_MONSTER);
+            } else if (myAdventurer.getCharacterName().equals(PRIESTESS)) {
+                myAdventurer.setCharacterHealthPoints(
+                        myAdventurer.getCharacterHealthPoints() + specialDamage);
+                myBattlePanel.getMyGameActionText().append(
+                        "You Healed Yourself " + specialDamage + " points\n");
+                myBattlePanel.updateHealthBarsForHero(
+                        myAdventurer.getCharacterHealthPoints());
+            } else if (myAdventurer.getCharacterName().equals(THIEF)) {
+                roomMonster.setCharacterHealthPoints(
+                        roomMonster.getCharacterHealthPoints() - specialDamage);
+                myBattlePanel.getMyGameActionText().append(
+                        YOU_DEALT + specialDamage + DAMAGE_TO_THE_MONSTER);
             }
+            myBattlePanel.updateHealthBarForMonster(
+                    roomMonster.getCharacterHealthPoints());
+            checkIfMonsterHealthIsZero();
+            checkIfAdventurerHealthIsZero();
+            monsterAttacksHero(myCurrentRoom.getRoomMonster());
         });
 
-        myBattlePanel.getMySpecialAttackBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent theEvent) {
-                myBattlePanel.getMyGameActionText().append("You used Special Attack\n");
+        myBattlePanel.getMyHealBtn().addActionListener(theEvent -> {
+            final Random random = new Random();
+            final int randomHealAmount = random.nextInt(15 - 5 + 1) + 5;
+            if (myAdventurer.getMyHealingPotions() > 0) {
+                myBattlePanel.getMyGameActionText().append(
+                        "You used Heal to gain " + randomHealAmount + " health points.\n");
+                myAdventurer.setCharacterHealthPoints(
+                        myAdventurer.getCharacterHealthPoints() + randomHealAmount);
+                myBattlePanel.updateHealthBarsForHero(
+                        myAdventurer.getCharacterHealthPoints());
+                myAdventurer.setMyHealingPotions(-1);
+                myBattlePanel.getMyGameActionText().append(
+                        "You have " + myAdventurer.getMyHealingPotions()
+                                + " Healing Potions Left.\n");
+            } else {
+                myBattlePanel.getMyGameActionText().append(
+                        "No potions left to use for healing.\n");
 
-                final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
-                final int specialDamage = myAdventurer.specialAttack();
-                if (myAdventurer.getCharacterName().equals(WARRIOR)) {
-                    roomMonster.setCharacterHealthPoints(
-                            roomMonster.getCharacterHealthPoints() - specialDamage);
-                    myBattlePanel.getMyGameActionText().append(
-                            YOU_DEALT + specialDamage + DAMAGE_TO_THE_MONSTER);
-                } else if (myAdventurer.getCharacterName().equals(PRIESTESS)) {
-                    myAdventurer.setCharacterHealthPoints(
-                            myAdventurer.getCharacterHealthPoints() + specialDamage);
-                    myBattlePanel.getMyGameActionText().append(
-                            "You Healed Yourself " + specialDamage + " points\n");
-                    myBattlePanel.updateHealthBarsForHero(
-                            myAdventurer.getCharacterHealthPoints());
-                } else if (myAdventurer.getCharacterName().equals(THIEF)) {
-                    roomMonster.setCharacterHealthPoints(
-                            roomMonster.getCharacterHealthPoints() - specialDamage);
-                    myBattlePanel.getMyGameActionText().append(
-                            YOU_DEALT + specialDamage + DAMAGE_TO_THE_MONSTER);
-                }
-                myBattlePanel.updateHealthBarForMonster(
-                        roomMonster.getCharacterHealthPoints());
-                checkIfMonsterHealthIsZero();
-                checkIfAdventurerHealthIsZero();
-                monsterAttacksHero(myCurrentRoom.getRoomMonster());
-            }
-        });
-
-        myBattlePanel.getMyHealBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent theEvent) {
-                final Random random = new Random();
-                final int randomHealAmount = random.nextInt(15 - 5 + 1) + 5;
-                if (myAdventurer.getMyHealingPotions() > 0) {
-                    myBattlePanel.getMyGameActionText().append(
-                            "You used Heal to gain " + randomHealAmount + " health points.\n");
-                    myAdventurer.setCharacterHealthPoints(
-                            myAdventurer.getCharacterHealthPoints() + randomHealAmount);
-                    myBattlePanel.updateHealthBarsForHero(
-                            myAdventurer.getCharacterHealthPoints());
-                    myAdventurer.setMyHealingPotions(-1);
-                    myBattlePanel.getMyGameActionText().append(
-                            "You have " + myAdventurer.getMyHealingPotions()
-                                    + " Healing Potions Left.\n");
-                } else {
-                    myBattlePanel.getMyGameActionText().append(
-                            "No potions left to use for healing.\n");
-
-                }
             }
         });
 

@@ -11,9 +11,12 @@ import javax.swing.JTextField;
 import javax.swing.OverlayLayout;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  This panel is used for when the player wants to select their specific character,
+ *  difficulty, and to name their hero.
+ *
+ *  @author Avinash Bavisetty
+ *  @author Hassan Bassam Farhat
+ *  @version Summer 2023
  */
 public class CharacterSelectionPanel extends JPanel {
 
@@ -144,8 +147,10 @@ public class CharacterSelectionPanel extends JPanel {
 
     // constructor
 
-    /** sets up the CharacterSelectiopnPanel as well as the components required for the character selection in the
-     * game to work . */
+    /**
+     *  Sets up the CharacterSelectionPanel as well as the components required for
+     *  the character selection in the game to work.
+     */
     public CharacterSelectionPanel() {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();
@@ -174,7 +179,10 @@ public class CharacterSelectionPanel extends JPanel {
         return myNameYourCharacterTextBox.getText();
     }
 
-    /** sets the character name text box to allow the player to enter a name for the character. */
+    /**
+     *  Sets the character name text box to allow the player to enter a name for
+     *  the character.
+     */
     public void setMyNameYourCharacterTextBox(final String theName) {
         myNameYourCharacterTextBox.setText(theName);
     }
@@ -274,7 +282,7 @@ public class CharacterSelectionPanel extends JPanel {
     }
 
     /** sets transparency style for the panels and adds the required components to the
-     * character selection panel */
+     * character selection panel. */
     private void setUpTransparentPanelStyleAndAddAllComponentsToIt() {
         myTransparentComponentHoldingPanel.setLayout(null);
         myTransparentComponentHoldingPanel.setBackground(GRAY_TRANSPARENT_COLOR);

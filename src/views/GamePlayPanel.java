@@ -14,15 +14,13 @@ import javax.swing.OverlayLayout;
 import models.Adventurer;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
- */
-
-/**
+ *  This panel is responsible for the main game display, where the user will have the options
+ *  to traverse throughout the dungeon, open inventory, save game, and view an upper head
+ *  minimap.
  *
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class GamePlayPanel extends JPanel {
 
@@ -213,7 +211,10 @@ public class GamePlayPanel extends JPanel {
 
     // private methods
 
-    /** instantiating data fields for GamePlayPanel that provides gameplay options and control. */
+    /**
+     *  Instantiating data fields for GamePlayPanel that provides gameplay options
+     *  and control.
+     */
     private void instantiateInstanceDataFields() {
         final ImageIcon gamePlayBGImg = new ImageIcon("src/imgs/MainGameImg1.jpg");
         myMiniMap = new JPanel();

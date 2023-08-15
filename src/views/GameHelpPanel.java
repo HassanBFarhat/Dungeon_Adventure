@@ -10,9 +10,12 @@ import javax.swing.JTextArea;
 import javax.swing.OverlayLayout;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  This panel is just a panel to explain to the user basic game functionality before
+ *  starting the game.
+ *
+ *  @author Avinash Bavisetty
+ *  @author Hassan Bassam Farhat
+ *  @version Summer 2023
  */
 public class GameHelpPanel extends JPanel {
 
@@ -79,7 +82,10 @@ public class GameHelpPanel extends JPanel {
 
     // constructor
 
-    /** sets up the GameHelpPanel as well as the components required for the help text to display correctly . */
+    /**
+     *  Sets up the GameHelpPanel as well as the components required for the help text
+     *  to display correctly .
+     */
     public GameHelpPanel() {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();

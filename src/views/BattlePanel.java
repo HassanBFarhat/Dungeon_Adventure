@@ -2,16 +2,25 @@ package views;
 
 import java.awt.Color;
 import java.awt.Font;
-import javax.swing.*;
-
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.OverlayLayout;
 import models.AbstractMonster;
 import models.Adventurer;
 
 /**
+ *  The panel that is used for when the player enters a room with a monster and has to
+ *  battle the monster.
  *
- * @author Hassan Bassam Farhat
- * @author Avinash Bavisetty
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class BattlePanel extends JPanel {
 
@@ -91,6 +100,10 @@ public class BattlePanel extends JPanel {
 
     /** Choice of Font. */
     private static final String FONT_CHOICE = "Freestyle Script";
+    /** Console font size of 25. */
+    private static final int CONSOLE_FONT_SIZE = 25;
+    /** Heal buttons width. */
+    private static final int HEAL_BUTTON_WIDTH = 340;
 
 
     // instance fields
@@ -254,7 +267,7 @@ public class BattlePanel extends JPanel {
                                       ACTION_CONSOLE_Y_COORDINATE,
                                       ACTION_CONSOLE_WIDTH,
                                       ACTION_CONSOLE_HEIGHT);
-        myGameActionText.setFont(new Font(FONT_CHOICE, Font.BOLD, 25));
+        myGameActionText.setFont(new Font(FONT_CHOICE, Font.BOLD, CONSOLE_FONT_SIZE));
         myGameActionText.setLineWrap(true);
         myGameActionText.setEditable(false);
     }
@@ -281,7 +294,7 @@ public class BattlePanel extends JPanel {
         mySpecialAttackBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
         myHealBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                             HEAL_AND_BLOCK_BUTTON_Y_COORDINATE,
-                            340,
+                            HEAL_BUTTON_WIDTH,
                             ALL_BUTTONS_HEIGHT);
         myHealBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
     }
@@ -309,7 +322,10 @@ public class BattlePanel extends JPanel {
         myMonstersHealthBar.setStringPainted(true);
     }
 
-    /** Adds the required buttons that are available for use during Battle between Hero and Monster. */
+    /**
+     *  Adds the required buttons that are available for use during Battle between Hero
+     *  and Monster.
+     */
     private void addAllTheComponentsToBattleBGLabel() {
         myBattleBGImgLabel.add(myAttackBtn);
         myBattleBGImgLabel.add(mySpecialAttackBtn);
