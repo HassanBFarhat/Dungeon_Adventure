@@ -1,4 +1,3 @@
-
 package models;
 
 import java.sql.Connection;
@@ -10,10 +9,12 @@ import java.util.List;
 import org.sqlite.SQLiteDataSource;
 
 /**
+ *  Produces a list of monsters by accessing SQLite DB and creating a List to pick
+ *  and choose which ones to use for the game.
  *
- * @author Hassan Bassam Farhat
- * @author Avinash Bavisetty
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class MonsterFactory {
 
@@ -27,15 +28,25 @@ public class MonsterFactory {
 
 
     // instance fields
-    /** . */
+    /** The data source for when accessing the SQLite DB. */
     private static SQLiteDataSource myDs;
-    /** . */
-    private final List<AbstractMonster> myMonsterList;
+    /** The list of monsters produced from the factory. */
+    private List<AbstractMonster> myMonsterList;
 
     // constructor
 
-    public MonsterFactory(SQLiteDataSource ds) {
-        if (ds == null) {
+    /** Empty default constructor. */
+    public MonsterFactory() {
+        this(null);
+    }
+
+    /**
+     *  Specified constructor used to connect to DB and obtain monster information.
+     *
+     *  @param theDs the Data Source that connects us to the DB.
+     */
+    public MonsterFactory(final SQLiteDataSource theDs) {
+        if (theDs == null) {
             try {
                 myDs = new SQLiteDataSource();
                 myDs.setUrl("jdbc:sqlite:dungeon_characters.sqlite");
@@ -44,30 +55,20 @@ public class MonsterFactory {
                 System.exit(0);
             }
         } else {
-            myDs = ds;
+            myDs = theDs;
         }
-        myMonsterList = new ArrayList<>();
-        myMonsterList.add(createMonster(OGRE));
-        myMonsterList.add(createMonster(GREMLIN));
-        myMonsterList.add(createMonster(SKELETON));
-    }
-    // New no-argument constructor that delegates to the existing constructor
-    public MonsterFactory() {
-        this(null); // Calls the other constructor with null, causing it to use the default data source
+        instantiateMonsterListAndAddMonstersToIt();
     }
 
 
-//    // Package-private constructor for testing
-//    MonsterFactory(SQLiteDataSource ds) {
-//        myDs = ds;
-//        myMonsterList = new ArrayList<>();
-//        myMonsterList.add(createMonster(OGRE));
-//        myMonsterList.add(createMonster(GREMLIN));
-//        myMonsterList.add(createMonster(SKELETON));
-//    }
     // methods
 
-    /** . */
+    /**
+     *  Creates a specific monster by accessing the SQLite DB and retrieving and storing
+     *  the data within a creation of AbstractMonster local variable instance.
+     *
+     *  @param theMonsterType the String representation of the monster we want to create.
+     */
     public AbstractMonster createMonster(final String theMonsterType) {
         AbstractMonster monster = null;
         final String query
@@ -127,15 +128,25 @@ public class MonsterFactory {
         return monster;
     }
 
-    // Package-private setter method for testing
-    public void setMyDs(SQLiteDataSource ds) {
-        myDs = ds;
+    /** . */
+    public void setMyDs(final SQLiteDataSource theDs) {
+        // Package-private setter method for testing
+        myDs = theDs;
+    }
+
+    /** Returns the list of all created monsters from the factory. */
+    public List<AbstractMonster> getMyMonsterList() {
+        return myMonsterList;
     }
 
 
-    /** . */
-    public List<AbstractMonster> getMyMonsterList() {
-        return myMonsterList;
+    // private methods
+
+    private void instantiateMonsterListAndAddMonstersToIt() {
+        myMonsterList = new ArrayList<>();
+        myMonsterList.add(createMonster(OGRE));
+        myMonsterList.add(createMonster(GREMLIN));
+        myMonsterList.add(createMonster(SKELETON));
     }
 
 }

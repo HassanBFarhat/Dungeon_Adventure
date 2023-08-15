@@ -5,25 +5,44 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.Random;
 import javax.sound.sampled.FloatControl;
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
-
-import models.*;
+import models.AbstractMonster;
+import models.Adventurer;
+import models.DoorDirections;
+import models.Dungeon;
+import models.Music;
+import models.Priestess;
+import models.Room;
+import models.Thief;
+import models.Warrior;
 
 /**
- * @author Avinash Bavisetty
- * @author Hassan Bassam Farhat
- * @version Summer 2023
- */
-
-/**
+ *  This is the entry point for having all necessary models and panels instantiated and
+ *  accessed to link up main game components.
  *
- * @author Hassan Bassam Farhat
- * @version Summer 2023
+ *  @author Avinash Bavisetty
+ *  @author Hassan Bassam Farhat
+ *  @version Summer 2023
  */
 public class MainFrame extends JFrame implements Serializable {
 
@@ -31,7 +50,6 @@ public class MainFrame extends JFrame implements Serializable {
     private static final long serialVersionUID = -9118850470601436365L;
 
     // constants
-
     /** . */
     private static final String MAIN_MENU_PANEL = "controller.Main";
     /** . */
@@ -57,12 +75,37 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private static final String THIEF = "Thief";
     /** . */
+    private static final String W_PUSHED = "w clicked";
+    /** . */
+    private static final String UP_PUSHED = "up arrow clicked";
+    /** . */
+    private static final String A_PUSHED = "a clicked";
+    /** . */
+    private static final String LEFT_PUSHED = "left arrow clicked";
+    /** . */
+    private static final String S_PUSHED = "s clicked";
+    /** . */
+    private static final String DOWN_PUSHED = "down arrow clicked";
+    /** . */
+    private static final String D_PUSHED = "d clicked";
+    /** . */
+    private static final String RIGHT_PUSHED = "right arrow clicked";
+    /** . */
     private static final int FRAME_WIDTH = 1280;
     /** . */
     private static final int FRAME_HEIGHT = 720;
     /** . */
     private static final int MAX_ARRAY_SIZE = 4;
-
+    /** . */
+    private static final int MONSTERS_MIN_HEALTH_TO_TRY_HEAL = 20;
+    /** . */
+    private static final int MONSTERS_CHANCE_TO_TRY_HEAL = 80;
+    /** . */
+    private static final String YOU_DEALT = "You dealt ";
+    /** . */
+    private static final String DAMAGE_TO_THE_MONSTER = " damage to the monster\n";
+    /** . */
+    private static final float GAIN_CONSTANT = 20f;
 
     // instance fields
 
@@ -103,21 +146,23 @@ public class MainFrame extends JFrame implements Serializable {
     /** . */
     private ImageIcon myTitleIcon;
     /** . */
-    private Action upAction;
+    private Action myUpAction;
     /** . */
-    private Action downAction;
+    private Action myDownAction;
     /** . */
-    private Action leftAction;
+    private Action myLeftAction;
     /** . */
-    private Action rightAction;
+    private Action myRightAction;
     /** . */
-    private JFileChooser fileChooser;
-    /** . */
-    private final String myFileName = "serialized_game_data.ser";
+    private JFileChooser myFileChooser;
 
 
     // constructor
 
+    /**
+     *  Sets up the main JFrame as well as the components required to make the game
+     *  run in same window.
+     */
     public MainFrame() {
         instantiateInstanceDataFields();
         setUpFramePanels();
@@ -129,7 +174,7 @@ public class MainFrame extends JFrame implements Serializable {
 
     // methods
 
-    /** . */
+    /** Instantiates all instance fields within this class. */
     private void instantiateInstanceDataFields() {
         myTitleIcon = new ImageIcon("src/imgs/DungeonDoorProjectIcon.png");
         myCardPanel = new JPanel(new CardLayout());
@@ -148,15 +193,18 @@ public class MainFrame extends JFrame implements Serializable {
         myGameOverPanel = new GameOverPanel();
         myWinningPanel = new WinningPanel();
         myMusic = new Music();
-        fileChooser = new JFileChooser();
+        myFileChooser = new JFileChooser();
     }
 
-    /** . */
+    /** Creates the randomly generated the 2D-dungeon within the myDungeon instantiation. */
     private void createMainGameMaze() {
         myDungeon.randomlyGenerateRooms();
     }
 
-    /** . */
+    /**
+     *  Sets up the myCardPanel with all possible panels we want to switch to during
+     *  certain scenarios.
+     */
     private void setUpFramePanels() {
         myCardPanel.add(myMainMenuPanel, MAIN_MENU_PANEL);
         myCardPanel.add(myCharacterSelectionPanel, NEW_GAME_PANEL);
@@ -169,7 +217,7 @@ public class MainFrame extends JFrame implements Serializable {
         myCardPanel.add(myWinningPanel, WINNING_PANEL);
     }
 
-    /** . */
+    /** Sets up the main JFrame size, location, title, etc.... */
     private void setUpMainFrame() {
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setTitle("Dungeon Adventure");
@@ -185,7 +233,7 @@ public class MainFrame extends JFrame implements Serializable {
         this.setVisible(true);
     }
 
-    /** . */
+    /** Sets up all the panel buttons within each of the panels and their actions. */
     private void setUpPanelButtons() {
         setUpMainMenuPanelBtnActionListeners();
         setUpCharacterSelectionPanelActionListeners();
@@ -196,12 +244,9 @@ public class MainFrame extends JFrame implements Serializable {
         setUpBattlePanelBtnActionListeners();
         setUpGameOverAndWinningPanelsActionListeners();
         setUpMusicControlsActionListeners();
-
-
-
     }
 
-    /** . */
+    /** Sets up all the main menu buttons and their associated actions. */
     private void setUpMainMenuPanelBtnActionListeners() {
         myMainMenuPanel.getStartNewGameBtn().addActionListener(
                 theAction -> changeScreen(NEW_GAME_PANEL));
@@ -209,28 +254,25 @@ public class MainFrame extends JFrame implements Serializable {
         myMainMenuPanel.getLoadGameBtn().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent theEvent) {
-                int returnValue = fileChooser.showOpenDialog(myMainMenuPanel);
+                final int returnValue = myFileChooser.showOpenDialog(myMainMenuPanel);
                 if (returnValue == JFileChooser.APPROVE_OPTION) {
-                    File selectedFile = fileChooser.getSelectedFile();
-                    try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(selectedFile))) {
+                    final File selectedFile = myFileChooser.getSelectedFile();
+                    try (ObjectInputStream inputStream = new ObjectInputStream(
+                            new FileInputStream(selectedFile))) {
                         myDungeon = (Dungeon) inputStream.readObject();
                         myAdventurer = (Adventurer) inputStream.readObject();
                         myCurrentRoomRow = (int) inputStream.readObject();
                         myCurrentRoomColumn = (int) inputStream.readObject();
-//                        myGamePlayPanel = (GamePlayPanel) inputStream.readObject();
-                    } catch (IOException | ClassNotFoundException e) {
+                    } catch (final IOException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
                 }
-                System.out.println("LOADED CORRECTLY");
-                System.out.println(myAdventurer.toString());
                 initializeGamePlayPanelAndBattlePanel();
                 myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
                 myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
                 myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
                 changeScreen(GAME_PLAY_PANEL);
             }
-
         });
 
         myMainMenuPanel.getOptionsBtn().addActionListener(
@@ -240,29 +282,29 @@ public class MainFrame extends JFrame implements Serializable {
                 theAction -> System.exit(0));
     }
 
-    /** . */
+    /** Sets up all the character selection panel buttons and their associated actions. */
     private void setUpCharacterSelectionPanelActionListeners() {
         myCharacterSelectionPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
 
-        myCharacterSelectionPanel.getMyStartGameBtnBtn().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent theEvent) {
-                if (myCharacterSelectionPanel.getCharactersName().isEmpty()) {
-                    JOptionPane.showMessageDialog(myMainMenuPanel,
-                            "CANNOT START WITHOUT PUTTING A NAME!");
-                } else {
-                    instantiateUsersHeroAndSetEntranceCoordinates();
-                    checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
-                    initializeGamePlayPanelAndBattlePanel();
-                    changeScreen(GAME_PLAY_PANEL);
-                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
-                }
+        myCharacterSelectionPanel.getMyStartGameBtnBtn().addActionListener(theEvent -> {
+            if (myCharacterSelectionPanel.getCharactersName().isEmpty()) {
+                JOptionPane.showMessageDialog(myMainMenuPanel,
+                        "Please enter a name. The game cannot start without a name!");
+            } else {
+                instantiateUsersHeroAndSetEntranceCoordinates();
+                checkToSeeIfDoorsArePassable(myCurrentRoomRow, myCurrentRoomColumn);
+                initializeGamePlayPanelAndBattlePanel();
+                changeScreen(GAME_PLAY_PANEL);
+                myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
             }
         });
     }
 
-    /** . */
+    /**
+     *  This instantiates the users specified hero choice as well as the coordinates of
+     *  where the player will start based off the Entrance in the 2D-dungeon.
+     */
     private void instantiateUsersHeroAndSetEntranceCoordinates() {
         if (myCharacterSelectionPanel.getHeroOptionFromBox().equals(WARRIOR)) {
             myAdventurer = new Warrior();
@@ -282,7 +324,10 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  This initializes the main games panel to show minimap correct location to start and
+     *  hero chosen by the user for both main game and battle game purposes.
+     */
     private void initializeGamePlayPanelAndBattlePanel() {
         myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
         myGamePlayPanel.setHeroMainImgFilePath(
@@ -292,7 +337,7 @@ public class MainFrame extends JFrame implements Serializable {
         myBattlePanel.initializeHeroBattleHealthBarMaxMin(myAdventurer);
     }
 
-    /** . */
+    /** Sets up all the option panels buttons and their associated actions. */
     private void setUpOptionsGameInfoAndGameHelpActionListeners() {
         myOptionsPanel.getMyBackBtn().addActionListener(
                 theAction -> changeScreen(MAIN_MENU_PANEL));
@@ -310,12 +355,14 @@ public class MainFrame extends JFrame implements Serializable {
                 theAction -> changeScreen(OPTIONS_PANEL));
     }
 
-
-    /** . */
+    /**
+     *  Sets up the movement logic for WASD and Arrow Key movement of the player throughout
+     *  the 2D-dungeon matrix.
+     */
     private void setUpKeyMovementActions() {
-        upAction = new AbstractAction() {
+        myUpAction = new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomRow -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -328,9 +375,9 @@ public class MainFrame extends JFrame implements Serializable {
             }
         };
 
-        downAction = new AbstractAction() {
+        myDownAction = new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomRow += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -343,9 +390,9 @@ public class MainFrame extends JFrame implements Serializable {
             }
         };
 
-        leftAction = new AbstractAction() {
+        myLeftAction = new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomColumn -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -358,9 +405,9 @@ public class MainFrame extends JFrame implements Serializable {
             }
         };
 
-        rightAction = new AbstractAction() {
+        myRightAction = new AbstractAction() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomColumn += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -374,13 +421,14 @@ public class MainFrame extends JFrame implements Serializable {
         };
     }
 
-
-
-    /** . */
+    /**
+     *  Sets up the onscreen button logic for N,S,E,W movement of the player throughout
+     *  the 2D-dungeon matrix.
+     */
     private void setUpGamePlayPanelBtnsActionListeners() {
         myGamePlayPanel.getMyNorthBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomRow -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -394,7 +442,7 @@ public class MainFrame extends JFrame implements Serializable {
         });
         myGamePlayPanel.getMySouthBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomRow += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -408,7 +456,7 @@ public class MainFrame extends JFrame implements Serializable {
         });
         myGamePlayPanel.getMyEastBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomColumn += 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -422,7 +470,7 @@ public class MainFrame extends JFrame implements Serializable {
         });
         myGamePlayPanel.getMyWestBtn().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent theE) {
                 myCurrentRoomColumn -= 1;
                 myCurrentRoom = myDungeon.getMyMazeRoom()
                         [myCurrentRoomRow][myCurrentRoomColumn];
@@ -446,50 +494,75 @@ public class MainFrame extends JFrame implements Serializable {
         });
 
         myGamePlayPanel.getMySaveGameBtn().addActionListener(theEvent -> {
-            int returnValue = fileChooser.showSaveDialog(this);
+            final int returnValue = myFileChooser.showSaveDialog(this);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
-                File selectedFile = fileChooser.getSelectedFile();
+                final File selectedFile = myFileChooser.getSelectedFile();
                 System.out.println(myAdventurer.toString());
-                try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(selectedFile))) {
+                try (ObjectOutputStream outputStream =
+                             new ObjectOutputStream(new FileOutputStream(selectedFile))) {
                     outputStream.writeObject(myDungeon);
                     outputStream.writeObject(myAdventurer);
                     outputStream.writeObject(myCurrentRoomRow);
                     outputStream.writeObject(myCurrentRoomColumn);
-//                    outputStream.writeObject(myGamePlayPanel);
-                } catch (IOException e) {
+                } catch (final IOException e) {
                     e.printStackTrace();
                 }
             }
-            System.out.println("SAVE COMPLETED PROPERLY");
             changeScreen(MAIN_MENU_PANEL);
             startingNewGameSameWindow();
         });
     }
 
-    /** . */
+    /**
+     *  Binds the keybinds for WASD and Arrow keys to the onscreen movement buttons for
+     *  alternative way to move the hero throughout the game.
+     */
     private void bindMovementBtnsToKeyStrokes() {
-        myGamePlayPanel.getMyNorthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("W"), "w clicked");
-        myGamePlayPanel.getMyNorthBtn().getActionMap().put("w clicked", upAction);
-        myGamePlayPanel.getMyNorthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("UP"), "up arrow clicked");
-        myGamePlayPanel.getMyNorthBtn().getActionMap().put("up arrow clicked", upAction);
+        myGamePlayPanel.getMyNorthBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("W"), W_PUSHED);
+        myGamePlayPanel.getMyNorthBtn().getActionMap().put(W_PUSHED, myUpAction);
+        myGamePlayPanel.getMyNorthBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                        KeyStroke.getKeyStroke("UP"), UP_PUSHED);
+        myGamePlayPanel.getMyNorthBtn().getActionMap().put(UP_PUSHED, myUpAction);
 
-        myGamePlayPanel.getMySouthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("S"), "s clicked");
-        myGamePlayPanel.getMySouthBtn().getActionMap().put("s clicked", downAction);
-        myGamePlayPanel.getMySouthBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("DOWN"), "down arrow clicked");
-        myGamePlayPanel.getMySouthBtn().getActionMap().put("down arrow clicked", downAction);
-//
-        myGamePlayPanel.getMyEastBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("D"), "d clicked");
-        myGamePlayPanel.getMyEastBtn().getActionMap().put("d clicked", rightAction);
-        myGamePlayPanel.getMyEastBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("RIGHT"), "right arrow clicked");
-        myGamePlayPanel.getMyEastBtn().getActionMap().put("right arrow clicked", rightAction);
-//
-        myGamePlayPanel.getMyWestBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("A"), "a clicked");
-        myGamePlayPanel.getMyWestBtn().getActionMap().put("a clicked", leftAction);
-        myGamePlayPanel.getMyWestBtn().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("LEFT"), "left arrow clicked");
-        myGamePlayPanel.getMyWestBtn().getActionMap().put("left arrow clicked", leftAction);
+        myGamePlayPanel.getMySouthBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("S"), S_PUSHED);
+        myGamePlayPanel.getMySouthBtn().getActionMap().put(S_PUSHED, myDownAction);
+        myGamePlayPanel.getMySouthBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                        KeyStroke.getKeyStroke("DOWN"), DOWN_PUSHED);
+        myGamePlayPanel.getMySouthBtn().getActionMap().put(DOWN_PUSHED, myDownAction);
+
+        myGamePlayPanel.getMyEastBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("D"), D_PUSHED);
+        myGamePlayPanel.getMyEastBtn().getActionMap().put(D_PUSHED, myRightAction);
+        myGamePlayPanel.getMyEastBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                        KeyStroke.getKeyStroke("RIGHT"), RIGHT_PUSHED);
+        myGamePlayPanel.getMyEastBtn().getActionMap().put(RIGHT_PUSHED, myRightAction);
+
+        myGamePlayPanel.getMyWestBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("A"), A_PUSHED);
+        myGamePlayPanel.getMyWestBtn().getActionMap().put(A_PUSHED, myLeftAction);
+        myGamePlayPanel.getMyWestBtn(
+                ).getInputMap(
+                JComponent.WHEN_IN_FOCUSED_WINDOW).put(
+                        KeyStroke.getKeyStroke("LEFT"), LEFT_PUSHED);
+        myGamePlayPanel.getMyWestBtn().getActionMap().put(LEFT_PUSHED, myLeftAction);
     }
 
-    /** . */
+    /**
+     *  Sets up the onscreen button logic for Attack, Special Attack, and Heal buttons
+     *  for the player to utilize when battling a monster within the 2D-dungeon maze.
+     */
     private void setUpBattlePanelBtnActionListeners() {
         myBattlePanel.getMyAttackBtn().addActionListener(new ActionListener() {
             @Override
@@ -499,25 +572,27 @@ public class MainFrame extends JFrame implements Serializable {
                 final AbstractMonster roomMonster = myCurrentRoom.getRoomMonster();
                 roomMonster.setCharacterHealthPoints(
                         roomMonster.getCharacterHealthPoints() - monsterDamageTaken);
-                myBattlePanel.getMyGameActionText().append("Monster Took " + monsterDamageTaken + " Damage\n");
+                myBattlePanel.getMyGameActionText().append(
+                        "Monster Took " + monsterDamageTaken + " Damage\n");
                 myBattlePanel.updateHealthBarForMonster(
                         roomMonster.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
 
-                if (roomMonster.getCharacterHealthPoints() <= 20) {
+                if (roomMonster.getCharacterHealthPoints()
+                        <= MONSTERS_MIN_HEALTH_TO_TRY_HEAL) {
                     final int randomChanceToHealSelf = (int) (Math.random() * 100);
                     final int randomPointsHealed = roomMonster.heal();
-                    if (randomChanceToHealSelf >= 80) {
-                        myBattlePanel.getMyGameActionText().append("Wait... Monster Healed Itself!\n");
+                    if (randomChanceToHealSelf >= MONSTERS_CHANCE_TO_TRY_HEAL) {
+                        myBattlePanel.getMyGameActionText().append(
+                                "Wait... Monster Healed Itself!\n");
                         roomMonster.setCharacterHealthPoints(
                                 roomMonster.getCharacterHealthPoints() + randomPointsHealed);
-                        myBattlePanel.getMyGameActionText().append("Monster Healed " + randomPointsHealed + " Health Points\n");
-
+                        myBattlePanel.getMyGameActionText().append(
+                                "Monster Healed " + randomPointsHealed + " Health Points\n");
                     }
                     myBattlePanel.updateHealthBarForMonster(
                             roomMonster.getCharacterHealthPoints());
                 }
-
                 checkIfAdventurerHealthIsZero();
                 monsterAttacksHero(myCurrentRoom.getRoomMonster());
             }
@@ -533,17 +608,20 @@ public class MainFrame extends JFrame implements Serializable {
                 if (myAdventurer.getCharacterName().equals(WARRIOR)) {
                     roomMonster.setCharacterHealthPoints(
                             roomMonster.getCharacterHealthPoints() - specialDamage);
-                    myBattlePanel.getMyGameActionText().append("You dealt " + specialDamage + " damage to the monster\n");
+                    myBattlePanel.getMyGameActionText().append(
+                            YOU_DEALT + specialDamage + DAMAGE_TO_THE_MONSTER);
                 } else if (myAdventurer.getCharacterName().equals(PRIESTESS)) {
                     myAdventurer.setCharacterHealthPoints(
                             myAdventurer.getCharacterHealthPoints() + specialDamage);
-                    myBattlePanel.getMyGameActionText().append("You Healed Yourself " + specialDamage + " points\n");
+                    myBattlePanel.getMyGameActionText().append(
+                            "You Healed Yourself " + specialDamage + " points\n");
                     myBattlePanel.updateHealthBarsForHero(
                             myAdventurer.getCharacterHealthPoints());
                 } else if (myAdventurer.getCharacterName().equals(THIEF)) {
                     roomMonster.setCharacterHealthPoints(
                             roomMonster.getCharacterHealthPoints() - specialDamage);
-                    myBattlePanel.getMyGameActionText().append("You dealt " + specialDamage + " damage to the monster.\n");
+                    myBattlePanel.getMyGameActionText().append(
+                            YOU_DEALT + specialDamage + DAMAGE_TO_THE_MONSTER);
                 }
                 myBattlePanel.updateHealthBarForMonster(
                         roomMonster.getCharacterHealthPoints());
@@ -559,15 +637,19 @@ public class MainFrame extends JFrame implements Serializable {
                 final Random random = new Random();
                 final int randomHealAmount = random.nextInt(15 - 5 + 1) + 5;
                 if (myAdventurer.getMyHealingPotions() > 0) {
-                    myBattlePanel.getMyGameActionText().append("You used Heal to gain " + randomHealAmount + " health points.\n");
+                    myBattlePanel.getMyGameActionText().append(
+                            "You used Heal to gain " + randomHealAmount + " health points.\n");
                     myAdventurer.setCharacterHealthPoints(
                             myAdventurer.getCharacterHealthPoints() + randomHealAmount);
                     myBattlePanel.updateHealthBarsForHero(
                             myAdventurer.getCharacterHealthPoints());
                     myAdventurer.setMyHealingPotions(-1);
-                    myBattlePanel.getMyGameActionText().append("You have " + myAdventurer.getMyHealingPotions() + " Healing Potions Left.\n");
+                    myBattlePanel.getMyGameActionText().append(
+                            "You have " + myAdventurer.getMyHealingPotions()
+                                    + " Healing Potions Left.\n");
                 } else {
-                    myBattlePanel.getMyGameActionText().append("No potions left to use for healing.\n");
+                    myBattlePanel.getMyGameActionText().append(
+                            "No potions left to use for healing.\n");
 
                 }
             }
@@ -575,7 +657,7 @@ public class MainFrame extends JFrame implements Serializable {
 
     }
 
-    /** . */
+    /** Sets up the onscreen buttons for the Winning and Losing panels of the game. */
     private void setUpGameOverAndWinningPanelsActionListeners() {
         myGameOverPanel.getPlayAgainBtn().addActionListener(
                 theAction -> {
@@ -595,7 +677,10 @@ public class MainFrame extends JFrame implements Serializable {
                 });
     }
 
-    /** . */
+    /**
+     *  Sets up the music controls, the slider and toggle button, to change the
+     *  music volume or on and off.
+     */
     private void setUpMusicControlsActionListeners() {
         myOptionsPanel.getMyAudioOnOffBtn().addActionListener(new ActionListener() {
             @Override
@@ -614,20 +699,31 @@ public class MainFrame extends JFrame implements Serializable {
                 if (myMusic.getMyAudioClip() != null) {
                     final float volume = (float)
                             myOptionsPanel.getMyAudioSlider().getValue() / 100.0f;
-                    final FloatControl gainControl = (FloatControl) myMusic.getMyAudioClip().getControl(FloatControl.Type.MASTER_GAIN);
-                    gainControl.setValue(20f * (float) Math.log10(volume));
+                    final FloatControl gainControl =
+                            (FloatControl) myMusic.getMyAudioClip().getControl(
+                                    FloatControl.Type.MASTER_GAIN);
+                    gainControl.setValue(GAIN_CONSTANT * (float) Math.log10(volume));
                 }
             }
         });
     }
 
-
-    /** . */
+    /**
+     *  Changes the current panel to another panel after proper execution has occurred.
+     *
+     *  @param theScreen the String value of the panel we want to switch too.
+     */
     private void changeScreen(final String theScreen) {
         ((CardLayout) myCardPanel.getLayout()).show(myCardPanel, theScreen);
     }
 
-    /** . */
+    /**
+     *  Will check the current room to see which doors are available. Rooms without certain
+     *  doors will be greyed out preventing the user from going out of bounds of the dungeon.
+     *
+     * @param theCurrRow the current row position in the 2D-Dungeon
+     * @param theCurrColumn the current column position in the 2D-dungeon
+     */
     private void checkToSeeIfDoorsArePassable(final int theCurrRow, final int theCurrColumn) {
         final Room currentRoom = myDungeon.getMyMazeRoom()[theCurrRow][theCurrColumn];
         myGamePlayPanel.getMyNorthBtn().setEnabled(
@@ -640,7 +736,11 @@ public class MainFrame extends JFrame implements Serializable {
                 !currentRoom.getDoorWest().equals(DoorDirections.NO_DOOR_DIRECTION));
     }
 
-    /** . */
+    /**
+     *  Will check the room for certain ground items (healing potion or Pillar), player will
+     *  automatically pick up when walking in the room. Further, if the room has pit,
+     *  the player will take damage.
+     */
     private void checkRoomForGroundItemsAndPit() {
         if (myCurrentRoom.hasHealingPotion()) {
             myAdventurer.setMyHealingPotions(1);
@@ -660,7 +760,10 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  Checks the room to see if a monster is in there. If so, the battle will commence and
+     *  the panel will change
+     */
     private void checkRoomForMonster() {
         if (myCurrentRoom.hasRoomMonster()) {
             myMonsterInitialHealth = myCurrentRoom.getRoomMonster().getCharacterHealthPoints();
@@ -673,7 +776,10 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  Checks to see if the monsters health is zero. If so, the player beat the monster
+     *  and player returns back to main game panel.
+     */
     private void checkIfMonsterHealthIsZero() {
         if (myCurrentRoom.getRoomMonster().getCharacterHealthPoints() <= 0) {
             JOptionPane.showMessageDialog(myBattlePanel, "You beat the monster!");
@@ -686,7 +792,10 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  Checks to see if the players health is zero. If so, player is dead and player is
+     *  sent to the game over panel.
+     */
     private void checkIfAdventurerHealthIsZero() {
         if (myAdventurer.getCharacterHealthPoints() <= 0) {
             JOptionPane.showMessageDialog(myBattlePanel, "You have Died a painful death!");
@@ -695,7 +804,11 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  When the player has found the exit, a prompt will tell a player they've either
+     *  found the exit and need to find all the keys to be able to escape, or if all
+     *  keys found, will ask them if they want to continue exploring or exit now.
+     */
     private void checkIfHeroIsAbleToExit() {
         if (myAdventurer.getMyPillars().size() == MAX_ARRAY_SIZE && myCurrentRoom.hasExit()) {
             final String ableToLeave = """
@@ -720,22 +833,29 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  The logic in which the monster attacks the hero after the hero attacks. The hero
+     *  has a random chance at blocking the monsters hit, however if not successful, the
+     *  player will take damage.
+     */
     private void monsterAttacksHero(final AbstractMonster theMonster) {
         if (theMonster != null) {
             myBattlePanel.getMyGameActionText().append("Monsters Turn To Attack\n");
 
             final double randomChanceToBlock = (int) (Math.random() * 100) / 100.0;
             if (randomChanceToBlock >= (1 - myAdventurer.getChanceToHit())) {
-                myBattlePanel.getMyGameActionText().append("You Blocked the Monsters Attack Successfully! No Damage Taken.\n");
+                myBattlePanel.getMyGameActionText().append(
+                        "You Blocked the Monsters Attack Successfully! No Damage Taken.\n");
 
             } else {
-                myBattlePanel.getMyGameActionText().append("You failed to Block the Monsters Attack.\n");
+                myBattlePanel.getMyGameActionText().append(
+                        "You failed to Block the Monsters Attack.\n");
 
                 final int monsterAttackAmount = myCurrentRoom.getRoomMonster().attack();
                 myAdventurer.setCharacterHealthPoints(
                         myAdventurer.getCharacterHealthPoints() - monsterAttackAmount);
-                myBattlePanel.getMyGameActionText().append("You took " + monsterAttackAmount + " Points of Damage\n");
+                myBattlePanel.getMyGameActionText().append(
+                        "You took " + monsterAttackAmount + " Points of Damage\n");
                 myBattlePanel.updateHealthBarsForHero(
                         myAdventurer.getCharacterHealthPoints());
                 checkIfMonsterHealthIsZero();
@@ -744,7 +864,11 @@ public class MainFrame extends JFrame implements Serializable {
         }
     }
 
-    /** . */
+    /**
+     *  When the player wins/loses after returning to the main screen or wanting to play
+     *  again, a new dungeon is generated and old character sprites are cleared in the event
+     *  the player wants to choose another character to try.
+     */
     private void startingNewGameSameWindow() {
         myDungeon.randomlyGenerateRooms();
         myCharacterSelectionPanel.setMyNameYourCharacterTextBox(null);

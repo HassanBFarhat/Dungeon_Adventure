@@ -1,20 +1,17 @@
 package models;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *  Creates the 2D-Dungeon array itself with randomizing the items that goes within each
+ *  room of the dungeon.
  *
- * @author Hassan Bassam Farhat
- * @author Avinash Bavisetty
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class Dungeon implements Serializable {
 
@@ -44,6 +41,9 @@ public class Dungeon implements Serializable {
 
     // constructor
 
+    /**
+     *  Sets up the dungeon matrix to be of set specified size within this class.
+     */
     public Dungeon() {
         myMazeRoom = new Room[MAZE_SIZE][MAZE_SIZE];
     }
@@ -51,7 +51,11 @@ public class Dungeon implements Serializable {
 
     // methods
 
-    /** . */
+    /**
+     *  Will randomly generate all rooms necessary for all cells of the dungeon matrix.
+     *  This will continue to execute till all the cells within the maze are filled with
+     *  a room.
+     */
     public void randomlyGenerateRooms() {
         Room currentRoom = new Room();
         final List<RoomItems> pillarList = generateArrayOfPillars();
@@ -66,7 +70,6 @@ public class Dungeon implements Serializable {
 
         for (int row = 0; row < MAZE_SIZE; row++) {
             for (int col = 0; col < MAZE_SIZE; col++) {
-                System.out.print("THIS IS ROOM: Maze[" + row + "][" + col + "]");
                 currentRoom.setMyRowPosition(row);
                 currentRoom.setMyColumnPosition(col);
                 if (row == 0 && !entrancePlaced) {
@@ -107,7 +110,6 @@ public class Dungeon implements Serializable {
                     }
                 }
                 myMazeRoom[row][col] = currentRoom;
-                System.out.println(currentRoom.toString());
                 currentRoom = new Room();
             }
         }
@@ -116,7 +118,39 @@ public class Dungeon implements Serializable {
         }
     }
 
-    /** . */
+    /** Returns the 2D-matrix of the generated Dungeon. */
+    public Room[][] getMyMazeRoom() {
+        return myMazeRoom;
+    }
+
+    /** Returns 'n' the (n x n) size of the matrix. */
+    public int getMazeSize() {
+        return MAZE_SIZE;
+    }
+
+    /**
+     *  Returns a string representation of each room of the 2D-matrix and the room items
+     *  within each cell.
+     */
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < MAZE_SIZE; i++) {
+            for (int j = 0; j < MAZE_SIZE; j++) {
+                sb.append(myMazeRoom[i][j].toString());
+                sb.append("\n");
+            }
+        }
+        return sb.toString();
+    }
+
+
+    // private methods
+
+    /**
+     *  Creates an array list that holds enum values for our OO Pillars. We will use this
+     *  to remove a pillar and place in a room, and repeat till all pillars are placed in
+     *  a room.
+     */
     private List<RoomItems> generateArrayOfPillars() {
         final List<RoomItems> arr = new ArrayList<>();
         arr.add(RoomItems.ABSTRACTION_PILLAR);
@@ -126,7 +160,10 @@ public class Dungeon implements Serializable {
         return arr;
     }
 
-    /** . */
+    /**
+     *  Generate the randomized items and place within the rooms, while also setting up
+     *  the proper door associated with each cell of the matrix.
+     */
     private void generateAndPutItemsAndDoorsInCurrentRoom(final Room theRoom,
                                                           final List<RoomItems> thePillarList,
                                                           final List<AbstractMonster>
@@ -143,7 +180,7 @@ public class Dungeon implements Serializable {
         setRandomItemsAndMonstersInRoom(theRoom, thePillarList, theMonsterList);
     }
 
-    /** . */
+    /** The logic for setting up each cell's proper door associations within the matrix. */
     private void setRoomDoors(final Room theRoom,
                               final int theCurrentRow,
                               final int theCurrentColumn) {
@@ -200,7 +237,7 @@ public class Dungeon implements Serializable {
         }
     }
 
-    /** . */
+    /** The logic for randomizing the items that will go within each room of each cell. */
     private void setRandomItemsAndMonstersInRoom(final Room theRoom,
                                                  final List<RoomItems> thePillarList,
                                                  final List<AbstractMonster> theMonsterList) {
@@ -229,7 +266,10 @@ public class Dungeon implements Serializable {
     }
 
 
-    /** . */
+    /**
+     *  This logic makes sure that the maze generated is proper for the player to access,
+     *  and is able to beat the game by collecting all required OO keys.
+     */
     private boolean checkIfMazeIsValid(final Room[][] theMaze) {
         boolean value = false;
         boolean entrance = false;
@@ -252,48 +292,6 @@ public class Dungeon implements Serializable {
             value = true;
         }
         return value;
-    }
-
-    /** . */
-    public Room[][] getMyMazeRoom() {
-        return myMazeRoom;
-    }
-
-    /** . */
-    public int getMazeSize() {
-        return MAZE_SIZE;
-    }
-
-    /** . */
-    public void saveToFile(final String theFilename) throws IOException {
-        try (ObjectOutputStream oos
-                     = new ObjectOutputStream(new FileOutputStream(theFilename))) {
-            oos.writeObject(this);
-        } catch (final IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /** . */
-    public static Dungeon loadFile(final String theFilename) {
-        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(theFilename))) {
-            return (Dungeon) in.readObject();
-        } catch (final IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    /** . */
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < MAZE_SIZE; i++) {
-            for (int j = 0; j < MAZE_SIZE; j++) {
-                sb.append(myMazeRoom[i][j].toString());
-                sb.append("\n");
-            }
-        }
-        return sb.toString();
     }
 
 }
