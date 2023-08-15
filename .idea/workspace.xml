@@ -4,43 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/CharacterSelectionPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameHelpPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameHelpPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameInformationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameInformationPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameOverPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameOverPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$13.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$14.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainMenuPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/CharacterSelectionPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameHelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameHelpPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameInformationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameInformationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GameOverPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameOverPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated Room.java class toString() method&#10;- Fixed some of the javadoc comments in all classes of the views package.">
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/OptionsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/OptionsPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/WinningPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/WinningPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainMenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainMenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/OptionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/OptionsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/WinningPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/WinningPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,14 +187,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00035" summary="- Removed parameters from the contractors">
-      <option name="closed" value="true" />
-      <created>1691447044486</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1691447044486</updated>
     </task>
     <task id="LOCAL-00036" summary="- Updated visibility for the hero subclasses from default -&gt; public">
       <option name="closed" value="true" />
@@ -605,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692115360426</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="- Updated Room.java class toString() method&#10;- Fixed some of the javadoc comments in all classes of the views package.">
+      <option name="closed" value="true" />
+      <created>1692130586209</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1692130586209</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -623,7 +590,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Revamped and Redesigned all the panels within the view package." />
     <MESSAGE value="- Push out\ changes" />
     <MESSAGE value="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)" />
     <MESSAGE value="- Refactored Room.java and MonsterFactory.java, STILL WORKING ON Dungeon.java refactor" />
@@ -648,7 +614,8 @@
     <MESSAGE value="- Added Javadocs to all classes under model package" />
     <MESSAGE value="- Finished javadoc commenting all classes within models package.&#10;- Finished /TODO's &#10;- Removed System.out.print statements from class files&#10;- Fixed any console exceptions that may have occurred (all that I've found)" />
     <MESSAGE value="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay." />
+    <MESSAGE value="- Updated Room.java class toString() method&#10;- Fixed some of the javadoc comments in all classes of the views package." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Updated Room.java class toString() method&#10;- Fixed some of the javadoc comments in all classes of the views package." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

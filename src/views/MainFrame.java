@@ -261,14 +261,16 @@ public class MainFrame extends JFrame implements Serializable {
                     myAdventurer = (Adventurer) inputStream.readObject();
                     myCurrentRoomRow = (int) inputStream.readObject();
                     myCurrentRoomColumn = (int) inputStream.readObject();
+
+                    initializeGamePlayPanelAndBattlePanel();
+                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
+                    myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
+                    myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                    changeScreen(GAME_PLAY_PANEL);
+
                 } catch (final IOException | ClassNotFoundException e) {
-                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(myMainMenuPanel, "FILE NOT FOUND TRY AGAIN");
                 }
-                initializeGamePlayPanelAndBattlePanel();
-                myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
-                myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
-                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
-                changeScreen(GAME_PLAY_PANEL);
             }
         });
 
