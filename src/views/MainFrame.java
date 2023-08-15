@@ -266,8 +266,6 @@ public class MainFrame extends JFrame implements Serializable {
                     } catch (final IOException | ClassNotFoundException e) {
                         e.printStackTrace();
                     }
-                }
-                if (myAdventurer != null) {
                     initializeGamePlayPanelAndBattlePanel();
                     myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
                     myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);

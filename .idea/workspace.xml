@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Finished javadoc commenting all classes within models package.&#10;- Finished /TODO's &#10;- Removed System.out.print statements from class files&#10;- Fixed any console exceptions that may have occurred (all that I've found)">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/tests/MonsterFactoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/tests/MonsterFactoryTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/MonsterFactoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/MonsterFactoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MonsterFactoryTest">
+  <component name="RunManager">
     <configuration name="AbstractDungeonCharacterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Dungeon_Adventure" />
       <extension name="coverage">
@@ -159,11 +160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MonsterFactoryTest" />
-        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
         <item itemvalue="JUnit.RoomTest" />
+        <item itemvalue="JUnit.MonsterFactoryTest" />
         <item itemvalue="JUnit.DungeonTest" />
         <item itemvalue="JUnit.AdventurerTest" />
+        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -187,14 +188,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00034" summary="- Added character sprites to the imgs package for usage amoongst the project.">
-      <option name="closed" value="true" />
-      <created>1691444219203</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1691444219203</updated>
     </task>
     <task id="LOCAL-00035" summary="- Removed parameters from the contractors">
       <option name="closed" value="true" />
@@ -572,7 +565,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692114475058</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay.">
+      <option name="closed" value="true" />
+      <created>1692115360426</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1692115360426</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -590,7 +591,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Exit Logic is implemented within the MainFrame.java class.&#10;- An image for the TitleIcon for the main frame was added and implemented." />
     <MESSAGE value="- Revamped and Redesigned all the panels within the view package." />
     <MESSAGE value="- Push out\ changes" />
     <MESSAGE value="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)" />
@@ -615,7 +615,8 @@
     <MESSAGE value="- Refactored AbstractDungeonCharacter.java, Dungeon.java, MainFrame.java, and MonsterFactory.java&#10;- Renamed Main.java to DungeonAdventure.java" />
     <MESSAGE value="- Added Javadocs to all classes under model package" />
     <MESSAGE value="- Finished javadoc commenting all classes within models package.&#10;- Finished /TODO's &#10;- Removed System.out.print statements from class files&#10;- Fixed any console exceptions that may have occurred (all that I've found)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Finished javadoc commenting all classes within models package.&#10;- Finished /TODO's &#10;- Removed System.out.print statements from class files&#10;- Fixed any console exceptions that may have occurred (all that I've found)" />
+    <MESSAGE value="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
