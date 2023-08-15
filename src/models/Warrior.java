@@ -18,29 +18,29 @@ public class Warrior extends Adventurer implements Serializable {
     private static final long serialVersionUID = 3747422476561415822L;
 
     // constants
-    /** . */
+    /** Holds the constant for the "Warrior" character name. */
     private static final String WARRIOR_NAME = "Warrior";
-    /** . */
+    /** Holds the warrior's file path to the sprites image. */
     private static final String WARRIOR_FILE_PATH = "src/imgs/Warrior.png";
-    /** . */
+    /** Specific health points related to warrior's criteria. */
     private static final int HEALTH_POINTS = 125;
-    /** . */
+    /** Specific hit points related to warrior's criteria. */
     private static final int HIT_POINTS = 125;
-    /** . */
+    /** Specific attack speed related to warrior's criteria. */
     private static final int ATTACK_SPEED = 4;
-    /** . */
+    /** Specific chance to hit monster related to warrior's criteria. */
     private static final double CHANCE_TO_HIT = 0.8;
-    /** . */
+    /** Specific chance to block a monsters attack related to warrior's criteria. */
     private static final double CHANCE_TO_BLOCK = 0.2;
-    /** . */
+    /** Specific max damage a warrior can do on a monster. */
     private static final int MAX_DAMAGE = 60;
-    /** . */
+    /** Specific min damage a warrior can do on a monster. */
     private static final int MIN_DAMAGE = 35;
-    /** . */
+    /** Specific chance a warrior will be able to perform a crushing blow on monster. */
     private static final double CRUSHING_BLOW_CHANCE = 0.4;
-    /** . */
+    /** Specific min damage points related to warrior's special attack criteria. */
     private static final int CRUSHING_BLOW_MIN_DAMAGE = 75;
-    /** . */
+    /** Specific max damage points related to warrior's special attack criteria. */
     private static final int CRUSHING_BLOW_MAX_DAMAGE = 175;
 
 

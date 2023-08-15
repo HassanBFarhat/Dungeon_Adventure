@@ -17,27 +17,27 @@ public class Thief extends Adventurer implements Serializable {
     private static final long serialVersionUID = 8850439520184187280L;
 
     // constants
-    /** . */
+    /** Holds the constant for the "Thief" character name. */
     private static final String THIEF_NAME = "Thief";
-    /** . */
+    /** Holds the thief's file path to the sprites image. */
     private static final String THIEF_FILE_PATH = "src/imgs/Thief.png";
-    /** . */
+    /** Specific health points related to thief's criteria. */
     private static final int HEALTH_POINTS = 75;
-    /** . */
+    /** Specific hit points related to thief's criteria. */
     private static final int HIT_POINTS = 75;
-    /** . */
+    /** Specific attack speed related to thief's criteria. */
     private static final int ATTACK_SPEED = 6;
-    /** . */
+    /** Specific chance to hit monster related to thief's criteria. */
     private static final double CHANCE_TO_HIT = 0.8;
-    /** . */
+    /** Specific chance to block a monsters attack related to thief's criteria. */
     private static final double CHANCE_TO_BLOCK = 0.4;
-    /** . */
+    /** Specific max damage a thief can do on a monster. */
     private static final int MAX_DAMAGE = 40;
-    /** . */
+    /** Specific min damage a thief can do on a monster. */
     private static final int MIN_DAMAGE = 20;
-    /** . */
+    /** Specific chance a thief will be able to perform a surprise attack on monster. */
     private static final double SURPRISE_ATTACK_ODDS = 0.6;
-    /** . */
+    /** Specific chance the surprise attack fails and thief is caught. */
     private static final double CHANCE_CAUGHT = 0.2;
 
 

@@ -267,11 +267,13 @@ public class MainFrame extends JFrame implements Serializable {
                         e.printStackTrace();
                     }
                 }
-                initializeGamePlayPanelAndBattlePanel();
-                myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
-                myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
-                myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
-                changeScreen(GAME_PLAY_PANEL);
+                if (myAdventurer != null) {
+                    initializeGamePlayPanelAndBattlePanel();
+                    myGamePlayPanel.setUpHealthBarWithAdventurerHealthStats(myAdventurer);
+                    myGamePlayPanel.updateAdventurerHealthBar(myAdventurer);
+                    myGamePlayPanel.updateMiniMap(myCurrentRoomRow, myCurrentRoomColumn);
+                    changeScreen(GAME_PLAY_PANEL);
+                }
             }
         });
 
@@ -313,7 +315,6 @@ public class MainFrame extends JFrame implements Serializable {
         } else if (myCharacterSelectionPanel.getHeroOptionFromBox().equals(THIEF)) {
             myAdventurer = new Thief();
         }
-        System.out.println(myAdventurer.toString());
         for (int j = 0; j < myDungeon.getMazeSize(); j++) {
             if (myDungeon.getMyMazeRoom()[0][j].hasEntrance()) {
                 myCurrentRoomRow = 0;
@@ -371,7 +372,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         };
 
@@ -386,7 +386,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         };
 
@@ -401,7 +400,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         };
 
@@ -416,7 +414,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         };
     }
@@ -437,7 +434,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         });
         myGamePlayPanel.getMySouthBtn().addActionListener(new ActionListener() {
@@ -451,7 +447,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         });
         myGamePlayPanel.getMyEastBtn().addActionListener(new ActionListener() {
@@ -465,7 +460,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         });
         myGamePlayPanel.getMyWestBtn().addActionListener(new ActionListener() {
@@ -479,7 +473,6 @@ public class MainFrame extends JFrame implements Serializable {
                 checkRoomForGroundItemsAndPit();
                 checkRoomForMonster();
                 checkIfAdventurerHealthIsZero();
-                checkIfHeroIsAbleToExit();
             }
         });
 
@@ -497,7 +490,6 @@ public class MainFrame extends JFrame implements Serializable {
             final int returnValue = myFileChooser.showSaveDialog(this);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 final File selectedFile = myFileChooser.getSelectedFile();
-                System.out.println(myAdventurer.toString());
                 try (ObjectOutputStream outputStream =
                              new ObjectOutputStream(new FileOutputStream(selectedFile))) {
                     outputStream.writeObject(myDungeon);
@@ -507,9 +499,9 @@ public class MainFrame extends JFrame implements Serializable {
                 } catch (final IOException e) {
                     e.printStackTrace();
                 }
+                changeScreen(MAIN_MENU_PANEL);
+                startingNewGameSameWindow();
             }
-            changeScreen(MAIN_MENU_PANEL);
-            startingNewGameSameWindow();
         });
     }
 
@@ -801,6 +793,8 @@ public class MainFrame extends JFrame implements Serializable {
             JOptionPane.showMessageDialog(myBattlePanel, "You have Died a painful death!");
             startingNewGameSameWindow();
             changeScreen(GAME_OVER_PANEL);
+        } else {
+            checkIfHeroIsAbleToExit();
         }
     }
 
@@ -873,10 +867,12 @@ public class MainFrame extends JFrame implements Serializable {
         myDungeon.randomlyGenerateRooms();
         myCharacterSelectionPanel.setMyNameYourCharacterTextBox(null);
         myGamePlayPanel.getMyAdventurerImgLabel().setVisible(false);
-        myBattlePanel.getMyMonsterImgLabel().setVisible(false);
-        myBattlePanel.getMyAdventurerImgLabel().setVisible(false);
-        myBattlePanel.getMyGameActionText().setText("");
-        myBattlePanel.setVisible(false);
+        if (myBattlePanel != null) {
+            myBattlePanel.getMyMonsterImgLabel().setVisible(false);
+            myBattlePanel.getMyAdventurerImgLabel().setVisible(false);
+            myBattlePanel.getMyGameActionText().setText("");
+            myBattlePanel.setVisible(false);
+        }
         myAdventurer = null;
     }
 

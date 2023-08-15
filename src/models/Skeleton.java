@@ -23,9 +23,6 @@ public class Skeleton extends AbstractMonster implements Serializable {
 
     // constructor
 
-    protected Skeleton() {
-    }
-
     /**
      *  Calls on the super() of its parent class to set up the skeleton as a monster character.
      *

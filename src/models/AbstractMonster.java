@@ -19,7 +19,7 @@ public abstract class AbstractMonster
     private static final long serialVersionUID = 1618814556113403060L;
 
     // constants
-    /** . */
+    /** Escape sequence constant for newline. */
     private static final String NEW_LINE = "\n";
 
 

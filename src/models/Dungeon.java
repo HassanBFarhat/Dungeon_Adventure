@@ -19,23 +19,23 @@ public class Dungeon implements Serializable {
     private static final long serialVersionUID = -8905573779050064748L;
 
     // constants
-    /** . */
+    /** Sets the constant for n x n size matrix of n = 5. */
     private static final int MAZE_SIZE = 5;
-    /** . */
+    /** Maximum pillars the dungeon can hold. */
     private static final int MAX_PILLAR_COUNT = 4;
-    /** . */
+    /** Threshold value to randomly place the entrance and exit throughout the dungeon. */
     private static final int ENTRANCE_AND_EXIT_THRESHOLD = 20;
-    /** . */
+    /** Chance to place a potion down (10%). */
     private static final int POTION_PLACEMENT_POSSIBILITY = 90;
-    /** . */
+    /** Chance to place a pit down (10%). */
     private static final int PIT_PLACEMENT_POSSIBILITY = 90;
-    /** . */
+    /** Chance to place one of the pillars in the dungeons room. */
     private static final int PILLAR_PLACEMENT_POSSIBILITY = 15;
-    /** . */
+    /** Chance to place one of the monsters in the dungeons room. */
     private static final int MONSTER_PLACEMENT_POSSIBILITY = 85;
 
     // instance fields
-    /** . */
+    /** Holds the n x n matrix of our 2D-Dungeon. */
     private final Room[][] myMazeRoom;
 
 

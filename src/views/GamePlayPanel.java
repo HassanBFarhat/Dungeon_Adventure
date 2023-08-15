@@ -266,7 +266,6 @@ public class GamePlayPanel extends JPanel {
 
     /** . */
     private void setUpHeroHealthBar() {
-        System.out.println("Trying to set up main health bar");
         myCharactersHealth.setBounds(CHARACTER_PANEL_AND_HEALTH_BAR_X_COORDINATE,
                                      HEALTH_BAR_Y_COORDINATE,
                                      CHARACTER_PANEL_AND_HEALTH_BAR_WIDTH,

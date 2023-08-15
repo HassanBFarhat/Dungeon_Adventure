@@ -23,9 +23,6 @@ public class Ogre extends AbstractMonster implements Serializable {
 
     // constructor
 
-    protected Ogre() {
-    }
-
     /**
      *  Calls on the super() of its parent class to set up the ogre as a monster character.
      *

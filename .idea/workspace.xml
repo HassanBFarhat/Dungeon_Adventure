@@ -6,12 +6,51 @@
   <component name="ChangeListManager">
     <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Added Javadocs to all classes under model package">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Priestess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Adventurer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Gremlin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/MonsterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Ogre.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Thief.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Warrior.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/savefile.ser" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/skeleton.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/tests/AdventurerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/tests/AdventurerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/BattlePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameHelpPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameHelpPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameInformationPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GameInformationPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/GamePlayPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/AbstractHero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/AbstractHero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/AbstractMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/AbstractMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Adventurer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Adventurer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Dungeon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Dungeon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Gremlin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Gremlin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/MonsterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/MonsterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Ogre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Ogre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Priestess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Priestess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Skeleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Skeleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Thief.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Thief.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Warrior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Warrior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/savefile.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameHelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameHelpPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameInformationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameInformationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GamePlayPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GamePlayPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +71,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Sprint-5" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -163,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
         <item itemvalue="JUnit.MonsterFactoryTest" />
         <item itemvalue="JUnit.RoomTest" />
         <item itemvalue="JUnit.DungeonTest" />
         <item itemvalue="JUnit.AdventurerTest" />
-        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
       </list>
     </recent_temporary>
   </component>

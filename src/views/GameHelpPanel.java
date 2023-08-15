@@ -112,7 +112,6 @@ public class GameHelpPanel extends JPanel {
 
     /** . */
     private void setUpConditionsAndStyleForGameHelpText() {
-        //TODO: NEED TO FIGURE OUT A WAY TO MAKE TEXT NON SELECTABLE BY USER
         myGameHelpTextArea.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myGameHelpTextArea.setForeground(Color.WHITE);
         myGameHelpTextArea.setLineWrap(true);

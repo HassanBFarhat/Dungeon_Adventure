@@ -54,11 +54,6 @@ public class Adventurer extends AbstractHero implements Serializable {
         return "No Main file found";
     }
 
-    /** Returns the player's chosen hero's battle image file path. */
-    public String getAdventurerBattleImgFilePath() {
-        return "No Battle file found";
-    }
-
     /**
      *  Sets the amount of healing potions the player has picked up traversing the dungeon.
      *
@@ -91,11 +86,4 @@ public class Adventurer extends AbstractHero implements Serializable {
         return myPillars;
     }
 
-    /**
-     *  Returns a string representation of the player's chosen hero, its stats, chance to
-     *  block and special skill.
-     */
-    public String toString() {
-        return super.toString();
-    }
 }

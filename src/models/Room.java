@@ -23,30 +23,30 @@ public class Room implements Serializable {
 
 
     // instance fields
-    /** . */
+    /** Holds the enum value for if the room contains an entrance. */
     private RoomItems myEntrance;
-    /** . */
+    /** Holds the enum value for if the room contains an exit. */
     private RoomItems myExit;
-    /** . */
+    /** Holds the enum value for if the room contains a north door. */
     private DoorDirections myDoorNorth;
-    /** . */
+    /** Holds the enum value for if the room contains an east door. */
     private DoorDirections myDoorEast;
-    /** . */
+    /** Holds the enum value for if the room contains a south door. */
     private DoorDirections myDoorSouth;
-    /** . */
+    /** Holds the enum value for if the room contains a west door. */
     private DoorDirections myDoorWest;
-    /** . */
+    /** Holds the enum value for if the room contains one of the OO Pillars. */
     private RoomItems myOOPillar;
-    /** . */
+    /** Holds the enum value for if the room contains a healing potion. */
     private RoomItems myHealingPotion;
-    /** . */
+    /** Holds the enum value for if the room contains a pit. */
     private RoomItems myPit;
-    /** . */
+    /** Holds the value of a monster that is within this room. */
     private AbstractMonster myRoomMonster;
-    /** . */
-    private int myRowPostion;
-    /** . */
-    private int myColumnPostion;
+    /** Holds the rooms row position when in a 2D-matrix. */
+    private int myRowPosition;
+    /** Holds the rooms column position when in a 2D-matrix. */
+    private int myColumnPosition;
 
 
     // constructors
@@ -238,12 +238,12 @@ public class Room implements Serializable {
      *  @param theRowPosition the int value representing the row this room is on.
      */
     public void setMyRowPosition(final int theRowPosition) {
-        myRowPostion = theRowPosition;
+        myRowPosition = theRowPosition;
     }
 
     /** Returns the row position of this room in a matrix. */
     public int getMyRowPosition() {
-        return myRowPostion;
+        return myRowPosition;
     }
 
     /**
@@ -252,12 +252,12 @@ public class Room implements Serializable {
      *  @param theColumnPosition the int value representing the column this room is on.
      */
     public void setMyColumnPosition(final int theColumnPosition) {
-        myColumnPostion = theColumnPosition;
+        myColumnPosition = theColumnPosition;
     }
 
     /** Returns the column position of this room in a matrix. */
     public int getMyColumnPosition() {
-        return myColumnPostion;
+        return myColumnPosition;
     }
 
     /**

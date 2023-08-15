@@ -110,7 +110,6 @@ public class GameInformationPanel extends JPanel {
 
     /** . */
     private void setUpConditionsAndStyleForGameInfoText() {
-        //TODO: NEED TO FIGURE OUT A WAY TO MAKE TEXT NOT SELECTABLE BY USER
         myGameInfoTextArea.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myGameInfoTextArea.setForeground(Color.WHITE);
         myGameInfoTextArea.setLineWrap(true);

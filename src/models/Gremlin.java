@@ -23,9 +23,6 @@ public class Gremlin extends AbstractMonster implements Serializable {
 
     // constructor
 
-    protected Gremlin() {
-    }
-
     /**
      *  Calls on the super() of its parent class to set up the gremlin as a monster character.
      *

@@ -19,11 +19,11 @@ import org.sqlite.SQLiteDataSource;
 public class MonsterFactory {
 
     // constants
-    /** . */
+    /** Holds the string representation for "Ogre" monster. */
     private static final String OGRE = "Ogre";
-    /** . */
+    /** Holds the string representation for "Gremlin" monster. */
     private static final String GREMLIN = "Gremlin";
-    /** . */
+    /** Holds the string representation for "Skeleton" monster. */
     private static final String SKELETON = "Skeleton";
 
 
@@ -142,6 +142,10 @@ public class MonsterFactory {
 
     // private methods
 
+    /**
+     *  Instantiates the monsters ArrayList and adds all three monsters from the created
+     *  factory method.
+     */
     private void instantiateMonsterListAndAddMonstersToIt() {
         myMonsterList = new ArrayList<>();
         myMonsterList.add(createMonster(OGRE));

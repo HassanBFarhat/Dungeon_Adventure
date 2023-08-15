@@ -17,7 +17,7 @@ public abstract class AbstractHero extends AbstractDungeonCharacter implements S
     private static final long serialVersionUID = 4675854409591872348L;
 
     // constants
-    /** . */
+    /** Escape sequence constant for newline. */
     private static final String NEW_LINE = "\n";
 
 
