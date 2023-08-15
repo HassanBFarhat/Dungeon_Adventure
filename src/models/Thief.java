@@ -4,10 +4,12 @@ import java.io.Serial;
 import java.io.Serializable;
 
 /**
+ *  A child class of the parent AbstractHero, which holds the specific representation
+ *  of a Thief.
  *
- * @author Hassan Bassam Farhat
- * @author Avinash Bavisetty
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class Thief extends Adventurer implements Serializable {
 
@@ -19,7 +21,6 @@ public class Thief extends Adventurer implements Serializable {
     private static final String THIEF_NAME = "Thief";
     /** . */
     private static final String THIEF_FILE_PATH = "src/imgs/Thief.png";
-
     /** . */
     private static final int HEALTH_POINTS = 75;
     /** . */
@@ -42,6 +43,9 @@ public class Thief extends Adventurer implements Serializable {
 
     // constructor
 
+    /**
+     *  Calls on the super() of its parent class to set up the thief as a hero character.
+     */
     public Thief() {
         super(THIEF_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE,
                 ATTACK_SPEED, CHANCE_TO_HIT);
@@ -52,24 +56,26 @@ public class Thief extends Adventurer implements Serializable {
 
     // methods
 
-    /** . */
+    /** Returns the thief's specific file path. */
     @Override
     public String getAdventurerMainImgFilePath() {
         return THIEF_FILE_PATH;
     }
 
-    /** . */
-    @Override
-    public String getAdventurerBattleImgFilePath() {
-        return THIEF_FILE_PATH;
-    }
-
-    /** . */
+    /**
+     *  Allows the thief to try and do a surprise attack. If successful, the thief has an
+     *  opportunity to attack twice if the chance for a surprise attack is successful.
+     *  Otherwise, the thief will only attack once. If the thief tries and is unsuccessful,
+     *  he's caught and turn moves over to monster.
+     *
+     * @return An integer being the points the thief will do on the monster.
+     */
     @Override
     public int specialAttack() {
         final double chanceForSurpriseAttackOdds = (int) (Math.random() * 100) / 100.0;
         int totalDamage = 0;
         if (chanceForSurpriseAttackOdds >= (1 - CHANCE_CAUGHT)) {
+            return totalDamage;
         } else if (chanceForSurpriseAttackOdds >= (1 - SURPRISE_ATTACK_ODDS)) {
             totalDamage += this.attack();
             totalDamage += this.attack();

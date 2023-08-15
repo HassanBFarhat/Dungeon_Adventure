@@ -10,22 +10,29 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
-
-
+/**
+ *  This class holds the games music and methods to playing and stopping the music at any time.
+ *
+ *  @author Hassan Bassam Farhat
+ *  @version Summer 2023
+ */
 public class Music {
 
     // constants
-    /** . */
+    /** The path to where the music file is. */
     private static final String MUSIC_FILE_PATH = "src/music/track001.wav";
 
 
     // instance fields
-    /** . */
+    /** Holds the current audio clip to be played in the game. */
     private Clip myAudioClip;
 
 
     // constructors
 
+    /**
+     *  Constructor calls on playAudio() method to have audio playing as soon as game started.
+     */
     public Music() {
         playAudio();
     }
@@ -33,7 +40,10 @@ public class Music {
 
     // methods
 
-    /** . */
+    /**
+     *  Tries to obtain the audio file, and then places into myAudioClip to then play
+     *  the audio continuously throughout the game, unless otherwise specified.
+     */
     public void playAudio() {
         try {
             final File audioFile = new File(MUSIC_FILE_PATH);
@@ -52,7 +62,7 @@ public class Music {
         }
     }
 
-    /** . */
+    /** Will stop the audio being played in the game when this method is called. */
     public void stopAudio() {
         if (myAudioClip != null && myAudioClip.isRunning()) {
             myAudioClip.stop();
@@ -61,7 +71,7 @@ public class Music {
         }
     }
 
-    /** . */
+    /** Returns the audio clip to whomever called it. */
     public Clip getMyAudioClip() {
         return myAudioClip;
     }

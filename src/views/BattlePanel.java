@@ -116,7 +116,7 @@ public class BattlePanel extends JPanel {
     public void addBothCharactersToBattlePanel() {
         final ImageIcon monsterImg =
                 new ImageIcon(myCurrentRoomMonster.getMonsterBattleImgFilePath());
-        final ImageIcon heroImg = new ImageIcon(myAdventurer.getAdventurerBattleImgFilePath());
+        final ImageIcon heroImg = new ImageIcon(myAdventurer.getAdventurerMainImgFilePath());
         myMonsterImgLabel = new JLabel(monsterImg);
         myHeroImgLabel = new JLabel(heroImg);
         myBattleBGImgLabel.add(myHeroImgLabel);

@@ -5,10 +5,12 @@ import java.io.Serializable;
 import java.util.Random;
 
 /**
+ *  A child class of the parent AbstractHero, which holds the specific representation
+ *  of a Warrior.
  *
- * @author Hassan Bassam Farhat
- * @author Avinash Bavisetty
- * @version Summer 2023
+ *  @author Hassan Bassam Farhat
+ *  @author Avinash Bavisetty
+ *  @version Summer 2023
  */
 public class Warrior extends Adventurer implements Serializable {
 
@@ -44,6 +46,9 @@ public class Warrior extends Adventurer implements Serializable {
 
     // constructor
 
+    /**
+     *  Calls on the super() of its parent class to set up the warrior as a hero character.
+     */
     public Warrior() {
         super(WARRIOR_NAME, HEALTH_POINTS, HIT_POINTS, MIN_DAMAGE, MAX_DAMAGE,
                 ATTACK_SPEED, CHANCE_TO_HIT);
@@ -54,19 +59,18 @@ public class Warrior extends Adventurer implements Serializable {
 
     // methods
 
-    /** . */
+    /** Returns the warrior's specific file path. */
     @Override
     public String getAdventurerMainImgFilePath() {
         return WARRIOR_FILE_PATH;
     }
 
-    /** . */
-    @Override
-    public String getAdventurerBattleImgFilePath() {
-        return WARRIOR_FILE_PATH;
-    }
-
-    /** . */
+    /**
+     *  Allows the warrior to pick a range of crushing blow points between the min and max
+     *  range that it will deal damage to the monster currently being fought.
+     *
+     * @return An integer being the points the warrior will do on the monster.
+     */
     @Override
     public int specialAttack() {
         final Random random = new Random();
@@ -76,7 +80,6 @@ public class Warrior extends Adventurer implements Serializable {
             randomCrushAmount =
                     random.nextInt(CRUSHING_BLOW_MAX_DAMAGE - CRUSHING_BLOW_MIN_DAMAGE + 1)
                             + CRUSHING_BLOW_MIN_DAMAGE;
-        } else {
         }
         return randomCrushAmount;
     }
