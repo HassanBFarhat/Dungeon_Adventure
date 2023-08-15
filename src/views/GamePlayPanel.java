@@ -27,78 +27,78 @@ import models.Adventurer;
 public class GamePlayPanel extends JPanel {
 
     // constants
-    /** . */
+    /** character movement button width. */
     private static final int CHARACTER_MOVEMENT_BTN_WIDTH = 100;
-    /** . */
+    /** character movement button height. */
     private static final int CHARACTER_MOVEMENT_BTN_HEIGHT = 100;
-    /** . */
+    /** character panel and health bar width. */
     private static final int CHARACTER_PANEL_AND_HEALTH_BAR_WIDTH = 500;
-    /** . */
+    /** character panel height. */
     private static final int CHARACTER_PANEL_HEIGHT = 500;
-    /** . */
+    /** character panel and health bar x coordinate. */
     private static final int CHARACTER_PANEL_AND_HEALTH_BAR_X_COORDINATE = 390;
-    /** . */
+    /** character panel y coordinate. */
     private static final int CHARACTER_PANEL_Y_COORDINATE = 110;
-    /** . */
+    /** health bar y coordinate. */
     private static final int HEALTH_BAR_Y_COORDINATE = 620;
-    /** . */
+    /** health bar height. */
     private static final int HEALTH_BAR_HEIGHT = 40;
-    /** . */
+    /** mini map width. */
     private static final int MINI_MAP_WIDTH = 200;
-    /** . */
+    /** mini map height. */
     private static final int MINI_MAP_HEIGHT = 200;
-    /** . */
+    /** mini map x coordinate. */
     private static final int MINI_MAP_X_COORDINATE = 30;
-    /** . */
+    /** mini map y coordinate. */
     private static final int MINI_MAP_Y_COORDINATE = 25;
-    /** . */
+    /** save and inventory button width. */
     private static final int SAVE_AND_INVENTORY_BUTTON_WIDTH = 150;
-    /** . */
+    /** save and inventory button height. */
     private static final int SAVE_AND_INVENTORY_BUTTON_HEIGHT = 40;
-    /** . */
+    /** save button x coordinate. */
     private static final int SAVE_BUTTON_X_COORDINATE = 145;
-    /** . */
+    /** inventory x coordinate. */
     private static final int INVENTORY_X_COORDINATE = 985;
-    /** . */
+    /** save and inventory y coorindate. */
     private static final int SAVE_AND_INVENTORY_Y_COORDINATE = 620;
-    /** . */
+    /** mini map matrix size. */
     private static final int MINI_MAP_MATRIX_SIZE = 5;
-    /** . */
+    /** Font Style. */
     private static final String FONT_LABEL = "Freestyle Script";
-    /** . */
+    /** Font size. */
     private static final int FONT_SIZE = 45;
-    /** . */
+    /** Health bar save inventory font size. */
     private static final int HEALTH_BAR_SAVE_INVENTORY_FONT_SIZE = 30;
 
 
 
     // instance fields
 
-    /** . */
+    /** mini map. */
     private JPanel myMiniMap;
-    /** . */
+    /** character movement options. */
     private JPanel myCharacterAndMovementOptions;
-    /** . */
+    /** game label. */
     private JLabel myGameBGLabel;
-    /** . */
+    /** north button. */
     private JButton myNorthBtn;
-    /** . */
+    /** south button. */
     private JButton mySouthBtn;
-    /** . */
+    /** east button. */
     private JButton myEastBtn;
-    /** . */
+    /** west button. */
     private JButton myWestBtn;
-    /** . */
+    /** character's health. */
     private JProgressBar myCharactersHealth;
-    /** . */
+    /** inventory button. */
     private JButton myInventoryBtn;
-    /** . */
+    /** save game button. */
     private JButton mySaveGameBtn;
-    /** . */
+    /** hero main image path. */
     private String myHeroMainImgPath;
-    /** . */
+    /** hero image label. */
     private JLabel myHeroImgLabel;
-    /** . */
+    /** dungeon. */
     private int[][] myDungeon;
 
 
@@ -124,47 +124,47 @@ public class GamePlayPanel extends JPanel {
         myCharacterAndMovementOptions.add(heroJPGLabel, BorderLayout.CENTER);
     }
 
-    /** . */
+    /** sets hero main image file path. */
     public void setHeroMainImgFilePath(final String theMainImgFilePath) {
         myHeroMainImgPath = theMainImgFilePath;
     }
 
-    /** . */
+    /** gets main image path of hero. */
     public String getMainImgPath() {
         return myHeroMainImgPath;
     }
 
-    /** . */
+    /** gets north button. */
     public JButton getMyNorthBtn() {
         return myNorthBtn;
     }
 
-    /** . */
+    /** gets south button. */
     public JButton getMySouthBtn() {
         return mySouthBtn;
     }
 
-    /** . */
+    /** gets East button. */
     public JButton getMyEastBtn() {
         return myEastBtn;
     }
 
-    /** . */
+    /** gets West button. */
     public JButton getMyWestBtn() {
         return myWestBtn;
     }
 
-    /** . */
+    /** gets inventory button. */
     public JButton getMyInventoryBtn() {
         return myInventoryBtn;
     }
 
-    /** . */
+    /** gets save game button. */
     public JButton getMySaveGameBtn() {
         return mySaveGameBtn;
     }
 
-    /** . */
+    /** updates mini map depending on the location of the player in the dungeon. */
     public void updateMiniMap(final int theCurrentRow, final int theCurrentColumn) {
         myMiniMap.removeAll();
         myDungeon[theCurrentRow][theCurrentColumn] = 2;
@@ -188,24 +188,24 @@ public class GamePlayPanel extends JPanel {
         myMiniMap.repaint();
     }
 
-    /** . */
+    /** sets adventurer. */
     public void setMyAdventurer(final Adventurer theAdventurer) {
         setUpHealthBarWithAdventurerHealthStats(theAdventurer);
     }
 
-    /** . */
+    /** sets up health bar with adventurer health stats. */
     public void setUpHealthBarWithAdventurerHealthStats(final Adventurer theAdventurer) {
         myCharactersHealth.setMaximum(0);
         myCharactersHealth.setMaximum(theAdventurer.getCharacterHitPoints());
         myCharactersHealth.setValue(theAdventurer.getCharacterHealthPoints());
     }
 
-    /** . */
+    /** updates adventurer health bar whenever a course of action takes place. */
     public void updateAdventurerHealthBar(final Adventurer theAdventurer) {
         myCharactersHealth.setValue(theAdventurer.getCharacterHealthPoints());
     }
 
-    /** . */
+    /** gest adventurer image label. */
     public JLabel getMyAdventurerImgLabel() {
         return myHeroImgLabel;
     }
@@ -213,7 +213,7 @@ public class GamePlayPanel extends JPanel {
 
     // private methods
 
-    /** . */
+    /** instantiating data fields for GamePlayPanel that provides gameplay options and control. */
     private void instantiateInstanceDataFields() {
         final ImageIcon gamePlayBGImg = new ImageIcon("src/imgs/MainGameImg1.jpg");
         myMiniMap = new JPanel();
@@ -229,13 +229,13 @@ public class GamePlayPanel extends JPanel {
         myDungeon = new int[MINI_MAP_MATRIX_SIZE][MINI_MAP_MATRIX_SIZE];
     }
 
-    /** . */
+    /** sets the panel layout and adds background image. */
     private void setUpThisPanelsLayoutAndAddBGImg() {
         this.setLayout(new OverlayLayout(this));
         this.add(myGameBGLabel);
     }
 
-    /** . */
+    /** sets the character buttons preferrerd size. */
     private void setCharacterButtonsPreferredSize() {
         myNorthBtn.setPreferredSize(new Dimension(CHARACTER_MOVEMENT_BTN_WIDTH,
                                                   CHARACTER_MOVEMENT_BTN_HEIGHT));
@@ -251,7 +251,7 @@ public class GamePlayPanel extends JPanel {
         myWestBtn.setFont(new Font(FONT_LABEL, Font.BOLD, FONT_SIZE));
     }
 
-    /** . */
+    /** adds buttons and hero iamge to character and movement panel. */
     private void addButtonsAndHeroImageToCharacterAndMovementPanel() {
         myCharacterAndMovementOptions.setLayout(new BorderLayout());
         myCharacterAndMovementOptions.add(myNorthBtn, BorderLayout.NORTH);
@@ -264,7 +264,7 @@ public class GamePlayPanel extends JPanel {
                                                 CHARACTER_PANEL_HEIGHT);
     }
 
-    /** . */
+    /** sets the hero health bar up. */
     private void setUpHeroHealthBar() {
         myCharactersHealth.setBounds(CHARACTER_PANEL_AND_HEALTH_BAR_X_COORDINATE,
                                      HEALTH_BAR_Y_COORDINATE,
@@ -278,7 +278,7 @@ public class GamePlayPanel extends JPanel {
         myCharactersHealth.setStringPainted(true);
     }
 
-    /** . */
+    /** sets up save and inventory button bounds in the panel. */
     private void setUpSaveAndInventoryButtonBounds() {
         mySaveGameBtn.setBounds(SAVE_BUTTON_X_COORDINATE,
                                 SAVE_AND_INVENTORY_Y_COORDINATE,
@@ -294,7 +294,7 @@ public class GamePlayPanel extends JPanel {
                 new Font(FONT_LABEL, Font.BOLD, HEALTH_BAR_SAVE_INVENTORY_FONT_SIZE));
     }
 
-    /** . */
+    /** adds all the components to game. */
     private void addAllTheComponentsToGameBGLabel() {
         myGameBGLabel.add(myCharacterAndMovementOptions);
         myGameBGLabel.add(myCharactersHealth);

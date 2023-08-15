@@ -50,110 +50,110 @@ public class MainFrame extends JFrame implements Serializable {
     private static final long serialVersionUID = -9118850470601436365L;
 
     // constants
-    /** . */
+    /** main menu panel. */
     private static final String MAIN_MENU_PANEL = "controller.Main";
-    /** . */
+    /** new game panel. */
     private static final String NEW_GAME_PANEL = "NewGame";
-    /** . */
+    /** options panel. */
     private static final String OPTIONS_PANEL = "Option";
-    /** . */
+    /** game info panel. */
     private static final String GAME_INFO_PANEL = "GameInfo";
-    /** . */
+    /** game help panel. */
     private static final String GAME_HELP_PANEL = "GameHelp";
-    /** . */
+    /** game play panel. */
     private static final String GAME_PLAY_PANEL = "GamePlay";
-    /** . */
+    /** game over panel. */
     private static final String GAME_OVER_PANEL = "GameOver";
-    /** . */
+    /** winning panel. */
     private static final String WINNING_PANEL = "Winner";
-    /** . */
+    /** battle panel. */
     private static final String BATTLE_PANEL = "BattleField";
-    /** . */
+    /** warrior . */
     private static final String WARRIOR = "Warrior";
-    /** . */
+    /** priestess. */
     private static final String PRIESTESS = "Priestess";
-    /** . */
+    /** thief. */
     private static final String THIEF = "Thief";
-    /** . */
+    /** w key clicked. */
     private static final String W_PUSHED = "w clicked";
-    /** . */
+    /** up arrow key clicked. */
     private static final String UP_PUSHED = "up arrow clicked";
-    /** . */
+    /** a key pushed. */
     private static final String A_PUSHED = "a clicked";
-    /** . */
+    /** left arrow pushed. */
     private static final String LEFT_PUSHED = "left arrow clicked";
-    /** . */
+    /** s pushed. */
     private static final String S_PUSHED = "s clicked";
-    /** . */
+    /** down arrow pushed. */
     private static final String DOWN_PUSHED = "down arrow clicked";
-    /** . */
+    /** d key pushed. */
     private static final String D_PUSHED = "d clicked";
-    /** . */
+    /** right pushed. */
     private static final String RIGHT_PUSHED = "right arrow clicked";
-    /** . */
+    /** frame width. */
     private static final int FRAME_WIDTH = 1280;
-    /** . */
+    /** frame height. */
     private static final int FRAME_HEIGHT = 720;
-    /** . */
+    /** max array size. */
     private static final int MAX_ARRAY_SIZE = 4;
-    /** . */
+    /** monster min health to try to heal. */
     private static final int MONSTERS_MIN_HEALTH_TO_TRY_HEAL = 20;
-    /** . */
+    /** monster's chance when it comes to trying to heal. */
     private static final int MONSTERS_CHANCE_TO_TRY_HEAL = 80;
-    /** . */
+    /** you dealt. */
     private static final String YOU_DEALT = "You dealt ";
-    /** . */
+    /** damage to monster. */
     private static final String DAMAGE_TO_THE_MONSTER = " damage to the monster\n";
-    /** . */
+    /** gain constant. */
     private static final float GAIN_CONSTANT = 20f;
 
     // instance fields
 
-    /** . */
+    /** card panel. */
     private JPanel myCardPanel;
-    /** . */
+    /** main menu panel. */
     private MainMenuPanel myMainMenuPanel;
-    /** . */
+    /** myCharacterSelectionPanel. */
     private CharacterSelectionPanel myCharacterSelectionPanel;
-    /** . */
+    /** myOptionsPanel. */
     private OptionsPanel myOptionsPanel;
-    /** . */
+    /** myGameInformationPanel. */
     private GameInformationPanel myGameInformationPanel;
-    /** . */
+    /** myGameHelpPanel. */
     private GameHelpPanel myGameHelpPanel;
-    /** . */
+    /** myGamePlayPanel. */
     private GamePlayPanel myGamePlayPanel;
-    /** . */
+    /** myBattlePanel. */
     private BattlePanel myBattlePanel;
-    /** . */
+    /** myAdventurer. */
     private Adventurer myAdventurer;
-    /** . */
+    /** dungeon. */
     private Dungeon myDungeon;
-    /** . */
+    /** current room row. */
     private int myCurrentRoomRow;
-    /** . */
+    /** current room column. */
     private int myCurrentRoomColumn;
-    /** . */
+    /** current room. */
     private Room myCurrentRoom;
-    /** . */
+    /** monster's initial health. */
     private int myMonsterInitialHealth;
-    /** . */
+    /** GameOverPanel. */
     private GameOverPanel myGameOverPanel;
-    /** . */
+    /** WinningPanel. */
     private WinningPanel myWinningPanel;
-    /** . */
+    /** Music. */
     private Music myMusic;
-    /** . */
+    /** TitleIcon. */
     private ImageIcon myTitleIcon;
-    /** . */
+    /** myUpAction. */
     private Action myUpAction;
-    /** . */
+    /** myDownAction. */
     private Action myDownAction;
-    /** . */
+    /** myLeftAction. */
     private Action myLeftAction;
-    /** . */
+    /** myRightAction. */
     private Action myRightAction;
-    /** . */
+    /** myFileChooser. */
     private JFileChooser myFileChooser;
 
 

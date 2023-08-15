@@ -18,52 +18,54 @@ public class GameInformationPanel extends JPanel {
 
     // constants
 
-    /** . */
+    /** Font Style. */
     private static final String LABEL_FONT_STYLE = "Freestyle Script";
-    /** . */
+    /** Font size. */
     private static final int LABEL_FONT_SIZE = 30;
-    /** . */
+    /** transparent color. */
     private static final Color GRAY_TRANSPARENT_COLOR = new Color(128, 128, 128, 80);
-    /** . */
+    /** back button x coordinate. */
     private static final int BACK_BUTTON_X_AXIS = 50;
-    /** . */
+    /**back button y coordinate . */
     private static final int BACK_BUTTON_Y_AXIS = 350;
-    /** . */
+    /** back button width. */
     private static final int BACK_BUTTON_WIDTH = 75;
-    /** . */
+    /** back button height. */
     private static final int BACK_BUTTON_HEIGHT = 30;
-    /** . */
+    /** panel x coordinate. */
     private static final int TRANSPARENT_PANEL_X_AXIS = 340;
-    /** . */
+    /** panel y coordinate. */
     private static final int TRANSPARENT_PANEL_Y_AXIS = 150;
-    /** . */
+    /** panel width. */
     private static final int TRANSPARENT_PANEL_WIDTH = 600;
-    /** . */
+    /** panel height. */
     private static final int TRANSPARENT_PANEL_HEIGHT = 400;
-    /** . */
+    /** information text area x coordinate. */
     private static final int INFORMATION_TEXT_AREA_X_AXIS = 15;
-    /** . */
+    /** information text area y coordinate. */
     private static final int INFORMATION_TEXT_AREA_Y_AXIS = 5;
-    /** . */
+    /** information text area width. */
     private static final int INFORMATION_TEXT_AREA_WIDTH = 590;
-    /** . */
+    /** information text area height. */
     private static final int INFORMATION_TEXT_AREA_HEIGHT = 340;
-    /** . */
+    /** Back button font size. */
     private static final int BACK_BTN_FONT_SIZE = 28;
 
     // instance fields
 
-    /** . */
+    /** gameinfo label. */
     private JLabel myGameInfoBGLabel;
-    /** . */
+    /** transparent holding panel. */
     private JPanel myTransparentHoldingPanel;
-    /** . */
+    /** back button. */
     private JButton myBackBtn;
-    /** . */
+    /** gameinfo text area. */
     private JTextArea myGameInfoTextArea;
 
 
     // constructor
+    /** sets up the GameInformationPanel as well as the components
+     * required for game information to display correctly. */
 
     public GameInformationPanel() {
         instantiateInstanceDataFields();
@@ -77,14 +79,14 @@ public class GameInformationPanel extends JPanel {
 
     // methods
 
-    /** . */
+    /** gets back button. */
     public JButton getMyBackBtn() {
         return myBackBtn;
     }
 
     // private methods
 
-    /** . */
+    /** instantiating data fields for GameInformationPanel that provides options. */
     private void instantiateInstanceDataFields() {
         final String gameInfoText = """
                 In this Dungeon Adventure Game, you will be placed within a room\s
@@ -102,13 +104,13 @@ public class GameInformationPanel extends JPanel {
         myGameInfoTextArea = new JTextArea(gameInfoText);
     }
 
-    /** . */
+    /** sets the panel layout and adds background image. */
     private void setUpThisPanelsLayoutAndAddBGImg() {
         this.setLayout(new OverlayLayout(this));
         this.add(myGameInfoBGLabel);
     }
 
-    /** . */
+    /** sets up conditions and style for the game info text to execute and to display correctly. */
     private void setUpConditionsAndStyleForGameInfoText() {
         myGameInfoTextArea.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, LABEL_FONT_SIZE));
         myGameInfoTextArea.setForeground(Color.WHITE);
@@ -123,14 +125,14 @@ public class GameInformationPanel extends JPanel {
                                      INFORMATION_TEXT_AREA_HEIGHT);
     }
 
-    /** . */
+    /** sets ups all bounds for all of the buttons in this panel. */
     private void setUpAllButtonsBounds() {
         myBackBtn.setBounds(BACK_BUTTON_X_AXIS, BACK_BUTTON_Y_AXIS,
                             BACK_BUTTON_WIDTH, BACK_BUTTON_HEIGHT);
         myBackBtn.setFont(new Font(LABEL_FONT_STYLE, Font.BOLD, BACK_BTN_FONT_SIZE));
     }
 
-    /** . */
+    /** sets up panel and adds all suitable components to this panel. */
     private void setUpTransparentPanelStyleAndAddAllComponentsToIt() {
         myTransparentHoldingPanel.setLayout(null);
         myTransparentHoldingPanel.setBackground(GRAY_TRANSPARENT_COLOR);
@@ -140,7 +142,7 @@ public class GameInformationPanel extends JPanel {
         myTransparentHoldingPanel.add(myBackBtn);
     }
 
-    /** . */
+    /** set background panel style and add panel to this. */
     private void setUpBGPanelStyleAndAddTransparentPanelToIt() {
         myGameInfoBGLabel.setLayout(null);
         myGameInfoBGLabel.add(myTransparentHoldingPanel);

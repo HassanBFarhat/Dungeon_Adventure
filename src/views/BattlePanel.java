@@ -77,49 +77,65 @@ public class BattlePanel extends JPanel {
     /** Attack and Healh button Y coordinate. */
     private static final int ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE = 550;
 
-    /** . */
+    /** X coordinate of Special Attack and Block Button. */
     private static final int SPECIAL_ATTACK_AND_BLOCK_BUTTON_X_COORDINATE = 1050;
-    /** . */
+
+    /** Y coordinate of Special Attack and Block Button. */
     private static final int HEAL_AND_BLOCK_BUTTON_Y_COORDINATE = 600;
-    /** . */
+
+    /** Text size of Button. */
     private static final int BUTTON_TEXT_SIZE = 30;
-    /** . */
+
+    /** Healthbar text size. */
     private static final int HEALTHBARS_TEXT_SIZE = 23;
-    /** . */
+
+    /** Choice of Font. */
     private static final String FONT_CHOICE = "Freestyle Script";
 
 
     // instance fields
 
-    /** . */
+    /** Monster image. */
     private JLabel myMonsterImgLabel;
-    /** . */
+
+    /** Hero Image. */
     private JLabel myHeroImgLabel;
-    /** . */
+
+    /** Battle background. */
     private JLabel myBattleBGImgLabel;
-    /** . */
+
+    /** Monster's Health Bar. */
     private JProgressBar myMonstersHealthBar;
-    /** . */
+
+    /** Hero's Health Bar. */
     private JProgressBar myHeroHealthBar;
-    /** . */
+
+    /** Attack Button. */
     private JButton myAttackBtn;
-    /** . */
+
+    /** Special Attack Button. */
     private JButton mySpecialAttackBtn;
-    /** . */
+
+    /** Health Button. */
     private JButton myHealBtn;
-    /** . */
+
+    /** Text for Game Action. */
     private JTextArea myGameActionText;
-    /** . */
+
+    /** Game console that you can scroll through. */
     private JScrollPane myGameScrollConsole;
-    /** . */
+
+    /** Monster that is in the current room.  */
     private AbstractMonster myCurrentRoomMonster;
-    /** . */
+
+    /** Current Adventurer character that has been created. */
     private Adventurer myAdventurer;
 
 
     // constructor
 
-    /** . */
+    /** sets up the battlepanel as well as the components required for the battle in the
+     * game to work . */
     public BattlePanel() {
         instantiateInstanceDataFields();
         setUpThisPanelsLayoutAndAddBGImg();
@@ -132,7 +148,7 @@ public class BattlePanel extends JPanel {
 
     // methods
 
-    /** . */
+    /** Adds both monsters and heroes to the battle screen. */
     public void addBothCharactersToBattlePanel() {
         final ImageIcon monsterImg =
                 new ImageIcon(myCurrentRoomMonster.getMonsterBattleImgFilePath());
@@ -144,72 +160,73 @@ public class BattlePanel extends JPanel {
         setUpHeroAndMonsterBGLabelBounds();
     }
 
-    /** . */
+    /** gets the attack button. */
     public JButton getMyAttackBtn() {
         return myAttackBtn;
     }
 
-    /** . */
+    /** gets the special attack button. */
     public JButton getMySpecialAttackBtn() {
         return mySpecialAttackBtn;
     }
 
-    /** . */
+    /** gest the heal button. */
     public JButton getMyHealBtn() {
         return myHealBtn;
     }
 
-    /** . */
+    /** gets the game action text. */
     public JTextArea getMyGameActionText() {
         return myGameActionText;
     }
 
-    /** . */
+    /** sets the current monster in the battle. */
     public void setCurrentRoomMonster(final AbstractMonster theMonster) {
         myCurrentRoomMonster = theMonster;
     }
 
-    /** . */
+    /** sets the adventurer in the battle screen. */
     public void setAdventurer(final Adventurer theAdventurer) {
         myAdventurer = theAdventurer;
     }
 
-    /** . */
+    /** sets up the health bars for the hero and the monster. */
     public void setUpHealthBarsForHeroAndMonster(final Adventurer theAdventurer,
                                                  final AbstractMonster theMonster) {
         myHeroHealthBar.setValue(theAdventurer.getCharacterHealthPoints());
         myMonstersHealthBar.setValue(theMonster.getCharacterHealthPoints());
     }
 
-    /** . */
+    /** initializes the minimum and maximum amount of health points available in
+     * health bar . */
     public void initializeHeroBattleHealthBarMaxMin(final Adventurer theAdventurer) {
         myHeroHealthBar.setMaximum(0);
         myHeroHealthBar.setMaximum(theAdventurer.getCharacterHitPoints());
     }
 
-    /** . */
+    /** Updates Health Bar for Monster whether it be for healing or taking damage. */
     public void updateHealthBarForMonster(final int theNewMonsterStats) {
         myMonstersHealthBar.setValue(theNewMonsterStats);
     }
 
-    /** . */
+    /** Updates Health Bar for Hero whether it be for healing or taking damage. */
     public void updateHealthBarsForHero(final int theNewHeroStats) {
         myHeroHealthBar.setValue(theNewHeroStats);
     }
 
-    /** . */
+    /** Gets image for Monster. */
     public JLabel getMyMonsterImgLabel() {
         return myMonsterImgLabel;
     }
 
-    /** . */
+    /** Gets image for the current Adventurer. */
     public JLabel getMyAdventurerImgLabel() {
         return myHeroImgLabel;
     }
 
     // private methods
 
-    /** . */
+    /** instantiating data fields required for battles in dungeon. */
     private void instantiateInstanceDataFields() {
         final ImageIcon battleBGImg = new ImageIcon("src/imgs/BattleFieldImg1.png");
         myBattleBGImgLabel = new JLabel(battleBGImg);
@@ -222,13 +239,15 @@ public class BattlePanel extends JPanel {
         myGameScrollConsole = new JScrollPane(myGameActionText);
     }
 
-    /** . */
+    /** sets the layout in the game and allows for proper implementation of
+     * backgrounds in the game. */
     private void setUpThisPanelsLayoutAndAddBGImg() {
         this.setLayout(new OverlayLayout(this));
         this.add(myBattleBGImgLabel);
     }
 
-    /** . */
+    /** Sets the height and width of the Action Console as well as where its supposed
+     * to be located at. */
     private void setUpBorderAndBoundsForActionConsole() {
         myGameScrollConsole.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         myGameScrollConsole.setBounds(ACTION_CONSOLE_X_COORDINATE,
@@ -240,7 +259,7 @@ public class BattlePanel extends JPanel {
         myGameActionText.setEditable(false);
     }
 
-    /** . */
+    /** sets the bounds for the hero and Monster backgrounds in the game. */
     private void setUpHeroAndMonsterBGLabelBounds() {
         myHeroImgLabel.setBounds(HERO_X_COORDINATE, HERO_Y_COORDINATE,
                                  HERO_AND_MONSTER_WIDTH, HERO_AND_MONSTER_HEIGHT);
@@ -248,7 +267,7 @@ public class BattlePanel extends JPanel {
                                     HERO_AND_MONSTER_WIDTH, HERO_AND_MONSTER_HEIGHT);
     }
 
-    /** . */
+    /** Provides Buttons for Special Attack and Heal Button on screen. */
     private void setUpAttackSpecialAttackAndHealButtonBounds() {
         myAttackBtn.setBounds(ATTACK_AND_HEAL_BUTTON_X_COORDINATE,
                               ATTACK_AND_SPECIAL_ATTACK_Y_COORDINATE,
@@ -267,7 +286,7 @@ public class BattlePanel extends JPanel {
         myHealBtn.setFont(new Font(FONT_CHOICE, Font.BOLD, BUTTON_TEXT_SIZE));
     }
 
-    /** . */
+    /** Sets the health bars visually for Monster and Hero in the game. */
     private void setUpHeroAndMonsterHealthBars() {
         myHeroHealthBar.setBounds(HERO_HEALTH_BAR_X_COORDINATE,
                                   HERO_HEALTH_BAR_Y_COORDINATE,
@@ -290,7 +309,7 @@ public class BattlePanel extends JPanel {
         myMonstersHealthBar.setStringPainted(true);
     }
 
-    /** . */
+    /** Adds the required buttons that are available for use during Battle between Hero and Monster. */
     private void addAllTheComponentsToBattleBGLabel() {
         myBattleBGImgLabel.add(myAttackBtn);
         myBattleBGImgLabel.add(mySpecialAttackBtn);
