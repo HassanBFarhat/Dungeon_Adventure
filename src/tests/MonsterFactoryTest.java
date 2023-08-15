@@ -25,11 +25,10 @@ class MonsterFactoryTest {
         // Create the table and insert test data
         try (Connection conn = ds.getConnection();
              Statement stmt = conn.createStatement()) {
-            stmt.execute("DROP TABLE IF EXISTS monsters");
-            stmt.execute("CREATE TABLE monsters (monster_name TEXT, monster_health_points INTEGER, monster_hit_points INTEGER, monster_min_damage INTEGER, monster_max_damage INTEGER, monster_attack_speed INTEGER, monster_chance_to_hit REAL, monster_chance_to_heal REAL, monster_min_heal_points INTEGER, monster_max_heal_points INTEGER)");
-            stmt.execute("INSERT INTO monsters VALUES ('Ogre', 100, 10, 1, 5, 2, 0.8, 0.3, 2, 4)");
-            stmt.execute("INSERT INTO monsters VALUES ('Gremlin', 80, 8, 2, 4, 3, 0.7, 0.4, 1, 3)");
-            stmt.execute("INSERT INTO monsters VALUES ('Skeleton', 60, 6, 3, 6, 4, 0.6, 0.5, 2, 5)");
+            stmt.execute("CREATE TABLE monstersTEST (monster_name TEXT, monster_health_points INTEGER, monster_hit_points INTEGER, monster_min_damage INTEGER, monster_max_damage INTEGER, monster_attack_speed INTEGER, monster_chance_to_hit REAL, monster_chance_to_heal REAL, monster_min_heal_points INTEGER, monster_max_heal_points INTEGER)");
+            stmt.execute("INSERT INTO monstersTEST VALUES ('Ogre', 100, 10, 1, 5, 2, 0.8, 0.3, 2, 4)");
+            stmt.execute("INSERT INTO monstersTEST VALUES ('Gremlin', 80, 8, 2, 4, 3, 0.7, 0.4, 1, 3)");
+            stmt.execute("INSERT INTO monstersTEST VALUES ('Skeleton', 60, 6, 3, 6, 4, 0.6, 0.5, 2, 5)");
         }
     }
     private void setDataSource(MonsterFactory factory, SQLiteDataSource ds) throws Exception {
