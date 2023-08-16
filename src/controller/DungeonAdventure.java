@@ -3,7 +3,7 @@ package controller;
 import views.MainFrame;
 
 /**
- *  DungeonAdventure class under the controller package used as entry way
+ *  controller.DungeonAdventure class under the controller package used as entry way
  *  into the program.
  *
  *  @author Hassan Bassam Farhat

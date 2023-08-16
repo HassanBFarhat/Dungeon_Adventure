@@ -9,14 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Inno installer added, (needs a little debugging)">
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Fixed Music.java to work with .jar executable files for installer.">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Dungeon_Adventure_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/Dungeon Adventure.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/Dungeon_Adventure.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/dungeon_adventure_inno_installer.iss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/dungeon_adventure_program.bat" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/DungeonAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DungeonAdventure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Hassan/Desktop/Dungeon_Adventure/src/music",
+    "last_opened_file_path": "C:/Users/Hassan/Desktop/Dungeon_Adventure/out/artifacts/Dungeon_Adventure_jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -79,8 +79,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\music" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\out\artifacts\Dungeon_Adventure_jar" />
+      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\music" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\imgs" />
@@ -196,14 +196,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00038" summary="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user.">
-      <option name="closed" value="true" />
-      <created>1691461180681</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1691461180681</updated>
     </task>
     <task id="LOCAL-00039" summary="- Added resized Gremlin1.png sprite image">
       <option name="closed" value="true" />
@@ -581,7 +573,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692133834380</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="- Fixed Music.java to work with .jar executable files for installer.">
+      <option name="closed" value="true" />
+      <created>1692149693126</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1692149693126</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +599,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Refactored Room.java and MonsterFactory.java, STILL WORKING ON Dungeon.java refactor" />
     <MESSAGE value="- Refactored Dungeon.java class" />
     <MESSAGE value="- Small modification to MainFrame.java" />
     <MESSAGE value="- Worked on save/load feature of the game." />
@@ -624,9 +623,23 @@
     <MESSAGE value="- Updated Room.java class toString() method&#10;- Fixed some of the javadoc comments in all classes of the views package." />
     <MESSAGE value="- Updated MainFrame.java to throw exception at user when loading a file thats not found." />
     <MESSAGE value="- Inno installer added, (needs a little debugging)" />
-    <option name="LAST_COMMIT_MESSAGE" value="- Inno installer added, (needs a little debugging)" />
+    <MESSAGE value="- Fixed Music.java to work with .jar executable files for installer." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Fixed Music.java to work with .jar executable files for installer." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/models/Music.java</url>
+          <line>45</line>
+          <properties class="models.Music" method="playAudio">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="views.MainFrame" memberName="myAdventurer" />

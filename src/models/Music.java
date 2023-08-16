@@ -46,17 +46,18 @@ public class Music {
     public void playAudio() {
         try {
             final File audioFile = new File(MUSIC_FILE_PATH);
-            URL audioURL = null;
             if (audioFile.exists()) {
-                audioURL = audioFile.toURI().toURL();
+                final URL audioURL = audioFile.toURI().toURL();
+
+                final AudioInputStream audioInputStream =
+                        AudioSystem.getAudioInputStream(audioURL);
+
+                myAudioClip = AudioSystem.getClip();
+                myAudioClip.open(audioInputStream);
+                myAudioClip.loop(Clip.LOOP_CONTINUOUSLY);
+                myAudioClip.start();
+                audioInputStream.close();
             }
-            final AudioInputStream audioInputStream =
-                    AudioSystem.getAudioInputStream(audioURL);
-            myAudioClip = AudioSystem.getClip();
-            myAudioClip.open(audioInputStream);
-            myAudioClip.loop(Clip.LOOP_CONTINUOUSLY);
-            myAudioClip.start();
-            audioInputStream.close();
         } catch (final LineUnavailableException
                        | UnsupportedAudioFileException | IOException e) {
             e.printStackTrace();
