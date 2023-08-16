@@ -2,11 +2,10 @@ package models;
 
 import java.io.File;
 import java.io.IOException;
-import javax.sound.sampled.AudioFormat;
+import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -47,15 +46,17 @@ public class Music {
     public void playAudio() {
         try {
             final File audioFile = new File(MUSIC_FILE_PATH);
-            final AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
-            final AudioFormat format = audioStream.getFormat();
-
-            final DataLine.Info info = new DataLine.Info(Clip.class, format);
-            myAudioClip = (Clip) AudioSystem.getLine(info);
-
-            myAudioClip.open(audioStream);
+            URL audioURL = null;
+            if (audioFile.exists()) {
+                audioURL = audioFile.toURI().toURL();
+            }
+            final AudioInputStream audioInputStream =
+                    AudioSystem.getAudioInputStream(audioURL);
+            myAudioClip = AudioSystem.getClip();
+            myAudioClip.open(audioInputStream);
             myAudioClip.loop(Clip.LOOP_CONTINUOUSLY);
             myAudioClip.start();
+            audioInputStream.close();
         } catch (final LineUnavailableException
                        | UnsupportedAudioFileException | IOException e) {
             e.printStackTrace();

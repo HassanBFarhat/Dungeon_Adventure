@@ -9,21 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated MainFrame.java to throw exception at user when loading a file thats not found.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Dungeon_Adventure_jar.xml" afterDir="false" />
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Inno installer added, (needs a little debugging)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/views/MainFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/Dungeon Adventure.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/Dungeon_Adventure.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/dungeon_adventure_inno_installer.iss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Dungeon_Adventure_jar/dungeon_adventure_program.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Music.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Hassan/Desktop/Dungeon_Adventure",
+    "last_opened_file_path": "C:/Users/Hassan/Desktop/Dungeon_Adventure/src/music",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,11 +79,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\music" />
+      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\out\artifacts\Dungeon_Adventure_jar" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src" />
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\imgs" />
-      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\models" />
-      <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\.idea\shelf" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Hassan\Desktop\Dungeon_Adventure\src\music" />
@@ -203,14 +196,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00037" summary="- Changed the family hierarchy of Hero's. DungeonCharacter -&gt; Hero -&gt; Adventurer -&gt; Warrior, Thief, Priestess&#10;- Refactored Adventurer.java class">
-      <option name="closed" value="true" />
-      <created>1691454566915</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1691454566915</updated>
     </task>
     <task id="LOCAL-00038" summary="- Added direct image file path constants to the hero/adventurer subclasses and added @Overide getter method from Adventurer class to access them.&#10;- Whenever a user chooses their desired hero, the appropriate sprite shows up on the display for the user.">
       <option name="closed" value="true" />
@@ -588,7 +573,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692131175078</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="- Inno installer added, (needs a little debugging)">
+      <option name="closed" value="true" />
+      <created>1692133834380</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1692133834380</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +599,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Refactored Main.java class&#10;- Refactored all classes in model package EXCEPT Dungeon.java, MonsterFactory.java, Room.java (Still in refactoring process)" />
     <MESSAGE value="- Refactored Room.java and MonsterFactory.java, STILL WORKING ON Dungeon.java refactor" />
     <MESSAGE value="- Refactored Dungeon.java class" />
     <MESSAGE value="- Small modification to MainFrame.java" />
@@ -631,7 +623,8 @@
     <MESSAGE value="- Updated MonsterFactoryTest.java to have a new table for testing purposes as oppose to using the same table and changing the data used for gameplay." />
     <MESSAGE value="- Updated Room.java class toString() method&#10;- Fixed some of the javadoc comments in all classes of the views package." />
     <MESSAGE value="- Updated MainFrame.java to throw exception at user when loading a file thats not found." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Updated MainFrame.java to throw exception at user when loading a file thats not found." />
+    <MESSAGE value="- Inno installer added, (needs a little debugging)" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Inno installer added, (needs a little debugging)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
