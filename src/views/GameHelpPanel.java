@@ -112,13 +112,12 @@ public class GameHelpPanel extends JPanel {
                   throughout the dungeon. Or use arrow keys or WASD keys.\s
                 - When battling a monster, use Attack for normal attack, use\s
                   Special Attack for Hero's Special move, use Heal to heal\s
-                  if you have any potions, and use Block to try and block monster.\s
+                  if you have any potions.\s
                 - Healing Potions are picked up automatically when the hero enters\s
                   a room of the dungeon.\s
                 - Inventory is accessed through the "Inventory" button in the main\s
                   game panel. Tells you how many potions and which pillars you've\s
                   collected.\s
-                - Options Menu can be accessed by pressing ESC key.\s
                 - The button "Save" on the main game panel is used to save current\s
                   game.""";
         final ImageIcon bgImg = new ImageIcon("src/imgs/MainMenuBG_Image.jpg");

@@ -9,14 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Fixed Music.java to work with .jar executable files for installer.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Dungeon_Adventure_jar.xml" afterDir="false" />
+    <list default="true" id="0327af7e-e250-410f-acd5-f996ce9cc9ce" name="Changes" comment="- Updated Music.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Dungeon_Adventure/models/Music.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/DungeonAdventure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/DungeonAdventure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Music.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/BattlePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/BattlePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/MainFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GameHelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GameHelpPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Hassan/Desktop/Dungeon_Adventure/out/artifacts/Dungeon_Adventure_jar",
+    "last_opened_file_path": "C:/Users/Hassan/Desktop/Team_3_Course_Project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -168,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
         <item itemvalue="JUnit.MonsterFactoryTest" />
         <item itemvalue="JUnit.RoomTest" />
         <item itemvalue="JUnit.DungeonTest" />
         <item itemvalue="JUnit.AdventurerTest" />
-        <item itemvalue="JUnit.AbstractDungeonCharacterTest" />
       </list>
     </recent_temporary>
   </component>
@@ -189,6 +184,7 @@
       <workItem from="1690564324644" duration="18504000" />
       <workItem from="1690660228736" duration="6349000" />
       <workItem from="1691656373898" duration="101688000" />
+      <workItem from="1692231739128" duration="7504000" />
     </task>
     <task id="LOCAL-00005" summary="Completed Monster.java Class">
       <created>1689931480896</created>
@@ -196,14 +192,6 @@
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
       <updated>1689931480896</updated>
-    </task>
-    <task id="LOCAL-00039" summary="- Added resized Gremlin1.png sprite image">
-      <option name="closed" value="true" />
-      <created>1691463006763</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1691463006763</updated>
     </task>
     <task id="LOCAL-00040" summary="- Added hasRoomMonster() method to the Room.java class.&#10;- Added Img path instance fields for monster/hero and their appropriate getters/setters for those img paths in BattlePanel.java class.&#10;- Also added getter methods for Attack, SpecialAttack, and Heal Btns on the BattlePanel.java class.&#10;- Added getter methods for North, South, East, West Btns of the GamePlayPanel.java class.&#10;- Added appropriate action listeners to each of the btns on the panels in MainFrame.java class. (still designing their functionalities)">
       <option name="closed" value="true" />
@@ -581,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692149693126</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="- Updated Music.java">
+      <option name="closed" value="true" />
+      <created>1692153794351</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1692153794351</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +595,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="- Refactored Dungeon.java class" />
     <MESSAGE value="- Small modification to MainFrame.java" />
     <MESSAGE value="- Worked on save/load feature of the game." />
     <MESSAGE value="- Quick update for the save/load" />
@@ -624,7 +619,8 @@
     <MESSAGE value="- Updated MainFrame.java to throw exception at user when loading a file thats not found." />
     <MESSAGE value="- Inno installer added, (needs a little debugging)" />
     <MESSAGE value="- Fixed Music.java to work with .jar executable files for installer." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Fixed Music.java to work with .jar executable files for installer." />
+    <MESSAGE value="- Updated Music.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Updated Music.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
